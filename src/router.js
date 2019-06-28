@@ -10,6 +10,7 @@ const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
+    ...UserRoutes,
     {
       path: '/',
       name: 'home',
@@ -17,8 +18,7 @@ const router = new Router({
       meta: {
         title: 'Welcome'
       }
-    },
-    ...UserRoutes
+    }
   ]
 })
 

@@ -14,6 +14,10 @@
         <i class="material-icons md-36">add_circle_outline</i>
         <span class="label">Register</span>
       </router-link>
+      <router-link :to="{name: 'user.profile'}" class="navItem" v-if="isAuth()">
+        <i class="material-icons md-36">face</i>
+        <span class="label">Profile</span>
+      </router-link>
       <router-link :to="{name: 'logout'}" class="navItem" v-if="isAuth()">
         <i class="material-icons md-36">remove_circle_outline</i>
         <span class="label">Logout</span>

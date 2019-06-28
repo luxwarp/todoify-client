@@ -1,6 +1,8 @@
 import Store from '@/store/store.js'
 import Login from '@/views/user/Login'
 import Register from '@/views/user/Register'
+import Profile from '@/views/user/Profile'
+import Edit from '@/views/user/Edit'
 
 export default [
   {
@@ -27,6 +29,24 @@ export default [
     },
     beforeEnter: (to, from, next) => {
       Store.dispatch('logout')
+    }
+  },
+  {
+    path: '/user',
+    name: 'user.profile',
+    component: Profile,
+    meta: {
+      title: 'Profile',
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/user/edit',
+    name: 'user.edit',
+    component: Edit,
+    meta: {
+      title: 'Edit user',
+      requiresAuth: true
     }
   }
 ]
