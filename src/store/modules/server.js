@@ -30,6 +30,15 @@ const actions = {
     } catch (error) {
       commit('createNotifier', { type: 'error', message: error.response.data.errors.message })
     }
+  },
+  async register ({ commit }, data) {
+    try {
+      const response = await Todoify.post('/users/register', data)
+      commit('createNotifier', { type: 'success', message: response.data.message })
+      Router.push('/login')
+    } catch (error) {
+      commit('createNotifier', { type: 'error', message: error.response.data.errors.message })
+    }
   }
 }
 
