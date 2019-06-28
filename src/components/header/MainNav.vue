@@ -72,16 +72,17 @@ export default {
       display: flex;
       align-items: center;
       outline: none;
+      transition: all 0.5s;
 
       i {
         margin-right: 20px;
       }
-
     }
 
     .navItem:hover {
       background: #223A52;
       color: #D9E2ED;
+      transition: all 0.5s;
     }
 
     .navItem:active {
