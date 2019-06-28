@@ -71,6 +71,7 @@ export default {
       padding: 15px;
       display: flex;
       align-items: center;
+      outline: none;
 
       i {
         margin-right: 20px;

@@ -26,6 +26,9 @@ input {
   padding: 10px;
   outline: none;
   margin-bottom: 10px;
+  background: $inputBgColor;
+  color: $inputFontColor;
+  border: $inputBorder;
 }
 
 .material-icons.md-18 { font-size: 18px; }
@@ -58,7 +61,6 @@ input {
   color: $buttonFontColor;
   transition: all 0.5s ;
   cursor: pointer;
-  font-weight: bold;
 }
 
 .button:disabled {
