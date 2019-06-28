@@ -1,25 +1,37 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
+import Store from '@/store/store'
+import UserRoutes from '@/routes/user.routes'
+import Home from '@/views/pages/Home'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
     {
       path: '/',
       name: 'home',
-      component: Home
+      component: Home,
+      meta: {
+        title: 'Welcome'
+      }
     },
-    {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
-    }
+    ...UserRoutes
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.every(record => record.meta.requiresAuth)) {
+    if (!Store.getters.isAuth()) {
+      next('login')
+    }
+  }
+
+  // Sets the title of the page to the router meta title.
+  document.title = to.meta.title + ' - ' + process.env.VUE_APP_BASE_TITLE
+  next()
+})
+
+export default router
