@@ -1,5 +1,6 @@
 {
   "name": "todoify-client",
+  "description": "A simple To-do web app with categories. Built with VueJS. Requires connection to a Todoify Server API",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -7,6 +8,20 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
+  "homepage": "https://github.com/luxwarp/todoify-client#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luxwarp/todoify-client.git"
+  },
+  "bugs": {
+    "url": "https://github.com/luxwarp/todoify-client/issues"
+  },
+  "author": {
+    "name": "Mikael Luxwarp Carlsson",
+    "email": "mikael.m.carlsson@gmail.com",
+    "url": "https://luxwarp.info"
+  },
+  "license": "ISC",
   "dependencies": {
     "axios": "^0.19.0",
     "core-js": "^2.6.5",
