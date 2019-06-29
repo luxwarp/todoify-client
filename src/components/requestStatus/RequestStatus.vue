@@ -21,6 +21,7 @@ export default {
 
 <style lang="scss" scoped>
 .requestStatus {
+
   position: fixed;
   bottom: 10px;
   right: 0;

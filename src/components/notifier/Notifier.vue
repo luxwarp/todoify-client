@@ -34,6 +34,7 @@ export default {
 
 <style lang="scss" scoped>
 .notifiers {
+
   display: flex;
   flex-direction: column;
   width: 100%;

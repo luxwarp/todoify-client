@@ -31,6 +31,33 @@ input {
   border: $inputBorder;
 }
 
+ul.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  background: $listBgColor;
+  border: $listBorder;
+
+  li {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+
+    .title {
+      font-weight: bold;
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    .note {
+      font-weight: 300;
+      font-size: 0.8rem;
+    }
+  }
+}
+
 .material-icons.md-18 { font-size: 18px; }
 .material-icons.md-24 { font-size: 24px; }
 .material-icons.md-36 { font-size: 36px; }
@@ -77,6 +104,12 @@ input {
 .container {
   display: flex;
   flex-direction: column;
+
+  .title {
+    width: 100%;
+    font-size: 1.5rem;
+    color: $containerTitleFontColor
+  }
 }
 
 .row {
