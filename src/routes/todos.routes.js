@@ -4,9 +4,6 @@ export default [
   {
     path: '/todos',
     component: Todos,
-    meta: {
-      requiresAuth: true
-    },
     children: [
       {
         path: '',

@@ -3,7 +3,8 @@ import Router from 'vue-router'
 import Store from '@/store/store'
 import Home from '@/views/pages/Home'
 import UserRoutes from '@/routes/user.routes'
-import TodosRoutes from './routes/todos.routes'
+import TodosRoutes from '@/routes/todos.routes'
+import CategoriesRoutes from '@/routes/categories.routes'
 
 Vue.use(Router)
 
@@ -20,7 +21,8 @@ const router = new Router({
       }
     },
     ...UserRoutes,
-    ...TodosRoutes
+    ...TodosRoutes,
+    ...CategoriesRoutes
   ]
 })
 

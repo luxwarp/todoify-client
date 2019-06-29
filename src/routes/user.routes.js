@@ -9,7 +9,7 @@ export default [
   {
     path: '/user',
     component: User,
-    redirect: '/user/profile',
+    redirect: { name: 'user.profile' },
     meta: {
     },
     children: [

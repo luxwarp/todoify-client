@@ -19,6 +19,9 @@ const actions = {
   logout ({ commit }) {
     commit('setToken', null)
     window.$cookies.remove('token')
+    commit('setUserInfo', {})
+    commit('setCategories', [])
+    commit('setTodos', [])
     commit('createNotifier', { type: 'success', message: 'Logout successful' })
     Router.push({ name: 'user.login' })
   }

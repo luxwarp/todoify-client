@@ -1,7 +1,18 @@
 <template>
   <transition name="slidedown">
   <div class="mainNav" v-if="showMainNav">
+    <div class="categories" @click="toggleMainNav" v-if="categories.length">
+      <span class="title">Categories</span>
+        <router-link
+          v-for="(category) in categories"
+          :key="category._id"
+          :to="{ name: 'categories.id', params: {categoryId: category._id }}"
+          class="navItem">
+          <i class="material-icons md-36">folder</i>{{ category.title }}
+        </router-link>
+    </div>
     <div class="pages" @click="toggleMainNav">
+      <span class="title">Menu</span>
       <router-link :to="{name: 'home'}" class="navItem">
         <i class="material-icons md-36">home</i>
         <span class="label">Home</span>
@@ -13,6 +24,14 @@
       <router-link :to="{name: 'user.register'}" class="navItem" v-if="!isAuth()">
         <i class="material-icons md-36">add_circle_outline</i>
         <span class="label">Register</span>
+      </router-link>
+      <router-link :to="{name: 'categories.all'}" class="navItem" v-if="isAuth()">
+        <i class="material-icons md-36">folder_open</i>
+        <span class="label">Categories</span>
+      </router-link>
+      <router-link :to="{name: 'todos.all'}" class="navItem" v-if="isAuth()">
+        <i class="material-icons md-36">list</i>
+        <span class="label">To-do's</span>
       </router-link>
       <router-link :to="{name: 'user.profile'}" class="navItem" v-if="isAuth()">
         <i class="material-icons md-36">face</i>
@@ -37,9 +56,10 @@ import { mapGetters } from 'vuex'
 export default {
   name: 'mainNav',
   computed: {
-    ...mapGetters([
-      'isAuth'
-    ]),
+    ...mapGetters({
+      isAuth: 'isAuth',
+      categories: 'getCategories'
+    }),
     showMainNav () {
       return this.$store.getters.showMainNav
     }
@@ -64,9 +84,20 @@ export default {
     color: $mainNavFontColor;
     background: $mainNavBgColor;
 
+    .categories {
+      display: flex;
+      flex-direction: column;
+    }
+
     .pages {
       display: flex;
       flex-direction: column;
+    }
+
+    .title {
+      font-size: 1.2rem;
+      padding: 15px;
+      border-bottom: 4px solid #223A52;
     }
 
     .navItem {
