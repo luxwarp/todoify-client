@@ -20,9 +20,6 @@ export default {
     ...mapGetters({
       userInfo: 'getUserInfo'
     })
-  },
-  beforeMount () {
-    this.$store.dispatch('getUserInfo')
   }
 }
 </script>

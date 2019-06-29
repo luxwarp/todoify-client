@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Store from '@/store/store'
-import UserRoutes from '@/routes/user.routes'
 import Home from '@/views/pages/Home'
+import UserRoutes from '@/routes/user.routes'
+import TodosRoutes from './routes/todos.routes'
 
 Vue.use(Router)
 
@@ -10,7 +11,6 @@ const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
-    ...UserRoutes,
     {
       path: '/',
       name: 'home',
@@ -18,7 +18,9 @@ const router = new Router({
       meta: {
         title: 'Welcome'
       }
-    }
+    },
+    ...UserRoutes,
+    ...TodosRoutes
   ]
 })
 

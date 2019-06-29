@@ -21,11 +21,12 @@ const mutations = {
 }
 
 const actions = {
-  async login ({ commit }, data) {
+  async login ({ commit, dispatch }, data) {
     try {
       const response = await Todoify.post('/users/authenticate', data)
       commit('setToken', response.data.data.token)
       window.$cookies.set('token', response.data.data.token, '1h')
+      dispatch('syncWithServer')
       Router.push('/user')
     } catch (error) {
       commit('createNotifier', { type: 'error', message: error.response.data.errors.message })
@@ -39,6 +40,11 @@ const actions = {
     } catch (error) {
       commit('createNotifier', { type: 'error', message: error.response.data.errors.message })
     }
+  },
+  async syncWithServer ({ dispatch }) {
+    dispatch('getUserInfo')
+    dispatch('getTodos')
+    dispatch('getCategories')
   },
   async getUserInfo ({ commit }) {
     try {
@@ -55,6 +61,22 @@ const actions = {
       Router.push('/user')
     } catch (error) {
       commit('createNotifier', { type: 'error', message: error.response.data.errors.message })
+    }
+  },
+  async getTodos ({ commit }) {
+    try {
+      const response = await Todoify.get('/todos')
+      commit('setTodos', response.data.data)
+    } catch (error) {
+      console.log(error)
+    }
+  },
+  async getCategories ({ commit }) {
+    try {
+      const response = await Todoify.get('/categories')
+      commit('setCategories', response.data.data)
+    } catch (error) {
+      console.log(error)
     }
   }
 }

@@ -29,6 +29,11 @@ export default {
       }
     }
   },
+  beforeMount () {
+    if (this.$store.getters.isAuth()) {
+      this.$store.dispatch('syncWithServer')
+    }
+  },
   mounted () {
     window.addEventListener('resize', this.showMainMenu)
   }
