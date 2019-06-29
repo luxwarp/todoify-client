@@ -6,11 +6,11 @@
         <i class="material-icons md-36">home</i>
         <span class="label">Home</span>
       </router-link>
-      <router-link :to="{name: 'login'}" class="navItem" v-if="!isAuth()">
+      <router-link :to="{name: 'user.login'}" class="navItem" v-if="!isAuth()">
         <i class="material-icons md-36">lock_open</i>
         <span class="label">Login</span>
       </router-link>
-      <router-link :to="{name: 'register'}" class="navItem" v-if="!isAuth()">
+      <router-link :to="{name: 'user.register'}" class="navItem" v-if="!isAuth()">
         <i class="material-icons md-36">add_circle_outline</i>
         <span class="label">Register</span>
       </router-link>
@@ -18,7 +18,7 @@
         <i class="material-icons md-36">face</i>
         <span class="label">Profile</span>
       </router-link>
-      <router-link :to="{name: 'logout'}" class="navItem" v-if="isAuth()">
+      <router-link :to="{name: 'user.logout'}" class="navItem" v-if="isAuth()">
         <i class="material-icons md-36">remove_circle_outline</i>
         <span class="label">Logout</span>
       </router-link>

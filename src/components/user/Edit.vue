@@ -13,6 +13,7 @@
               done
             </i>
           </button>
+          <p><a @click="$router.go(-1)">Back</a></p>
         </form>
       </div>
     </div>

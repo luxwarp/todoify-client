@@ -20,7 +20,7 @@ const actions = {
     commit('setToken', null)
     window.$cookies.remove('token')
     commit('createNotifier', { type: 'success', message: 'Logout successful' })
-    Router.push('/login')
+    Router.push({ name: 'user.login' })
   }
 
 }
