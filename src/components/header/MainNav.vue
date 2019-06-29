@@ -128,17 +128,28 @@ export default {
     }
 }
 
-.slidedown-enter-active, .slidedown-leave-active {
-  transition: transform 0.5s;
+.slidedown-enter-active {
+  animation: slideDown 0.5s ease-in;
 }
-.slidedown-enter, .slidedown-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  transform: translateY(-100%)
+
+.slidedown-leave-active {
+  animation: slideDown 0.5s ease-out reverse;
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(0%);
+  }
 }
 
 @media screen and (min-width: 1025px) {
   .mainNav {
     height: auto;
-    transition: none;
+    animation: none;
 
     .closeMainNav {
       display: none;
