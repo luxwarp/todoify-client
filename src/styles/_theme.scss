@@ -20,12 +20,14 @@ $containerTitleFontColor: $globalFontColor;
 
 $listBgColor: #FFF;
 $listBorder: 1px solid rgb(224, 224, 224);
+$listItemBorderBottom: 1px solid rgb(224, 224, 224);
+$listItemHoverBgColor: rgb(240, 240, 240);
 
 $requestStatusBgColor: none;
 $requestStatusFontColor: rgb(31, 31, 31);
 
 $requestLoaderBorder: 2px solid #f3f3f3; // "Background"
-$requestLoaderBorderTop: 2px solid #3498db; // "Frontground
+$requestLoaderBorderTop: 2px solid #3498db; // "Foreground
 
 $buttonBgColor: rgb(189, 189, 189);
 $buttonFontColor: #000;
@@ -36,7 +38,13 @@ $primaryFontColor: #fff;
 $roundButtonBgColor: #223A52;
 $roundButtonFontColor: #466380;
 
-$primaryBoxShadow: 1px 1px 10px rgba(0, 0, 0, 0.445);
+$primaryBoxShadow: 1px 1px 10px rgba(0, 0, 0, 0.089);
+
+$summaryBgColor: #FFF;
+$summaryFontColor: $globalFontColor;
+$summaryBorder: 1px solid rgb(224, 224, 224);
+$summaryTitleFontColor: $globalFontColor;
+$summaryBodyFontColor: $globalFontColor;
 
 $cardBgColor: #ffffff;
 $cardTitleFontColor: $globalFontColor;

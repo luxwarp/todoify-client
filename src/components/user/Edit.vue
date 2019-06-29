@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="card">
-      <div class="title">Edit user</div>
+      <h2 class="title">Edit user</h2>
       <div class="body">
         <form @submit.prevent="onSubmit">
           <input :value="userInfo.name" @input="updateLocalUser($event)" id="name" type="text" placeholder="Name" autofocus />

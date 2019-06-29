@@ -6,7 +6,7 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-body {
+html, body {
   width: 100vw;
   height: 100vh;
   max-width: 100vw;
@@ -44,6 +44,8 @@ ul.list {
     padding: 15px;
     display: flex;
     flex-direction: column;
+    transition: all 0.5s;
+    border-bottom: $listItemBorderBottom;
 
     .title {
       font-weight: bold;
@@ -55,6 +57,15 @@ ul.list {
       font-weight: 300;
       font-size: 0.8rem;
     }
+  }
+
+  li:hover {
+    background: $listItemHoverBgColor;
+    cursor: pointer;
+  }
+
+  li:active {
+    background: $listItemHoverBgColor;
   }
 }
 
@@ -107,7 +118,6 @@ ul.list {
 
   .title {
     width: 100%;
-    font-size: 1.5rem;
     color: $containerTitleFontColor
   }
 }
@@ -118,23 +128,40 @@ ul.list {
   flex-wrap: wrap;
 }
 
+.summary {
+  display: flex;
+  flex-direction: column;
+  background: $summaryBgColor;
+  color: $summaryFontColor;
+  border: $summaryBorder;
+  padding: 0 15px;
+  margin: 15px;
+
+  .title {
+    color: $summaryTitleFontColor;
+  }
+
+  .body {
+    color: $summaryBodyFontColor;
+  }
+}
+
 .card {
   display: flex;
   flex-direction: column;
   box-shadow: $primaryBoxShadow;
   background: $cardBgColor;
-  padding: 15px;
+  padding: 0 15px;
   margin: 15px;
   
   .title {
     width: 100%;
-    font-size: 1.5rem;
     color: $cardTitleFontColor
   }
 
   .body {
     width: 100%;
     color: $cardFontColor;
-    padding: 15px 0;
+    padding: 0;
   }
 }

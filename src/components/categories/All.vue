@@ -3,11 +3,13 @@
     <div class="categories">
       <h2 class="title"> Categories </h2>
       <ul class="list">
-        <li v-for="category in categories"
-          :key="category._id">
+        <router-link :to="{ name: 'categories.id', params: { categoryId: category._id }}"
+          v-for="category in categories"
+          :key="category._id"
+          tag="li">
           <div class="title">{{category.title}}</div>
           <div class="note">{{category.createdAt}}</div>
-        </li>
+        </router-link>
       </ul>
     </div>
   </div>

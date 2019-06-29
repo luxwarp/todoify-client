@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="card">
-      <div class="title">Register</div>
+      <h2 class="title">Register</h2>
       <div class="body">
         <form @submit.prevent="onSubmit">
           <input v-model="email" type="email" placeholder="Email" required autofocus />

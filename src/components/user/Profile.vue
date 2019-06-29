@@ -1,12 +1,12 @@
 <template>
   <div class="container">
     <div class="card">
-      <div class="title">Profile</div>
+      <h2 class="title">Profile</h2>
       <div class="body">
         <p>{{userInfo.name}}</p>
         <p>{{userInfo.email}}</p>
         <p>{{userInfo.createdAt}}</p>
-        <router-link :to="{name: 'user.edit'}">Edit user</router-link>
+        <p><router-link :to="{name: 'user.edit'}">Edit user</router-link></p>
       </div>
     </div>
   </div>

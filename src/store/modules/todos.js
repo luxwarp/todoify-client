@@ -5,6 +5,13 @@ const state = {
 const getters = {
   getTodos (state) {
     return state.todos
+  },
+  getTodosByCategoryId: (state) => (id) => {
+    return state.todos.filter(todo => {
+      if (todo.category) {
+        return todo.category._id === id
+      }
+    })
   }
 }
 

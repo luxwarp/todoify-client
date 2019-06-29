@@ -161,11 +161,11 @@ export default {
 }
 
 .slidedown-enter-active {
-  animation: slideDown 0.5s ease-in;
+  animation: slideDown 0.2s ease-in;
 }
 
 .slidedown-leave-active {
-  animation: slideDown 0.5s ease-out reverse;
+  animation: slideDown 0.2s ease-out reverse;
 }
 
 @keyframes slideDown {
