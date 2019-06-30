@@ -3,13 +3,12 @@
     <div class="todos">
       <h2 class="title"> To-do's </h2>
       <ul class="list" v-if="todos.length">
-        <router-link :to="{ name: 'todos.single', params: { todoId: todo._id }}"
-          v-for="todo in todos"
+        <li v-for="todo in todos"
           :key="todo._id"
           tag="li">
           <div class="title">{{todo.title}}</div>
           <div class="badge">{{todo.category ? todo.category.title : 'Uncategorized'}}</div>
-        </router-link>
+        </li>
       </ul>
       <p v-else>No to-do's found</p>
     </div>

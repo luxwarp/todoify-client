@@ -6,7 +6,7 @@
       <ul class="list" v-if="todos.length">
         <li v-for="todo in todos"
           :key="todo._id">
-          {{ todo.title }}
+          <div class="title">{{todo.title}}</div>
         </li>
       </ul>
       <p v-else>No to-do's found</p>

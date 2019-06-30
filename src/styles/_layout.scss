@@ -57,12 +57,12 @@ ul.list {
     padding: 15px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
     transition: all 0.5s;
     border-bottom: $listItemBorderBottom;
 
     > .title {
+      width: 100%;
       font-weight: bold;
       font-size: 1rem;
     }
@@ -76,20 +76,22 @@ ul.list {
       border-radius: 5px;
       text-align: center;
       width: 60px;
-      min-width: 60px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+
+      &:hover, &:active {
+        width: auto;
+        text-overflow: unset;
+        overflow: unset;
+        white-space: normal;
+      }
     }
-  }
 
-  > li:hover {
-    background: $listItemHoverBgColor;
-    cursor: pointer;
-  }
-
-  > li:active {
-    background: $listItemHoverBgColor;
+    &:hover, &:active{
+      background: $listItemHoverBgColor;
+      cursor: pointer;
+    }
   }
 }
 
