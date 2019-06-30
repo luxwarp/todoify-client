@@ -56,19 +56,30 @@ ul.list {
   > li {
     padding: 15px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     transition: all 0.5s;
     border-bottom: $listItemBorderBottom;
 
     > .title {
       font-weight: bold;
       font-size: 1rem;
-      margin-bottom: 10px;
     }
 
-    > .note {
-      font-weight: 300;
-      font-size: 0.8rem;
+    > .badge {
+      background: #f3f3f3;
+      border: 1px solid #cecece;
+      color: $globalFontColor;
+      font-size: 0.9rem;
+      padding: 2px 10px;
+      border-radius: 5px;
+      text-align: center;
+      width: 60px;
+      min-width: 60px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
 

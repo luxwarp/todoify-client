@@ -7,8 +7,8 @@
           v-for="category in categories"
           :key="category._id"
           tag="li">
-          <div class="title">{{category.title}}</div>
-          <div class="note">{{category.createdAt}}</div>
+          <div class="title">{{ category.title }}</div>
+          <div class="badge">{{ todoCount(category._id) }}</div>
         </router-link>
       </ul>
       <p v-else>No categories found</p>
@@ -24,6 +24,11 @@ export default {
     ...mapGetters({
       categories: 'getCategories'
     })
+  },
+  methods: {
+    todoCount (id) {
+      return this.$store.getters.getTodosByCategoryId(id).length
+    }
   }
 }
 </script>

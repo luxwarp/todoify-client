@@ -8,7 +8,7 @@
           :key="todo._id"
           tag="li">
           <div class="title">{{todo.title}}</div>
-          <div class="note">{{todo.category ? todo.category.title : 'Uncategorized'}}</div>
+          <div class="badge">{{todo.category ? todo.category.title : 'Uncategorized'}}</div>
         </router-link>
       </ul>
       <p v-else>No to-do's found</p>
