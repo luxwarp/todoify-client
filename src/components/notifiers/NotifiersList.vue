@@ -1,7 +1,7 @@
 <template>
     <transition-group class="notifiers" name="slideInLeft">
       <div v-for="(notifier, index) in notifiers" :key="index+1" :class="notifier.type" class="notifier">
-        <span class="icon"></span> <span class="message">{{ notifier.message }}</span><span class="close" @click="close(index)">&#8855;</span>
+        <i class="material-icons"></i> <span class="message">{{ notifier.message }}</span><i class="material-icons close" @click="close(index)">close</i>
       </div>
     </transition-group>
 </template>
@@ -35,7 +35,6 @@ export default {
   display: flex;
   flex-direction: column;
   width: 100%;
-  border: 0px solid black;
 
   .notifier {
     display: flex;
@@ -43,58 +42,63 @@ export default {
     padding: 15px;
     align-items: center;
 
-    .icon {
+    > .material-icons {
       font-size: 20px;
       margin-right: 15px;
       width: 20px;
     }
 
-    .message {
+    > .message {
       width: 100%;
+
+      &::first-letter {
+        text-transform: uppercase;
+      }
     }
 
-    .message::first-letter {
-      text-transform: uppercase;
-    }
-
-    .close {
-      font-size: 20px;
+    > .close {
+      font-size: 18px;
+      margin: 0;
+      padding: 0;
+      &::before {
+        content: none !important;
+      }
     }
   }
 
-  .error {
+  > .error {
     background: #F8D7DA;
     color: rgb(110, 49, 54);
 
-    .icon::before {
-      content: "\2690";
+    > .material-icons::before {
+      content: "error_outline";
     }
   }
 
-  .warning {
+  > .warning {
     background: #FFF3CD;
     color: rgb(110, 104, 49);
 
-    .icon::before {
-      content: "\26A0";
+    > .material-icons::before {
+      content: "warning";
     }
   }
 
-  .success {
+  > .success {
     background: #D4EDDA;
     color: rgb(51, 110, 49);
 
-    .icon::before {
-      content: "\2713";
+    > .material-icons::before {
+      content: "check";
     }
   }
 
-  .info {
+  > .info {
     background: #D1ECF1;
     color: rgb(49, 80, 110);
 
-    .icon::before {
-      content: "\2139";
+    > .material-icons::before {
+      content: "info";
     }
   }
 }
