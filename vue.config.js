@@ -3,10 +3,9 @@ module.exports = {
   publicPath: '/',
   css: {
     loaderOptions: {
+      // pass options to sass-loader
       sass: {
-        data: `@import "~normalize.css/normalize.css";
-        @import "@/styles/_theme.scss";
-        @import "@/styles/_layout.scss";`
+        data: `@import "~@/styles/_theme.scss";`
       }
     }
   }

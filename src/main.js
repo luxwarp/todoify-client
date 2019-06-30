@@ -4,6 +4,8 @@ import VueCookies from 'vue-cookies'
 import router from '@/router'
 import store from '@/store/store'
 import 'material-design-icons/iconfont/material-icons.css'
+import 'normalize.css'
+import '@/styles/_layout.scss'
 
 Vue.config.productionTip = false
 

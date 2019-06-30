@@ -4,7 +4,7 @@
     <Header />
     <div class="mainView">
       <Notifier />
-      <router-view></router-view>
+      <router-view class="mainRouterView"></router-view>
     </div>
   </div>
 </template>
@@ -40,7 +40,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .app {
   width: 100vw;
   height: 100vh;
@@ -58,6 +58,10 @@ export default {
     overflow-y: auto;
     overflow-x: hidden;
     margin-top: 70px;
+
+    .mainRouterView {
+      padding: 0 15px;
+    }
   }
 }
 

@@ -27,9 +27,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .header {
-
   position: fixed;
   top: 0;
   width: 100%;
@@ -39,7 +38,7 @@ export default {
   display: flex;
   flex-direction: column;
   z-index: 10;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.4s ease-in-out;
 
   .banner {
     position: sticky;

@@ -31,9 +31,6 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.container {
-  margin: 0 15px;
+<style lang="scss">
 
-}
 </style>

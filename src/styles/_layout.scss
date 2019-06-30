@@ -33,7 +33,7 @@ input {
 
 ul.list {
   list-style: none;
-  margin: 0;
+  margin: 15px 0;
   padding: 0;
   display: flex;
   flex-direction: column;
@@ -120,6 +120,17 @@ ul.list {
     width: 100%;
     color: $containerTitleFontColor
   }
+
+  .card {
+    margin: auto;
+    width: 100%;
+    max-width: 500px;
+    
+  }
+}
+
+.center {
+  margin: auto 0;
 }
 
 .row {

@@ -19,9 +19,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .requestStatus {
-
   position: fixed;
   bottom: 10px;
   right: 0;
@@ -39,13 +38,13 @@ export default {
     border:  $requestLoaderBorder;
     border-top: $requestLoaderBorderTop;
   }
-}
 
-.slide-enter-active, .slide-leave-active {
-  transition: all .5s;
-}
-.slide-enter, .slide-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  transform: translateX(100%);
+  &.slide-enter-active, .slide-leave-active {
+    transition: all 0.5s;
+  }
+  &.slide-enter, .slide-leave-to {
+    transform: translateX(100%);
+  }
 }
 
 </style>

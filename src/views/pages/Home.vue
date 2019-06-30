@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container center">
     <div class="card">
       <h2 class="title">Welcome</h2>
       <div class="body">
@@ -15,14 +15,6 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.container {
+<style lang="scss">
 
-  margin: auto 0;
-  border: 0px solid black;
-
-  .card {
-    align-self: center;
-  }
-}
 </style>

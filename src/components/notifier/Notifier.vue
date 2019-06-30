@@ -32,9 +32,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .notifiers {
-
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -100,23 +99,23 @@ export default {
       content: "\2139";
     }
   }
-}
 
-.slide-enter-active {
-  animation: slide 0.5s ease-in;
-}
-
-.slide-leave-active {
-  animation: slide 0.5s reverse ease-in-out;
-}
-
-@keyframes slide {
-  0% {
-    transform: translateX(100%);
+  &.slide-enter-active {
+    animation: slide 0.5s ease-in;
   }
 
-  100% {
-    transform: translateX(0%);
+  &.slide-leave-active {
+    animation: slide 0.5s reverse ease-in-out;
+  }
+
+  @keyframes slide {
+    0% {
+      transform: translateX(100%);
+    }
+
+    100% {
+      transform: translateX(0%);
+    }
   }
 }
 

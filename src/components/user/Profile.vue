@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container center">
     <div class="card">
       <h2 class="title">Profile</h2>
       <div class="body">
@@ -24,15 +24,6 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.container {
-
-  margin: auto 0;
-  .card {
-    width: 90%;
-    max-width: 500px;
-    align-self: center;
-  }
-}
+<style lang="scss">
 
 </style>

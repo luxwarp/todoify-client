@@ -27,11 +27,5 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.container {
-  .categories {
-    margin: 15px;
-  }
-}
-
+<style lang="scss">
 </style>

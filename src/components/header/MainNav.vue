@@ -72,9 +72,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .mainNav {
-
     position: static;
     top: 0;
     width: 100%;

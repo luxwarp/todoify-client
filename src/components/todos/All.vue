@@ -27,10 +27,5 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.container {
-  .todos {
-    margin: 15px;
-  }
-}
+<style lang="scss">
 </style>
