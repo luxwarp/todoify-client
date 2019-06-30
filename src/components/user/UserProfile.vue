@@ -6,7 +6,7 @@
         <p>{{userInfo.name}}</p>
         <p>{{userInfo.email}}</p>
         <p>{{userInfo.createdAt}}</p>
-        <p><router-link :to="{name: 'user.edit'}">Edit user</router-link></p>
+        <router-link :to="{name: 'user.edit'}">Edit user</router-link>
       </div>
     </div>
   </div>

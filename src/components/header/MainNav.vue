@@ -135,7 +135,7 @@ export default {
       bottom: 20px;
       align-self: center;
       background: $roundButtonBgColor;
-      box-shadow: $primaryBoxShadow;
+      box-shadow: $defaultBoxShadow;
       color: $roundButtonFontColor;
       border-radius: 100%;
       padding: 5px;

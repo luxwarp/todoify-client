@@ -17,10 +17,22 @@ html, body {
   font-size: $globalFontSize;
 }
 
+a {
+  color: $defaultLinkColor;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover, &:active {
+    text-decoration: underline;
+    color: lighten($defaultLinkColor, $amount: 10);
+  }
+}
+
 form {
   width: 100%;
   display: flex;
   flex-direction: column;
+  margin-bottom: 15px;
 }
 
 input {
@@ -41,31 +53,31 @@ ul.list {
   background: $listBgColor;
   border: $listBorder;
 
-  li {
+  > li {
     padding: 15px;
     display: flex;
     flex-direction: column;
     transition: all 0.5s;
     border-bottom: $listItemBorderBottom;
 
-    .title {
+    > .title {
       font-weight: bold;
       font-size: 1rem;
       margin-bottom: 10px;
     }
 
-    .note {
+    > .note {
       font-weight: 300;
       font-size: 0.8rem;
     }
   }
 
-  li:hover {
+  > li:hover {
     background: $listItemHoverBgColor;
     cursor: pointer;
   }
 
-  li:active {
+  > li:active {
     background: $listItemHoverBgColor;
   }
 }
@@ -84,11 +96,6 @@ ul.list {
   animation: spin 2s linear infinite;
 }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
 .button {
   border: 0;
   padding: 10px;
@@ -100,33 +107,58 @@ ul.list {
   color: $buttonFontColor;
   transition: all 0.5s ;
   cursor: pointer;
-}
 
-.button:disabled {
-  background: $buttonBgColor !important;
-  color: $buttonFontColor;
-  cursor: not-allowed;
-}
+  &:hover, &:active {
+    background: lighten($buttonBgColor, $amount: 5)
+  }
 
-.primary {
-  background: $primaryBgColor;
-  color: $primaryFontColor;
+  &:disabled {
+    background: $buttonBgColor !important;
+    color: $buttonFontColor;
+    cursor: not-allowed;
+  }
+
+  &.primary {
+    background: $buttonPrimaryBgColor;
+    color: $buttonPrimaryFontColor;
+
+    &:hover, &:active{
+      background: lighten($buttonPrimaryBgColor, $amount: 5)
+    }
+  }
+
+  &.success {
+    background: $buttonSuccessBgColor;
+    color: $buttonSuccessFontColor;
+
+    &:hover, &:active {
+      background: lighten($buttonSuccessBgColor, $amount: 5)
+    }
+  }
+
+  &.alert {
+    background: $buttonAlertBgColor;
+    color: $buttonAlertFontColor;
+
+    &:hover, &:active{
+      background: lighten($buttonAlertBgColor, $amount: 5)
+    }
+  }
 }
 
 .container {
   display: flex;
   flex-direction: column;
 
-  .title {
+  > .title {
     width: 100%;
     color: $containerTitleFontColor
   }
 
-  .card {
+  > .card {
     margin: auto;
     width: 100%;
     max-width: 500px;
-    
   }
 }
 
@@ -140,40 +172,30 @@ ul.list {
   flex-wrap: wrap;
 }
 
-.summary {
-  display: flex;
-  flex-direction: column;
-  background: $summaryBgColor;
-  color: $summaryFontColor;
-  border: $summaryBorder;
-  padding: 0 15px;
-  margin: 15px;
-
-  .title {
-    color: $summaryTitleFontColor;
-  }
-
-  .body {
-    color: $summaryBodyFontColor;
-  }
-}
-
 .card {
   display: flex;
   flex-direction: column;
-  box-shadow: $primaryBoxShadow;
+  box-shadow: $defaultBoxShadow;
   background: $cardBgColor;
-  padding: 0 15px;
+  padding: 15px;
   margin: 15px;
   
-  .title {
+  > .title {
     width: 100%;
-    color: $cardTitleFontColor
+    color: $cardTitleFontColor;
+    margin-top: 0;
+    
+    *:first-child {
+      margin-top: 0;
+    }
   }
 
-  .body {
+  > .body {
     width: 100%;
     color: $cardFontColor;
-    padding: 0;
+
+    *:last-child {
+      margin-bottom: 0;
+    }
   }
 }

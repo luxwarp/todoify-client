@@ -4,6 +4,8 @@ $bodyBgColor: rgb(255, 255, 255);
 $globalFontColor: rgb(31, 31, 31);
 $globalFontSize: 16px;
 
+$defaultLinkColor: #0E2B44;
+
 $inputBgColor: #ffff;
 $inputFontColor: $globalFontColor;
 $inputBorder: 1px solid rgb(196, 196, 196);
@@ -32,13 +34,19 @@ $requestLoaderBorderTop: 2px solid #3498db; // "Foreground
 $buttonBgColor: rgb(189, 189, 189);
 $buttonFontColor: #000;
 
-$primaryBgColor: #30465c;
-$primaryFontColor: #fff;
+$buttonPrimaryBgColor: #30465c;
+$buttonPrimaryFontColor: #fff;
+
+$buttonSuccessBgColor: #5AAF50;
+$buttonSuccessFontColor: #fff;
+
+$buttonAlertBgColor: #EF4835;
+$buttonAlertFontColor: #fff;
 
 $roundButtonBgColor: #223A52;
 $roundButtonFontColor: #466380;
 
-$primaryBoxShadow: 1px 1px 10px rgba(0, 0, 0, 0.089);
+$defaultBoxShadow: 1px 1px 10px rgba(0, 0, 0, 0.089);
 
 $summaryBgColor: #FFF;
 $summaryFontColor: $globalFontColor;
