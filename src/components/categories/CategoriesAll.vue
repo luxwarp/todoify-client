@@ -2,7 +2,7 @@
   <div class="container">
     <div class="categories">
       <h2 class="title"> Categories </h2>
-      <ul class="list">
+      <ul class="list" v-if="categories.length">
         <router-link :to="{ name: 'categories.single', params: { categoryId: category._id }}"
           v-for="category in categories"
           :key="category._id"
@@ -11,6 +11,7 @@
           <div class="note">{{category.createdAt}}</div>
         </router-link>
       </ul>
+      <p v-else>No categories found</p>
     </div>
   </div>
 </template>
