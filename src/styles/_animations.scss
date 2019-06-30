@@ -1,0 +1,35 @@
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.slideInLeft-enter-active {
+  animation: slideInLeft 0.5s ease-in;
+}
+
+.slideInLeft-leave-active {
+  animation: slideInLeft 0.5s reverse ease-out;
+}
+
+@keyframes slideInTop {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+.slideInTop-enter-active {
+  animation: slideInTop 0.5s ease-in;
+}
+
+.slideInTop-leave-active {
+  animation: slideInTop 0.5s reverse ease-out;
+}

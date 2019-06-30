@@ -15,7 +15,7 @@
 <script>
 import { mapGetters } from 'vuex'
 export default {
-  name: 'user.profile',
+  name: 'UserProfile',
   computed: {
     ...mapGetters({
       userInfo: 'getUserInfo'

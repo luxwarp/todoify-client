@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Store from '@/store/store'
-import Home from '@/views/pages/Home'
+import HomePage from '@/components/pages/HomePage'
 import UserRoutes from '@/routes/user.routes'
 import TodosRoutes from '@/routes/todos.routes'
 import CategoriesRoutes from '@/routes/categories.routes'
@@ -15,7 +15,7 @@ const router = new Router({
     {
       path: '/',
       name: 'home',
-      component: Home,
+      component: HomePage,
       meta: {
         title: 'Welcome'
       }

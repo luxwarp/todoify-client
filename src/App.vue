@@ -1,23 +1,23 @@
 <template>
   <div class="app">
     <RequestStatus />
-    <Header />
+    <HeaderContainer />
     <div class="mainView">
-      <Notifier />
+      <NotifiersList />
       <router-view class="mainRouterView"></router-view>
     </div>
   </div>
 </template>
 
 <script>
-import Header from '@/components/header/Header'
-import Notifier from '@/components/notifier/Notifier'
+import HeaderContainer from '@/components/header/HeaderContainer'
+import NotifiersList from '@/components/notifiers/NotifiersList'
 import RequestStatus from '@/components/requestStatus/RequestStatus'
 export default {
-  name: 'app',
+  name: 'App',
   components: {
-    Header,
-    Notifier,
+    HeaderContainer,
+    NotifiersList,
     RequestStatus
   },
   methods: {

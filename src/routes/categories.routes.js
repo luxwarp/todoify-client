@@ -1,6 +1,6 @@
-import Categories from '@/views/categories/Categories'
-import All from '@/components/categories/All'
-import Id from '@/components/categories/Id'
+import Categories from '@/views/CategoriesView'
+import CategoriesAll from '@/components/categories/CategoriesAll'
+import CategoriesSingle from '@/components/categories/CategoriesSingle'
 export default [
   {
     path: '/categories',
@@ -10,7 +10,7 @@ export default [
       {
         path: '',
         name: 'categories.all',
-        component: All,
+        component: CategoriesAll,
         meta: {
           requiresAuth: true,
           title: 'Categories'
@@ -18,8 +18,8 @@ export default [
       },
       {
         path: ':categoryId',
-        name: 'categories.id',
-        component: Id,
+        name: 'categories.single',
+        component: CategoriesSingle,
         meta: {
           requiresAuth: true,
           title: 'Category'

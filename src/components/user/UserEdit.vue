@@ -23,7 +23,7 @@
 <script>
 import { mapGetters } from 'vuex'
 export default {
-  name: 'user.edit',
+  name: 'UserEdit',
   data () {
     return {
       user: {}

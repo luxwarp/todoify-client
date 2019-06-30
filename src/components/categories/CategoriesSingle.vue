@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  name: 'category.id',
+  name: 'CategoriesSingle',
   computed: {
     category () {
       return this.$store.getters.getCategoryById(this.$route.params.categoryId)

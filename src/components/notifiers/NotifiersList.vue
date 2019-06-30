@@ -1,16 +1,14 @@
 <template>
-  <div class="notifiers">
-    <transition-group name="slide">
+    <transition-group class="notifiers" name="slideInLeft">
       <div v-for="(notifier, index) in notifiers" :key="index+1" :class="notifier.type" class="notifier">
         <span class="icon"></span> <span class="message">{{ notifier.message }}</span><span class="close" @click="close(index)">&#8855;</span>
       </div>
     </transition-group>
-  </div>
 </template>
 
 <script>
 export default {
-  name: 'notifier',
+  name: 'NotifiersList',
   computed: {
     notifiers () {
       return this.$store.getters.getNotifiers
@@ -97,24 +95,6 @@ export default {
 
     .icon::before {
       content: "\2139";
-    }
-  }
-
-  &.slide-enter-active {
-    animation: slide 0.5s ease-in;
-  }
-
-  &.slide-leave-active {
-    animation: slide 0.5s reverse ease-in-out;
-  }
-
-  @keyframes slide {
-    0% {
-      transform: translateX(100%);
-    }
-
-    100% {
-      transform: translateX(0%);
     }
   }
 }

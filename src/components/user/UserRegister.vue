@@ -1,15 +1,15 @@
 <template>
   <div class="container center">
     <div class="card">
-      <h2 class="title">Login</h2>
+      <h2 class="title">Register</h2>
       <div class="body">
         <form @submit.prevent="onSubmit">
           <input v-model="email" type="email" placeholder="Email" required autofocus />
           <input v-model="password" type="password" placeholder="Password" required />
           <button class="button primary" type="submit" :disabled="isButtonDisable">
-            Login
+            Register
             <i class="material-icons">
-              lock_open
+              add_circle_outline
             </i>
           </button>
         </form>
@@ -20,7 +20,7 @@
 
 <script>
 export default {
-  name: 'login',
+  name: 'UserRegister',
   data () {
     return {
       email: null,
@@ -34,7 +34,7 @@ export default {
   },
   methods: {
     onSubmit () {
-      this.$store.dispatch('login', { email: this.email, password: this.password })
+      this.$store.dispatch('register', { email: this.email, password: this.password })
     }
   }
 }

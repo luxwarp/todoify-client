@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'todos'
+  name: 'TodosView'
 }
 </script>
 

@@ -1,6 +1,6 @@
-import Todos from '@/views/todos/Todos'
-import All from '@/components/todos/All'
-import Id from '@/components/todos/Id'
+import Todos from '@/views/TodosView'
+import TodosAll from '@/components/todos/TodosAll'
+import TodosSingle from '@/components/todos/TodosSingle'
 
 export default [
   {
@@ -11,7 +11,7 @@ export default [
       {
         path: '',
         name: 'todos.all',
-        component: All,
+        component: TodosAll,
         meta: {
           title: `To-do's`,
           requiresAuth: true
@@ -19,8 +19,8 @@ export default [
       },
       {
         path: ':todoId',
-        name: 'todos.id',
-        component: Id,
+        name: 'todos.single',
+        component: TodosSingle,
         meta: {
           requiresAuth: true,
           title: 'To-do'

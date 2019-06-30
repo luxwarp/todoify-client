@@ -1,12 +1,12 @@
 <template>
-  <transition name="slidedown">
+  <transition name="slideInTop">
   <div class="mainNav" v-if="showMainNav">
     <div class="categories" @click="toggleMainNav" v-if="categories.length">
       <span class="title">Categories</span>
         <router-link
           v-for="(category) in categories"
           :key="category._id"
-          :to="{ name: 'categories.id', params: {categoryId: category._id }}"
+          :to="{ name: 'categories.single', params: {categoryId: category._id }}"
           class="navItem">
           <i class="material-icons md-36">folder</i>{{ category.title }}
         </router-link>
@@ -54,7 +54,7 @@
 <script>
 import { mapGetters } from 'vuex'
 export default {
-  name: 'mainNav',
+  name: 'MainNav',
   computed: {
     ...mapGetters({
       isAuth: 'isAuth',
@@ -157,24 +157,6 @@ export default {
       background: lighten($roundButtonBgColor, 5);
       color: lighten($roundButtonFontColor, 5);
     }
-}
-
-.slidedown-enter-active {
-  animation: slideDown 0.2s ease-in;
-}
-
-.slidedown-leave-active {
-  animation: slideDown 0.2s ease-out reverse;
-}
-
-@keyframes slideDown {
-  0% {
-    transform: translateY(-100%);
-  }
-
-  100% {
-    transform: translateY(0%);
-  }
 }
 
 @media screen and (min-width: 1025px) {

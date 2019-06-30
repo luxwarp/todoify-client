@@ -3,12 +3,12 @@
     <div class="todos">
       <h2 class="title"> To-do's </h2>
       <ul class="list" v-if="todos.length">
-        <router-link :to="{ name: 'todos.id', params: { todoId: todo._id }}"
+        <router-link :to="{ name: 'todos.single', params: { todoId: todo._id }}"
           v-for="todo in todos"
           :key="todo._id"
           tag="li">
           <div class="title">{{todo.title}}</div>
-          <div class="note">{{todo.createdAt}}</div>
+          <div class="note">{{todo.category ? todo.category.title : 'Uncategorized'}}</div>
         </router-link>
       </ul>
       <p v-else>No to-do's found</p>
@@ -18,7 +18,7 @@
 
 <script>
 export default {
-  name: 'Todos.all',
+  name: 'TodosAll',
   computed: {
     todos () {
       return this.$store.getters.getTodos

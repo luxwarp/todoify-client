@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'Categories'
+  name: 'CategoriesView'
 }
 </script>
 

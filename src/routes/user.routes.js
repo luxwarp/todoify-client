@@ -1,14 +1,14 @@
 import Store from '@/store/store.js'
-import User from '@/views/user/User'
-import Login from '@/components/user/Login'
-import Register from '@/components/user/Register'
-import Profile from '@/components/user/Profile'
-import Edit from '@/components/user/Edit'
+import UserView from '@/views/UserView'
+import UserLogin from '@/components/user/UserLogin'
+import UserRegister from '@/components/user/UserRegister'
+import UserProfile from '@/components/user/UserProfile'
+import UserEdit from '@/components/user/UserEdit'
 
 export default [
   {
     path: '/user',
-    component: User,
+    component: UserView,
     redirect: { name: 'user.profile' },
     meta: {
     },
@@ -16,7 +16,7 @@ export default [
       {
         path: 'profile',
         name: 'user.profile',
-        component: Profile,
+        component: UserProfile,
         meta: {
           title: 'Profile',
           requiresAuth: true
@@ -25,7 +25,7 @@ export default [
       {
         path: 'login',
         name: 'user.login',
-        component: Login,
+        component: UserLogin,
         meta: {
           title: 'Login',
           requiresAuth: false
@@ -34,7 +34,7 @@ export default [
       {
         path: 'register',
         name: 'user.register',
-        component: Register,
+        component: UserRegister,
         meta: {
           title: 'Create account',
           requiresAuth: false
@@ -53,7 +53,7 @@ export default [
       {
         path: 'edit',
         name: 'user.edit',
-        component: Edit,
+        component: UserEdit,
         meta: {
           title: 'Edit user',
           requiresAuth: true
