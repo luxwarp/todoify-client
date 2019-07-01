@@ -45,6 +45,20 @@ input {
   border-radius: 3px;
 }
 
+label {
+  margin-bottom: 10px;
+}
+
+select {
+  padding: 5px;
+  outline: none;
+  margin-bottom: 10px;
+  background: $inputBgColor;
+  color: $inputFontColor;
+  border: $inputBorder;
+  border-radius: 3px;
+}
+
 ul.list {
   list-style: none;
   margin: 15px 0;
@@ -76,21 +90,11 @@ ul.list {
       padding: 2px 10px;
       border-radius: 5px;
       text-align: center;
-      min-width: 60px;
-      width: 60px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
 
     &:hover, &:active{
       background: darken($listItemBgColor, $amount: 3);
       cursor: pointer;
-
-      > .badge {
-        width: auto;
-        text-overflow: unset;
-      }
     }
   }
 }
@@ -120,6 +124,10 @@ ul.list {
   color: $buttonFontColor;
   transition: all 0.5s ;
   cursor: pointer;
+
+  > i {
+    margin-left: 15px;
+  }
 
   &:hover, &:active {
     background: lighten($buttonBgColor, $amount: 5)
@@ -165,6 +173,7 @@ ul.list {
 
   > .title {
     width: 100%;
+    font-weight: 400;
     color: $containerTitleFontColor;
   }
 
@@ -183,6 +192,7 @@ ul.list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  margin-bottom: 10px;
 
   &.title-icon {
     justify-content: space-between;
@@ -200,6 +210,7 @@ ul.list {
   
   > .title {
     width: 100%;
+    font-weight: 400;
     color: $cardTitleFontColor;
     margin-top: 0;
     display: flex;
@@ -212,7 +223,7 @@ ul.list {
     width: 100%;
     color: $cardFontColor;
 
-    *:last-child {
+    > *:last-child {
       margin-bottom: 0;
     }
   }

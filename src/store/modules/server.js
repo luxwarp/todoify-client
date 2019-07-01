@@ -86,6 +86,14 @@ const actions = {
     } catch (error) {
       commit('createNotifier', { type: 'error', message: error.response.data.errors.message })
     }
+  },
+  async createTodo ({ commit, dispatch }, data) {
+    try {
+      await Todoify.post('/todos', { title: data.title, category: data.category })
+      dispatch('getTodos')
+    } catch (error) {
+      commit('createNotifier', { type: 'error', message: error.response.data.errors.message })
+    }
   }
 }
 

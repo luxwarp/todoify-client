@@ -1,7 +1,10 @@
 <template>
   <div class="container" v-if="category">
-    <h2 class="title">{{ category.title }} </h2>
+    <h2 class="title">Category: {{ category.title }} </h2>
 
+    <AddNew type="to-do" @submit="addNewTodo">
+      <button class="button primary">Add to-do <i class="material-icons">add</i></button>
+    </AddNew>
     <div class="todos">
       <ul class="list" v-if="todos.length">
         <li v-for="todo in todos"
@@ -9,7 +12,7 @@
           <div class="title">{{todo.title}}</div>
         </li>
       </ul>
-      <p v-else>No to-do's found</p>
+      <p v-else>No to-do's found.</p>
     </div>
   </div>
   <div class="notFound" v-else>
@@ -18,8 +21,12 @@
 </template>
 
 <script>
+import AddNew from '@/components/modal/AddNew'
 export default {
   name: 'CategoriesSingle',
+  components: {
+    AddNew
+  },
   computed: {
     category () {
       return this.$store.getters.getCategoryById(this.$route.params.categoryId)
@@ -27,10 +34,14 @@ export default {
     todos () {
       return this.$store.getters.getTodosByCategoryId(this.$route.params.categoryId)
     }
+  },
+  methods: {
+    addNewTodo (data) {
+      this.$store.dispatch('createTodo', { title: data.title, category: this.$route.params.categoryId })
+    }
   }
 }
 </script>
 
 <style lang="scss">
-
 </style>

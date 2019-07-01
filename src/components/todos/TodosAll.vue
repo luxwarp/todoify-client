@@ -1,26 +1,39 @@
 <template>
   <div class="container">
-    <div class="todos">
-      <h2 class="title"> To-do's </h2>
-      <ul class="list" v-if="todos.length">
-        <li v-for="todo in todos"
-          :key="todo._id"
-          tag="li">
-          <div class="title">{{todo.title}}</div>
-          <div class="badge">{{todo.category ? todo.category.title : 'Uncategorized'}}</div>
-        </li>
-      </ul>
-      <p v-else>No to-do's found</p>
-    </div>
+    <h2 class="title"> To-do's </h2>
+    <AddNew type="to-do" :categories="categories" @submit="addNewTodo">
+      <button class="button primary">Add to-do <i class="material-icons">add</i></button>
+    </AddNew>
+    <ul class="list" v-if="todos.length">
+      <li v-for="todo in todos"
+        :key="todo._id"
+        tag="li">
+        <div class="title">{{todo.title}}</div>
+        <div class="badge">{{todo.category ? todo.category.title : 'Uncategorized'}}</div>
+      </li>
+    </ul>
+    <p v-else>No to-do's found</p>
   </div>
 </template>
 
 <script>
+import AddNew from '@/components/modal/AddNew'
 export default {
   name: 'TodosAll',
+  components: {
+    AddNew
+  },
   computed: {
     todos () {
       return this.$store.getters.getTodos
+    },
+    categories () {
+      return this.$store.getters.getCategories
+    }
+  },
+  methods: {
+    addNewTodo (data) {
+      this.$store.dispatch('createTodo', { title: data.title, category: data.category })
     }
   }
 }
