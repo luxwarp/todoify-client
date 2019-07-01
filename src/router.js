@@ -29,7 +29,7 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
     if (!Store.getters.isAuth()) {
-      next({ name: 'user.login', query: { redirect: to.fullPath } })
+      next({ name: 'user.logout', query: { redirect: to.fullPath } })
     }
   }
 

@@ -44,7 +44,7 @@ export default [
         path: 'logout',
         name: 'user.logout',
         meta: {
-          requiresAuth: true
+          requiresAuth: false
         },
         beforeEnter: (to, from, next) => {
           Store.dispatch('logout')
