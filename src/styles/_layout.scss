@@ -165,7 +165,7 @@ ul.list {
 
   > .title {
     width: 100%;
-    color: $containerTitleFontColor
+    color: $containerTitleFontColor;
   }
 
   > .card {
@@ -183,6 +183,11 @@ ul.list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+
+  &.title-icon {
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 .card {

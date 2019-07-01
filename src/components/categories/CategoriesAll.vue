@@ -1,9 +1,11 @@
 <template>
   <div class="container">
     <div class="categories">
-      <div class="row" style="align-items: center; justify-content: space-between;">
-        <h2 class="title"> Categories </h2>
-        <AddNew type="category" v-on:add-new="addNew" />
+      <div class="row title-icon">
+        <h2 class="title">Categories</h2>
+          <AddNew type="category" v-on:add-new="addNew">
+            <i class="material-icons" title="Add a new category">add</i>
+          </AddNew>
       </div>
       <ul class="list" v-if="categories.length">
         <router-link :to="{ name: 'categories.single', params: { categoryId: category._id }}"

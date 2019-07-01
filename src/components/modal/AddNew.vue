@@ -1,6 +1,8 @@
 <template>
   <div class="addNewContainer">
-    <i class="material-icons" @click="show = !show">add</i>
+    <span @click="show = !show">
+      <slot></slot>
+    </span>
     <transition name="fadeIn">
       <div class="modal" v-if="show">
         <div class="card">
@@ -47,12 +49,10 @@ export default {
 
 <style lang="scss">
 .addNewContainer {
-  > .material-icons {
-    cursor: pointer;
-  }
+  cursor: pointer;
 
   > .modal {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -61,7 +61,7 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: rgba(0, 0, 0, 0.205);
+    background: rgba(0, 0, 0, 0.356);
     z-index: 9999;
   }
 }
