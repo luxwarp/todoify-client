@@ -1,7 +1,10 @@
 <template>
   <div class="container">
     <div class="categories">
-      <h2 class="title"> Categories </h2>
+      <div class="row" style="align-items: center; justify-content: space-between;">
+        <h2 class="title"> Categories </h2>
+        <AddNew type="category" v-on:add-new="addNew" />
+      </div>
       <ul class="list" v-if="categories.length">
         <router-link :to="{ name: 'categories.single', params: { categoryId: category._id }}"
           v-for="category in categories"
@@ -18,8 +21,12 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import AddNew from '@/components/modal/AddNew'
 export default {
   name: 'CategoriesAll',
+  components: {
+    AddNew
+  },
   computed: {
     ...mapGetters({
       categories: 'getCategories'
@@ -28,6 +35,10 @@ export default {
   methods: {
     todoCount (id) {
       return this.$store.getters.getTodosByCategoryId(id).length
+    },
+
+    addNew (title) {
+      this.$store.dispatch('createCategory', title)
     }
   }
 }

@@ -48,6 +48,7 @@ export default {
   flex-direction: column;
 
   .mainView {
+    position: relative;
     display: flex;
     flex-direction: column;
     background: $mainViewBgColor;

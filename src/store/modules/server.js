@@ -78,6 +78,14 @@ const actions = {
     } catch (error) {
       console.log(error)
     }
+  },
+  async createCategory ({ commit, dispatch }, title) {
+    try {
+      await Todoify.post('/categories', { title })
+      dispatch('getCategories')
+    } catch (error) {
+      commit('createNotifier', { type: 'error', message: error.response.data.errors.message })
+    }
   }
 }
 

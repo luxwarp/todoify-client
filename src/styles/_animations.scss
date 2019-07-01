@@ -42,3 +42,20 @@
     transform: rotate(360deg);
   }
 }
+
+.fadeIn-enter-active {
+  animation: fadeIn 0.5s;
+}
+
+.fadeIn-leave-active {
+  animation: fadeIn 0.5s reverse;
+}
+
+@keyframes fadeIn {
+  0% { 
+    opacity: 0;
+  }
+  100% { 
+    opacity: 1;
+  }
+}

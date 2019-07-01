@@ -22,8 +22,9 @@ $containerTitleFontColor: $globalFontColor;
 
 $listBgColor: #FFF;
 $listBorder: 1px solid rgb(224, 224, 224);
-$listItemBorderBottom: 1px solid rgb(224, 224, 224);
-$listItemHoverBgColor: rgb(240, 240, 240);
+$listItemBgColor: $listBgColor;
+$listItemFontColor: $globalFontColor;
+$listItemBorderBottom: $listBorder;
 
 $requestStatusBgColor: none;
 $requestStatusFontColor: rgb(31, 31, 31);
