@@ -1,6 +1,6 @@
 import Todos from '@/views/TodosView'
 import TodosAll from '@/components/todos/TodosAll'
-import TodosSingle from '@/components/todos/TodosSingle'
+import Store from '@/store/store'
 
 export default [
   {
@@ -18,12 +18,17 @@ export default [
         }
       },
       {
-        path: ':todoId',
-        name: 'todos.single',
-        component: TodosSingle,
+        path: ':todoId/delete',
+        name: 'todos.delete',
         meta: {
           requiresAuth: true,
-          title: 'To-do'
+          title: 'Delete To-do'
+        },
+        beforeEnter: (to, from, next) => {
+          if (confirm('Are you sure you want to delete ?')) {
+            Store.dispatch('deleteTodo', to.params.todoId)
+          }
+          next(false)
         }
       }
     ]

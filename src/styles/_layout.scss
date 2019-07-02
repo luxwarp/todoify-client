@@ -85,7 +85,6 @@ ul.list {
     }
 
     > .title {
-      width: 100%;
       font-weight: bold;
       font-size: 1rem;
     }
@@ -98,13 +97,30 @@ ul.list {
       padding: 2px 10px;
       border-radius: 5px;
       text-align: center;
+      margin-left: auto;
     }
 
     &:hover, &:active{
       background: darken($listItemBgColor, $amount: 3);
       cursor: pointer;
     }
+
+    > .toolsContainer {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      > .tools {
+        display: flex;
+        flex-direction: row;
+        margin-right: 15px;
+      }
+    }
   }
+}
+
+.hide {
+  display: none !important;
 }
 
 .material-icons.md-18 { font-size: 18px; }
@@ -205,11 +221,6 @@ ul.list {
   flex-direction: row;
   flex-wrap: wrap;
   margin-bottom: 10px;
-
-  &.title-icon {
-    justify-content: space-between;
-    align-items: center;
-  }
 }
 
 .card {

@@ -63,6 +63,10 @@ class TodoifyApi {
     return this.request.post('/todos', data)
   }
 
+  deleteTodo = (data) => {
+    return this.request.delete('/todos/' + data)
+  }
+
   getCategories = () => {
     return this.request.get('/categories')
   }

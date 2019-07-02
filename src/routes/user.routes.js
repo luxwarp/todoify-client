@@ -1,4 +1,4 @@
-import Store from '@/store/store.js'
+import Store from '@/store/store'
 import UserView from '@/views/UserView'
 import UserLogin from '@/components/user/UserLogin'
 import UserRegister from '@/components/user/UserRegister'

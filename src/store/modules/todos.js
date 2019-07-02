@@ -39,6 +39,15 @@ const actions = {
     } catch (error) {
       commit('createNotifier', { type: 'error', message: error.response.data.errors.message })
     }
+  },
+  async deleteTodo ({ commit, dispatch }, data) {
+    try {
+      await window.$todoify.deleteTodo(data)
+      dispatch('getTodos')
+      commit('createNotifier', { type: 'success', message: 'To-do deleted.' })
+    } catch (error) {
+      commit('createNotifier', { type: 'error', message: error.response.data.errors.message })
+    }
   }
 
 }

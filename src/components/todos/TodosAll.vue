@@ -8,6 +8,12 @@
       <li v-for="todo in todos"
         :key="todo._id"
         tag="li">
+        <div class="toolsContainer">
+          <i class="material-icons" @click="toggleTools(todo._id)">more_vert</i>
+          <div class="tools hide" :ref="todo._id">
+            <router-link :to="{ name: 'todos.delete', params: { todoId: todo._id }}" class="link alert">Delete</router-link>
+          </div>
+        </div>
         <div class="title">{{todo.title}}</div>
         <div class="badge">{{todo.category ? todo.category.title : 'Uncategorized'}}</div>
       </li>
@@ -34,6 +40,9 @@ export default {
   methods: {
     addNewTodo (data) {
       this.$store.dispatch('createTodo', { title: data.title, category: data.category })
+    },
+    toggleTools (id) {
+      this.$refs[id][0].classList.toggle('hide')
     }
   }
 }
