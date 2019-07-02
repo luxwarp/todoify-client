@@ -5,7 +5,7 @@
 ## Intro
 
 This is Todoify Client, a front-end built with VueJS that requires a API connection to our [Todoify Server](https://github.com/luxwarp/todoify-server).
-Todoify is a simple but great to-do web app that let's you organize your task with categories.
+Todoify is a simple but great to-do web app that let's you organize your tasks with categories.
 
 Do you want try out Todoify Client live you can visit [todoify.luxwarp.info](https://todoify.luxwarp.info).
 
