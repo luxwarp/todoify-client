@@ -7,14 +7,15 @@ const getters = {
   getToken (state) {
     return state.token
   },
-  isAuth: (state) => () => {
-    return (state.token && window.$cookies.isKey('token'))
+  isAuth: (state, getters) => () => {
+    return (getters.getToken && window.$cookies.isKey('token'))
   }
 }
 
 const mutations = {
   setToken (state, token) {
     state.token = token
+    window.$cookies.set('token', token, '1h')
   }
 
 }
@@ -24,7 +25,6 @@ const actions = {
     try {
       const response = await window.$todoify.authenticate(data)
       commit('setToken', response.data.data.token)
-      window.$cookies.set('token', response.data.data.token, '1h')
       dispatch('syncWithServer')
       Router.push({ name: 'user.profile' })
     } catch (error) {

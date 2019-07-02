@@ -8,7 +8,9 @@ class TodoifyApi {
       headers: {
         'Content-Type': 'application/json'
       },
-      token: null
+      reqHandler: this.reqHandler,
+      resHandler: this.resHandler,
+      errorHandler: this.errorHandler
     }
     const config = { ...defaultConfig, ...options }
     this.request = Axios.create({
@@ -16,20 +18,21 @@ class TodoifyApi {
       headers: config.headers
     })
 
-    this.request.interceptors.request.use(reqConfig => {
-      if (config.token) {
-        reqConfig.headers.Authorization = config.token
-      }
-      return reqConfig
-    }, error => {
-      return Promise.reject(error)
-    })
+    this.request.interceptors.request.use(config.reqHandler, config.errorHandler)
 
-    this.request.interceptors.response.use(response => {
-      return response
-    }, (error) => {
-      return Promise.reject(error)
-    })
+    this.request.interceptors.response.use(config.resHandler, config.errorHandler)
+  }
+
+  reqHandler = (config) => {
+    return config
+  }
+
+  resHandler = (response) => {
+    return response
+  }
+
+  errorHandler = (error) => {
+    return Promise.reject(error)
   }
 
   testConnection = (resource = '/', method = 'get') => {
