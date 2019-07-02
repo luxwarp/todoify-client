@@ -1,3 +1,5 @@
+// This is deprecated, using TodoifyApi plugin instead.
+
 import Axios from 'axios'
 import Store from '@/store/store'
 
