@@ -67,6 +67,7 @@ export default {
 
 <style lang="scss">
 .addNewContainer {
+  align-self: flex-start;
   cursor: pointer;
 
   > .modal {
