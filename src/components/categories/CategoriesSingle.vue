@@ -1,9 +1,11 @@
 <template>
   <div class="container" v-if="category">
-    <h2 class="title">Category: {{ category.title }} </h2>
+      <div class="title">
+        <h2>Category: {{ category.title }}</h2>
+    </div>
 
     <AddNew type="to-do" @submit="addNewTodo">
-      <button class="button primary">Add to-do <i class="material-icons">add</i></button>
+      <button class="button success">Add to-do <i class="material-icons">add</i></button>
     </AddNew>
     <div class="todos">
       <ul class="list" v-if="todos.length">

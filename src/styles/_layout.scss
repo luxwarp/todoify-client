@@ -17,7 +17,7 @@ html, body {
   font-size: $globalFontSize;
 }
 
-a {
+a, .link {
   color: $defaultLinkColor;
   text-decoration: none;
   cursor: pointer;
@@ -25,6 +25,10 @@ a {
   &:hover, &:active {
     text-decoration: underline;
     color: lighten($defaultLinkColor, $amount: 10);
+  }
+
+  &.alert {
+    color: red;
   }
 }
 
@@ -75,6 +79,10 @@ ul.list {
     align-items: center;
     transition: all 0.5s;
     border-bottom: $listItemBorderBottom;
+    
+    &:only-child {
+      border-bottom: 0px;
+    }
 
     > .title {
       width: 100%;
@@ -172,6 +180,10 @@ ul.list {
   flex-direction: column;
 
   > .title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
     font-weight: 400;
     color: $containerTitleFontColor;

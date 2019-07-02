@@ -74,8 +74,6 @@ class TodoifyApi {
 
 export default {
   install (Vue, options) {
-    console.log('installing Todoify Api Plugin')
-
     const todoify = new TodoifyApi(options)
 
     Vue.prototype.$todoify = todoify
