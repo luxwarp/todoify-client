@@ -2,7 +2,7 @@
   <div class="container">
     <h2 class="title">Categories</h2>
     <AddNew type="category" @submit="addNewCategory">
-      <button class="button primary">Add category <i class="material-icons" title="Add a new category">add</i></button>
+      <button class="button success">Add category <i class="material-icons" title="Add a new category">add</i></button>
     </AddNew>
     <ul class="list" v-if="categories.length">
     <router-link :to="{ name: 'categories.single', params: { categoryId: category._id }}"

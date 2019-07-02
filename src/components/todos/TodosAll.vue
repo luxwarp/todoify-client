@@ -2,7 +2,7 @@
   <div class="container">
     <h2 class="title"> To-do's </h2>
     <AddNew type="to-do" :categories="categories" @submit="addNewTodo">
-      <button class="button primary">Add to-do <i class="material-icons">add</i></button>
+      <button class="button success">Add to-do <i class="material-icons">add</i></button>
     </AddNew>
     <ul class="list" v-if="todos.length">
       <li v-for="todo in todos"
