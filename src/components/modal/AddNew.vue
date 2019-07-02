@@ -12,7 +12,7 @@
             </h3>
           <div class="body">
             <form @submit.prevent="onSubmit">
-              <input v-model="title" type="text" placeholder="Enter a title" required autofocus>
+              <input v-model="title" type="text" placeholder="Enter a title" required v-focus>
               <div class="row" v-if="categories.length">
               <label>Category: </label>
                 <select v-model="category">

@@ -1,3 +1,5 @@
+import Store from '@/store/store'
 export default (error) => {
-  Promise.reject(error)
+  Store.commit('hideRequestStatus')
+  return Promise.reject(error)
 }

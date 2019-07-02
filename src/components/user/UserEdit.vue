@@ -4,7 +4,7 @@
       <h2 class="title">Edit user</h2>
       <div class="body">
         <form @submit.prevent="onSubmit">
-          <input :value="userInfo.name" @input="updateLocalUser($event)" id="name" type="text" placeholder="Name" autofocus />
+          <input :value="userInfo.name" @input="updateLocalUser($event)" id="name" type="text" placeholder="Name" v-focus />
           <input :value="userInfo.email" @input="updateLocalUser($event)" id="email" type="email" placeholder="Email" required />
           <input :value="userInfo.password" @input="updateLocalUser($event)" id="password" type="password" placeholder="Password" />
           <button class="button primary" type="submit">

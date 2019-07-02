@@ -4,7 +4,7 @@
       <h2 class="title">Register</h2>
       <div class="body">
         <form @submit.prevent="onSubmit">
-          <input v-model="email" type="email" placeholder="Email" required autofocus />
+          <input v-model="email" type="email" placeholder="Email" required v-focus />
           <input v-model="password" type="password" placeholder="Password" required />
           <button class="button primary" type="submit" :disabled="isButtonDisable">
             Register

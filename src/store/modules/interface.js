@@ -1,6 +1,6 @@
 const state = {
   showMainNav: window.screen.width > 1024 || false,
-  requestStatus: false,
+  requestStatus: 0,
   notifiers: []
 }
 
@@ -9,7 +9,7 @@ const getters = {
     return state.showMainNav
   },
   getRequestStatus (state) {
-    return state.requestStatus
+    return state.requestStatus > 0
   },
   getNotifiers (state) {
     return state.notifiers
@@ -29,10 +29,10 @@ const mutations = {
     state.showMainNav = false
   },
   showRequestStatus (state) {
-    state.requestStatus = true
+    state.requestStatus += 1
   },
   hideRequestStatus (state) {
-    state.requestStatus = false
+    state.requestStatus -= 1
   },
   createNotifier (state, note) {
     if (!state.notifiers.some(notifier => notifier.message === (note.message))) {
