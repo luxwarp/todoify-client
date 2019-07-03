@@ -28,7 +28,7 @@ const actions = {
     try {
       const response = await window.$todoify.updateUser(data)
       commit('setUserInfo', response.data.data)
-      Router.push('/user')
+      Router.push({ name: 'user.profile' })
     } catch (error) {
       commit('createNotifier', { type: 'error', message: error.response.data.errors.message })
     }

@@ -6,7 +6,7 @@
         <form @submit.prevent="onSubmit">
           <input :value="userInfo.name" @input="updateLocalUser($event)" id="name" type="text" placeholder="Name" v-focus />
           <input :value="userInfo.email" @input="updateLocalUser($event)" id="email" type="email" placeholder="Email" required />
-          <input :value="userInfo.password" @input="updateLocalUser($event)" id="password" type="password" placeholder="Password" />
+          <input :value="userInfo.password" @input="updateLocalUser($event)" id="password" type="password" placeholder="New password" />
           <button class="button primary" type="submit">
             Update user
             <i class="material-icons">
@@ -40,6 +40,10 @@ export default {
       this.$set(this.user, e.target.id, e.target.value)
     },
     onSubmit () {
+      if (!this.user.password.trim()) {
+        delete this.user.password
+      }
+      console.log(this.user.password)
       this.$store.dispatch('updateUser', this.user)
     }
   }

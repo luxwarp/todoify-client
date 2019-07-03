@@ -35,7 +35,7 @@ const actions = {
     try {
       const response = await window.$todoify.register(data)
       commit('createNotifier', { type: 'success', message: response.data.message })
-      Router.push('/login')
+      Router.push({ name: 'user.login' })
     } catch (error) {
       console.log(error)
     }
