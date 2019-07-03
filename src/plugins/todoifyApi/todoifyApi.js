@@ -55,8 +55,12 @@ class TodoifyApi {
     return this.request.patch('/users', data)
   }
 
-  getTodos = () => {
-    return this.request.get('/todos')
+  deleteUser = () => {
+    return this.request.delete('/users')
+  }
+
+  getTodos = (query = '') => {
+    return this.request.get('/todos' + query)
   }
 
   createTodo = (data) => {
@@ -67,8 +71,8 @@ class TodoifyApi {
     return this.request.delete('/todos/' + data)
   }
 
-  getCategories = () => {
-    return this.request.get('/categories')
+  getCategories = (query = '') => {
+    return this.request.get('/categories' + query)
   }
 
   createCategory = (data) => {

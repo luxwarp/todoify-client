@@ -26,7 +26,7 @@ const mutations = {
 const actions = {
   async getTodos ({ commit }) {
     try {
-      const response = await window.$todoify.getTodos()
+      const response = await window.$todoify.getTodos('?populate=category&sort[createdAt]=desc')
       commit('setTodos', response.data.data)
     } catch (error) {
       console.log(error)

@@ -58,6 +58,20 @@ export default [
           title: 'Edit user',
           requiresAuth: true
         }
+      },
+      {
+        path: 'delete',
+        name: 'user.delete',
+        meta: {
+          requiresAuth: true
+        },
+        beforeEnter: (to, from, next) => {
+          if (confirm(`Are you sure you want to delete this user?\nAll data will be lost and it's not possible to restore.`)) {
+            Store.dispatch('deleteUser')
+          }
+
+          next(false)
+        }
       }
     ]
   }

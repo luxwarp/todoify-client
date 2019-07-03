@@ -15,6 +15,7 @@
           </button>
         </form>
         <a @click="$router.go(-1)">Back</a>
+        <router-link :to="{ name: 'user.delete' }" class="link alert" style="float: right;">Delete user</router-link>
       </div>
     </div>
   </div>

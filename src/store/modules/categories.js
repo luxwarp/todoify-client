@@ -20,7 +20,7 @@ const mutations = {
 const actions = {
   async getCategories ({ commit }) {
     try {
-      const response = await window.$todoify.getCategories()
+      const response = await window.$todoify.getCategories('?sort[title]=asc')
       commit('setCategories', response.data.data)
     } catch (error) {
       console.log(error)
@@ -31,7 +31,7 @@ const actions = {
       await window.$todoify.createCategory({ title })
       dispatch('getCategories')
     } catch (error) {
-      commit('createNotifier', { type: 'error', message: error.response.data.errors.message })
+      console.log(error)
     }
   },
   async deleteCategory ({ commit, dispatch }, id) {
@@ -41,7 +41,7 @@ const actions = {
       dispatch('getTodos')
       commit('createNotifier', { type: 'success', message: 'Category deleted.' })
     } catch (error) {
-      commit('createNotifier', { type: 'error', message: error.response.data.errors.message })
+      console.log(error)
     }
   }
 }

@@ -41,6 +41,11 @@ const actions = {
     commit('setTodos', [])
     commit('createNotifier', { type: 'success', message: 'Logout successful' })
     Router.push({ name: 'user.login' })
+  },
+  async deleteUser ({ commit, dispatch }) {
+    await window.$todoify.deleteUser()
+    commit('createNotifier', { type: 'success', message: 'User account is deleted. Welcome back!' })
+    dispatch('logout')
   }
 
 }

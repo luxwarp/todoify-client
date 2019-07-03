@@ -28,7 +28,7 @@ const actions = {
       dispatch('syncWithServer')
       Router.push({ name: 'user.profile' })
     } catch (error) {
-      commit('createNotifier', { type: 'error', message: error.response.data.errors.message })
+      console.log(error)
     }
   },
   async register ({ commit }, data) {
@@ -37,7 +37,7 @@ const actions = {
       commit('createNotifier', { type: 'success', message: response.data.message })
       Router.push('/login')
     } catch (error) {
-      commit('createNotifier', { type: 'error', message: error.response.data.errors.message })
+      console.log(error)
     }
   },
   async syncWithServer ({ dispatch }) {
