@@ -33,6 +33,16 @@ const actions = {
     } catch (error) {
       commit('createNotifier', { type: 'error', message: error.response.data.errors.message })
     }
+  },
+  async deleteCategory ({ commit, dispatch }, id) {
+    try {
+      await window.$todoify.deleteCategory(id)
+      dispatch('getCategories')
+      dispatch('getTodos')
+      commit('createNotifier', { type: 'success', message: 'Category deleted.' })
+    } catch (error) {
+      commit('createNotifier', { type: 'error', message: error.response.data.errors.message })
+    }
   }
 }
 

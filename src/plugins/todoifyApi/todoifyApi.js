@@ -74,6 +74,10 @@ class TodoifyApi {
   createCategory = (data) => {
     return this.request.post('/categories', data)
   }
+
+  deleteCategory = (data) => {
+    return this.request.delete('/categories/' + data)
+  }
 }
 
 export default {

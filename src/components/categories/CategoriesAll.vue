@@ -5,13 +5,20 @@
       <button class="button success">Add category <i class="material-icons" title="Add a new category">add</i></button>
     </AddNew>
     <ul class="list" v-if="categories.length">
-    <router-link :to="{ name: 'categories.single', params: { categoryId: category._id }}"
+    <li :to="{ name: 'categories.single', params: { categoryId: category._id }}"
       v-for="category in categories"
-      :key="category._id"
-      tag="li">
-      <div class="title">{{ category.title }}</div>
+      :key="category._id">
+      <ToolBox>
+          <template v-slot:toggle>
+            <i class="material-icons">more_vert</i>
+          </template>
+          <template v-slot:tools>
+              <router-link :to="{ name: 'categories.delete', params: { categoryId: category._id }}" class="link alert">Delete</router-link>
+            </template>
+        </ToolBox>
+      <router-link :to="{ name: 'categories.single', params: { categoryId: category._id }}" class="title">{{ category.title }}</router-link>
       <div class="badge">{{ todoCount(category._id) }}</div>
-    </router-link>
+    </li>
   </ul>
   <p v-else>No categories found</p>
   </div>
@@ -20,10 +27,12 @@
 <script>
 import { mapGetters } from 'vuex'
 import AddNew from '@/components/modal/AddNew'
+import ToolBox from '@/components/toolbox/ToolBox'
 export default {
   name: 'CategoriesAll',
   components: {
-    AddNew
+    AddNew,
+    ToolBox
   },
   computed: {
     ...mapGetters({

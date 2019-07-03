@@ -87,8 +87,6 @@ ul.list {
 
     > .title {
       flex: 1;
-      font-weight: bold;
-      font-size: 1rem;
     }
 
     > .badge {
@@ -105,23 +103,20 @@ ul.list {
       background: darken($listItemBgColor, $amount: 3);
       cursor: pointer;
     }
-
-    > .toolsContainer {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-
-      > .tools {
-        display: flex;
-        flex-direction: row;
-        margin-right: 15px;
-      }
-    }
   }
 }
 
 .hide {
   display: none !important;
+}
+
+.reverse {
+  flex-direction: row-reverse
+}
+
+.center {
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .material-icons.md-18 { font-size: 18px; }
@@ -199,6 +194,7 @@ ul.list {
   > .title {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     width: 100%;
@@ -211,10 +207,6 @@ ul.list {
     width: 100%;
     max-width: 500px;
   }
-}
-
-.center {
-  margin: auto 0;
 }
 
 .row {
