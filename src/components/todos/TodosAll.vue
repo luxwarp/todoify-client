@@ -8,12 +8,11 @@
       <li v-for="todo in todos"
         :key="todo._id"
         tag="li">
-        <div class="toolsContainer">
-          <i class="material-icons" @click="toggleTools(todo._id)">more_vert</i>
-          <div class="tools hide" :ref="todo._id">
+        <ToolBox>
+          <template v-slot:tools>
             <router-link :to="{ name: 'todos.delete', params: { todoId: todo._id }}" class="link alert">Delete</router-link>
-          </div>
-        </div>
+          </template>
+        </ToolBox>
         <div class="title">{{todo.title}}</div>
         <div class="badge">{{todo.category ? todo.category.title : 'Uncategorized'}}</div>
       </li>
@@ -24,10 +23,12 @@
 
 <script>
 import AddNew from '@/components/modal/AddNew'
+import ToolBox from '@/components/toolbox/ToolBox'
 export default {
   name: 'TodosAll',
   components: {
-    AddNew
+    AddNew,
+    ToolBox
   },
   computed: {
     todos () {

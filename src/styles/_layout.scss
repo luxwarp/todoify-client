@@ -76,6 +76,7 @@ ul.list {
     padding: 15px;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     transition: all 0.5s;
     border-bottom: $listItemBorderBottom;
@@ -85,6 +86,7 @@ ul.list {
     }
 
     > .title {
+      flex: 1;
       font-weight: bold;
       font-size: 1rem;
     }
@@ -97,7 +99,6 @@ ul.list {
       padding: 2px 10px;
       border-radius: 5px;
       text-align: center;
-      margin-left: auto;
     }
 
     &:hover, &:active{
