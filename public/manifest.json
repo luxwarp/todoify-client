@@ -2,6 +2,7 @@
   "name": "Todoify",
   "short_name": "Todoify",
   "description": "A simple To-do web app with categories.",
+  "categories": ["productivity"],
   "start_url": "./",
   "scope": ".",
   "display": "standalone",
