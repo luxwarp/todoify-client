@@ -2,9 +2,10 @@
   "name": "Todoify",
   "short_name": "Todoify",
   "description": "A simple To-do web app with categories.",
-  "start_url": "./index.html",
+  "start_url": "./",
+  "scope": ".",
   "display": "standalone",
-  "background_color": "#000000",
+  "background_color": "#0E2B44",
   "theme_color": "#0E2B44",
   "icons": [
     {
