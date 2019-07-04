@@ -3,10 +3,10 @@
     <div class="card">
       <h2 class="title">Edit user</h2>
       <div class="body">
-        <form @submit.prevent="onSubmit">
-          <input :value="userInfo.name" @input="updateLocalUser($event)" id="name" type="text" placeholder="Name" v-focus />
-          <input :value="userInfo.email" @input="updateLocalUser($event)" id="email" type="email" placeholder="Email" required />
-          <input :value="userInfo.password" @input="updateLocalUser($event)" id="password" type="password" placeholder="New password" />
+        <form @submit.prevent="onSubmit" autocomplete="off">
+          <input :value="userInfo.name" @input="updateLocalUser($event)" id="name" type="text" placeholder="Name" name="new-name" v-focus autocomplete="off" />
+          <input :value="userInfo.email" @input="updateLocalUser($event)" id="email" type="email" placeholder="Email" name="new-email" required autocomplete="off" />
+          <input :value="userInfo.password" @input="updateLocalUser($event)" id="password" type="password" name="new-password" placeholder="New password" autocomplete="new-password" />
           <button class="button primary" type="submit">
             Update user
             <i class="material-icons">
@@ -40,10 +40,9 @@ export default {
       this.$set(this.user, e.target.id, e.target.value)
     },
     onSubmit () {
-      if (!this.user.password.trim()) {
+      if (this.user.password && !this.user.password.trim()) {
         delete this.user.password
       }
-      console.log(this.user.password)
       this.$store.dispatch('updateUser', this.user)
     }
   }
