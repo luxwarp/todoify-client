@@ -1,6 +1,5 @@
 // vue.config.js
 module.exports = {
-  lintOnSave: false,
   publicPath: '/',
   css: {
     loaderOptions: {
