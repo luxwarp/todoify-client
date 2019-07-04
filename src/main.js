@@ -10,7 +10,6 @@ import errorHandler from '@/helpers/errorHandler'
 import 'material-design-icons/iconfont/material-icons.css'
 import 'normalize.css'
 import '@/styles/_layout.scss'
-import './registerServiceWorker'
 
 Vue.config.productionTip = false
 
