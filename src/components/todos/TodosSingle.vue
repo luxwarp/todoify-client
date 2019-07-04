@@ -1,6 +1,8 @@
 <template>
-  <div>
-    <p>specific to-do</p>
+  <div class="container">
+    <div class="title">
+      <h2>Specific todo</h2>
+    </div>
   </div>
 </template>
 

@@ -1,15 +1,15 @@
 <template>
   <div class="container" v-if="category">
-      <div class="title">
-        <h2>Category: {{ category.title }}</h2>
-        <ToolBox class="reverse" animation="slideInLeft">
-          <template v-slot:toggle>
-            <i class="material-icons">settings</i>
+    <div class="title">
+      <h2>Category: {{ category.title }}</h2>
+      <ToolBox class="reverse" animation="slideInLeft">
+        <template v-slot:toggle>
+          <i class="material-icons">settings</i>
+        </template>
+        <template v-slot:tools>
+            <router-link :to="{ name: 'categories.delete', params: { categoryId: category._id }}" class="link alert">Delete</router-link>
           </template>
-          <template v-slot:tools>
-              <router-link :to="{ name: 'categories.delete', params: { categoryId: category._id }}" class="link alert">Delete</router-link>
-            </template>
-        </ToolBox>
+      </ToolBox>
     </div>
 
     <AddNew type="to-do" @submit="addNewTodo">

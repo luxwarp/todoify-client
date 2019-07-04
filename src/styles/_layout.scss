@@ -200,6 +200,10 @@ ul.list {
     width: 100%;
     font-weight: 400;
     color: $containerTitleFontColor;
+
+    > h2 {
+      font-weight: inherit;
+    }
   }
 
   > .card {

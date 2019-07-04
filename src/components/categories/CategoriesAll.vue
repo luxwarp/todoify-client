@@ -1,6 +1,8 @@
 <template>
   <div class="container">
-    <h2 class="title">Categories</h2>
+    <div class="title">
+      <h2>Categories</h2>
+    </div>
     <AddNew type="category" @submit="addNewCategory">
       <button class="button success">Add category <i class="material-icons" title="Add a new category">add</i></button>
     </AddNew>
