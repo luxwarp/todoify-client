@@ -9,8 +9,7 @@ class TodoifyApi {
         'Content-Type': 'application/json'
       },
       reqHandler: this.reqHandler,
-      resHandler: this.resHandler,
-      errorHandler: this.errorHandler
+      resHandler: this.resHandler
     }
     const config = { ...defaultConfig, ...options }
     this.request = Axios.create({
@@ -18,21 +17,27 @@ class TodoifyApi {
       headers: config.headers
     })
 
-    this.request.interceptors.request.use(config.reqHandler, config.errorHandler)
+    this.request.interceptors.request.use(config.reqHandler.config, config.reqHandler.error)
 
-    this.request.interceptors.response.use(config.resHandler, config.errorHandler)
+    this.request.interceptors.response.use(config.resHandler.response, config.resHandler.error)
   }
 
-  reqHandler = (config) => {
-    return config
+  reqHandler = {
+    config: (config) => {
+      return config
+    },
+    error: (error) => {
+      return Promise.reject(error)
+    }
   }
 
-  resHandler = (response) => {
-    return response
-  }
-
-  errorHandler = (error) => {
-    return Promise.reject(error)
+  resHandler = {
+    response: (response) => {
+      return response
+    },
+    error: (error) => {
+      return Promise.reject(error)
+    }
   }
 
   testConnection = (resource = '/', method = 'get') => {
@@ -41,6 +46,10 @@ class TodoifyApi {
 
   authenticate = (data) => {
     return this.request.post('/users/authenticate', data)
+  }
+
+  refreshToken = (refreshToken = '') => {
+    return this.request.post('/users/refreshToken', { refreshToken: refreshToken })
   }
 
   register = (data) => {

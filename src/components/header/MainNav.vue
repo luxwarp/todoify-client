@@ -57,8 +57,8 @@ export default {
   name: 'MainNav',
   computed: {
     ...mapGetters({
-      isAuth: 'isAuth',
-      categories: 'getCategories'
+      categories: 'getCategories',
+      isAuth: 'isAuth'
     }),
     showMainNav () {
       return this.$store.getters.showMainNav

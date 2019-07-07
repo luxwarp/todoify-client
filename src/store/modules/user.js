@@ -33,10 +33,8 @@ const actions = {
       commit('createNotifier', { type: 'error', message: error.response.data.errors.message })
     }
   },
-  logout ({ commit }) {
-    commit('setAccessToken', null)
-    window.$cookies.remove('accessToken')
-    window.$cookies.remove('refreshToken')
+  logout ({ commit, dispatch }) {
+    commit('clearTokens')
     commit('setUserInfo', {})
     commit('setCategories', [])
     commit('setTodos', [])

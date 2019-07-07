@@ -29,7 +29,8 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
     if (!Store.getters.isAuth()) {
-      next({ name: 'user.logout', query: { redirect: to.fullPath } })
+      Store.commit('createNotifier', { type: 'warning', message: 'Not authorized, please login.' })
+      next({ name: 'user.logout' })
     }
   }
   next()

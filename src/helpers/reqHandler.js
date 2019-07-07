@@ -1,8 +1,21 @@
 import Store from '@/store/store'
-export default (config) => {
-  Store.commit('showRequestStatus')
-  if (Store.getters.isAuth()) {
-    config.headers.Authorization = Store.getters.getAccessToken
+
+const requestHandler = {
+  config: (config) => {
+    Store.commit('showRequestStatus')
+
+    if (window.$cookies.isKey('accessToken')) {
+      config.headers.Authorization = window.$cookies.get('accessToken')
+    }
+
+    return config
+  },
+  error: (error) => {
+    Store.commit('hideRequestStatus')
+
+    Store.commit('createNotifier', { type: 'error', message: error.message })
+    return Promise.reject(error)
   }
-  return config
 }
+
+export default requestHandler

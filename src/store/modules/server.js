@@ -1,21 +1,28 @@
 import Router from '@/router'
 import JWTDecode from 'jwt-decode'
 const state = {
-  accessToken: window.$cookies.get('accessToken') || null
 }
 
 const getters = {
-  getAccessToken (state) {
-    return state.accessToken
-  },
-  isAuth: (state, getters) => () => {
-    return (getters.getAccessToken && window.$cookies.isKey('accessToken'))
+  isAuth: (state) => () => {
+    return window.$cookies.isKey('refreshToken')
   }
 }
 
 const mutations = {
-  setAccessToken (state, token) {
-    state.accessToken = token
+  setTokens (state, tokens) {
+    const decodedAccesToken = JWTDecode(tokens.accessToken)
+    const decodedRefreshToken = JWTDecode(tokens.refreshToken)
+    let accesstime = new Date(0)
+    accesstime.setUTCSeconds(decodedAccesToken.exp)
+    let refreshtime = new Date(0)
+    refreshtime.setUTCSeconds(decodedRefreshToken.exp)
+    window.$cookies.set('accessToken', tokens.accessToken, accesstime)
+    window.$cookies.set('refreshToken', tokens.refreshToken, refreshtime)
+  },
+  clearTokens (state) {
+    window.$cookies.remove('accessToken')
+    window.$cookies.remove('refreshToken')
   }
 }
 
@@ -23,15 +30,7 @@ const actions = {
   async login ({ commit, dispatch }, data) {
     try {
       const response = await window.$todoify.authenticate({ ...data, refreshToken: true })
-      commit('setAccessToken', response.data.data.accessToken)
-      const decodedAccesToken = JWTDecode(response.data.data.accessToken)
-      const decodedRefreshToken = JWTDecode(response.data.data.refreshToken)
-      let accesstime = new Date(0)
-      accesstime.setUTCSeconds(decodedAccesToken.exp)
-      let refreshtime = new Date(0)
-      refreshtime.setUTCSeconds(decodedRefreshToken.exp)
-      window.$cookies.set('accessToken', response.data.data.accessToken, accesstime)
-      window.$cookies.set('refreshToken', response.data.data.refreshToken, refreshtime)
+      commit('setTokens', response.data.data)
       dispatch('syncWithServer')
       Router.push({ name: 'user.profile' })
     } catch (error) {
@@ -47,10 +46,25 @@ const actions = {
       console.log(error)
     }
   },
-  async syncWithServer ({ dispatch }) {
+  syncWithServer ({ dispatch }) {
     dispatch('getUser')
     dispatch('getTodos')
     dispatch('getCategories')
+    dispatch('refreshToken')
+  },
+  async refreshToken ({ commit }) {
+    try {
+      if (window.$cookies.isKey('refreshToken')) {
+        const response = await window.$todoify.refreshToken(window.$cookies.get('refreshToken'))
+        commit('setTokens', response.data.data)
+        return true
+      } else {
+        throw Error('No refresh token.')
+      }
+    } catch (error) {
+      Router.push({ name: 'user.logout' })
+      return false
+    }
   }
 }
 
