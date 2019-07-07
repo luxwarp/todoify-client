@@ -4,6 +4,7 @@ import UserLogin from '@/components/user/UserLogin'
 import UserRegister from '@/components/user/UserRegister'
 import UserProfile from '@/components/user/UserProfile'
 import UserEdit from '@/components/user/UserEdit'
+import UserDelete from '@/components/user/UserDelete'
 
 export default [
   {
@@ -62,15 +63,10 @@ export default [
       {
         path: 'delete',
         name: 'user.delete',
+        component: UserDelete,
         meta: {
-          requiresAuth: true
-        },
-        beforeEnter: (to, from, next) => {
-          if (confirm(`Are you sure you want to delete this user?\nAll data will be lost and it's not possible to restore.`)) {
-            Store.dispatch('deleteUser')
-          }
-
-          next(false)
+          requiresAuth: true,
+          title: 'Delete user'
         }
       }
     ]

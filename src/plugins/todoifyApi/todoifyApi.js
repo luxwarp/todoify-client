@@ -55,16 +55,16 @@ class TodoifyApi {
     return this.request.patch('/users', data)
   }
 
-  deleteUser = () => {
-    return this.request.delete('/users')
+  deleteUser = (password) => {
+    return this.request.delete('/users', { data: { password: password } })
   }
 
   getTodos = (query = '') => {
     return this.request.get('/todos' + query)
   }
 
-  createTodo = (data) => {
-    return this.request.post('/todos', data)
+  createTodo = (data, query = '') => {
+    return this.request.post('/todos' + query, data)
   }
 
   deleteTodo = (data) => {

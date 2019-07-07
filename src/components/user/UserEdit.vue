@@ -6,7 +6,8 @@
         <form @submit.prevent="onSubmit" autocomplete="off">
           <input :value="userInfo.name" @input="updateLocalUser($event)" id="name" type="text" placeholder="Name" name="new-name" v-focus autocomplete="off" />
           <input :value="userInfo.email" @input="updateLocalUser($event)" id="email" type="email" placeholder="Email" name="new-email" required autocomplete="off" />
-          <input :value="userInfo.password" @input="updateLocalUser($event)" id="password" type="password" name="new-password" placeholder="New password" autocomplete="new-password" />
+          <input @input="updateLocalUser($event)" id="newPassword" type="password" name="new-password" placeholder="New password" autocomplete="new-password" />
+          <input @input="updateLocalUser($event)" id="password" type="password" name="password" placeholder="Current password" required autocomplete="current-password" />
           <button class="button primary" type="submit">
             Update user
             <i class="material-icons">

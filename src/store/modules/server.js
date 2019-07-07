@@ -1,30 +1,37 @@
 import Router from '@/router'
+import JWTDecode from 'jwt-decode'
 const state = {
-  token: window.$cookies.get('token') || null
+  accessToken: window.$cookies.get('accessToken') || null
 }
 
 const getters = {
-  getToken (state) {
-    return state.token
+  getAccessToken (state) {
+    return state.accessToken
   },
   isAuth: (state, getters) => () => {
-    return (getters.getToken && window.$cookies.isKey('token'))
+    return (getters.getAccessToken && window.$cookies.isKey('accessToken'))
   }
 }
 
 const mutations = {
-  setToken (state, token) {
-    state.token = token
-    window.$cookies.set('token', token, '1h')
+  setAccessToken (state, token) {
+    state.accessToken = token
   }
-
 }
 
 const actions = {
   async login ({ commit, dispatch }, data) {
     try {
-      const response = await window.$todoify.authenticate(data)
-      commit('setToken', response.data.data.token)
+      const response = await window.$todoify.authenticate({ ...data, refreshToken: true })
+      commit('setAccessToken', response.data.data.accessToken)
+      const decodedAccesToken = JWTDecode(response.data.data.accessToken)
+      const decodedRefreshToken = JWTDecode(response.data.data.refreshToken)
+      let accesstime = new Date(0)
+      accesstime.setUTCSeconds(decodedAccesToken.exp)
+      let refreshtime = new Date(0)
+      refreshtime.setUTCSeconds(decodedRefreshToken.exp)
+      window.$cookies.set('accessToken', response.data.data.accessToken, accesstime)
+      window.$cookies.set('refreshToken', response.data.data.refreshToken, refreshtime)
       dispatch('syncWithServer')
       Router.push({ name: 'user.profile' })
     } catch (error) {

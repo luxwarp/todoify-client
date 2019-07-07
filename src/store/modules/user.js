@@ -34,18 +34,23 @@ const actions = {
     }
   },
   logout ({ commit }) {
-    commit('setToken', null)
-    window.$cookies.remove('token')
+    commit('setAccessToken', null)
+    window.$cookies.remove('accessToken')
+    window.$cookies.remove('refreshToken')
     commit('setUserInfo', {})
     commit('setCategories', [])
     commit('setTodos', [])
     commit('createNotifier', { type: 'success', message: 'Logout successful' })
     Router.push({ name: 'user.login' })
   },
-  async deleteUser ({ commit, dispatch }) {
-    await window.$todoify.deleteUser()
-    commit('createNotifier', { type: 'success', message: 'User account is deleted. Welcome back!' })
-    dispatch('logout')
+  async deleteUser ({ commit, dispatch }, password) {
+    try {
+      await window.$todoify.deleteUser(password)
+      commit('createNotifier', { type: 'success', message: 'User account is deleted. Welcome back!' })
+      dispatch('logout')
+    } catch (error) {
+      commit('createNotifier', { type: 'error', message: error.response.data.errors.message })
+    }
   }
 
 }

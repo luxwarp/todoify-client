@@ -34,7 +34,7 @@ const actions = {
   },
   async createTodo ({ commit, dispatch }, data) {
     try {
-      await window.$todoify.createTodo({ title: data.title, category: data.category })
+      await window.$todoify.createTodo({ title: data.title, category: data.category }, '?populate=category')
       dispatch('getTodos')
     } catch (error) {
       commit('createNotifier', { type: 'error', message: error.response.data.errors.message })
@@ -49,7 +49,6 @@ const actions = {
       commit('createNotifier', { type: 'error', message: error.response.data.errors.message })
     }
   }
-
 }
 
 export default {
