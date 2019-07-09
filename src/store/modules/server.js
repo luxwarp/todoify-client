@@ -1,28 +1,38 @@
 import Router from '@/router'
 import JWTDecode from 'jwt-decode'
 const state = {
+  accessToken: window.$cookies.get('accessToken') || null,
+  refreshToken: window.$cookies.get('refreshToken') || null
 }
 
 const getters = {
   isAuth: (state) => () => {
-    return window.$cookies.isKey('refreshToken')
+    return (state.refreshToken && window.$cookies.isKey('refreshToken'))
   }
 }
 
 const mutations = {
   setTokens (state, tokens) {
-    const decodedAccesToken = JWTDecode(tokens.accessToken)
-    const decodedRefreshToken = JWTDecode(tokens.refreshToken)
-    let accesstime = new Date(0)
-    accesstime.setUTCSeconds(decodedAccesToken.exp)
-    let refreshtime = new Date(0)
-    refreshtime.setUTCSeconds(decodedRefreshToken.exp)
-    window.$cookies.set('accessToken', tokens.accessToken, accesstime)
-    window.$cookies.set('refreshToken', tokens.refreshToken, refreshtime)
+    if (tokens.accessToken) {
+      const decodedAccesToken = JWTDecode(tokens.accessToken)
+      let accesstime = new Date(0)
+      accesstime.setUTCSeconds(decodedAccesToken.exp)
+      window.$cookies.set('accessToken', tokens.accessToken, accesstime)
+      state.accessToken = tokens.accessToken
+    }
+    if (tokens.refreshToken) {
+      const decodedRefreshToken = JWTDecode(tokens.refreshToken)
+      let refreshtime = new Date(0)
+      refreshtime.setUTCSeconds(decodedRefreshToken.exp)
+      window.$cookies.set('refreshToken', tokens.refreshToken, refreshtime)
+      state.refreshToken = tokens.refreshToken
+    }
   },
   clearTokens (state) {
     window.$cookies.remove('accessToken')
     window.$cookies.remove('refreshToken')
+    state.accessToken = null
+    state.refreshToken = null
   }
 }
 
@@ -50,21 +60,6 @@ const actions = {
     dispatch('getUser')
     dispatch('getTodos')
     dispatch('getCategories')
-    dispatch('refreshToken')
-  },
-  async refreshToken ({ commit }) {
-    try {
-      if (window.$cookies.isKey('refreshToken')) {
-        const response = await window.$todoify.refreshToken(window.$cookies.get('refreshToken'))
-        commit('setTokens', response.data.data)
-        return true
-      } else {
-        throw Error('No refresh token.')
-      }
-    } catch (error) {
-      Router.push({ name: 'user.logout' })
-      return false
-    }
   }
 }
 

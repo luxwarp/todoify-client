@@ -8,14 +8,37 @@ const responseHandler = {
   },
   error: error => {
     Store.commit('hideRequestStatus')
-    // error from server like wrong username, validation etc.
-    if (error.response.status === 401) {
-      Store.commit('createNotifier', { type: 'error', message: 'Unauthorized, please login.' })
-      Router.push({ name: 'user.logout' })
+    // Return any error which is not due to authentication back to the calling service
+    if (error.response.status !== 401) {
       return Promise.reject(error)
     }
-    Store.commit('createNotifier', { type: 'error', message: error.response.data.errors.message })
-    return Promise.reject(error)
+
+    // Logout user if token refresh didn't work.
+    if (error.config.url.includes('refreshtoken')) {
+      Router.push({ name: 'user.logout' })
+      Store.commit('createNotifier', { type: 'warning', message: 'Not authorized. Please log in.' })
+      return Promise.reject(error)
+    }
+
+    // Try request again with new token
+    return window.$todoify.refreshToken(window.$cookies.get('refreshToken'))
+      .then((response) => {
+        Store.commit('setTokens', response.data.data)
+        // New request with new token
+        const config = error.config
+        config.headers.Authorization = response.data.data.accessToken
+
+        return new Promise((resolve, reject) => {
+          window.$todoify.customRequest(config).then(response => {
+            resolve(response)
+          }).catch((error) => {
+            reject(error)
+          })
+        })
+      })
+      .catch((error) => {
+        return Promise.reject(error)
+      })
   }
 }
 

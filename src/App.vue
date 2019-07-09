@@ -29,7 +29,7 @@ export default {
       }
     }
   },
-  beforeMount () {
+  created () {
     if (this.$store.getters.isAuth()) {
       this.$store.dispatch('syncWithServer')
     }

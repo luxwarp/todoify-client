@@ -3,9 +3,9 @@
     <div class="card">
       <h2 class="title">Register</h2>
       <div class="body">
-        <form @submit.prevent="onSubmit">
-          <input v-model="email" type="email" placeholder="Email" required v-focus />
-          <input v-model="password" type="password" placeholder="Password" required />
+        <form @submit.prevent="onSubmit" autocomplete="off">
+          <input v-model="email" type="email" placeholder="Email" name="email" required v-focus autocomplete="off" />
+          <input v-model="password" type="password" placeholder="Password" name="password" required autocomplete="new-password"/>
           <button class="button primary" type="submit" :disabled="isButtonDisable">
             Register
             <i class="material-icons">

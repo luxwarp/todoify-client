@@ -12,6 +12,7 @@ class TodoifyApi {
       resHandler: this.resHandler
     }
     const config = { ...defaultConfig, ...options }
+    this.config = config
     this.request = Axios.create({
       baseURL: config.baseURL,
       headers: config.headers
@@ -44,12 +45,16 @@ class TodoifyApi {
     return this.request({ url: resource, method: method })
   }
 
+  customRequest = (requestConfig) => {
+    return this.request.request(requestConfig)
+  }
+
   authenticate = (data) => {
     return this.request.post('/users/authenticate', data)
   }
 
   refreshToken = (refreshToken = '') => {
-    return this.request.post('/users/refreshToken', { refreshToken: refreshToken })
+    return this.request.post('/users/refreshtoken', { refreshToken: refreshToken })
   }
 
   register = (data) => {

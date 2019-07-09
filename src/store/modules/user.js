@@ -21,7 +21,8 @@ const actions = {
       const response = await window.$todoify.getUser()
       commit('setUserInfo', response.data.data)
     } catch (error) {
-      commit('createNotifier', { type: 'error', message: error.response.data.errors.message })
+      commit('createNotifier', { type: 'error', message: 'Could not get user.' })
+      console.log(error)
     }
   },
   async updateUser ({ commit }, data) {
@@ -30,7 +31,8 @@ const actions = {
       commit('setUserInfo', response.data.data)
       Router.push({ name: 'user.profile' })
     } catch (error) {
-      commit('createNotifier', { type: 'error', message: error.response.data.errors.message })
+      commit('createNotifier', { type: 'error', message: 'Could not update user.' })
+      console.log(error)
     }
   },
   logout ({ commit, dispatch }) {
@@ -47,7 +49,8 @@ const actions = {
       commit('createNotifier', { type: 'success', message: 'User account is deleted. Welcome back!' })
       dispatch('logout')
     } catch (error) {
-      commit('createNotifier', { type: 'error', message: error.response.data.errors.message })
+      commit('createNotifier', { type: 'error', message: 'Could not delete user.' })
+      console.log(error)
     }
   }
 

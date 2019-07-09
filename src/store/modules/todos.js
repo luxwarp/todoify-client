@@ -29,6 +29,7 @@ const actions = {
       const response = await window.$todoify.getTodos('?populate=category&sort[createdAt]=desc')
       commit('setTodos', response.data.data)
     } catch (error) {
+      commit('createNotifier', { type: 'error', message: `Could not get to-do's.` })
       console.log(error)
     }
   },
@@ -37,7 +38,8 @@ const actions = {
       await window.$todoify.createTodo({ title: data.title, category: data.category }, '?populate=category')
       dispatch('getTodos')
     } catch (error) {
-      commit('createNotifier', { type: 'error', message: error.response.data.errors.message })
+      commit('createNotifier', { type: 'error', message: 'Could not create to-do.' })
+      console.log(error)
     }
   },
   async deleteTodo ({ commit, dispatch }, data) {
@@ -46,7 +48,8 @@ const actions = {
       dispatch('getTodos')
       commit('createNotifier', { type: 'success', message: 'To-do deleted.' })
     } catch (error) {
-      commit('createNotifier', { type: 'error', message: error.response.data.errors.message })
+      commit('createNotifier', { type: 'error', message: 'Could not delete to-do.' })
+      console.log(error)
     }
   }
 }

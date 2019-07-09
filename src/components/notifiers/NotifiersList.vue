@@ -1,7 +1,9 @@
 <template>
-    <transition-group class="notifiers" name="slideInLeft">
+    <transition-group class="notifiers" name="slideInLeft" tag="div">
       <div v-for="(notifier, index) in notifiers" :key="index+1" :class="notifier.type" class="notifier">
-        <i class="material-icons"></i> <span class="message">{{ notifier.message }}</span><i class="material-icons close" @click="close(index)">close</i>
+        <i class="material-icons"></i>
+        <span class="message">{{ notifier.message }}</span>
+        <i class="material-icons close" @click="close(index)">close</i>
       </div>
     </transition-group>
 </template>
