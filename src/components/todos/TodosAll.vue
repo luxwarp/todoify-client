@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="title">
-      <h2>Categories</h2>
+      <h2>To-do's</h2>
     </div>
     <AddNew type="to-do" :categories="categories" @submit="addNewTodo">
       <button class="button success">Add to-do <i class="material-icons">add</i></button>
