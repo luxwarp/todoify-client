@@ -2,7 +2,7 @@
   <div class="container" v-if="category">
     <div class="title">
       <h2>Category: {{ category.title }}</h2>
-      <ToolBox class="reverse" animation="slideInLeft">
+      <ToolBox class="reverse">
         <template v-slot:toggle>
           <i class="material-icons">settings</i>
         </template>
@@ -11,24 +11,8 @@
           </template>
       </ToolBox>
     </div>
-
-    <AddNew type="to-do" @submit="addNewTodo">
-      <button class="button success">Add to-do <i class="material-icons">add</i></button>
-    </AddNew>
-    <div class="todos">
-      <ul class="list" v-if="todos.length">
-        <li v-for="todo in todos"
-          :key="todo._id">
-          <ToolBox>
-            <template v-slot:tools>
-              <router-link :to="{ name: 'todos.delete', params: { todoId: todo._id }}" class="link alert">Delete</router-link>
-            </template>
-        </ToolBox>
-          <div class="title">{{todo.title}}</div>
-        </li>
-      </ul>
-      <p v-else>No to-do's found.</p>
-    </div>
+    <AddNew type="to-do" @submit="addNewTodo" />
+    <TodosList :todos="todos" :showBadge="true" />
   </div>
   <div class="notFound" v-else>
     <p>Not found</p>
@@ -36,13 +20,15 @@
 </template>
 
 <script>
-import AddNew from '@/components/modal/AddNew'
 import ToolBox from '@/components/toolbox/ToolBox'
+import AddNew from '@/components/modal/AddNew'
+import TodosList from '@/components/todos/TodosList'
 export default {
-  name: 'CategoriesSingle',
+  name: 'CategoriesItemView',
   components: {
+    ToolBox,
     AddNew,
-    ToolBox
+    TodosList
   },
   computed: {
     category () {

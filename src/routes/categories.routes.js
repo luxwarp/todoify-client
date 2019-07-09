@@ -1,17 +1,17 @@
 import Store from '@/store/store'
-import Categories from '@/views/CategoriesView'
-import CategoriesAll from '@/components/categories/CategoriesAll'
-import CategoriesSingle from '@/components/categories/CategoriesSingle'
+import CategoriesView from '@/views/CategoriesView'
+import CategoriesListView from '@/views/categories/CategoriesListView'
+import CategoriesItemView from '@/views/categories/CategoriesItemView'
 export default [
   {
     path: '/categories',
-    redirect: { name: 'categories.all' },
-    component: Categories,
+    redirect: { name: 'categories.list' },
+    component: CategoriesView,
     children: [
       {
         path: '',
-        name: 'categories.all',
-        component: CategoriesAll,
+        name: 'categories.list',
+        component: CategoriesListView,
         meta: {
           requiresAuth: true,
           title: 'Categories'
@@ -19,8 +19,8 @@ export default [
       },
       {
         path: ':categoryId',
-        name: 'categories.single',
-        component: CategoriesSingle,
+        name: 'categories.item',
+        component: CategoriesItemView,
         meta: {
           requiresAuth: true,
           title: 'Category'
@@ -36,7 +36,7 @@ export default [
         beforeEnter: (to, from, next) => {
           if (confirm(`Are you sure you want to delete this category ?\nTo-do's will not be deleted.`)) {
             Store.dispatch('deleteCategory', to.params.categoryId)
-            next({ name: 'categories.all' })
+            next({ name: 'categories.list' })
           } else {
             next(false)
           }

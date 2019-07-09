@@ -3,9 +3,7 @@
     <div class="title">
       <h2>To-do's</h2>
     </div>
-    <AddNew type="to-do" :categories="categories" @submit="addNewTodo">
-      <button class="button success">Add to-do <i class="material-icons">add</i></button>
-    </AddNew>
+    <AddNew type="to-do" :categories="categories" @submit="addNewTodo" />
     <TodosList :todos="todos" :showBadge="true" />
   </div>
 </template>

@@ -24,7 +24,7 @@ export default {
       type: String,
       required: false,
       default: () => {
-        return 'slideInRight'
+        return 'fadeIn'
       }
     }
   }

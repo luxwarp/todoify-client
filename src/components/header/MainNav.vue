@@ -6,7 +6,7 @@
         <router-link
           v-for="(category) in categories"
           :key="category._id"
-          :to="{ name: 'categories.single', params: {categoryId: category._id }}"
+          :to="{ name: 'categories.item', params: {categoryId: category._id }}"
           class="navItem">
           <i class="material-icons md-36">folder</i>{{ category.title }}
         </router-link>
@@ -25,7 +25,7 @@
         <i class="material-icons md-36">add_circle_outline</i>
         <span class="label">Register</span>
       </router-link>
-      <router-link :to="{name: 'categories.all'}" class="navItem" v-if="isAuth()">
+      <router-link :to="{name: 'categories.list'}" class="navItem" v-if="isAuth()">
         <i class="material-icons md-36">folder_open</i>
         <span class="label">Categories</span>
       </router-link>

@@ -1,7 +1,14 @@
 <template>
   <div class="addNewContainer">
     <span @click="show = !show">
-      <slot></slot>
+      <slot name="button">
+        <button class="button success">
+          Add {{type}}
+          <i class="material-icons">
+            add
+          </i>
+        </button>
+      </slot>
     </span>
     <transition name="fadeIn">
       <div class="modal container" v-if="show">
