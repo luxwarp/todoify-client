@@ -1,17 +1,17 @@
-import Todos from '@/views/TodosView'
-import TodosAll from '@/components/todos/TodosAll'
+import TodosView from '@/views/TodosView'
+import TodosListView from '@/views/todos/TodosListView'
 import Store from '@/store/store'
 
 export default [
   {
     path: '/todos',
-    redirect: { name: 'todos.all' },
-    component: Todos,
+    redirect: { name: 'todos.list' },
+    component: TodosView,
     children: [
       {
         path: '',
-        name: 'todos.all',
-        component: TodosAll,
+        name: 'todos.list',
+        component: TodosListView,
         meta: {
           title: `To-do's`,
           requiresAuth: true

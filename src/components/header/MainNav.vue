@@ -29,7 +29,7 @@
         <i class="material-icons md-36">folder_open</i>
         <span class="label">Categories</span>
       </router-link>
-      <router-link :to="{name: 'todos.all'}" class="navItem" v-if="isAuth()">
+      <router-link :to="{name: 'todos.list'}" class="navItem" v-if="isAuth()">
         <i class="material-icons md-36">list</i>
         <span class="label">To-do's</span>
       </router-link>
