@@ -69,6 +69,10 @@
           <i class="material-icons md-36">remove_circle_outline</i>
           <span class="label">Logout</span>
         </router-link>
+        <router-link :to="{ name: 'about.page' }" class="navItem">
+          <i class="material-icons md-36">info</i>
+          <span class="label">About</span>
+        </router-link>
       </div>
       <button class="closeMainNav" @click="toggleMainNav">
         <i class="material-icons md-36">

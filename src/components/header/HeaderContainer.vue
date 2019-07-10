@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <div class="banner">
-      <router-link :to="{ name: 'home' }" tag="div" class="brand"
+      <router-link :to="{ name: 'home.page' }" tag="div" class="brand"
         >Todoify</router-link
       >
       <div class="menuButton" @click="toggleMainNav">
