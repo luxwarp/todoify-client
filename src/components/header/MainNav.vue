@@ -73,6 +73,10 @@
           <i class="material-icons md-36">info</i>
           <span class="label">About</span>
         </router-link>
+        <a href="https://luxwarp.info/contact" class="navItem" target="_blank">
+          <i class="material-icons md-36">contact_mail</i>
+          <span class="label">Contact</span>
+        </a>
       </div>
       <button class="closeMainNav" @click="toggleMainNav">
         <i class="material-icons md-36">
