@@ -13,31 +13,31 @@
     </div>
     <div class="pages" @click="toggleMainNav">
       <span class="title">Menu</span>
-      <router-link :to="{name: 'home'}" class="navItem">
+      <router-link :to="{ name: 'home.page' }" class="navItem">
         <i class="material-icons md-36">home</i>
         <span class="label">Home</span>
       </router-link>
-      <router-link :to="{name: 'user.login'}" class="navItem" v-if="!isAuth()">
+      <router-link :to="{ name: 'user.login' }" class="navItem" v-if="!isAuth()">
         <i class="material-icons md-36">lock_open</i>
         <span class="label">Login</span>
       </router-link>
-      <router-link :to="{name: 'user.register'}" class="navItem" v-if="!isAuth()">
+      <router-link :to="{ name: 'user.register' }" class="navItem" v-if="!isAuth()">
         <i class="material-icons md-36">add_circle_outline</i>
         <span class="label">Register</span>
       </router-link>
-      <router-link :to="{name: 'categories.list'}" class="navItem" v-if="isAuth()">
+      <router-link :to="{ name: 'categories.list' }" class="navItem" v-if="isAuth()">
         <i class="material-icons md-36">folder_open</i>
         <span class="label">Categories</span>
       </router-link>
-      <router-link :to="{name: 'todos.list'}" class="navItem" v-if="isAuth()">
+      <router-link :to="{ name: 'todos.list' }" class="navItem" v-if="isAuth()">
         <i class="material-icons md-36">list</i>
         <span class="label">To-do's</span>
       </router-link>
-      <router-link :to="{name: 'user.profile'}" class="navItem" v-if="isAuth()">
+      <router-link :to="{ name: 'user.profile' }" class="navItem" v-if="isAuth()">
         <i class="material-icons md-36">face</i>
         <span class="label">Profile</span>
       </router-link>
-      <router-link :to="{name: 'user.logout'}" class="navItem" v-if="isAuth()">
+      <router-link :to="{ name: 'user.logout' }" class="navItem" v-if="isAuth()">
         <i class="material-icons md-36">remove_circle_outline</i>
         <span class="label">Logout</span>
       </router-link>
