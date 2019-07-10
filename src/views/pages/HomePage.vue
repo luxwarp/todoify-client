@@ -1,9 +1,13 @@
 <template>
   <div class="container center">
-    <div class="card">
-      <h2 class="title">Welcome</h2>
-      <div class="body">
-        <p>Todoify client is here to help you get your life under control.</p>
+    <div class="hero">
+      <div class="title">Todoify</div>
+      <div class="subTitle">Organize and take control over your life</div>
+    </div>
+    <div class="container">
+      <div class="row space-evenly">
+        <router-link :to="{ name: 'user.register' }">Sign up</router-link>
+        <router-link :to="{ name: 'user.login' }">Sign in</router-link>
       </div>
     </div>
   </div>

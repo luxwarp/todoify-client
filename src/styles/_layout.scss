@@ -72,6 +72,7 @@ ul.list {
   padding: 0;
   display: flex;
   flex-direction: column;
+  width: 100%;
   background: $listBgColor;
   border: $listBorder;
 
@@ -125,8 +126,8 @@ ul.list {
 }
 
 .center {
-  margin-top: auto;
-  margin-bottom: auto;
+  margin-top: auto !important;
+  margin-bottom: auto !important;
 }
 
 .full-width {
@@ -135,6 +136,10 @@ ul.list {
 
 .text-center {
   text-align: center;
+}
+
+.space-evenly {
+  justify-content: space-evenly;
 }
 
 .no-wrap {
@@ -230,7 +235,11 @@ ul.list {
   margin-bottom: 25px;
 
   &:only-child {
-    margin-bottom: 0px;
+    margin-bottom: auto;
+  }
+
+  > * {
+    width: 100%;
   }
 
   > .title {

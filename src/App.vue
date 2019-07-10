@@ -4,7 +4,9 @@
     <HeaderContainer />
     <div class="mainView">
       <NotifiersList />
-      <router-view class="mainRouterView"></router-view>
+      <div class="mainRouterView">
+        <router-view></router-view>
+      </div>
     </div>
   </div>
 </template>
@@ -47,7 +49,7 @@ export default {
   display: flex;
   flex-direction: column;
 
-  .mainView {
+  > .mainView {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -60,7 +62,10 @@ export default {
     overflow-x: hidden;
     margin-top: 70px;
 
-    .mainRouterView {
+    > .mainRouterView {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
       padding: 0 15px;
     }
   }
@@ -70,7 +75,7 @@ export default {
   .app {
     flex-direction: row;
 
-    .mainView {
+    > .mainView {
       margin-top: 0;
     }
   }
