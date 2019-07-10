@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap");
 @import "@/styles/_animations.scss";
 
 * {
@@ -39,7 +39,7 @@ form {
   width: 100%;
   display: flex;
   flex-direction: column;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
 }
 
 input {
@@ -68,7 +68,7 @@ select {
 
 ul.list {
   list-style: none;
-  margin: 15px 0;
+  margin: 25px 0;
   padding: 0;
   display: flex;
   flex-direction: column;
@@ -127,6 +127,18 @@ ul.list {
 .center {
   margin-top: auto;
   margin-bottom: auto;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.no-wrap {
+  flex-wrap: nowrap !important;
 }
 
 .material-icons.md-18 {
@@ -210,8 +222,16 @@ ul.list {
 }
 
 .container {
+  width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  margin-bottom: 25px;
+
+  &:only-child {
+    margin-bottom: 0px;
+  }
 
   > .title {
     display: flex;
@@ -228,6 +248,10 @@ ul.list {
     }
   }
 
+  > .container {
+    max-width: 800px;
+  }
+
   > .card {
     margin: auto;
     width: 100%;
@@ -239,7 +263,6 @@ ul.list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin-bottom: 10px;
 }
 
 .card {
@@ -268,5 +291,49 @@ ul.list {
     > *:last-child {
       margin-bottom: 0;
     }
+  }
+}
+
+.iconCard {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border: 0px solid #000;
+  margin-right: 15px;
+
+  &:last-child {
+    margin-right: 0px;
+  }
+
+  > .icon {
+    font-size: 3rem;
+    margin-bottom: 25px;
+  }
+
+  > .title {
+    font-size: 1rem;
+    font-weight: 900;
+  }
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 25px;
+
+  > .title {
+    font-size: 3rem;
+    font-weight: 300;
+    margin-bottom: 25px;
+  }
+
+  > .subTitle {
+    font-size: 1.7rem;
+    font-weight: 300;
+    font-style: italic;
   }
 }
