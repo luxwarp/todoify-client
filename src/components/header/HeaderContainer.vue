@@ -15,18 +15,18 @@
 </template>
 
 <script>
-import MainNav from './MainNav'
+import MainNav from "./MainNav";
 export default {
-  name: 'HeaderContainer',
+  name: "HeaderContainer",
   components: {
     MainNav
   },
   methods: {
     toggleMainNav() {
-      this.$store.commit('toggleMainNav')
+      this.$store.commit("toggleMainNav");
     }
   }
-}
+};
 </script>
 
 <style lang="scss">

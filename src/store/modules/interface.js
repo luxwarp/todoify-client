@@ -2,53 +2,53 @@ const state = {
   showMainNav: window.screen.width > 1024 || false,
   requestStatus: 0,
   notifiers: []
-}
+};
 
 const getters = {
   showMainNav(state) {
-    return state.showMainNav
+    return state.showMainNav;
   },
   getRequestStatus(state) {
-    return state.requestStatus > 0
+    return state.requestStatus > 0;
   },
   getNotifiers(state) {
-    return state.notifiers
+    return state.notifiers;
   }
-}
+};
 
 const mutations = {
   toggleMainNav(state) {
     if (window.screen.width < 1025) {
-      state.showMainNav = !state.showMainNav
+      state.showMainNav = !state.showMainNav;
     }
   },
   showMainNav(state) {
-    state.showMainNav = true
+    state.showMainNav = true;
   },
   hideMainNav(state) {
-    state.showMainNav = false
+    state.showMainNav = false;
   },
   showRequestStatus(state) {
-    state.requestStatus += 1
+    state.requestStatus += 1;
   },
   hideRequestStatus(state) {
-    state.requestStatus -= 1
+    state.requestStatus -= 1;
   },
   createNotifier(state, note) {
     if (!state.notifiers.some(notifier => notifier.message === note.message)) {
-      state.notifiers.push(note)
+      state.notifiers.push(note);
     }
   },
   closeNotifier(state, index = 0) {
-    state.notifiers.splice(index, 1)
+    state.notifiers.splice(index, 1);
   }
-}
+};
 
-const actions = {}
+const actions = {};
 
 export default {
   state,
   getters,
   mutations,
   actions
-}
+};

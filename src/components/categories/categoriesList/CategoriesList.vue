@@ -1,5 +1,5 @@
 <template>
-  <ul class="list" v-if="categories.length">
+  <ul v-if="categories.length" class="list">
     <li v-for="category in categories" :key="category._id">
       <ToolBox>
         <template v-slot:toggle>
@@ -21,7 +21,7 @@
         class="title"
         >{{ category.title }}</router-link
       >
-      <div class="badge" v-if="showingBadgeWithCounter">
+      <div v-if="showingBadgeWithCounter" class="badge">
         {{ todoCount(category._id) }}
       </div>
     </li>
@@ -30,9 +30,9 @@
 </template>
 
 <script>
-import ToolBox from '@/components/toolbox/ToolBox'
+import ToolBox from "@/components/toolbox/ToolBox";
 export default {
-  name: 'CategoriesList',
+  name: "CategoriesList",
   components: {
     ToolBox
   },
@@ -48,15 +48,16 @@ export default {
     },
     todoCount: {
       type: Function,
-      required: false
+      required: false,
+      default: null
     }
   },
   computed: {
     showingBadgeWithCounter() {
-      return this.showBadge && this.todoCount
+      return this.showBadge && this.todoCount;
     }
   }
-}
+};
 </script>
 
 <style></style>

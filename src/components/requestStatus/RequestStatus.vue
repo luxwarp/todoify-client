@@ -1,6 +1,6 @@
 <template>
   <transition name="slide">
-    <div class="requestStatus" v-if="getRequestStatus">
+    <div v-if="getRequestStatus" class="requestStatus">
       <div class="loader"></div>
       Talking to server
     </div>
@@ -8,13 +8,13 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters } from "vuex";
 export default {
-  name: 'requestStatus',
+  name: "RequestStatus",
   computed: {
-    ...mapGetters(['getRequestStatus'])
+    ...mapGetters(["getRequestStatus"])
   }
-}
+};
 </script>
 
 <style lang="scss">

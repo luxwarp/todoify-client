@@ -4,8 +4,8 @@
 
 <script>
 export default {
-  name: 'TodosView'
-}
+  name: "TodosView"
+};
 </script>
 
 <style lang="scss"></style>

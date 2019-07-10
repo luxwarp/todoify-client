@@ -3,14 +3,14 @@
     <div class="card">
       <h2 class="title">Login</h2>
       <div class="body">
-        <form @submit.prevent="onSubmit" autocomplete="on">
+        <form autocomplete="on" @submit.prevent="onSubmit">
           <input
             v-model="email"
+            v-focus
             type="email"
             placeholder="Email"
             name="email"
             required
-            v-focus
             autocomplete="email"
           />
           <input
@@ -39,27 +39,27 @@
 
 <script>
 export default {
-  name: 'UserLogin',
+  name: "UserLogin",
   data() {
     return {
       email: null,
       password: null
-    }
+    };
   },
   computed: {
     isButtonDisable() {
-      return !(this.email && this.password)
+      return !(this.email && this.password);
     }
   },
   methods: {
     onSubmit() {
-      this.$store.dispatch('login', {
+      this.$store.dispatch("login", {
         email: this.email,
         password: this.password
-      })
+      });
     }
   }
-}
+};
 </script>
 
 <style lang="scss"></style>

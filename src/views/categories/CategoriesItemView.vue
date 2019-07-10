@@ -1,5 +1,5 @@
 <template>
-  <div class="container" v-if="category">
+  <div v-if="category" class="container">
     <div class="title">
       <h2>Category: {{ category.title }}</h2>
       <ToolBox class="reverse">
@@ -19,19 +19,19 @@
       </ToolBox>
     </div>
     <AddNew type="to-do" @submit="addNewTodo" />
-    <TodosList :todos="todos" :showBadge="true" />
+    <TodosList :todos="todos" :show-badge="true" />
   </div>
-  <div class="notFound" v-else>
+  <div v-else class="notFound">
     <p>Not found</p>
   </div>
 </template>
 
 <script>
-import ToolBox from '@/components/toolbox/ToolBox'
-import AddNew from '@/components/modal/AddNew'
-import TodosList from '@/components/todos/TodosList'
+import ToolBox from "@/components/toolbox/ToolBox";
+import AddNew from "@/components/modal/AddNew";
+import TodosList from "@/components/todos/TodosList";
 export default {
-  name: 'CategoriesItemView',
+  name: "CategoriesItemView",
   components: {
     ToolBox,
     AddNew,
@@ -39,23 +39,23 @@ export default {
   },
   computed: {
     category() {
-      return this.$store.getters.getCategoryById(this.$route.params.categoryId)
+      return this.$store.getters.getCategoryById(this.$route.params.categoryId);
     },
     todos() {
       return this.$store.getters.getTodosByCategoryId(
         this.$route.params.categoryId
-      )
+      );
     }
   },
   methods: {
     addNewTodo(data) {
-      this.$store.dispatch('createTodo', {
+      this.$store.dispatch("createTodo", {
         title: data.title,
         category: this.$route.params.categoryId
-      })
+      });
     }
   }
-}
+};
 </script>
 
 <style lang="scss"></style>

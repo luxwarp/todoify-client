@@ -1,7 +1,7 @@
 <template>
   <transition name="slideInTop">
-    <div class="mainNav" v-if="showMainNav">
-      <div class="categories" @click="toggleMainNav" v-if="categories.length">
+    <div v-if="showMainNav" class="mainNav">
+      <div v-if="categories.length" class="categories" @click="toggleMainNav">
         <span class="title">Categories</span>
         <router-link
           v-for="category in categories"
@@ -22,49 +22,49 @@
           <span class="label">Home</span>
         </router-link>
         <router-link
+          v-if="!isAuth()"
           :to="{ name: 'user.login' }"
           class="navItem"
-          v-if="!isAuth()"
         >
           <i class="material-icons md-36">lock_open</i>
           <span class="label">Login</span>
         </router-link>
         <router-link
+          v-if="!isAuth()"
           :to="{ name: 'user.register' }"
           class="navItem"
-          v-if="!isAuth()"
         >
           <i class="material-icons md-36">add_circle_outline</i>
           <span class="label">Register</span>
         </router-link>
         <router-link
+          v-if="isAuth()"
           :to="{ name: 'categories.list' }"
           class="navItem"
-          v-if="isAuth()"
         >
           <i class="material-icons md-36">folder_open</i>
           <span class="label">Categories</span>
         </router-link>
         <router-link
+          v-if="isAuth()"
           :to="{ name: 'todos.list' }"
           class="navItem"
-          v-if="isAuth()"
         >
           <i class="material-icons md-36">list</i>
           <span class="label">To-do's</span>
         </router-link>
         <router-link
+          v-if="isAuth()"
           :to="{ name: 'user.profile' }"
           class="navItem"
-          v-if="isAuth()"
         >
           <i class="material-icons md-36">face</i>
           <span class="label">Profile</span>
         </router-link>
         <router-link
+          v-if="isAuth()"
           :to="{ name: 'user.logout' }"
           class="navItem"
-          v-if="isAuth()"
         >
           <i class="material-icons md-36">remove_circle_outline</i>
           <span class="label">Logout</span>
@@ -80,24 +80,24 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters } from "vuex";
 export default {
-  name: 'MainNav',
+  name: "MainNav",
   computed: {
     ...mapGetters({
-      categories: 'getCategories',
-      isAuth: 'isAuth'
+      categories: "getCategories",
+      isAuth: "isAuth"
     }),
     showMainNav() {
-      return this.$store.getters.showMainNav
+      return this.$store.getters.showMainNav;
     }
   },
   methods: {
     toggleMainNav() {
-      this.$store.commit('toggleMainNav')
+      this.$store.commit("toggleMainNav");
     }
   }
-}
+};
 </script>
 
 <style lang="scss">

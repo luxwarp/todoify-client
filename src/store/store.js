@@ -1,12 +1,12 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import User from './modules/user'
-import Todos from './modules/todos'
-import Categories from './modules/categories'
-import Interface from './modules/interface'
-import Server from './modules/server'
+import Vue from "vue";
+import Vuex from "vuex";
+import User from "./modules/user";
+import Todos from "./modules/todos";
+import Categories from "./modules/categories";
+import Interface from "./modules/interface";
+import Server from "./modules/server";
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {},
@@ -19,4 +19,4 @@ export default new Vuex.Store({
     Interface,
     Server
   }
-})
+});

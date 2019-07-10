@@ -13,15 +13,15 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters } from "vuex";
 export default {
-  name: 'UserProfile',
+  name: "UserProfile",
   computed: {
     ...mapGetters({
-      userInfo: 'getUserInfo'
+      userInfo: "getUserInfo"
     })
   }
-}
+};
 </script>
 
 <style lang="scss"></style>

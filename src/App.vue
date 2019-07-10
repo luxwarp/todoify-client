@@ -10,34 +10,34 @@
 </template>
 
 <script>
-import HeaderContainer from '@/components/header/HeaderContainer'
-import NotifiersList from '@/components/notifiers/NotifiersList'
-import RequestStatus from '@/components/requestStatus/RequestStatus'
+import HeaderContainer from "@/components/header/HeaderContainer";
+import NotifiersList from "@/components/notifiers/NotifiersList";
+import RequestStatus from "@/components/requestStatus/RequestStatus";
 export default {
-  name: 'App',
+  name: "App",
   components: {
     HeaderContainer,
     NotifiersList,
     RequestStatus
   },
-  methods: {
-    showMainMenu(event) {
-      if (window.screen.width > 1024) {
-        this.$store.commit('showMainNav')
-      } else {
-        this.$store.commit('hideMainNav')
-      }
-    }
-  },
   created() {
     if (this.$store.getters.isAuth()) {
-      this.$store.dispatch('syncWithServer')
+      this.$store.dispatch("syncWithServer");
     }
   },
   mounted() {
-    window.addEventListener('resize', this.showMainMenu)
+    window.addEventListener("resize", this.showMainMenu);
+  },
+  methods: {
+    showMainMenu(event) {
+      if (window.screen.width > 1024) {
+        this.$store.commit("showMainNav");
+      } else {
+        this.$store.commit("hideMainNav");
+      }
+    }
   }
-}
+};
 </script>
 
 <style lang="scss">

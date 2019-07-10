@@ -15,26 +15,26 @@
 
 <script>
 export default {
-  name: 'NotifiersList',
+  name: "NotifiersList",
   computed: {
     notifiers() {
-      return this.$store.getters.getNotifiers
-    }
-  },
-  methods: {
-    close(index) {
-      this.$store.commit('closeNotifier', index)
+      return this.$store.getters.getNotifiers;
     }
   },
   updated() {
     if (this.notifiers.length >= 1) {
-      let vm = this
+      let vm = this;
       setTimeout(() => {
-        vm.$store.commit('closeNotifier')
-      }, 5000)
+        vm.$store.commit("closeNotifier");
+      }, 5000);
+    }
+  },
+  methods: {
+    close(index) {
+      this.$store.commit("closeNotifier", index);
     }
   }
-}
+};
 </script>
 
 <style lang="scss">
@@ -78,7 +78,7 @@ export default {
     color: rgb(110, 49, 54);
 
     > .material-icons::before {
-      content: 'error_outline';
+      content: "error_outline";
     }
   }
 
@@ -87,7 +87,7 @@ export default {
     color: rgb(110, 104, 49);
 
     > .material-icons::before {
-      content: 'warning';
+      content: "warning";
     }
   }
 
@@ -96,7 +96,7 @@ export default {
     color: rgb(51, 110, 49);
 
     > .material-icons::before {
-      content: 'check';
+      content: "check";
     }
   }
 
@@ -105,7 +105,7 @@ export default {
     color: rgb(49, 80, 110);
 
     > .material-icons::before {
-      content: 'info';
+      content: "info";
     }
   }
 }

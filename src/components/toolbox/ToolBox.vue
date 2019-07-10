@@ -4,7 +4,7 @@
       <slot name="toggle"><i class="material-icons">more_vert</i></slot>
     </div>
     <transition :name="animation">
-      <div class="tools" v-if="show" @click="show = !show">
+      <div v-if="show" class="tools" @click="show = !show">
         <slot name="tools"></slot>
       </div>
     </transition>
@@ -13,22 +13,22 @@
 
 <script>
 export default {
-  name: 'ToolBox',
-  data() {
-    return {
-      show: false
-    }
-  },
+  name: "ToolBox",
   props: {
     animation: {
       type: String,
       required: false,
       default: () => {
-        return 'fadeIn'
+        return "fadeIn";
       }
     }
+  },
+  data() {
+    return {
+      show: false
+    };
   }
-}
+};
 </script>
 
 <style lang="scss">

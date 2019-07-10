@@ -6,37 +6,37 @@
     <AddNew type="category" @submit="addNewCategory" />
     <CategoriesList
       :categories="categories"
-      :showBadge="true"
-      :todoCount="todoCount"
+      :show-badge="true"
+      :todo-count="todoCount"
     />
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import AddNew from '@/components/modal/AddNew'
-import CategoriesList from '@/components/categories/categoriesList/CategoriesList'
+import { mapGetters } from "vuex";
+import AddNew from "@/components/modal/AddNew";
+import CategoriesList from "@/components/categories/categoriesList/CategoriesList";
 export default {
-  name: 'CategoriesListView',
+  name: "CategoriesListView",
   components: {
     AddNew,
     CategoriesList
   },
   computed: {
     ...mapGetters({
-      categories: 'getCategories'
+      categories: "getCategories"
     })
   },
   methods: {
     todoCount(id) {
-      return this.$store.getters.getTodosByCategoryId(id).length
+      return this.$store.getters.getTodosByCategoryId(id).length;
     },
 
     addNewCategory(data) {
-      this.$store.dispatch('createCategory', data.title)
+      this.$store.dispatch("createCategory", data.title);
     }
   }
-}
+};
 </script>
 
 <style lang="scss"></style>

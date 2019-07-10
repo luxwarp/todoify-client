@@ -11,7 +11,7 @@
       </slot>
     </span>
     <transition name="fadeIn">
-      <div class="modal container" v-if="show">
+      <div v-if="show" class="modal container">
         <div class="card">
           <h3 class="title">
             Add new {{ type }}
@@ -21,14 +21,14 @@
             <form @submit.prevent="onSubmit">
               <input
                 v-model="title"
+                v-focus
                 type="text"
                 placeholder="Enter a title"
                 required
-                v-focus
               />
-              <div class="row" v-if="categories.length">
+              <div v-if="categories.length" class="row">
                 <label>Category: </label>
-                <select v-model="category">
+                <select v-model="selectedCategory">
                   <option value="null">Uncategorized</option>
                   <option
                     v-for="category in categories"
@@ -52,7 +52,7 @@
 
 <script>
 export default {
-  name: 'AddNew',
+  name: "AddNew",
   props: {
     type: {
       type: String,
@@ -68,18 +68,18 @@ export default {
     return {
       show: false,
       title: null,
-      category: null
-    }
+      selectedCategory: null
+    };
   },
   methods: {
     onSubmit() {
-      this.$emit('submit', { title: this.title, category: this.category })
-      this.title = null
-      this.category = null
-      this.show = false
+      this.$emit("submit", { title: this.title, category: this.category });
+      this.title = null;
+      this.category = null;
+      this.show = false;
     }
   }
-}
+};
 </script>
 
 <style lang="scss">

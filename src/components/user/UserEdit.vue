@@ -3,43 +3,43 @@
     <div class="card">
       <h2 class="title">Edit user</h2>
       <div class="body">
-        <form @submit.prevent="onSubmit" autocomplete="off">
+        <form autocomplete="off" @submit.prevent="onSubmit">
           <input
-            :value="userInfo.name"
-            @input="updateLocalUser($event)"
             id="name"
+            v-focus
+            :value="userInfo.name"
             type="text"
             placeholder="Name"
             name="new-name"
-            v-focus
             autocomplete="off"
+            @input="updateLocalUser($event)"
           />
           <input
-            :value="userInfo.email"
-            @input="updateLocalUser($event)"
             id="email"
+            :value="userInfo.email"
             type="email"
             placeholder="Email"
             name="new-email"
             required
             autocomplete="off"
+            @input="updateLocalUser($event)"
           />
           <input
-            @input="updateLocalUser($event)"
             id="newPassword"
             type="password"
             name="new-password"
             placeholder="New password"
             autocomplete="new-password"
+            @input="updateLocalUser($event)"
           />
           <input
-            @input="updateLocalUser($event)"
             id="password"
             type="password"
             name="password"
             placeholder="Current password"
             required
             autocomplete="current-password"
+            @input="updateLocalUser($event)"
           />
           <button class="button primary" type="submit">
             Update user
@@ -61,31 +61,31 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters } from "vuex";
 export default {
-  name: 'UserEdit',
+  name: "UserEdit",
   data() {
     return {
       user: {}
-    }
+    };
   },
   computed: {
     ...mapGetters({
-      userInfo: 'getUserInfo'
+      userInfo: "getUserInfo"
     })
   },
   methods: {
     updateLocalUser(e) {
-      this.$set(this.user, e.target.id, e.target.value)
+      this.$set(this.user, e.target.id, e.target.value);
     },
     onSubmit() {
       if (this.user.password && !this.user.password.trim()) {
-        delete this.user.password
+        delete this.user.password;
       }
-      this.$store.dispatch('updateUser', this.user)
+      this.$store.dispatch("updateUser", this.user);
     }
   }
-}
+};
 </script>
 
 <style lang="scss"></style>

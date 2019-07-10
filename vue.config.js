@@ -1,6 +1,6 @@
 // vue.config.js
 module.exports = {
-  publicPath: '/',
+  publicPath: "/",
   css: {
     loaderOptions: {
       // pass options to sass-loader
@@ -9,4 +9,4 @@ module.exports = {
       }
     }
   }
-}
+};

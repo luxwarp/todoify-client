@@ -1,5 +1,5 @@
 <template>
-  <ul class="list" v-if="todos.length">
+  <ul v-if="todos.length" class="list">
     <li v-for="todo in todos" :key="todo._id">
       <ToolBox>
         <template v-slot:tools>
@@ -11,8 +11,8 @@
         </template>
       </ToolBox>
       <div class="title">{{ todo.title }}</div>
-      <div class="badge" v-if="showBadge">
-        {{ todo.category ? todo.category.title : 'Uncategorized' }}
+      <div v-if="showBadge" class="badge">
+        {{ todo.category ? todo.category.title : "Uncategorized" }}
       </div>
     </li>
   </ul>
@@ -20,9 +20,9 @@
 </template>
 
 <script>
-import ToolBox from '@/components/toolbox/ToolBox'
+import ToolBox from "@/components/toolbox/ToolBox";
 export default {
-  name: 'TodosList',
+  name: "TodosList",
   components: {
     ToolBox
   },
@@ -37,7 +37,7 @@ export default {
       default: false
     }
   }
-}
+};
 </script>
 
 <style lang="scss"></style>

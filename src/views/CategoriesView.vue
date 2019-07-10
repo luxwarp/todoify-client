@@ -4,8 +4,8 @@
 
 <script>
 export default {
-  name: 'CategoriesView'
-}
+  name: "CategoriesView"
+};
 </script>
 
 <style lang="scss"></style>
