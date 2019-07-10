@@ -4,9 +4,28 @@
       <h2 class="title">Login</h2>
       <div class="body">
         <form @submit.prevent="onSubmit" autocomplete="on">
-          <input v-model="email" type="email" placeholder="Email" name="email" required v-focus autocomplete="email" />
-          <input v-model="password" type="password" placeholder="Password" name="current-password" required autocomplete="current-password" />
-          <button class="button primary" type="submit" :disabled="isButtonDisable">
+          <input
+            v-model="email"
+            type="email"
+            placeholder="Email"
+            name="email"
+            required
+            v-focus
+            autocomplete="email"
+          />
+          <input
+            v-model="password"
+            type="password"
+            placeholder="Password"
+            name="current-password"
+            required
+            autocomplete="current-password"
+          />
+          <button
+            class="button primary"
+            type="submit"
+            :disabled="isButtonDisable"
+          >
             Login
             <i class="material-icons">
               lock_open
@@ -21,25 +40,26 @@
 <script>
 export default {
   name: 'UserLogin',
-  data () {
+  data() {
     return {
       email: null,
       password: null
     }
   },
   computed: {
-    isButtonDisable () {
+    isButtonDisable() {
       return !(this.email && this.password)
     }
   },
   methods: {
-    onSubmit () {
-      this.$store.dispatch('login', { email: this.email, password: this.password })
+    onSubmit() {
+      this.$store.dispatch('login', {
+        email: this.email,
+        password: this.password
+      })
     }
   }
 }
 </script>
 
-<style lang="scss">
-
-</style>
+<style lang="scss"></style>

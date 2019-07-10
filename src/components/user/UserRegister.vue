@@ -4,9 +4,28 @@
       <h2 class="title">Register</h2>
       <div class="body">
         <form @submit.prevent="onSubmit" autocomplete="off">
-          <input v-model="email" type="email" placeholder="Email" name="email" required v-focus autocomplete="off" />
-          <input v-model="password" type="password" placeholder="Password" name="password" required autocomplete="new-password"/>
-          <button class="button primary" type="submit" :disabled="isButtonDisable">
+          <input
+            v-model="email"
+            type="email"
+            placeholder="Email"
+            name="email"
+            required
+            v-focus
+            autocomplete="off"
+          />
+          <input
+            v-model="password"
+            type="password"
+            placeholder="Password"
+            name="password"
+            required
+            autocomplete="new-password"
+          />
+          <button
+            class="button primary"
+            type="submit"
+            :disabled="isButtonDisable"
+          >
             Register
             <i class="material-icons">
               add_circle_outline
@@ -21,25 +40,26 @@
 <script>
 export default {
   name: 'UserRegister',
-  data () {
+  data() {
     return {
       email: null,
       password: null
     }
   },
   computed: {
-    isButtonDisable () {
+    isButtonDisable() {
       return !(this.email && this.password)
     }
   },
   methods: {
-    onSubmit () {
-      this.$store.dispatch('register', { email: this.email, password: this.password })
+    onSubmit() {
+      this.$store.dispatch('register', {
+        email: this.email,
+        password: this.password
+      })
     }
   }
 }
 </script>
 
-<style lang="scss">
-
-</style>
+<style lang="scss"></style>

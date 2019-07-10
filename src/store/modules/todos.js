@@ -3,10 +3,10 @@ const state = {
 }
 
 const getters = {
-  getTodos (state) {
+  getTodos(state) {
     return state.todos
   },
-  getTodosByCategoryId: (state) => (id) => {
+  getTodosByCategoryId: state => id => {
     return state.todos.filter(todo => {
       if (todo.category) {
         return todo.category._id === id
@@ -18,37 +18,51 @@ const getters = {
 }
 
 const mutations = {
-  setTodos (state, data) {
+  setTodos(state, data) {
     state.todos = data
   }
 }
 
 const actions = {
-  async getTodos ({ commit }) {
+  async getTodos({ commit }) {
     try {
-      const response = await window.$todoify.getTodos('?populate=category&sort[createdAt]=desc')
+      const response = await window.$todoify.getTodos(
+        '?populate=category&sort[createdAt]=desc'
+      )
       commit('setTodos', response.data.data)
     } catch (error) {
-      commit('createNotifier', { type: 'error', message: `Could not get to-do's.` })
+      commit('createNotifier', {
+        type: 'error',
+        message: `Could not get to-do's.`
+      })
       console.log(error)
     }
   },
-  async createTodo ({ commit, dispatch }, data) {
+  async createTodo({ commit, dispatch }, data) {
     try {
-      await window.$todoify.createTodo({ title: data.title, category: data.category }, '?populate=category')
+      await window.$todoify.createTodo(
+        { title: data.title, category: data.category },
+        '?populate=category'
+      )
       dispatch('getTodos')
     } catch (error) {
-      commit('createNotifier', { type: 'error', message: 'Could not create to-do.' })
+      commit('createNotifier', {
+        type: 'error',
+        message: 'Could not create to-do.'
+      })
       console.log(error)
     }
   },
-  async deleteTodo ({ commit, dispatch }, data) {
+  async deleteTodo({ commit, dispatch }, data) {
     try {
       await window.$todoify.deleteTodo(data)
       dispatch('getTodos')
       commit('createNotifier', { type: 'success', message: 'To-do deleted.' })
     } catch (error) {
-      commit('createNotifier', { type: 'error', message: 'Could not delete to-do.' })
+      commit('createNotifier', {
+        type: 'error',
+        message: 'Could not delete to-do.'
+      })
       console.log(error)
     }
   }

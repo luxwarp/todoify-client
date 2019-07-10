@@ -3,48 +3,63 @@ const state = {
 }
 
 const getters = {
-  getCategories (state) {
+  getCategories(state) {
     return state.categories
   },
-  getCategoryById: (state) => (id) => {
+  getCategoryById: state => id => {
     return state.categories.find(category => category._id === id)
   }
 }
 
 const mutations = {
-  setCategories (state, data) {
+  setCategories(state, data) {
     state.categories = data
   }
 }
 
 const actions = {
-  async getCategories ({ commit }) {
+  async getCategories({ commit }) {
     try {
       const response = await window.$todoify.getCategories('?sort[title]=asc')
       commit('setCategories', response.data.data)
     } catch (error) {
-      commit('createNotifier', { type: 'error', message: 'Could not get categories.' })
+      commit('createNotifier', {
+        type: 'error',
+        message: 'Could not get categories.'
+      })
       console.log(error)
     }
   },
-  async createCategory ({ commit, dispatch }, title) {
+  async createCategory({ commit, dispatch }, title) {
     try {
       await window.$todoify.createCategory({ title })
       dispatch('getCategories')
-      commit('createNotifier', { type: 'success', message: 'Category created.' })
+      commit('createNotifier', {
+        type: 'success',
+        message: 'Category created.'
+      })
     } catch (error) {
-      commit('createNotifier', { type: 'error', message: 'Could not create category.' })
+      commit('createNotifier', {
+        type: 'error',
+        message: 'Could not create category.'
+      })
       console.log(error)
     }
   },
-  async deleteCategory ({ commit, dispatch }, id) {
+  async deleteCategory({ commit, dispatch }, id) {
     try {
       await window.$todoify.deleteCategory(id)
       dispatch('getCategories')
       dispatch('getTodos')
-      commit('createNotifier', { type: 'success', message: 'Category deleted.' })
+      commit('createNotifier', {
+        type: 'success',
+        message: 'Category deleted.'
+      })
     } catch (error) {
-      commit('createNotifier', { type: 'error', message: 'Could not delete category.' })
+      commit('createNotifier', {
+        type: 'error',
+        message: 'Could not delete category.'
+      })
       console.log(error)
     }
   }

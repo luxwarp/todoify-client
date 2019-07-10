@@ -1,18 +1,29 @@
 <template>
   <ul class="list" v-if="categories.length">
-    <li
-      v-for="category in categories"
-      :key="category._id">
+    <li v-for="category in categories" :key="category._id">
       <ToolBox>
-          <template v-slot:toggle>
-            <i class="material-icons">more_vert</i>
-          </template>
-          <template v-slot:tools>
-              <router-link :to="{ name: 'categories.delete', params: { categoryId: category._id }}" class="link alert">Delete</router-link>
-            </template>
-        </ToolBox>
-      <router-link :to="{ name: 'categories.item', params: { categoryId: category._id }}" class="title">{{ category.title }}</router-link>
-      <div class="badge" v-if="showingBadgeWithCounter">{{ todoCount(category._id) }}</div>
+        <template v-slot:toggle>
+          <i class="material-icons">more_vert</i>
+        </template>
+        <template v-slot:tools>
+          <router-link
+            :to="{
+              name: 'categories.delete',
+              params: { categoryId: category._id }
+            }"
+            class="link alert"
+            >Delete</router-link
+          >
+        </template>
+      </ToolBox>
+      <router-link
+        :to="{ name: 'categories.item', params: { categoryId: category._id } }"
+        class="title"
+        >{{ category.title }}</router-link
+      >
+      <div class="badge" v-if="showingBadgeWithCounter">
+        {{ todoCount(category._id) }}
+      </div>
     </li>
   </ul>
   <p v-else>No categories found</p>
@@ -41,14 +52,11 @@ export default {
     }
   },
   computed: {
-    showingBadgeWithCounter () {
-      return (this.showBadge && this.todoCount)
+    showingBadgeWithCounter() {
+      return this.showBadge && this.todoCount
     }
   }
-
 }
 </script>
 
-<style>
-
-</style>
+<style></style>

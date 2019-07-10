@@ -3,7 +3,7 @@
     <span @click="show = !show">
       <slot name="button">
         <button class="button success">
-          Add {{type}}
+          Add {{ type }}
           <i class="material-icons">
             add
           </i>
@@ -14,24 +14,34 @@
       <div class="modal container" v-if="show">
         <div class="card">
           <h3 class="title">
-              Add new {{ type }}
-              <i class="material-icons" @click="show = !show">close</i>
-            </h3>
+            Add new {{ type }}
+            <i class="material-icons" @click="show = !show">close</i>
+          </h3>
           <div class="body">
             <form @submit.prevent="onSubmit">
-              <input v-model="title" type="text" placeholder="Enter a title" required v-focus>
+              <input
+                v-model="title"
+                type="text"
+                placeholder="Enter a title"
+                required
+                v-focus
+              />
               <div class="row" v-if="categories.length">
-              <label>Category: </label>
+                <label>Category: </label>
                 <select v-model="category">
                   <option value="null">Uncategorized</option>
-                  <option v-for="category in categories"
-                  :key="category._id"
-                  :value="category._id">
-                  {{ category.title }}
+                  <option
+                    v-for="category in categories"
+                    :key="category._id"
+                    :value="category._id"
+                  >
+                    {{ category.title }}
                   </option>
                 </select>
               </div>
-              <button type="submit" class="button primary">Add <i class="material-icons">add</i></button>
+              <button type="submit" class="button primary">
+                Add <i class="material-icons">add</i>
+              </button>
             </form>
           </div>
         </div>
@@ -54,7 +64,7 @@ export default {
       default: () => []
     }
   },
-  data () {
+  data() {
     return {
       show: false,
       title: null,
@@ -62,7 +72,7 @@ export default {
     }
   },
   methods: {
-    onSubmit () {
+    onSubmit() {
       this.$emit('submit', { title: this.title, category: this.category })
       this.title = null
       this.category = null
@@ -100,5 +110,4 @@ export default {
     }
   }
 }
-
 </style>

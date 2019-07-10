@@ -5,10 +5,7 @@
 <script>
 export default {
   name: 'UserView'
-
 }
 </script>
 
-<style lang="scss">
-
-</style>
+<style lang="scss"></style>

@@ -1,15 +1,17 @@
 <template>
-    <div class="header">
-      <div class="banner">
-        <router-link :to="{name: 'home'}" tag="div" class="brand">Todoify</router-link>
-        <div class="menuButton" @click="toggleMainNav">
-          <i class="material-icons md-36">
-            menu
-          </i>
-        </div>
+  <div class="header">
+    <div class="banner">
+      <router-link :to="{ name: 'home' }" tag="div" class="brand"
+        >Todoify</router-link
+      >
+      <div class="menuButton" @click="toggleMainNav">
+        <i class="material-icons md-36">
+          menu
+        </i>
       </div>
-      <MainNav />
     </div>
+    <MainNav />
+  </div>
 </template>
 
 <script>
@@ -20,7 +22,7 @@ export default {
     MainNav
   },
   methods: {
-    toggleMainNav () {
+    toggleMainNav() {
       this.$store.commit('toggleMainNav')
     }
   }
@@ -87,5 +89,4 @@ export default {
     }
   }
 }
-
 </style>

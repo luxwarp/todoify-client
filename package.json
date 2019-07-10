@@ -8,15 +8,6 @@
     "email": "mikael.m.carlsson@gmail.com",
     "url": "https://luxwarp.info"
   },
-  "bugs": {
-    "url": "https://github.com/luxwarp/todoify-client/issues"
-  },
-  "homepage": "https://github.com/luxwarp/todoify-client#readme",
-  "license": "ISC",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/luxwarp/todoify-client.git"
-  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -35,8 +26,9 @@
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.9.0",
-    "@vue/cli-plugin-eslint": "^3.9.0",
+    "@vue/cli-plugin-eslint": "^3.9.2",
     "@vue/cli-service": "^3.9.0",
+    "@vue/eslint-config-prettier": "^4.0.1",
     "@vue/eslint-config-standard": "^4.0.0",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.16.0",
@@ -44,5 +36,14 @@
     "node-sass": "^4.9.0",
     "sass-loader": "^7.1.0",
     "vue-template-compiler": "^2.6.10"
+  },
+  "bugs": {
+    "url": "https://github.com/luxwarp/todoify-client/issues"
+  },
+  "homepage": "https://github.com/luxwarp/todoify-client#readme",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luxwarp/todoify-client.git"
   }
 }

@@ -16,27 +16,34 @@ const responseHandler = {
     // Logout user if token refresh didn't work.
     if (error.config.url.includes('refreshtoken')) {
       Router.push({ name: 'user.logout' })
-      Store.commit('createNotifier', { type: 'warning', message: 'Not authorized. Please log in.' })
+      Store.commit('createNotifier', {
+        type: 'warning',
+        message: 'Not authorized. Please log in.'
+      })
       return Promise.reject(error)
     }
 
     // Try request again with new token
-    return window.$todoify.refreshToken(window.$cookies.get('refreshToken'))
-      .then((response) => {
+    return window.$todoify
+      .refreshToken(window.$cookies.get('refreshToken'))
+      .then(response => {
         Store.commit('setTokens', response.data.data)
         // New request with new token
         const config = error.config
         config.headers.Authorization = response.data.data.accessToken
 
         return new Promise((resolve, reject) => {
-          window.$todoify.customRequest(config).then(response => {
-            resolve(response)
-          }).catch((error) => {
-            reject(error)
-          })
+          window.$todoify
+            .customRequest(config)
+            .then(response => {
+              resolve(response)
+            })
+            .catch(error => {
+              reject(error)
+            })
         })
       })
-      .catch((error) => {
+      .catch(error => {
         return Promise.reject(error)
       })
   }

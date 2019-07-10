@@ -21,7 +21,7 @@ export default {
     RequestStatus
   },
   methods: {
-    showMainMenu (event) {
+    showMainMenu(event) {
       if (window.screen.width > 1024) {
         this.$store.commit('showMainNav')
       } else {
@@ -29,12 +29,12 @@ export default {
       }
     }
   },
-  created () {
+  created() {
     if (this.$store.getters.isAuth()) {
       this.$store.dispatch('syncWithServer')
     }
   },
-  mounted () {
+  mounted() {
     window.addEventListener('resize', this.showMainMenu)
   }
 }

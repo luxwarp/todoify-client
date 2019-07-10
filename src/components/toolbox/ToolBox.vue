@@ -14,7 +14,7 @@
 <script>
 export default {
   name: 'ToolBox',
-  data () {
+  data() {
     return {
       show: false
     }
@@ -84,5 +84,4 @@ export default {
     animation: slideInRight 0.5s reverse;
   }
 }
-
 </style>

@@ -1,27 +1,32 @@
 <template>
-    <transition-group class="notifiers" name="slideInLeft" tag="div">
-      <div v-for="(notifier, index) in notifiers" :key="index+1" :class="notifier.type" class="notifier">
-        <i class="material-icons"></i>
-        <span class="message">{{ notifier.message }}</span>
-        <i class="material-icons close" @click="close(index)">close</i>
-      </div>
-    </transition-group>
+  <transition-group class="notifiers" name="slideInLeft" tag="div">
+    <div
+      v-for="(notifier, index) in notifiers"
+      :key="index + 1"
+      :class="notifier.type"
+      class="notifier"
+    >
+      <i class="material-icons"></i>
+      <span class="message">{{ notifier.message }}</span>
+      <i class="material-icons close" @click="close(index)">close</i>
+    </div>
+  </transition-group>
 </template>
 
 <script>
 export default {
   name: 'NotifiersList',
   computed: {
-    notifiers () {
+    notifiers() {
       return this.$store.getters.getNotifiers
     }
   },
   methods: {
-    close (index) {
+    close(index) {
       this.$store.commit('closeNotifier', index)
     }
   },
-  updated () {
+  updated() {
     if (this.notifiers.length >= 1) {
       let vm = this
       setTimeout(() => {
@@ -69,40 +74,39 @@ export default {
   }
 
   > .error {
-    background: #F8D7DA;
+    background: #f8d7da;
     color: rgb(110, 49, 54);
 
     > .material-icons::before {
-      content: "error_outline";
+      content: 'error_outline';
     }
   }
 
   > .warning {
-    background: #FFF3CD;
+    background: #fff3cd;
     color: rgb(110, 104, 49);
 
     > .material-icons::before {
-      content: "warning";
+      content: 'warning';
     }
   }
 
   > .success {
-    background: #D4EDDA;
+    background: #d4edda;
     color: rgb(51, 110, 49);
 
     > .material-icons::before {
-      content: "check";
+      content: 'check';
     }
   }
 
   > .info {
-    background: #D1ECF1;
+    background: #d1ecf1;
     color: rgb(49, 80, 110);
 
     > .material-icons::before {
-      content: "info";
+      content: 'info';
     }
   }
 }
-
 </style>

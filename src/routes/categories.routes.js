@@ -34,7 +34,11 @@ export default [
           title: 'Delete category'
         },
         beforeEnter: (to, from, next) => {
-          if (confirm(`Are you sure you want to delete this category ?\nTo-do's will not be deleted.`)) {
+          if (
+            confirm(
+              `Are you sure you want to delete this category ?\nTo-do's will not be deleted.`
+            )
+          ) {
             Store.dispatch('deleteCategory', to.params.categoryId)
             next({ name: 'categories.list' })
           } else {

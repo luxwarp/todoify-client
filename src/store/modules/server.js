@@ -6,13 +6,13 @@ const state = {
 }
 
 const getters = {
-  isAuth: (state) => () => {
-    return (state.refreshToken && window.$cookies.isKey('refreshToken'))
+  isAuth: state => () => {
+    return state.refreshToken && window.$cookies.isKey('refreshToken')
   }
 }
 
 const mutations = {
-  setTokens (state, tokens) {
+  setTokens(state, tokens) {
     if (tokens.accessToken) {
       const decodedAccesToken = JWTDecode(tokens.accessToken)
       let accesstime = new Date(0)
@@ -28,7 +28,7 @@ const mutations = {
       state.refreshToken = tokens.refreshToken
     }
   },
-  clearTokens (state) {
+  clearTokens(state) {
     window.$cookies.remove('accessToken')
     window.$cookies.remove('refreshToken')
     state.accessToken = null
@@ -37,9 +37,12 @@ const mutations = {
 }
 
 const actions = {
-  async login ({ commit, dispatch }, data) {
+  async login({ commit, dispatch }, data) {
     try {
-      const response = await window.$todoify.authenticate({ ...data, refreshToken: true })
+      const response = await window.$todoify.authenticate({
+        ...data,
+        refreshToken: true
+      })
       commit('setTokens', response.data.data)
       dispatch('syncWithServer')
       Router.push({ name: 'user.profile' })
@@ -47,16 +50,19 @@ const actions = {
       console.log(error)
     }
   },
-  async register ({ commit }, data) {
+  async register({ commit }, data) {
     try {
       const response = await window.$todoify.register(data)
-      commit('createNotifier', { type: 'success', message: response.data.message })
+      commit('createNotifier', {
+        type: 'success',
+        message: response.data.message
+      })
       Router.push({ name: 'user.login' })
     } catch (error) {
       console.log(error)
     }
   },
-  syncWithServer ({ dispatch }) {
+  syncWithServer({ dispatch }) {
     dispatch('getUser')
     dispatch('getTodos')
     dispatch('getCategories')

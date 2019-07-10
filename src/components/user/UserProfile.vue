@@ -3,10 +3,10 @@
     <div class="card">
       <h2 class="title">Profile</h2>
       <div class="body">
-        <p>{{userInfo.name}}</p>
-        <p>{{userInfo.email}}</p>
-        <p>{{userInfo.createdAt}}</p>
-        <router-link :to="{name: 'user.edit'}">Edit user</router-link>
+        <p>{{ userInfo.name }}</p>
+        <p>{{ userInfo.email }}</p>
+        <p>{{ userInfo.createdAt }}</p>
+        <router-link :to="{ name: 'user.edit' }">Edit user</router-link>
       </div>
     </div>
   </div>
@@ -24,6 +24,4 @@ export default {
 }
 </script>
 
-<style lang="scss">
-
-</style>
+<style lang="scss"></style>

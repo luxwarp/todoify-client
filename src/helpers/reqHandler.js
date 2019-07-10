@@ -1,7 +1,7 @@
 import Store from '@/store/store'
 
 const requestHandler = {
-  config: (config) => {
+  config: config => {
     Store.commit('showRequestStatus')
 
     if (window.$cookies.isKey('accessToken')) {
@@ -10,7 +10,7 @@ const requestHandler = {
 
     return config
   },
-  error: (error) => {
+  error: error => {
     Store.commit('hideRequestStatus')
 
     Store.commit('createNotifier', { type: 'error', message: error.message })

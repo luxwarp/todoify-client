@@ -11,8 +11,7 @@ export default [
     path: '/user',
     component: UserView,
     redirect: { name: 'user.profile' },
-    meta: {
-    },
+    meta: {},
     children: [
       {
         path: 'profile',

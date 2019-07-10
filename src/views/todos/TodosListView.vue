@@ -25,16 +25,17 @@ export default {
     })
   },
   methods: {
-    addNewTodo (data) {
-      this.$store.dispatch('createTodo', { title: data.title, category: data.category })
+    addNewTodo(data) {
+      this.$store.dispatch('createTodo', {
+        title: data.title,
+        category: data.category
+      })
     },
-    toggleTools (id) {
+    toggleTools(id) {
       this.$refs[id][0].classList.toggle('hide')
     }
   }
 }
 </script>
 
-<style lang="scss">
-
-</style>
+<style lang="scss"></style>

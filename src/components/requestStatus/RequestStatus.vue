@@ -1,9 +1,9 @@
 <template>
   <transition name="slide">
-  <div class="requestStatus" v-if="getRequestStatus">
-    <div class="loader"></div>
-    Talking to server
-  </div>
+    <div class="requestStatus" v-if="getRequestStatus">
+      <div class="loader"></div>
+      Talking to server
+    </div>
   </transition>
 </template>
 
@@ -12,9 +12,7 @@ import { mapGetters } from 'vuex'
 export default {
   name: 'requestStatus',
   computed: {
-    ...mapGetters([
-      'getRequestStatus'
-    ])
+    ...mapGetters(['getRequestStatus'])
   }
 }
 </script>
@@ -35,16 +33,17 @@ export default {
 
   .loader {
     margin-right: 10px;
-    border:  $requestLoaderBorder;
+    border: $requestLoaderBorder;
     border-top: $requestLoaderBorderTop;
   }
 
-  &.slide-enter-active, .slide-leave-active {
+  &.slide-enter-active,
+  .slide-leave-active {
     transition: all 0.5s;
   }
-  &.slide-enter, .slide-leave-to {
+  &.slide-enter,
+  .slide-leave-to {
     transform: translateX(100%);
   }
 }
-
 </style>

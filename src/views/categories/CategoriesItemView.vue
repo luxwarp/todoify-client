@@ -7,8 +7,15 @@
           <i class="material-icons">settings</i>
         </template>
         <template v-slot:tools>
-            <router-link :to="{ name: 'categories.delete', params: { categoryId: category._id }}" class="link alert">Delete</router-link>
-          </template>
+          <router-link
+            :to="{
+              name: 'categories.delete',
+              params: { categoryId: category._id }
+            }"
+            class="link alert"
+            >Delete</router-link
+          >
+        </template>
       </ToolBox>
     </div>
     <AddNew type="to-do" @submit="addNewTodo" />
@@ -31,21 +38,24 @@ export default {
     TodosList
   },
   computed: {
-    category () {
+    category() {
       return this.$store.getters.getCategoryById(this.$route.params.categoryId)
     },
-    todos () {
-      return this.$store.getters.getTodosByCategoryId(this.$route.params.categoryId)
+    todos() {
+      return this.$store.getters.getTodosByCategoryId(
+        this.$route.params.categoryId
+      )
     }
   },
   methods: {
-    addNewTodo (data) {
-      this.$store.dispatch('createTodo', { title: data.title, category: this.$route.params.categoryId })
+    addNewTodo(data) {
+      this.$store.dispatch('createTodo', {
+        title: data.title,
+        category: this.$route.params.categoryId
+      })
     }
   }
 }
 </script>
 
-<style lang="scss">
-
-</style>
+<style lang="scss"></style>

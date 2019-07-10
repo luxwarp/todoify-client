@@ -2,7 +2,7 @@
 import Axios from 'axios'
 
 class TodoifyApi {
-  constructor (options) {
+  constructor(options) {
     const defaultConfig = {
       baseURL: 'https://todoify.luxwarp.info/api',
       headers: {
@@ -18,25 +18,31 @@ class TodoifyApi {
       headers: config.headers
     })
 
-    this.request.interceptors.request.use(config.reqHandler.config, config.reqHandler.error)
+    this.request.interceptors.request.use(
+      config.reqHandler.config,
+      config.reqHandler.error
+    )
 
-    this.request.interceptors.response.use(config.resHandler.response, config.resHandler.error)
+    this.request.interceptors.response.use(
+      config.resHandler.response,
+      config.resHandler.error
+    )
   }
 
   reqHandler = {
-    config: (config) => {
+    config: config => {
       return config
     },
-    error: (error) => {
+    error: error => {
       return Promise.reject(error)
     }
   }
 
   resHandler = {
-    response: (response) => {
+    response: response => {
       return response
     },
-    error: (error) => {
+    error: error => {
       return Promise.reject(error)
     }
   }
@@ -45,19 +51,21 @@ class TodoifyApi {
     return this.request({ url: resource, method: method })
   }
 
-  customRequest = (requestConfig) => {
+  customRequest = requestConfig => {
     return this.request.request(requestConfig)
   }
 
-  authenticate = (data) => {
+  authenticate = data => {
     return this.request.post('/users/authenticate', data)
   }
 
   refreshToken = (refreshToken = '') => {
-    return this.request.post('/users/refreshtoken', { refreshToken: refreshToken })
+    return this.request.post('/users/refreshtoken', {
+      refreshToken: refreshToken
+    })
   }
 
-  register = (data) => {
+  register = data => {
     return this.request.post('/users/register', data)
   }
 
@@ -65,11 +73,11 @@ class TodoifyApi {
     return this.request.get('/users')
   }
 
-  updateUser = (data) => {
+  updateUser = data => {
     return this.request.patch('/users', data)
   }
 
-  deleteUser = (password) => {
+  deleteUser = password => {
     return this.request.delete('/users', { data: { password: password } })
   }
 
@@ -81,7 +89,7 @@ class TodoifyApi {
     return this.request.post('/todos' + query, data)
   }
 
-  deleteTodo = (data) => {
+  deleteTodo = data => {
     return this.request.delete('/todos/' + data)
   }
 
@@ -89,17 +97,17 @@ class TodoifyApi {
     return this.request.get('/categories' + query)
   }
 
-  createCategory = (data) => {
+  createCategory = data => {
     return this.request.post('/categories', data)
   }
 
-  deleteCategory = (data) => {
+  deleteCategory = data => {
     return this.request.delete('/categories/' + data)
   }
 }
 
 export default {
-  install (Vue, options) {
+  install(Vue, options) {
     const todoify = new TodoifyApi(options)
 
     Vue.prototype.$todoify = todoify
