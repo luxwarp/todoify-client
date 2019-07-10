@@ -110,8 +110,6 @@ export default {
 
 <style lang="scss">
 .mainNav {
-  position: static;
-  top: 0;
   width: 100%;
   height: 100vh;
   overflow: auto;

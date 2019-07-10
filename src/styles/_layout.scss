@@ -1,13 +1,14 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap");
 @import "@/styles/_animations.scss";
 
 * {
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   -webkit-tap-highlight-color: transparent;
 }
 
-html, body {
+html,
+body {
   width: 100vw;
   height: 100vh;
   max-width: 100vw;
@@ -17,12 +18,14 @@ html, body {
   font-size: $globalFontSize;
 }
 
-a, .link {
+a,
+.link {
   color: $defaultLinkColor;
   text-decoration: none;
   cursor: pointer;
 
-  &:hover, &:active {
+  &:hover,
+  &:active {
     text-decoration: underline;
     color: lighten($defaultLinkColor, $amount: 10);
   }
@@ -73,20 +76,25 @@ ul.list {
   border: $listBorder;
 
   > li {
-    padding: 15px;
+    padding: 0 15px;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     align-items: center;
-    transition: all 0.5s;
     border-bottom: $listItemBorderBottom;
-    
+    color: $listItemFontColor;
+
     &:only-child {
       border-bottom: 0px;
     }
 
     > .title {
       flex: 1;
+      text-decoration: none;
+      color: inherit;
+      padding: 15px 0;
+      margin: 0 15px;
+      white-space: nowrap;
+      overflow-x: auto;
     }
 
     > .badge {
@@ -99,9 +107,11 @@ ul.list {
       text-align: center;
     }
 
-    &:hover, &:active{
+    &:hover,
+    &:active {
       background: darken($listItemBgColor, $amount: 3);
       cursor: pointer;
+      color: $listItemFontColor;
     }
   }
 }
@@ -111,7 +121,7 @@ ul.list {
 }
 
 .reverse {
-  flex-direction: row-reverse
+  flex-direction: row-reverse;
 }
 
 .center {
@@ -119,10 +129,18 @@ ul.list {
   margin-bottom: auto;
 }
 
-.material-icons.md-18 { font-size: 18px; }
-.material-icons.md-24 { font-size: 24px; }
-.material-icons.md-36 { font-size: 36px; }
-.material-icons.md-48 { font-size: 48px; }
+.material-icons.md-18 {
+  font-size: 18px;
+}
+.material-icons.md-24 {
+  font-size: 24px;
+}
+.material-icons.md-36 {
+  font-size: 36px;
+}
+.material-icons.md-48 {
+  font-size: 48px;
+}
 
 .loader {
   border: 2px solid #f3f3f3; /* Light grey */
@@ -142,15 +160,16 @@ ul.list {
   justify-content: space-between;
   background: $buttonBgColor;
   color: $buttonFontColor;
-  transition: all 0.5s ;
+  transition: all 0.5s;
   cursor: pointer;
 
   > i {
     margin-left: 15px;
   }
 
-  &:hover, &:active {
-    background: lighten($buttonBgColor, $amount: 5)
+  &:hover,
+  &:active {
+    background: lighten($buttonBgColor, $amount: 5);
   }
 
   &:disabled {
@@ -163,8 +182,9 @@ ul.list {
     background: $buttonPrimaryBgColor;
     color: $buttonPrimaryFontColor;
 
-    &:hover, &:active{
-      background: lighten($buttonPrimaryBgColor, $amount: 5)
+    &:hover,
+    &:active {
+      background: lighten($buttonPrimaryBgColor, $amount: 5);
     }
   }
 
@@ -172,8 +192,9 @@ ul.list {
     background: $buttonSuccessBgColor;
     color: $buttonSuccessFontColor;
 
-    &:hover, &:active {
-      background: lighten($buttonSuccessBgColor, $amount: 5)
+    &:hover,
+    &:active {
+      background: lighten($buttonSuccessBgColor, $amount: 5);
     }
   }
 
@@ -181,8 +202,9 @@ ul.list {
     background: $buttonAlertBgColor;
     color: $buttonAlertFontColor;
 
-    &:hover, &:active{
-      background: lighten($buttonAlertBgColor, $amount: 5)
+    &:hover,
+    &:active {
+      background: lighten($buttonAlertBgColor, $amount: 5);
     }
   }
 }
@@ -227,7 +249,7 @@ ul.list {
   background: $cardBgColor;
   padding: 15px;
   margin: 15px;
-  
+
   > .title {
     width: 100%;
     font-weight: 400;

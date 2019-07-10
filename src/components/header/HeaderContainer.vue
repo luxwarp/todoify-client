@@ -40,7 +40,6 @@ export default {
   display: flex;
   flex-direction: column;
   z-index: 10;
-  transition: all 0.4s ease-in-out;
 
   .banner {
     position: sticky;
