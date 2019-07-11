@@ -5,9 +5,7 @@
         >Todoify</router-link
       >
       <div class="menuButton" @click="toggleMainNav">
-        <i class="material-icons md-36">
-          menu
-        </i>
+        <i class="fas fa-bars fa-lg"></i>
       </div>
     </div>
     <MainNav />

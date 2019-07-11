@@ -27,9 +27,7 @@
             :disabled="isButtonDisable"
           >
             Login
-            <i class="material-icons">
-              lock_open
-            </i>
+            <i class="fas fa-sign-in-alt"></i>
           </button>
         </form>
       </div>

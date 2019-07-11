@@ -6,9 +6,9 @@
       :class="notifier.type"
       class="notifier"
     >
-      <i class="material-icons"></i>
+      <div class="icon" :class="iconType(notifier.type)"></div>
       <span class="message">{{ notifier.message }}</span>
-      <i class="material-icons close" @click="close(index)">close</i>
+      <i class="fas fa-times" @click="close(index)"></i>
     </div>
   </transition-group>
 </template>
@@ -32,6 +32,27 @@ export default {
   methods: {
     close(index) {
       this.$store.commit("closeNotifier", index);
+    },
+    iconType(type) {
+      let icon;
+      switch (type) {
+        case "error":
+          icon = "fas fa-exclamation-circle";
+          break;
+        case "warning":
+          icon = "fas fa-exclamation-triangle";
+          break;
+        case "success":
+          icon = "fas fa-check-circle";
+          break;
+        case "info":
+          icon = "fas fa-info-circle";
+          break;
+        default:
+          icon = "fas fa-info-circle";
+          break;
+      }
+      return icon;
     }
   }
 };
@@ -49,7 +70,7 @@ export default {
     padding: 15px;
     align-items: center;
 
-    > .material-icons {
+    > .icon {
       font-size: 20px;
       margin-right: 15px;
       width: 20px;
@@ -76,37 +97,21 @@ export default {
   > .error {
     background: #f8d7da;
     color: rgb(110, 49, 54);
-
-    > .material-icons::before {
-      content: "error_outline";
-    }
   }
 
   > .warning {
     background: #fff3cd;
     color: rgb(110, 104, 49);
-
-    > .material-icons::before {
-      content: "warning";
-    }
   }
 
   > .success {
     background: #d4edda;
     color: rgb(51, 110, 49);
-
-    > .material-icons::before {
-      content: "check";
-    }
   }
 
   > .info {
     background: #d1ecf1;
     color: rgb(49, 80, 110);
-
-    > .material-icons::before {
-      content: "info";
-    }
   }
 }
 </style>

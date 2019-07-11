@@ -4,7 +4,7 @@
       <h2>Category: {{ category.title }}</h2>
       <ToolBox class="reverse">
         <template v-slot:toggle>
-          <i class="material-icons">settings</i>
+          <i class="fas fa-cog"></i>
         </template>
         <template v-slot:tools>
           <router-link

@@ -12,13 +12,13 @@
           }"
           class="navItem"
         >
-          <i class="material-icons md-36">folder</i>{{ category.title }}
+          <i class="fas fa-folder fa-2x"></i>{{ category.title }}
         </router-link>
       </div>
       <div class="pages" @click="toggleMainNav">
         <span class="title">Menu</span>
         <router-link :to="{ name: 'home.page' }" class="navItem">
-          <i class="material-icons md-36">home</i>
+          <i class="fas fa-home fa-2x"></i>
           <span class="label">Home</span>
         </router-link>
         <router-link
@@ -26,7 +26,7 @@
           :to="{ name: 'user.login' }"
           class="navItem"
         >
-          <i class="material-icons md-36">lock_open</i>
+          <i class="fas fa-sign-in-alt fa-2x"></i>
           <span class="label">Login</span>
         </router-link>
         <router-link
@@ -34,7 +34,7 @@
           :to="{ name: 'user.register' }"
           class="navItem"
         >
-          <i class="material-icons md-36">add_circle_outline</i>
+          <i class="fas fa-user-plus fa-2x"></i>
           <span class="label">Register</span>
         </router-link>
         <router-link
@@ -42,7 +42,7 @@
           :to="{ name: 'categories.list' }"
           class="navItem"
         >
-          <i class="material-icons md-36">folder_open</i>
+          <i class="fas fa-folder-open fa-2x"></i>
           <span class="label">Categories</span>
         </router-link>
         <router-link
@@ -50,7 +50,7 @@
           :to="{ name: 'todos.list' }"
           class="navItem"
         >
-          <i class="material-icons md-36">list</i>
+          <i class="fas fa-list fa-2x"></i>
           <span class="label">To-do's</span>
         </router-link>
         <router-link
@@ -58,7 +58,7 @@
           :to="{ name: 'user.profile' }"
           class="navItem"
         >
-          <i class="material-icons md-36">face</i>
+          <i class="fas fa-user fa-2x"></i>
           <span class="label">Profile</span>
         </router-link>
         <router-link
@@ -66,23 +66,18 @@
           :to="{ name: 'user.logout' }"
           class="navItem"
         >
-          <i class="material-icons md-36">remove_circle_outline</i>
+          <i class="fas fa-sign-out-alt fa-2x"></i>
           <span class="label">Logout</span>
         </router-link>
         <router-link :to="{ name: 'about.page' }" class="navItem">
-          <i class="material-icons md-36">info</i>
+          <i class="fas fa-info-circle fa-2x"></i>
           <span class="label">About</span>
         </router-link>
         <a href="https://luxwarp.info/contact" class="navItem" target="_blank">
-          <i class="material-icons md-36">contact_mail</i>
+          <i class="fas fa-envelope fa-2x"></i>
           <span class="label">Contact</span>
         </a>
       </div>
-      <button class="closeMainNav" @click="toggleMainNav">
-        <i class="material-icons md-36">
-          clear
-        </i>
-      </button>
     </div>
   </transition>
 </template>
@@ -163,44 +158,12 @@ export default {
     background: #223a52;
     color: #d9e2ed;
   }
-
-  .closeMainNav {
-    position: fixed;
-    bottom: 20px;
-    align-self: center;
-    background: $roundButtonBgColor;
-    box-shadow: $defaultBoxShadow;
-    color: $roundButtonFontColor;
-    border-radius: 100%;
-    padding: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-items: center;
-    align-items: center;
-    cursor: pointer;
-    outline: none;
-    border: none;
-  }
-
-  .closeMainNav:hover {
-    background: lighten($roundButtonBgColor, 5);
-    color: lighten($roundButtonFontColor, 5);
-  }
-
-  .closeMainNav:active {
-    background: lighten($roundButtonBgColor, 5);
-    color: lighten($roundButtonFontColor, 5);
-  }
 }
 
 @media screen and (min-width: 1025px) {
   .mainNav {
     height: auto;
     animation: none;
-
-    .closeMainNav {
-      display: none;
-    }
   }
 }
 </style>

@@ -43,9 +43,7 @@
           />
           <button class="button primary" type="submit">
             Update user
-            <i class="material-icons">
-              done
-            </i>
+            <i class="fas fa-check"></i>
           </button>
         </form>
         <a @click="$router.go(-1)">Back</a>

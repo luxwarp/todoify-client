@@ -27,9 +27,7 @@
             :disabled="isButtonDisable"
           >
             Register
-            <i class="material-icons">
-              add_circle_outline
-            </i>
+            <i class="fas fa-user-plus"></i>
           </button>
         </form>
       </div>

@@ -1,7 +1,7 @@
 <template>
   <div class="toolboxcontainer">
     <div class="toggle" @click="show = !show">
-      <slot name="toggle"><i class="material-icons">more_vert</i></slot>
+      <slot name="toggle"><i class="fas fa-ellipsis-v"></i></slot>
     </div>
     <transition :name="animation">
       <div v-if="show" class="tools" @click="show = !show">

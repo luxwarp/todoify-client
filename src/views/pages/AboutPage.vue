@@ -13,19 +13,19 @@
     <div class="container">
       <div class="row no-wrap full-width">
         <div class="iconCard">
-          <i class="material-icons icon">devices</i>
+          <i class="fas fa-tv icon"></i>
           <div class="title">
             Use on any device
           </div>
         </div>
         <div class="iconCard">
-          <i class="material-icons icon">money_off</i>
+          <i class="fas fa-dollar-sign icon"></i>
           <div class="title">
             Completely free
           </div>
         </div>
         <div class="iconCard">
-          <i class="material-icons icon">code</i>
+          <i class="fab fa-osi icon"></i>
           <div class="title">
             Open Source
           </div>
@@ -36,7 +36,7 @@
       <p>
         If you create an account your to-do's and categories will be synced to
         our server so you can access it on any device with internet connection.
-        <strong>That's amazing!</strong>
+        <span style="font-weight: 900;">That's amazing!</span>
       </p>
     </div>
   </div>
