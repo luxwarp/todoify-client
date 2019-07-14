@@ -9,6 +9,7 @@ import reqHandler from "@/helpers/reqHandler";
 import "@fortawesome/fontawesome-free/css/all.css";
 import "normalize.css";
 import "@/styles/_layout.scss";
+import "./registerServiceWorker";
 
 Vue.config.productionTip = false;
 
