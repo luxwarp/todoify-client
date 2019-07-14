@@ -10,7 +10,7 @@ const responseHandler = {
     Store.commit("hideRequestStatus");
     // Return any error which is not due to authentication back to the calling service
     if (error.response.status !== 401) {
-      return Promise.reject(error);
+      return Promise.reject(error.response.data.errors);
     }
 
     // Logout user if token refresh didn't work.

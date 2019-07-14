@@ -1,3 +1,5 @@
+import objectId from "bson-objectid";
+
 const state = {
   categories: []
 };
@@ -14,51 +16,64 @@ const getters = {
 const mutations = {
   setCategories(state, data) {
     state.categories = data;
+  },
+  addCategory(state, newCategeory) {
+    state.categories.push(newCategeory);
   }
 };
 
 const actions = {
   async getCategories({ commit }) {
     try {
-      const response = await window.$todoify.getCategories("?sort[title]=asc");
+      const response = await window.$todoify.getCategories();
       commit("setCategories", response.data.data);
     } catch (error) {
       commit("createNotifier", {
         type: "error",
-        message: "Could not get categories."
+        message: error.message
       });
       console.log(error);
     }
   },
   async createCategory({ commit, dispatch }, title) {
     try {
-      await window.$todoify.createCategory({ title });
-      dispatch("getCategories");
+      const newCategeory = {
+        _id: objectId.generate(),
+        title: title,
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString()
+      };
+      commit("addCategory", newCategeory);
       commit("createNotifier", {
         type: "success",
         message: "Category created."
       });
+      await window.$todoify.createCategory(newCategeory);
+      dispatch("getCategories");
     } catch (error) {
       commit("createNotifier", {
         type: "error",
-        message: "Could not create category."
+        message: error.message
       });
       console.log(error);
     }
   },
-  async deleteCategory({ commit, dispatch }, id) {
+  async deleteCategory({ commit, dispatch, state }, id) {
     try {
-      await window.$todoify.deleteCategory(id);
-      dispatch("getCategories");
-      dispatch("getTodos");
+      const categoriesKeep = state.categories.filter(
+        category => category._id !== id
+      );
+      commit("setCategories", categoriesKeep);
       commit("createNotifier", {
         type: "success",
         message: "Category deleted."
       });
+      await window.$todoify.deleteCategory(id);
+      dispatch("getCategories");
     } catch (error) {
       commit("createNotifier", {
         type: "error",
-        message: "Could not delete category."
+        message: error.message
       });
       console.log(error);
     }

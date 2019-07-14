@@ -23,20 +23,26 @@ const actions = {
     } catch (error) {
       commit("createNotifier", {
         type: "error",
-        message: "Could not get user."
+        message: error.message
       });
       console.log(error);
     }
   },
-  async updateUser({ commit }, data) {
+  async updateUser({ commit, state }, data) {
     try {
+      const patch = {
+        ...state.userInfo,
+        ...data,
+        updatedAt: new Date().toISOString()
+      };
+      commit("setUserInfo", patch);
+      Router.push({ name: "user.profile" });
       const response = await window.$todoify.updateUser(data);
       commit("setUserInfo", response.data.data);
-      Router.push({ name: "user.profile" });
     } catch (error) {
       commit("createNotifier", {
         type: "error",
-        message: "Could not update user."
+        message: error.message
       });
       console.log(error);
     }
@@ -60,7 +66,7 @@ const actions = {
     } catch (error) {
       commit("createNotifier", {
         type: "error",
-        message: "Could not delete user."
+        message: error.message
       });
       console.log(error);
     }

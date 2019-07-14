@@ -1,5 +1,7 @@
 import Router from "@/router";
 import JWTDecode from "jwt-decode";
+import objectId from "bson-objectid";
+
 const state = {
   accessToken: window.$cookies.get("accessToken") || null,
   refreshToken: window.$cookies.get("refreshToken") || null
@@ -47,18 +49,28 @@ const actions = {
       dispatch("syncWithServer");
       Router.push({ name: "user.profile" });
     } catch (error) {
+      commit("createNotifier", { type: "error", message: error.message });
       console.log(error);
     }
   },
   async register({ commit }, data) {
     try {
-      const response = await window.$todoify.register(data);
+      const newUser = {
+        _id: objectId.generate(),
+        email: data.email,
+        password: data.password,
+        name: data.name,
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString()
+      };
+      const response = await window.$todoify.register(newUser);
       commit("createNotifier", {
         type: "success",
         message: response.data.message
       });
       Router.push({ name: "user.login" });
     } catch (error) {
+      commit("createNotifier", { type: "error", message: error.message });
       console.log(error);
     }
   },
