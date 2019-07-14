@@ -4,7 +4,11 @@
       <h2>To-do's</h2>
     </div>
     <AddNew type="to-do" :categories="categories" @submit="addNewTodo" />
-    <TodosList :todos="todos" :show-badge="true" />
+    <TodosList
+      :todos="todos"
+      :belong-to-category="belongToCategory"
+      :show-badge="true"
+    />
   </div>
 </template>
 
@@ -33,6 +37,10 @@ export default {
     },
     toggleTools(id) {
       this.$refs[id][0].classList.toggle("hide");
+    },
+    belongToCategory(id) {
+      const category = this.categories.find(category => category._id === id);
+      return category ? category.title : "Uncategorized";
     }
   }
 };

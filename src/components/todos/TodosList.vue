@@ -11,8 +11,8 @@
         </template>
       </ToolBox>
       <div class="title">{{ todo.title }}</div>
-      <div v-if="showBadge" class="badge">
-        {{ todo.category ? todo.category.title : "Uncategorized" }}
+      <div v-if="showBadge && belongToCategory" class="badge">
+        {{ belongToCategory(todo.category) }}
       </div>
     </li>
   </ul>
@@ -35,6 +35,11 @@ export default {
       type: Boolean,
       required: false,
       default: false
+    },
+    belongToCategory: {
+      type: Function,
+      required: false,
+      default: null
     }
   }
 };

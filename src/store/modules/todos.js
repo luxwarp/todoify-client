@@ -10,11 +10,7 @@ const getters = {
   },
   getTodosByCategoryId: state => id => {
     return state.todos.filter(todo => {
-      if (todo.category) {
-        return todo.category._id === id;
-      } else {
-        return todo.category === id;
-      }
+      return todo.category === id;
     });
   }
 };
