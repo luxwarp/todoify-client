@@ -1,5 +1,6 @@
 <template>
   <div class="app">
+    <NewUpdateBanner v-if="showNewUpdateBanner" @confirm="updateSW" />
     <RequestStatus />
     <HeaderContainer />
     <div class="mainView">
@@ -15,20 +16,38 @@
 import HeaderContainer from "@/components/header/HeaderContainer";
 import NotifiersList from "@/components/notifiers/NotifiersList";
 import RequestStatus from "@/components/requestStatus/RequestStatus";
+import NewUpdateBanner from "@/components/common/NewUpdateBanner/NewUpdateBanner";
 export default {
   name: "App",
   components: {
     HeaderContainer,
     NotifiersList,
-    RequestStatus
+    RequestStatus,
+    NewUpdateBanner
+  },
+  data() {
+    return {
+      showNewUpdateBanner: false,
+      updating: false,
+      registration: null
+    };
   },
   created() {
+    window.addEventListener("resize", this.showMainMenu);
+
     if (this.$store.getters.isAuth()) {
       this.$store.dispatch("syncWithServer");
     }
-  },
-  mounted() {
-    window.addEventListener("resize", this.showMainMenu);
+
+    document.addEventListener("swUpdated", this.activateUpdateBanner, {
+      once: true
+    });
+
+    navigator.serviceWorker.addEventListener("controllerchange", () => {
+      if (this.updating) return;
+      this.updating = true;
+      window.location.reload();
+    });
   },
   methods: {
     showMainMenu(event) {
@@ -37,6 +56,17 @@ export default {
       } else {
         this.$store.commit("hideMainNav");
       }
+    },
+    updateSW() {
+      this.showNewUpdateBanner = false;
+      if (!this.registration || !this.registration.waiting) {
+        return;
+      }
+      this.registration.waiting.postMessage("skipWaiting");
+    },
+    activateUpdateBanner(e) {
+      this.showNewUpdateBanner = true;
+      this.registration = e.detail;
     }
   }
 };
