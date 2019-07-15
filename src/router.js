@@ -6,6 +6,7 @@ import AboutPage from "@/views/pages/AboutPage";
 import UserRoutes from "@/routes/user.routes";
 import TodosRoutes from "@/routes/todos.routes";
 import CategoriesRoutes from "@/routes/categories.routes";
+import NotFoundPage from "@/views/pages/NotFoundPage";
 
 Vue.use(Router);
 
@@ -13,6 +14,10 @@ const router = new Router({
   mode: "history",
   base: process.env.BASE_URL,
   routes: [
+    {
+      path: "*index.html*",
+      redirect: "/"
+    },
     {
       path: "/",
       name: "home.page",
@@ -31,7 +36,14 @@ const router = new Router({
     },
     ...UserRoutes,
     ...TodosRoutes,
-    ...CategoriesRoutes
+    ...CategoriesRoutes,
+    {
+      path: "*",
+      component: NotFoundPage,
+      meta: {
+        title: "Not found"
+      }
+    }
   ]
 });
 

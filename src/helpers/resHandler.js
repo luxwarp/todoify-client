@@ -8,6 +8,10 @@ const responseHandler = {
   },
   error: error => {
     Store.commit("hideRequestStatus");
+
+    if (!error.response) {
+      return Promise.reject(error);
+    }
     // Return any error which is not due to authentication back to the calling service
     if (error.response.status !== 401) {
       return Promise.reject(error.response.data.errors);

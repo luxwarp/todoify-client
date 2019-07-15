@@ -23,7 +23,12 @@ module.exports = {
       msTileImage: "img/icons/mstile-150x150.png"
     },
     // configure the workbox plugin
-    workboxPluginMode: "GenerateSW",
-    workboxOptions: {}
+    workboxPluginMode: "InjectManifest",
+    workboxOptions: {
+      // swSrc is required in InjectManifest mode.
+      swSrc: "src/service-worker.js",
+      // ...other Workbox options...
+      exclude: []
+    }
   }
 };
