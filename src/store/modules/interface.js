@@ -1,5 +1,5 @@
 const state = {
-  showMainNav: window.screen.width > 1024 || false,
+  showMainNav: window.innerWidth > 1024 || false,
   requestStatus: 0,
   notifiers: []
 };
@@ -18,7 +18,7 @@ const getters = {
 
 const mutations = {
   toggleMainNav(state) {
-    if (window.screen.width < 1025) {
+    if (window.innerWidth < 1025) {
       state.showMainNav = !state.showMainNav;
     }
   },

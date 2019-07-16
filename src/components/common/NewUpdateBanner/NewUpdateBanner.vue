@@ -1,11 +1,13 @@
 <template>
-  <div v-if="show" class="newUpdateBanner">
-    <span class="close" @click="show = false">X</span>
-    <p>New version available.</p>
-    <button class="button" @click="$emit('confirm')">
-      Update
-    </button>
-  </div>
+  <transition name="slideInLeft" appear>
+    <div v-if="show" class="newUpdateBanner">
+      <i class="fas fa-times close" @click="show = false"></i>
+      <p>New version available.</p>
+      <button class="button" @click="$emit('confirm')">
+        Update
+      </button>
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -22,7 +24,7 @@ export default {
 <style lang="scss" scoped>
 .newUpdateBanner {
   position: fixed;
-  bottom: 0;
+  bottom: 10px;
   right: 0;
   display: flex;
   flex-direction: row;
@@ -37,6 +39,7 @@ export default {
     margin-right: 15px;
     font-weight: bold;
     color: red;
+    cursor: pointer;
   }
 
   > button {
@@ -45,6 +48,7 @@ export default {
     color: #fff;
     border-radius: 5px;
     margin-left: 10px;
+    cursor: pointer;
   }
 }
 </style>

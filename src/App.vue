@@ -51,7 +51,7 @@ export default {
   },
   methods: {
     showMainMenu(event) {
-      if (window.screen.width > 1024) {
+      if (window.innerWidth > 1024) {
         this.$store.commit("showMainNav");
       } else {
         this.$store.commit("hideMainNav");
