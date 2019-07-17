@@ -81,6 +81,10 @@ class TodoifyApi {
     return this.request.delete("/users", { data: { password: password } });
   };
 
+  logout = refreshToken => {
+    return this.request.post("/users/logout", { refreshToken: refreshToken });
+  };
+
   getTodos = (query = "") => {
     return this.request.get("/todos" + query);
   };

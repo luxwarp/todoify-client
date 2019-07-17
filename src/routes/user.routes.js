@@ -47,7 +47,11 @@ export default [
           requiresAuth: false
         },
         beforeEnter: (to, from, next) => {
-          Store.dispatch("logout");
+          let allDevices = false;
+          if (confirm("Do you want to logout all devices?")) {
+            allDevices = true;
+          }
+          Store.dispatch("logout", allDevices);
         }
       },
       {

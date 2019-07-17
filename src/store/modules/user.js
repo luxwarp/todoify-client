@@ -47,7 +47,9 @@ const actions = {
       console.log(error);
     }
   },
-  logout({ commit, dispatch }) {
+  async logout({ commit, state }, allDevices) {
+    let refreshToken = allDevices ? null : state.refreshToken;
+    await window.$todoify.logout(refreshToken);
     commit("clearTokens");
     commit("setUserInfo", {});
     commit("setCategories", []);
