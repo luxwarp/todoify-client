@@ -48,9 +48,7 @@ const actions = {
         updatedAt: new Date().toISOString()
       };
       commit("addTodo", newTodo);
-      console.log(newTodo);
-      const response = await window.$todoify.createTodo(newTodo);
-      console.log(response.data.data);
+      await window.$todoify.createTodo(newTodo);
       dispatch("getTodos");
     } catch (error) {
       commit("createNotifier", {
