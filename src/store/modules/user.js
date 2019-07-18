@@ -28,17 +28,11 @@ const actions = {
       console.log(error);
     }
   },
-  async updateUser({ commit, state }, data) {
+  async updateUser({ commit }, data) {
     try {
-      const patch = {
-        ...state.userInfo,
-        ...data,
-        updatedAt: new Date().toISOString()
-      };
-      commit("setUserInfo", patch);
-      Router.push({ name: "user.profile" });
       const response = await window.$todoify.updateUser(data);
       commit("setUserInfo", response.data.data);
+      Router.push({ name: "user.profile" });
     } catch (error) {
       commit("createNotifier", {
         type: "error",
@@ -78,7 +72,7 @@ const actions = {
         type: "success",
         message: "User account is deleted. Welcome back!"
       });
-      dispatch("logout");
+      dispatch("clearStorage");
     } catch (error) {
       commit("createNotifier", {
         type: "error",
