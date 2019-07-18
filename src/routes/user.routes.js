@@ -19,7 +19,8 @@ export default [
         component: UserProfile,
         meta: {
           title: "Profile",
-          requiresAuth: true
+          requiresAuth: true,
+          requiresOnline: true
         }
       },
       {
@@ -28,7 +29,8 @@ export default [
         component: UserLogin,
         meta: {
           title: "Login",
-          requiresAuth: false
+          requiresAuth: false,
+          requiresOnline: true
         }
       },
       {
@@ -37,14 +39,16 @@ export default [
         component: UserRegister,
         meta: {
           title: "Create account",
-          requiresAuth: false
+          requiresAuth: false,
+          requiresOnline: true
         }
       },
       {
         path: "logout",
         name: "user.logout",
         meta: {
-          requiresAuth: false
+          requiresAuth: false,
+          requiresOnline: true
         },
         beforeEnter: (to, from, next) => {
           let allDevices = false;
@@ -60,7 +64,8 @@ export default [
         component: UserEdit,
         meta: {
           title: "Edit user",
-          requiresAuth: true
+          requiresAuth: true,
+          requiresOnline: true
         }
       },
       {
@@ -69,6 +74,7 @@ export default [
         component: UserDelete,
         meta: {
           requiresAuth: true,
+          requiresOnline: true,
           title: "Delete user"
         }
       }

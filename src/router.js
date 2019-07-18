@@ -48,13 +48,23 @@ const router = new Router({
 });
 
 router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requiresOnline)) {
+    if (!Store.getters.isOnline()) {
+      Store.commit("createNotifier", {
+        type: "warning",
+        message: "Not allowed while offline."
+      });
+      next({ name: "home.page" });
+    }
+  }
+
   if (to.matched.some(record => record.meta.requiresAuth)) {
     if (!Store.getters.isAuth()) {
       Store.commit("createNotifier", {
         type: "warning",
         message: "Not authorized, please login."
       });
-      next({ name: "user.logout" });
+      next({ name: "user.login" });
     }
   }
   next();

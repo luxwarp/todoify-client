@@ -13,7 +13,6 @@ export default [
         name: "categories.list",
         component: CategoriesListView,
         meta: {
-          requiresAuth: true,
           title: "Categories"
         }
       },
@@ -22,7 +21,6 @@ export default [
         name: "categories.item",
         component: CategoriesItemView,
         meta: {
-          requiresAuth: true,
           title: "Category"
         }
       },
@@ -30,13 +28,12 @@ export default [
         path: ":categoryId/delete",
         name: "categories.delete",
         meta: {
-          requiresAuth: true,
           title: "Delete category"
         },
         beforeEnter: (to, from, next) => {
           if (
             confirm(
-              `Are you sure you want to delete this category ?\nTo-do's will not be deleted.`
+              `Are you sure you want to delete this category?\nTo-do's in this category will not be deleted.`
             )
           ) {
             Store.dispatch("deleteCategory", to.params.categoryId);

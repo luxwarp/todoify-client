@@ -3,7 +3,7 @@ const state = {
 };
 
 const getters = {
-  isOnline(state) {
+  isOnline: state => () => {
     return state.isOnline;
   }
 };
