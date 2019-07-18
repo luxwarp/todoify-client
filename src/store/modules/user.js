@@ -47,15 +47,29 @@ const actions = {
       console.log(error);
     }
   },
-  async logout({ commit, state }, allDevices) {
-    let refreshToken = allDevices ? null : state.refreshToken;
-    await window.$todoify.logout(refreshToken);
+  clearStorage({ commit }) {
     commit("clearTokens");
     commit("setUserInfo", {});
     commit("setCategories", []);
     commit("setTodos", []);
-    commit("createNotifier", { type: "success", message: "Logout successful" });
-    Router.push({ name: "user.login" });
+    if (navigator.onLine) {
+      commit("createNotifier", {
+        type: "success",
+        message: "Logout successful"
+      });
+      Router.push({ name: "user.login" });
+    } else {
+      commit("createNotifier", {
+        type: "success",
+        message: "All local data is destroyed."
+      });
+      Router.push({ name: "home.page" });
+    }
+  },
+  async logout({ dispatch, state }, allDevices) {
+    let refreshToken = allDevices ? null : state.refreshToken;
+    await window.$todoify.logout(refreshToken);
+    dispatch("clearStorage");
   },
   async deleteUser({ commit, dispatch }, password) {
     try {
