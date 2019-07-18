@@ -6,6 +6,7 @@ import Todos from "./modules/todos";
 import Categories from "./modules/categories";
 import Interface from "./modules/interface";
 import Server from "./modules/server";
+import Network from "./modules/network";
 
 Vue.use(Vuex);
 
@@ -24,6 +25,7 @@ export default new Vuex.Store({
     Todos,
     Categories,
     Interface,
-    Server
+    Server,
+    Network
   }
 });

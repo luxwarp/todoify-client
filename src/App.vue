@@ -33,6 +33,12 @@ export default {
     };
   },
   created() {
+    window.addEventListener("offline", () => {
+      this.$store.commit("updateIsOnline");
+    });
+    window.addEventListener("online", () => {
+      this.$store.commit("updateIsOnline");
+    });
     window.addEventListener("resize", this.showMainMenu);
 
     if (this.$store.getters.isAuth()) {
