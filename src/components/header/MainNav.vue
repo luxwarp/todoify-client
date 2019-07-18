@@ -78,6 +78,7 @@
           <span class="label">Contact</span>
         </a>
       </div>
+      <slot></slot>
     </div>
   </transition>
 </template>
@@ -162,7 +163,7 @@ export default {
 
 @media screen and (min-width: 1025px) {
   .mainNav {
-    height: auto;
+    height: 100%;
     animation: none;
   }
 }

@@ -8,16 +8,22 @@
         <i class="fas fa-bars fa-lg"></i>
       </div>
     </div>
-    <MainNav />
+    <MainNav>
+      <OfflineIndicator
+        style="position: sticky; bottom: 0; margin-top: auto;"
+      />
+    </MainNav>
   </div>
 </template>
 
 <script>
 import MainNav from "./MainNav";
+import OfflineIndicator from "@/components/common/OfflineIndicator";
 export default {
   name: "HeaderContainer",
   components: {
-    MainNav
+    MainNav,
+    OfflineIndicator
   },
   methods: {
     toggleMainNav() {
