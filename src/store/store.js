@@ -11,7 +11,7 @@ Vue.use(Vuex);
 
 const vuexPersist = new VuexPersist({
   key: "todoify-state",
-  modules: ["User", "Categories", "Todos", "Server"]
+  modules: ["Categories", "Todos"]
 });
 
 export default new Vuex.Store({
