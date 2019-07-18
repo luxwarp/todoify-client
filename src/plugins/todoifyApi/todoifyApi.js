@@ -93,8 +93,12 @@ class TodoifyApi {
     return this.request.post("/todos" + query, data);
   };
 
-  deleteTodo = data => {
-    return this.request.delete("/todos/" + data);
+  deleteTodo = id => {
+    return this.request.delete("/todos/" + id);
+  };
+
+  updateTodo = (id, data) => {
+    return this.request.patch("/categories/" + id, data);
   };
 
   getCategories = (query = "") => {
@@ -105,8 +109,12 @@ class TodoifyApi {
     return this.request.post("/categories", data);
   };
 
-  deleteCategory = data => {
-    return this.request.delete("/categories/" + data);
+  deleteCategory = id => {
+    return this.request.delete("/categories/" + id);
+  };
+
+  updateCategory = (id, data) => {
+    return this.request.patch("/categories/" + id, data);
   };
 }
 
