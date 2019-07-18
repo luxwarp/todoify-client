@@ -33,11 +33,17 @@ export default {
     };
   },
   created() {
+    if (navigator.onLine) {
+      this.$store.dispatch("handleOnline");
+    } else {
+      this.$store.dispatch("handleOffline");
+    }
+
     window.addEventListener("offline", () => {
-      this.$store.commit("updateIsOnline");
+      this.$store.dispatch("handleOffline");
     });
     window.addEventListener("online", () => {
-      this.$store.commit("updateIsOnline");
+      this.$store.dispatch("handleOnline");
     });
     window.addEventListener("resize", this.showMainMenu);
 

@@ -14,7 +14,24 @@ const mutations = {
   }
 };
 
-const actions = {};
+const actions = {
+  handleOnline({ commit, dispatch, getters }) {
+    commit("updateIsOnline");
+    const tokens = {
+      accessToken: window.$cookies.get("accessToken"),
+      refreshToken: window.$cookies.get("refreshToken")
+    };
+    commit("setTokens", tokens);
+    if (getters.isAuth()) {
+      dispatch("getUser");
+    }
+  },
+  handleOffline({ commit }) {
+    commit("updateIsOnline");
+    commit("setUserInfo", {});
+    commit("clearStateTokens");
+  }
+};
 
 export default {
   state,

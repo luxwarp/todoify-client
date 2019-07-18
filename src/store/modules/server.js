@@ -35,6 +35,10 @@ const mutations = {
     window.$cookies.remove("refreshToken");
     state.accessToken = null;
     state.refreshToken = null;
+  },
+  clearStateTokens(state) {
+    state.accessToken = null;
+    state.refreshToken = null;
   }
 };
 
