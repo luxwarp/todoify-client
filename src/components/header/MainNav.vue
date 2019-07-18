@@ -21,8 +21,16 @@
           <i class="fas fa-home fa-2x"></i>
           <span class="label">Home</span>
         </router-link>
+        <router-link :to="{ name: 'categories.list' }" class="navItem">
+          <i class="fas fa-folder-open fa-2x"></i>
+          <span class="label">Categories</span>
+        </router-link>
+        <router-link :to="{ name: 'todos.list' }" class="navItem">
+          <i class="fas fa-list fa-2x"></i>
+          <span class="label">To-do's</span>
+        </router-link>
         <router-link
-          v-if="!isAuth()"
+          v-if="isOnline() && !isAuth()"
           :to="{ name: 'user.login' }"
           class="navItem"
         >
@@ -30,7 +38,7 @@
           <span class="label">Login</span>
         </router-link>
         <router-link
-          v-if="!isAuth()"
+          v-if="isOnline() && !isAuth()"
           :to="{ name: 'user.register' }"
           class="navItem"
         >
@@ -38,23 +46,7 @@
           <span class="label">Register</span>
         </router-link>
         <router-link
-          v-if="isAuth()"
-          :to="{ name: 'categories.list' }"
-          class="navItem"
-        >
-          <i class="fas fa-folder-open fa-2x"></i>
-          <span class="label">Categories</span>
-        </router-link>
-        <router-link
-          v-if="isAuth()"
-          :to="{ name: 'todos.list' }"
-          class="navItem"
-        >
-          <i class="fas fa-list fa-2x"></i>
-          <span class="label">To-do's</span>
-        </router-link>
-        <router-link
-          v-if="isAuth()"
+          v-if="isOnline() && isAuth()"
           :to="{ name: 'user.profile' }"
           class="navItem"
         >
@@ -62,7 +54,7 @@
           <span class="label">Profile</span>
         </router-link>
         <router-link
-          v-if="isAuth()"
+          v-if="isOnline() && isAuth()"
           :to="{ name: 'user.logout' }"
           class="navItem"
         >
@@ -90,7 +82,8 @@ export default {
   computed: {
     ...mapGetters({
       categories: "getCategories",
-      isAuth: "isAuth"
+      isAuth: "isAuth",
+      isOnline: "isOnline"
     }),
     showMainNav() {
       return this.$store.getters.showMainNav;
