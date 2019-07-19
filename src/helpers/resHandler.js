@@ -19,7 +19,7 @@ const responseHandler = {
 
     // Logout user if token refresh didn't work.
     if (error.config.url.includes("refreshtoken")) {
-      Router.push({ name: "user.logout" });
+      Store.dispatch("logout");
       Store.commit("createNotifier", {
         type: "warning",
         message: "Not authorized. Please log in."
