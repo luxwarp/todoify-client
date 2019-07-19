@@ -35,21 +35,18 @@ const actions = {
       console.log(error);
     }
   },
-  async createCategory({ commit, dispatch }, title) {
+  async createCategory({ commit, getters }, title) {
     try {
-      const newCategeory = {
+      const newCategory = {
         _id: objectId.generate(),
         title: title,
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString()
       };
-      commit("addCategory", newCategeory);
-      commit("createNotifier", {
-        type: "success",
-        message: "Category created."
-      });
-      await window.$todoify.createCategory(newCategeory);
-      dispatch("getCategories");
+      commit("addCategory", newCategory);
+      if (getters.isOnline() && getters.isAuth()) {
+        await window.$todoify.createCategory(newCategory);
+      }
     } catch (error) {
       commit("createNotifier", {
         type: "error",
@@ -58,18 +55,15 @@ const actions = {
       console.log(error);
     }
   },
-  async deleteCategory({ commit, dispatch, state }, id) {
+  async deleteCategory({ commit, state, getters }, id) {
     try {
       const categoriesKeep = state.categories.filter(
         category => category._id !== id
       );
       commit("setCategories", categoriesKeep);
-      commit("createNotifier", {
-        type: "success",
-        message: "Category deleted."
-      });
-      await window.$todoify.deleteCategory(id);
-      dispatch("getCategories");
+      if (getters.isOnline() && getters.isAuth()) {
+        await window.$todoify.deleteCategory(id);
+      }
     } catch (error) {
       commit("createNotifier", {
         type: "error",

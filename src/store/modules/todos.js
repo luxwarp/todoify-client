@@ -37,7 +37,7 @@ const actions = {
       console.log(error);
     }
   },
-  async createTodo({ commit, dispatch }, data) {
+  async createTodo({ commit, getters }, data) {
     try {
       const newTodo = {
         _id: objectId.generate(),
@@ -48,8 +48,9 @@ const actions = {
         updatedAt: new Date().toISOString()
       };
       commit("addTodo", newTodo);
-      await window.$todoify.createTodo(newTodo);
-      dispatch("getTodos");
+      if (getters.isOnline() && getters.isAuth()) {
+        await window.$todoify.createTodo(newTodo);
+      }
     } catch (error) {
       commit("createNotifier", {
         type: "error",
@@ -58,13 +59,13 @@ const actions = {
       console.log(error);
     }
   },
-  async deleteTodo({ commit, dispatch, state }, id) {
+  async deleteTodo({ commit, state, getters }, id) {
     try {
       const todosKeep = state.todos.filter(todo => todo._id !== id);
       commit("setTodos", todosKeep);
-      commit("createNotifier", { type: "success", message: "To-do deleted." });
-      await window.$todoify.deleteTodo(id);
-      dispatch("getTodos");
+      if (getters.isOnline() && getters.isAuth()) {
+        await window.$todoify.deleteTodo(id);
+      }
     } catch (error) {
       commit("createNotifier", {
         type: "error",

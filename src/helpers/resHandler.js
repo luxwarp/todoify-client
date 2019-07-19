@@ -1,5 +1,4 @@
 import Store from "@/store/store";
-import Router from "@/router";
 
 const responseHandler = {
   response: response => {
