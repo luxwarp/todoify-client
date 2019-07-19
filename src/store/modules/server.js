@@ -50,7 +50,9 @@ const actions = {
         refreshToken: true
       });
       commit("setTokens", response.data.data);
-      dispatch("syncWithServer");
+      dispatch("getUser");
+      dispatch("syncCategories");
+      dispatch("syncTodos");
       Router.push({ name: "user.profile" });
     } catch (error) {
       commit("createNotifier", { type: "error", message: error.message });
@@ -77,11 +79,6 @@ const actions = {
       commit("createNotifier", { type: "error", message: error.message });
       console.log(error);
     }
-  },
-  syncWithServer({ dispatch }) {
-    dispatch("getUser");
-    dispatch("getTodos");
-    dispatch("getCategories");
   }
 };
 

@@ -1,3 +1,4 @@
+import Router from "@/router";
 const state = {
   isOnline: navigator.onLine
 };
@@ -24,12 +25,15 @@ const actions = {
     commit("setTokens", tokens);
     if (getters.isAuth()) {
       dispatch("getUser");
+      dispatch("syncCategories");
+      dispatch("syncTodos");
     }
   },
   handleOffline({ commit }) {
     commit("updateIsOnline");
     commit("setUserInfo", {});
     commit("clearStateTokens");
+    Router.push({ name: "home.page" });
   }
 };
 

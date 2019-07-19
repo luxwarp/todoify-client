@@ -23,18 +23,6 @@ const mutations = {
 };
 
 const actions = {
-  async getCategories({ commit }) {
-    try {
-      const response = await window.$todoify.getCategories();
-      commit("setCategories", response.data.data);
-    } catch (error) {
-      commit("createNotifier", {
-        type: "error",
-        message: error.message
-      });
-      console.log(error);
-    }
-  },
   async syncCategories({ commit, state }) {
     try {
       const localCategories = state.categories;
@@ -45,16 +33,12 @@ const actions = {
 
       // If no local categories all remote categories adds to state.
       if (!localCategories.length) {
-        console.log("No local categories. Setting all remote.");
         commit("setCategories", remoteCategories);
         return;
       }
 
       // If no remote categories. Sending all local categories to server.
       if (!remoteCategories.length) {
-        console.log(
-          "No remote categories. Sending all local categories to server."
-        );
         localCategories.forEach(async localCategory => {
           const response = await window.$todoify.createCategory(localCategory);
           syncedCategories.push(response.data.data);
@@ -62,6 +46,45 @@ const actions = {
         commit("setCategories", syncedCategories);
         return;
       }
+
+      // Start going through remoteCategories to match localCategories.
+      remoteCategories.forEach(async remoteCategory => {
+        const foundLocal = localCategories.find(
+          localCategory => localCategory._id === remoteCategory._id
+        );
+        if (foundLocal) {
+          // A matching local category was found.
+          if (remoteCategory.updatedAt >= foundLocal.updatedAt) {
+            // if the remote category is newer or the same, save the remote category.
+            syncedCategories.push(remoteCategory);
+          } else {
+            // if the local category is newer, update the server and save the response.
+            const response = await window.$todoify.updateCategory(
+              foundLocal._id,
+              foundLocal
+            );
+            syncedCategories.push(response.data.data);
+          }
+        } else {
+          // No local category found. This remote category needs to be synced to client.
+          syncedCategories.push(remoteCategory);
+        }
+      });
+
+      // Start going through local categories to see if they exist in remote categories.
+      localCategories.forEach(async localCategory => {
+        const foundRemote = remoteCategories.find(
+          remoteCategory => remoteCategory._id === localCategory._id
+        );
+        if (!foundRemote) {
+          // Local category not found in remoteCategories. Send it to server and save response.
+          const response = await window.$todoify.createCategory(localCategory);
+          syncedCategories.push(response.data.data);
+        }
+      });
+
+      // All done. Categories should be synced and updated. Now set them to state.
+      commit("setCategories", syncedCategories);
     } catch (error) {
       commit("createNotifier", { type: "error", message: error.message });
       console.log(error);

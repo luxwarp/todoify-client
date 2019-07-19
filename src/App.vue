@@ -47,10 +47,6 @@ export default {
     });
     window.addEventListener("resize", this.showMainMenu);
 
-    if (this.$store.getters.isAuth()) {
-      this.$store.dispatch("syncWithServer");
-    }
-
     document.addEventListener("swUpdated", this.activateUpdateBanner, {
       once: true
     });
