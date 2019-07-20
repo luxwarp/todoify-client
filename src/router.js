@@ -54,7 +54,7 @@ router.beforeEach((to, from, next) => {
         type: "warning",
         message: "Not allowed while offline."
       });
-      next({ name: "home.page" });
+      return next({ name: "home.page" });
     }
   }
 
@@ -64,7 +64,8 @@ router.beforeEach((to, from, next) => {
         type: "warning",
         message: "Not authorized, please login."
       });
-      next({ name: "user.login" });
+      Store.commit("clearStateTokens");
+      return next({ name: "user.login" });
     }
   }
   next();
