@@ -77,6 +77,9 @@ export default {
       this.$set(this.user, e.target.id, e.target.value);
     },
     onSubmit() {
+      if (!this.user.name.trim()) {
+        this.user.name = " ";
+      }
       if (this.user.password && !this.user.password.trim()) {
         delete this.user.password;
       }
