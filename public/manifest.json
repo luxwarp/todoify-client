@@ -20,7 +20,7 @@
   "display": "standalone",
   "background_color": "#0E2B44",
   "theme_color": "#0E2B44",
-  ​​"orientation": "any",
+  "orientation": "any",
   "lang": "en-US",
-  "serviceworker": {"src": "./serviceworker.js" }
+  "serviceworker": { "src": "./serviceworker.js" }
 }
