@@ -1,7 +1,7 @@
 {
   "name": "Todoify",
   "short_name": "Todoify",
-  "description": "A simple To-do web app with categories.",
+  "description": "A simple To-do web app with categories. Use it online or offline. Keep all your devices in sync with an free account.",
   "categories": ["productivity"],
   "icons": [
     {
@@ -19,5 +19,8 @@
   "scope": ".",
   "display": "standalone",
   "background_color": "#0E2B44",
-  "theme_color": "#0E2B44"
+  "theme_color": "#0E2B44",
+  ​​"orientation": "any",
+  "lang": "en-US",
+  "serviceworker": {"src": "./serviceworker.js" }
 }
