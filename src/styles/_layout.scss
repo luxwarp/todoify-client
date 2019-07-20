@@ -261,6 +261,14 @@ ul.list {
   flex-wrap: wrap;
 }
 
+.brandLogo {
+  width: 50px;
+  height: 50px;
+  background-image: url("/img/icons/android-chrome-192x192.png");
+  background-size: cover;
+  margin-right: 25px;
+}
+
 .card {
   display: flex;
   flex-direction: column;
@@ -325,6 +333,8 @@ ul.list {
     font-size: 3rem;
     font-weight: 300;
     margin-bottom: 25px;
+    display: flex;
+    align-items: center;
   }
 
   > .subTitle {

@@ -1,8 +1,8 @@
 <template>
   <div class="header">
     <div class="banner">
-      <router-link :to="{ name: 'home.page' }" tag="div" class="brand"
-        >Todoify</router-link
+      <router-link :to="{ name: 'home.page' }" tag="div" class="brand">
+        Todoify</router-link
       >
       <div class="menuButton" @click="toggleMainNav">
         <i class="fas fa-bars fa-lg"></i>
@@ -64,6 +64,8 @@ export default {
       font-weight: 300;
       letter-spacing: 1px;
       cursor: pointer;
+      display: flex;
+      align-items: center;
     }
 
     .menuButton {

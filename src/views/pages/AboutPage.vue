@@ -1,7 +1,10 @@
 <template>
   <div class="container">
     <div class="hero">
-      <div class="title">Todoify</div>
+      <div class="title">
+        <div class="brandLogo"></div>
+        Todoify
+      </div>
       <div class="subTitle">Organize and take control over your life</div>
     </div>
     <div class="container text-center">
