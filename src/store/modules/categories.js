@@ -6,7 +6,17 @@ const state = {
 
 const getters = {
   getCategories(state) {
-    return state.categories;
+    function compare(a, b) {
+      if (a.title < b.title) {
+        return -1;
+      }
+      if (a.title > b.title) {
+        return 1;
+      }
+      return 0;
+    }
+
+    return state.categories.sort(compare);
   },
   getCategoryById: state => id => {
     return state.categories.find(category => category._id === id);

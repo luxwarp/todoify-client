@@ -6,7 +6,16 @@ const state = {
 
 const getters = {
   getTodos(state) {
-    return state.todos;
+    function compare(a, b) {
+      if (a.updatedAt > b.updatedAt) {
+        return -1;
+      }
+      if (a.updatedAt < b.updatedAt) {
+        return 1;
+      }
+      return 0;
+    }
+    return state.todos.sort(compare);
   },
   getTodosByCategoryId: state => id => {
     return state.todos.filter(todo => {
