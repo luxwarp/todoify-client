@@ -222,7 +222,7 @@ ul.list {
   margin-bottom: 25px;
 
   &:only-child {
-    margin-bottom: auto;
+    margin-bottom: 0;
   }
 
   > * {
