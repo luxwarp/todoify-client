@@ -1,12 +1,15 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Store from "@/store/store";
-import HomePage from "@/views/pages/HomePage";
-import AboutPage from "@/views/pages/AboutPage";
 import UserRoutes from "@/routes/user.routes";
 import TodosRoutes from "@/routes/todos.routes";
 import CategoriesRoutes from "@/routes/categories.routes";
-import NotFoundPage from "@/views/pages/NotFoundPage";
+const HomePage = () =>
+  import(/* webpackChunkName: "router-pages" */ "@/views/pages/HomePage");
+const AboutPage = () =>
+  import(/* webpackChunkName: "router-pages" */ "@/views/pages/AboutPage");
+const NotFoundPage = () =>
+  import(/* webpackChunkName: "router-pages" */ "@/views/pages/NotFoundPage");
 
 Vue.use(Router);
 

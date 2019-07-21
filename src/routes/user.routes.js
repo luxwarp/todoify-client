@@ -1,10 +1,16 @@
 import Store from "@/store/store";
-import UserView from "@/views/UserView";
-import UserLogin from "@/components/user/UserLogin";
-import UserRegister from "@/components/user/UserRegister";
-import UserProfile from "@/components/user/UserProfile";
-import UserEdit from "@/components/user/UserEdit";
-import UserDelete from "@/components/user/UserDelete";
+const UserView = () =>
+  import(/* webpackChunkName: "router-user" */ "@/views/UserView");
+const UserLogin = () =>
+  import(/* webpackChunkName: "router-user" */ "@/components/user/UserLogin");
+const UserRegister = () =>
+  import(/* webpackChunkName: "router-user" */ "@/components/user/UserRegister");
+const UserProfile = () =>
+  import(/* webpackChunkName: "router-user" */ "@/components/user/UserProfile");
+const UserEdit = () =>
+  import(/* webpackChunkName: "router-user" */ "@/components/user/UserEdit");
+const UserDelete = () =>
+  import(/* webpackChunkName: "router-user" */ "@/components/user/UserDelete");
 
 export default [
   {

@@ -1,6 +1,8 @@
-import TodosView from "@/views/TodosView";
-import TodosListView from "@/views/todos/TodosListView";
 import Store from "@/store/store";
+const TodosView = () =>
+  import(/* webpackChunkName: "router-todos" */ "@/views/TodosView");
+const TodosListView = () =>
+  import(/* webpackChunkName: "router-todos" */ "@/views/todos/TodosListView");
 
 export default [
   {

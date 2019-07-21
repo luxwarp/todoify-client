@@ -1,7 +1,10 @@
 import Store from "@/store/store";
-import CategoriesView from "@/views/CategoriesView";
-import CategoriesListView from "@/views/categories/CategoriesListView";
-import CategoriesItemView from "@/views/categories/CategoriesItemView";
+const CategoriesView = () =>
+  import(/* webpackChunkName: "router-categories" */ "@/views/CategoriesView");
+const CategoriesListView = () =>
+  import(/* webpackChunkName: "router-categories" */ "@/views/categories/CategoriesListView");
+const CategoriesItemView = () =>
+  import(/* webpackChunkName: "router-categories" */ "@/views/categories/CategoriesItemView");
 export default [
   {
     path: "/categories",
