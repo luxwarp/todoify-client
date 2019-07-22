@@ -1,4 +1,5 @@
 import Store from "@/store/store";
+import Router from "@/router";
 
 const responseHandler = {
   response: response => {
@@ -18,7 +19,8 @@ const responseHandler = {
 
     // Logout user if token refresh didn't work.
     if (error.config.url.includes("refreshtoken")) {
-      Store.dispatch("clearStorage");
+      Router.push({ name: "user.login" });
+      Store.commit("clearTokens");
       Store.commit("createNotifier", {
         type: "warning",
         message: "Not authorized. Please log in."
