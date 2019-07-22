@@ -21,21 +21,21 @@
     <AddNew type="to-do" @submit="addNewTodo" />
     <TodosList :todos="todos" :show-badge="true" />
   </div>
-  <div v-else class="notFound">
-    <p>Not found</p>
-  </div>
+  <NotFound v-else />
 </template>
 
 <script>
 import ToolBox from "@/components/toolbox/ToolBox";
 import AddNew from "@/components/modal/AddNew";
 import TodosList from "@/components/todos/TodosList";
+import NotFound from "@/views/pages/NotFoundPage";
 export default {
   name: "CategoriesItemView",
   components: {
     ToolBox,
     AddNew,
-    TodosList
+    TodosList,
+    NotFound
   },
   computed: {
     category() {

@@ -26,15 +26,24 @@
       </div>
     </li>
   </ul>
-  <p v-else>No categories found</p>
+  <NoListItemsFound v-else>
+    <template v-slot:title
+      >No categories found</template
+    >
+    <template v-slot:subtitle
+      >Create one now!</template
+    >
+  </NoListItemsFound>
 </template>
 
 <script>
 import ToolBox from "@/components/toolbox/ToolBox";
+import NoListItemsFound from "@/components/common/NoListItemsFound";
 export default {
   name: "CategoriesList",
   components: {
-    ToolBox
+    ToolBox,
+    NoListItemsFound
   },
   props: {
     categories: {
