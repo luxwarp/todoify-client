@@ -17,8 +17,8 @@ const getters = {
     }
     return state.todos.sort(compare);
   },
-  getTodosByCategoryId: state => id => {
-    return state.todos.filter(todo => {
+  getTodosByCategoryId: (state, getters) => id => {
+    return getters.getTodos.filter(todo => {
       return todo.category === id;
     });
   }
