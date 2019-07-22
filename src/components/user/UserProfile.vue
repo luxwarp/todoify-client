@@ -5,7 +5,9 @@
       <div class="body">
         <p>{{ userInfo.name }}</p>
         <p>{{ userInfo.email }}</p>
-        <p>{{ userInfo.createdAt }}</p>
+        <p>
+          {{ Date(userInfo.createdAt).toLocaleString() }}
+        </p>
         <router-link :to="{ name: 'user.edit' }">Edit user</router-link>
       </div>
     </div>
