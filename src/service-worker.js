@@ -8,6 +8,8 @@ workbox.core.setCacheNameDetails({
 
 workbox.precaching.precacheAndRoute(self.__precacheManifest || []);
 
+workbox.googleAnalytics.initialize();
+
 workbox.routing.registerNavigationRoute("/index.html");
 
 self.addEventListener("message", e => {
