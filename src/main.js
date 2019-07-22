@@ -1,6 +1,7 @@
 import Vue from "vue";
 import App from "./App.vue";
 import VueCookies from "vue-cookies";
+import VueAnalytics from "vue-analytics";
 import TodoifyApi from "@/plugins/todoifyApi/todoifyApi";
 import router from "@/router";
 import store from "@/store/store";
@@ -23,6 +24,10 @@ Vue.directive("focus", {
 });
 
 Vue.use(VueCookies);
+Vue.use(VueAnalytics, {
+  id: "UA-105792327-7",
+  router
+});
 Vue.use(TodoifyApi, {
   baseURL: process.env.VUE_APP_TODOIFY_API_URL,
   reqHandler: reqHandler,
