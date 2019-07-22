@@ -71,9 +71,12 @@ export default {
   },
   methods: {
     onSubmit() {
-      this.$emit("submit", { title: this.title, category: this.category });
+      this.$emit("submit", {
+        title: this.title,
+        category: this.selectedCategory
+      });
       this.title = null;
-      this.category = null;
+      this.selectedCategory = null;
       this.show = false;
     }
   }
