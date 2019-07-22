@@ -33,12 +33,6 @@ export default {
     };
   },
   created() {
-    if (navigator.onLine) {
-      this.$store.dispatch("handleOnline");
-    } else {
-      this.$store.dispatch("handleOffline");
-    }
-
     window.addEventListener("offline", () => {
       this.$store.dispatch("handleOffline");
     });
@@ -56,6 +50,13 @@ export default {
       this.updating = true;
       window.location.reload();
     });
+  },
+  beforeMount() {
+    if (this.$store.getters.isOnline()) {
+      this.$store.dispatch("handleOnline");
+    } else {
+      this.$store.dispatch("handleOffline");
+    }
   },
   methods: {
     showMainMenu(event) {

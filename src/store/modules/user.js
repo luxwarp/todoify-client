@@ -41,12 +41,12 @@ const actions = {
       console.log(error);
     }
   },
-  clearStorage({ commit }) {
+  clearStorage({ commit, getters }) {
     commit("clearTokens");
     commit("setUserInfo", {});
     commit("setCategories", []);
     commit("setTodos", []);
-    if (navigator.onLine) {
+    if (getters.isOnline()) {
       commit("createNotifier", {
         type: "success",
         message: "Logout successful"
@@ -60,8 +60,8 @@ const actions = {
       Router.push({ name: "home.page" });
     }
   },
-  async logout({ dispatch, state }, allDevices) {
-    let refreshToken = allDevices ? null : state.refreshToken;
+  async logout({ dispatch, rootState }, allDevices) {
+    let refreshToken = allDevices ? null : rootState.Server.refreshToken;
     await window.$todoify.logout(refreshToken);
     dispatch("clearStorage");
   },
