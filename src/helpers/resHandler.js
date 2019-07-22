@@ -18,7 +18,7 @@ const responseHandler = {
 
     // Logout user if token refresh didn't work.
     if (error.config.url.includes("refreshtoken")) {
-      Store.dispatch("logout");
+      Store.dispatch("clearStorage");
       Store.commit("createNotifier", {
         type: "warning",
         message: "Not authorized. Please log in."
