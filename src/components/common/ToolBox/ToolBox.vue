@@ -1,6 +1,6 @@
 <template>
-  <div class="toolboxcontainer">
-    <div class="toggle" @click="show = !show">
+  <div class="toolboxcontainer" :class="{ reverse: reverse }">
+    <div @click="show = !show">
       <slot name="toggle"><i class="fas fa-ellipsis-v"></i></slot>
     </div>
     <transition :name="animation">
@@ -15,6 +15,11 @@
 export default {
   name: "ToolBox",
   props: {
+    reverse: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
     animation: {
       type: String,
       required: false,
@@ -31,7 +36,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .toolboxcontainer {
   position: relative;
   display: flex;
@@ -39,49 +44,18 @@ export default {
   align-items: center;
   flex-wrap: wrap;
 
-  > .toggle {
+  &.reverse {
+    flex-direction: row-reverse;
+
+    > .tools {
+      margin-right: 10px;
+    }
   }
 
   > .tools {
     display: inline-flex;
     flex-direction: row;
-    margin: 0 10px;
-  }
-
-  @keyframes slideInLeft {
-    0% {
-      transform: translateX(100%);
-    }
-
-    100% {
-      transform: translateX(0%);
-    }
-  }
-
-  @keyframes slideInRight {
-    0% {
-      transform: translateX(-100%);
-    }
-
-    100% {
-      transform: translateX(0%);
-    }
-  }
-
-  > .slideInLeft-enter-active {
-    animation: slideInLeft 0.5s;
-  }
-
-  > .slideInLeft-leave-active {
-    animation: slideInLeft 0.5s reverse;
-  }
-
-  > .slideInRight-enter-active {
-    animation: slideInRight 0.5s;
-  }
-
-  > .slideInRight-leave-active {
-    animation: slideInRight 0.5s reverse;
+    margin-left: 10px;
   }
 }
 </style>

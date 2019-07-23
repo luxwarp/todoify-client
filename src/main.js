@@ -8,7 +8,6 @@ import store from "@/store/store";
 import resHandler from "@/helpers/resHandler";
 import reqHandler from "@/helpers/reqHandler";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import "normalize.css";
 import "@/styles/_layout.scss";
 import "./registerServiceWorker";
 

@@ -30,7 +30,7 @@
           }}</router-link>
         </p>
       </div>
-      <div v-else class="container text-center">
+      <div v-else class="text-center">
         <p>
           You don't have an internet connection. You can continue using Todoify
           while offline and later on sync your data to our server if you have an
@@ -38,16 +38,16 @@
         </p>
         <router-link :to="{ name: 'about.page' }">Read more</router-link>
       </div>
-      <div class="container text-center">
-        <p style="color: red">
-          This app is still in development stage. Changes may occur on a daily
-          basis.
-        </p>
-        <p>
-          <router-link :to="{ name: 'about.page' }">Read more</router-link> if
-          you want to help us.
-        </p>
-      </div>
+    </div>
+    <div class="container text-center" style="position: relative; bottom: 0;">
+      <p style="color: red">
+        This app is still in development stage. Changes may occur on a daily
+        basis.
+      </p>
+      <p>
+        <router-link :to="{ name: 'about.page' }">Read more</router-link> if you
+        want to help us.
+      </p>
     </div>
   </div>
 </template>

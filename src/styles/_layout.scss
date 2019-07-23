@@ -1,13 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap");
 @import "@/styles/_animations.scss";
 
-* {
+html {
   box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
-  -webkit-tap-highlight-color: transparent;
 }
 
-html,
 body {
   width: 100vw;
   height: 100vh;
@@ -16,6 +13,46 @@ body {
   background-color: $bodyBgColor;
   color: $globalFontColor;
   font-size: $globalFontSize;
+}
+
+* {
+  font-family: "Roboto", sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+p {
+  margin: 10px 0;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 a,
@@ -225,6 +262,10 @@ ul.list {
     margin-bottom: 0;
   }
 
+  > .container:last-child {
+    margin-bottom: 0;
+  }
+
   > * {
     width: 100%;
   }
@@ -237,6 +278,7 @@ ul.list {
     align-items: center;
     width: 100%;
     font-weight: 400;
+    margin: 15px 0;
     color: $containerTitleFontColor;
 
     > h2 {

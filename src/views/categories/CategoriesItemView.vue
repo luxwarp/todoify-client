@@ -2,7 +2,7 @@
   <div v-if="category" class="container">
     <div class="title">
       <h2>Category: {{ category.title }}</h2>
-      <ToolBox class="reverse">
+      <ToolBox reverse>
         <template v-slot:toggle>
           <i class="fas fa-cog"></i>
         </template>
