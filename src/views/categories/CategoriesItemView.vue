@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import ToolBox from "@/components/toolbox/ToolBox";
+import ToolBox from "@/components/common/ToolBox/ToolBox";
 import AddNew from "@/components/modal/AddNew";
 import TodosList from "@/components/todos/TodosList";
 import NotFound from "@/views/pages/NotFoundPage";

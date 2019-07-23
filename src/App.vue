@@ -13,14 +13,13 @@
 </template>
 
 <script>
-const HeaderContainer = () =>
-  import(/* webpackChunkName: "headerContainer" */ "@/components/header/HeaderContainer");
+import HeaderContainer from "@/components/layout/HeaderContainer/HeaderContainer";
 const NotifiersList = () =>
-  import(/* webpackChunkName: "group-banners" */ "@/components/notifiers/NotifiersList");
+  import(/* webpackChunkName: "group-banners" */ "@/components/ui/Notifiers/NotifiersList");
 const RequestStatus = () =>
-  import(/* webpackChunkName: "group-banners" */ "@/components/requestStatus/RequestStatus");
+  import(/* webpackChunkName: "group-banners" */ "@/components/ui/RequestStatus/RequestStatus");
 const NewUpdateBanner = () =>
-  import(/* webpackChunkName: "group-banners" */ "@/components/common/NewUpdateBanner/NewUpdateBanner");
+  import(/* webpackChunkName: "group-banners" */ "@/components/ui/NewUpdateBanner/NewUpdateBanner");
 export default {
   name: "App",
   components: {

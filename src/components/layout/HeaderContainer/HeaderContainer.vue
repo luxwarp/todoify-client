@@ -17,8 +17,8 @@
 </template>
 
 <script>
-import MainNav from "./MainNav";
-import OfflineIndicator from "@/components/common/OfflineIndicator";
+import MainNav from "@/components/layout/MainNav/MainNav";
+import OfflineIndicator from "@/components/ui/OfflineIndicator/OfflineIndicator";
 export default {
   name: "HeaderContainer",
   components: {

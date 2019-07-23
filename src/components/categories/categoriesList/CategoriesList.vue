@@ -37,8 +37,8 @@
 </template>
 
 <script>
-import ToolBox from "@/components/toolbox/ToolBox";
-import NoListItemsFound from "@/components/common/NoListItemsFound";
+import ToolBox from "@/components/common/ToolBox/ToolBox";
+import NoListItemsFound from "@/components/common/NoListItemsFound/NoListItemsFound";
 export default {
   name: "CategoriesList",
   components: {
@@ -69,4 +69,4 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss"></style>
