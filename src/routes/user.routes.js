@@ -6,7 +6,7 @@ const UserLogin = () =>
 const UserRegister = () =>
   import(/* webpackChunkName: "router-user" */ "@/components/user/UserRegister");
 const UserProfile = () =>
-  import(/* webpackChunkName: "router-user" */ "@/components/user/UserProfile");
+  import(/* webpackChunkName: "router-user" */ "@/views/user/UserProfile");
 const UserEdit = () =>
   import(/* webpackChunkName: "router-user" */ "@/components/user/UserEdit");
 const UserDelete = () =>

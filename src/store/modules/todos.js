@@ -21,6 +21,10 @@ const getters = {
     return getters.getTodos.filter(todo => {
       return todo.category === id;
     });
+  },
+  belongToCategory: (state, getters) => id => {
+    const category = getters.getCategoryById(id);
+    return category ? category.title : "Uncategorized";
   }
 };
 

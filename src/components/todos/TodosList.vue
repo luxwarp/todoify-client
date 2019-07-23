@@ -1,21 +1,26 @@
 <template>
-  <ul v-if="todos.length" class="list">
-    <li v-for="todo in todos" :key="todo._id">
-      <ToolBox>
-        <template v-slot:tools>
-          <router-link
-            :to="{ name: 'todos.delete', params: { todoId: todo._id } }"
-            class="link alert"
-            >Delete</router-link
-          >
-        </template>
-      </ToolBox>
-      <div class="title">{{ todo.title }}</div>
-      <div v-if="showBadge && belongToCategory" class="badge">
-        {{ belongToCategory(todo.category) }}
-      </div>
-    </li>
-  </ul>
+  <div v-if="todos.length">
+    <div v-if="$slots.default" class="title">
+      <h3><slot>To-do's</slot></h3>
+    </div>
+    <ul class="list">
+      <li v-for="todo in todos" :key="todo._id">
+        <ToolBox>
+          <template v-slot:tools>
+            <router-link
+              :to="{ name: 'todos.delete', params: { todoId: todo._id } }"
+              class="link alert"
+              >Delete</router-link
+            >
+          </template>
+        </ToolBox>
+        <div class="title">{{ todo.title }}</div>
+        <div v-if="showBadge && belongToCategory" class="badge">
+          {{ belongToCategory(todo.category) }}
+        </div>
+      </li>
+    </ul>
+  </div>
   <NoListItemsFound v-else>
     <template v-slot:title
       >No to-do's found</template
@@ -54,4 +59,16 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss" scoped>
+.title {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-weight: 400;
+  margin: 15px 0;
+  color: $containerTitleFontColor;
+}
+</style>
