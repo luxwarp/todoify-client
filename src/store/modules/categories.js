@@ -87,9 +87,16 @@ const actions = {
           remoteCategory => remoteCategory._id === localCategory._id
         );
         if (!foundRemote) {
-          // Local category not found in remoteCategories. Send it to server and save response.
-          const response = await window.$todoify.createCategory(localCategory);
-          syncedCategories.push(response.data.data);
+          // localCategory not found in remoteCategories.
+          // check if localCategory don't have an __v key, if so it should be created on server. Otherwise
+          // it has been deleted on the server and there by should not be created again.
+          if (!localCategory.hasOwnProperty("__v")) {
+            // Send it to server and save response.
+            const response = await window.$todoify.createCategory(
+              localCategory
+            );
+            syncedCategories.push(response.data.data);
+          }
         }
       });
 

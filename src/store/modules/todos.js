@@ -92,9 +92,14 @@ const actions = {
           remoteTodo => remoteTodo._id === localTodo._id
         );
         if (!foundRemote) {
-          // LocalTodo not found in remoteTodos. Send it to server and save response.
-          const response = await window.$todoify.createTodo(localTodo);
-          syncedTodos.push(response.data.data);
+          // localTodo not found in remoteTodos.
+          // check if localTodo don't have an __v key, if so it should be created on server. Otherwise
+          // it has been deleted on the server and there by should not be created again.
+          if (!localTodo.hasOwnProperty("__v")) {
+            // Send it to server and save response.
+            const response = await window.$todoify.createTodo(localTodo);
+            syncedTodos.push(response.data.data);
+          }
         }
       });
 
