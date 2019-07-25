@@ -7,7 +7,7 @@ import router from "@/router";
 import store from "@/store/store";
 import resHandler from "@/helpers/resHandler";
 import reqHandler from "@/helpers/reqHandler";
-import "@fortawesome/fontawesome-free/css/all.min.css";
+import "./assets/todoify-icons/css/todoify-icons.css";
 import "@/styles/_layout.scss";
 import "./registerServiceWorker";
 

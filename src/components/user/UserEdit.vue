@@ -43,7 +43,7 @@
           />
           <button class="button primary" type="submit">
             Update user
-            <i class="fas fa-check"></i>
+            <i class="icon-ok"></i>
           </button>
         </form>
         <a @click="$router.go(-1)">Back</a>

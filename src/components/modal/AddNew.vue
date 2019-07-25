@@ -4,7 +4,7 @@
       <slot name="button">
         <button class="button success">
           Add {{ type }}
-          <i class="fas fa-plus"></i>
+          <i class="icon-plus"></i>
         </button>
       </slot>
     </span>
@@ -13,7 +13,7 @@
         <div class="card">
           <h3 class="title">
             Add new {{ type }}
-            <i class="fas fa-times" @click="show = !show"></i>
+            <i class="icon-cancel" @click="show = !show"></i>
           </h3>
           <div class="body">
             <form @submit.prevent="onSubmit">
@@ -38,7 +38,7 @@
                 </select>
               </div>
               <button type="submit" class="button primary">
-                Add <i class="fas fa-plus"></i>
+                Add <i class="icon-plus"></i>
               </button>
             </form>
           </div>

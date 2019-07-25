@@ -27,7 +27,7 @@
             :disabled="isButtonDisable"
           >
             Register
-            <i class="fas fa-user-plus"></i>
+            <i class="icon-user-plus"></i>
           </button>
         </form>
       </div>

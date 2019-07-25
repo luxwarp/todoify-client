@@ -3,7 +3,7 @@
     <li v-for="category in categories" :key="category._id">
       <ToolBox>
         <template v-slot:toggle>
-          <i class="fas fa-ellipsis-v"></i>
+          <i class="icon-ellipsis-vert"></i>
         </template>
         <template v-slot:tools>
           <router-link

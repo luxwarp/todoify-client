@@ -12,21 +12,21 @@
           }"
           class="navItem"
         >
-          <i class="fas fa-folder fa-2x"></i>{{ category.title }}
+          <i class="icon-folder"></i>{{ category.title }}
         </router-link>
       </div>
       <div class="pages" @click="toggleMainNav">
         <span class="title">Menu</span>
         <router-link :to="{ name: 'home.page' }" class="navItem">
-          <i class="fas fa-home fa-2x"></i>
+          <i class="icon-home"></i>
           <span class="label">Home</span>
         </router-link>
         <router-link :to="{ name: 'categories.list' }" class="navItem">
-          <i class="fas fa-folder-open fa-2x"></i>
+          <i class="icon-folder-open"></i>
           <span class="label">Categories</span>
         </router-link>
         <router-link :to="{ name: 'todos.list' }" class="navItem">
-          <i class="fas fa-list fa-2x"></i>
+          <i class="icon-list"></i>
           <span class="label">To-do's</span>
         </router-link>
         <router-link
@@ -34,7 +34,7 @@
           :to="{ name: 'user.login' }"
           class="navItem"
         >
-          <i class="fas fa-sign-in-alt fa-2x"></i>
+          <i class="icon-login"></i>
           <span class="label">Login</span>
         </router-link>
         <router-link
@@ -42,7 +42,7 @@
           :to="{ name: 'user.register' }"
           class="navItem"
         >
-          <i class="fas fa-user-plus fa-2x"></i>
+          <i class="icon-user-plus"></i>
           <span class="label">Register</span>
         </router-link>
         <router-link
@@ -50,7 +50,7 @@
           :to="{ name: 'user.profile' }"
           class="navItem"
         >
-          <i class="fas fa-user fa-2x"></i>
+          <i class="icon-user"></i>
           <span class="label">Profile</span>
         </router-link>
         <router-link
@@ -58,15 +58,15 @@
           :to="{ name: 'user.logout' }"
           class="navItem"
         >
-          <i class="fas fa-sign-out-alt fa-2x"></i>
+          <i class="icon-logout"></i>
           <span class="label">Logout</span>
         </router-link>
         <router-link :to="{ name: 'about.page' }" class="navItem">
-          <i class="fas fa-info-circle fa-2x"></i>
+          <i class="icon-info-circled"></i>
           <span class="label">About</span>
         </router-link>
         <a href="https://luxwarp.info/contact" class="navItem" target="_blank">
-          <i class="fas fa-envelope fa-2x"></i>
+          <i class="icon-mail"></i>
           <span class="label">Contact</span>
         </a>
       </div>
@@ -133,6 +133,7 @@ export default {
     transition: all 0.5s;
 
     i {
+      font-size: 1.8rem;
       margin-right: 20px;
     }
   }

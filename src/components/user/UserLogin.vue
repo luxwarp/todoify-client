@@ -27,7 +27,7 @@
             :disabled="isButtonDisable"
           >
             Login
-            <i class="fas fa-sign-in-alt"></i>
+            <i class="icon-login"></i>
           </button>
         </form>
       </div>

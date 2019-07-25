@@ -16,19 +16,19 @@
     <div class="container">
       <div class="row no-wrap full-width">
         <div class="iconCard">
-          <i class="fas fa-tv icon"></i>
+          <i class="icon-desktop icon"></i>
           <div class="title">
             Use on any device
           </div>
         </div>
         <div class="iconCard">
-          <i class="fas fa-dollar-sign icon"></i>
+          <i class="icon-dollar icon"></i>
           <div class="title">
             Completely free
           </div>
         </div>
         <div class="iconCard">
-          <i class="fab fa-osi icon"></i>
+          <i class="icon-code icon"></i>
           <div class="title">
             Open Source
           </div>
@@ -83,13 +83,13 @@
           href="https://github.com/luxwarp/todoify-client/"
           class="button success"
           target="_blank"
-          >Todoify Client <i class="fab fa-github"></i
+          >Todoify Client <i class="icon-github"></i
         ></a>
         <a
           href="https://github.com/luxwarp/todoify-server/"
           class="button primary"
           target="_blank"
-          >Todoify Server <i class="fab fa-github"></i
+          >Todoify Server <i class="icon-github"></i
         ></a>
       </div>
     </div>
@@ -105,7 +105,7 @@
         class="button alert"
         style="width: auto;"
         target="_blank"
-        >Create new issue <i class="fab fa-github"></i
+        >Create new issue <i class="icon-github"></i
       ></a>
     </div>
     <div class="container text-center">

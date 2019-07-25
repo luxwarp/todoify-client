@@ -1,7 +1,7 @@
 <template>
   <div class="toolboxcontainer" :class="{ reverse: reverse }">
     <div @click="show = !show">
-      <slot name="toggle"><i class="fas fa-ellipsis-v"></i></slot>
+      <slot name="toggle"><i class="icon-ellipsis-vert"></i></slot>
     </div>
     <transition :name="animation">
       <div v-if="show" class="tools" @click="show = !show">

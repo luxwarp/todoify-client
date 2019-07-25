@@ -13,13 +13,13 @@
           :to="{ name: 'user.register' }"
           class="button primary"
           tag="button"
-          >Sign up <i class="fas fa-user-plus"></i
+          >Sign up <i class="icon-user-plus"></i
         ></router-link>
         <router-link
           :to="{ name: 'user.login' }"
           class="button success"
           tag="button"
-          >Sign in <i class="fas fa-sign-in-alt"></i
+          >Sign in <i class="icon-login"></i
         ></router-link>
       </div>
       <div v-else-if="isOnline() && isAuth()" class="text-center">

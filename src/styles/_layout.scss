@@ -198,6 +198,7 @@ ul.list {
   outline: none;
   display: flex;
   align-items: center;
+  font-size: inherit;
   justify-content: space-between;
   background: $buttonBgColor;
   color: $buttonFontColor;

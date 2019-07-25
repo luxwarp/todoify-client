@@ -37,19 +37,19 @@ export default {
       let icon;
       switch (type) {
         case "error":
-          icon = "fas fa-exclamation-circle";
+          icon = "icon-attention-circled";
           break;
         case "warning":
-          icon = "fas fa-exclamation-triangle";
+          icon = "icon-attention";
           break;
         case "success":
-          icon = "fas fa-check-circle";
+          icon = "icon-ok-circled";
           break;
         case "info":
-          icon = "fas fa-info-circle";
+          icon = "icon-info-circled";
           break;
         default:
-          icon = "fas fa-info-circle";
+          icon = "icon-info-circled";
           break;
       }
       return icon;
