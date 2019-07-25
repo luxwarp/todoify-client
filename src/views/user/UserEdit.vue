@@ -1,6 +1,6 @@
 <template>
   <div class="container center">
-    <div class="card">
+    <div class="card noFullWidth">
       <h2 class="title">Edit user</h2>
       <div class="body">
         <form autocomplete="off" @submit.prevent="onSubmit">
@@ -46,13 +46,15 @@
             <i class="icon-ok"></i>
           </button>
         </form>
-        <a @click="$router.go(-1)">Back</a>
-        <router-link
-          :to="{ name: 'user.delete' }"
-          class="link alert"
-          style="float: right;"
-          >Delete user</router-link
-        >
+        <div class="row" style="justify-content: space-between;">
+          <a @click="$router.go(-1)">Back</a>
+          <router-link
+            :to="{ name: 'user.delete' }"
+            class="link alert"
+            style="float: right;"
+            >Delete user</router-link
+          >
+        </div>
       </div>
     </div>
   </div>
@@ -77,7 +79,7 @@ export default {
       this.$set(this.user, e.target.id, e.target.value);
     },
     onSubmit() {
-      if (!this.user.name.trim()) {
+      if (this.user.name && !this.user.name.trim()) {
         this.user.name = " ";
       }
       if (this.user.password && !this.user.password.trim()) {

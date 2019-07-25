@@ -1,12 +1,6 @@
 <template>
   <div class="container center">
-    <div class="hero">
-      <div class="title">
-        <div class="brandLogo"></div>
-        Todoify
-      </div>
-      <div class="subTitle">Organize and take control over your life</div>
-    </div>
+    <BrandHero />
     <div class="container">
       <div v-if="isOnline() && !isAuth()" class="row space-evenly">
         <router-link
@@ -53,9 +47,13 @@
 </template>
 
 <script>
+import BrandHero from "@/components/ui/BrandHero/BrandHero.vue";
 import { mapGetters } from "vuex";
 export default {
   name: "HomePage",
+  components: {
+    BrandHero
+  },
   computed: {
     ...mapGetters({
       isOnline: "isOnline",

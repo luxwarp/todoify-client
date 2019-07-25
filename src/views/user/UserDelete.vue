@@ -1,6 +1,6 @@
 <template>
   <div class="container center">
-    <div class="card">
+    <div class="card noFullWidth">
       <h2 class="title">Delete user</h2>
       <div class="body">
         <p>This process is permanent and you cannot restore your account.</p>
@@ -22,7 +22,7 @@
         <router-link
           :to="{ name: 'user.profile' }"
           class="link"
-          style="float: right;"
+          style="align-self: flex-end"
           >Back</router-link
         >
       </div>

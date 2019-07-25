@@ -9,8 +9,8 @@
       </slot>
     </span>
     <transition name="fadeIn">
-      <div v-if="show" class="modal container">
-        <div class="card">
+      <div v-if="show" class="modal">
+        <div class="card noFullWidth">
           <h3 class="title">
             Add new {{ type }}
             <i class="icon-cancel" @click="show = !show"></i>
@@ -38,7 +38,7 @@
                 </select>
               </div>
               <button type="submit" class="button primary">
-                Add <i class="icon-plus"></i>
+                Add {{ type }}<i class="icon-plus"></i>
               </button>
             </form>
           </div>
@@ -83,7 +83,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .addNewContainer {
   align-self: flex-start;
   cursor: pointer;
@@ -101,6 +101,11 @@ export default {
     background: rgba(0, 0, 0, 0.356);
     z-index: 9999;
     padding: 15px;
+
+    > * {
+      width: 100%;
+      max-width: 800px;
+    }
 
     .row {
       align-items: center;

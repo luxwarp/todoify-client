@@ -1,19 +1,13 @@
 <template>
   <div class="container">
-    <div class="hero">
-      <div class="title">
-        <div class="brandLogo"></div>
-        Todoify
-      </div>
-      <div class="subTitle">Organize and take control over your life</div>
-    </div>
-    <div class="container text-center">
+    <BrandHero />
+    <div class="container text-center noFullWidth">
       <p>
         Todoify is a simple but great open source to-do app. With Todoify you
         can organize your tasks in categories.
       </p>
     </div>
-    <div class="container">
+    <div class="container noFullWidth">
       <div class="row no-wrap full-width">
         <div class="iconCard">
           <i class="icon-desktop icon"></i>
@@ -35,14 +29,14 @@
         </div>
       </div>
     </div>
-    <div class="container text-center">
+    <div class="container text-center noFullWidth">
       <p>
         If you create an account your to-do's and categories will be synced to
         our server so you can access it on any device with internet connection.
         <span style="font-weight: 900;">That's amazing!</span>
       </p>
     </div>
-    <div class="container text-center">
+    <div class="container text-center noFullWidth">
       <h2>Use it on any device</h2>
       <p>
         Todoify is built with responsive design in mind. This means that Todoify
@@ -59,7 +53,7 @@
       </p>
     </div>
 
-    <div class="container text-center">
+    <div class="container text-center noFullWidth">
       <h2>Offline support</h2>
       <p>
         You should always be able to use an app offline if your network is down.
@@ -70,7 +64,7 @@
       </p>
     </div>
 
-    <div class="container text-center">
+    <div class="container text-center noFullWidth">
       <h2>Open source</h2>
       <p>
         Todoify is built on VueJS and using our Todoify server as backend. Both
@@ -93,7 +87,7 @@
         ></a>
       </div>
     </div>
-    <div class="container text-center">
+    <div class="container text-center noFullWidth">
       <h2>Help us</h2>
       <p>
         We love to hear your thoughts and ideas on how to make Todoify better.
@@ -108,7 +102,7 @@
         >Create new issue <i class="icon-github"></i
       ></a>
     </div>
-    <div class="container text-center">
+    <div class="container text-center noFullWidth">
       <h2>Author</h2>
       <p>
         Todoify is created by Mikael Luxwarp Carlsson. He is an IT consult and
@@ -123,8 +117,12 @@
 </template>
 
 <script>
+import BrandHero from "@/components/ui/BrandHero/BrandHero";
 export default {
-  name: "AboutPage"
+  name: "AboutPage",
+  components: {
+    BrandHero
+  }
 };
 </script>
 

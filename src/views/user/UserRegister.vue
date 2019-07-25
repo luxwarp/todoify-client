@@ -1,7 +1,10 @@
 <template>
   <div class="container center">
-    <div class="card">
-      <h2 class="title">Register</h2>
+    <BrandHero />
+    <div class="card noFullWidth">
+      <div class="title">
+        <h2 style="margin: 0 auto;">Register</h2>
+      </div>
       <div class="body">
         <form autocomplete="off" @submit.prevent="onSubmit">
           <input
@@ -36,8 +39,12 @@
 </template>
 
 <script>
+import BrandHero from "@/components/ui/BrandHero/BrandHero";
 export default {
   name: "UserRegister",
+  components: {
+    BrandHero
+  },
   data() {
     return {
       email: null,

@@ -171,6 +171,10 @@ ul.list {
   width: 100%;
 }
 
+.noFullWidth {
+  max-width: 800px;
+}
+
 .text-center {
   text-align: center;
 }
@@ -212,6 +216,7 @@ ul.list {
   &:hover,
   &:active {
     background: lighten($buttonBgColor, $amount: 5);
+    text-decoration: none;
   }
 
   &:disabled {
@@ -286,10 +291,6 @@ ul.list {
       font-weight: inherit;
     }
   }
-
-  > .container {
-    max-width: 800px;
-  }
 }
 
 .row {
@@ -307,7 +308,6 @@ ul.list {
 }
 
 .card {
-  width: 100%;
   display: flex;
   flex-direction: column;
   background: $cardBgColor;
@@ -323,12 +323,14 @@ ul.list {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 0;
+    margin-bottom: 15px;
   }
 
   > .body {
     width: 100%;
     color: $cardFontColor;
+    display: flex;
+    flex-direction: column;
 
     > *:last-child {
       margin-bottom: 0;
@@ -356,28 +358,5 @@ ul.list {
   > .title {
     font-size: 1rem;
     font-weight: 900;
-  }
-}
-
-.hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 25px;
-
-  > .title {
-    font-size: 3rem;
-    font-weight: 300;
-    margin-bottom: 25px;
-    display: flex;
-    align-items: center;
-  }
-
-  > .subTitle {
-    font-size: 1.7rem;
-    font-weight: 300;
-    font-style: italic;
   }
 }
