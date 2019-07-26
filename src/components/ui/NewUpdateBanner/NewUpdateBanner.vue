@@ -1,7 +1,7 @@
 <template>
   <transition name="slideInLeft" appear>
     <div v-if="show" class="newUpdateBanner">
-      <i class="fas fa-times close" @click="show = false"></i>
+      <i class="icon-cancel close" @click="show = false"></i>
       <p>New version available.</p>
       <button class="button" @click="$emit('confirm')">
         Update
@@ -33,7 +33,7 @@ export default {
   background: #000;
   color: #fff;
   z-index: 99999;
-  padding: 0px 15px;
+  padding: 5px 15px;
 
   > .close {
     margin-right: 15px;
