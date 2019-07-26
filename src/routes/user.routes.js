@@ -56,7 +56,7 @@ export default [
           requiresAuth: false,
           requiresOnline: true
         },
-        beforeEnter: (to, from, next) => {
+        beforeEnter: () => {
           let allDevices = false;
           if (confirm("Do you want to logout all devices?")) {
             allDevices = true;

@@ -74,7 +74,7 @@ router.beforeEach((to, from, next) => {
   next();
 });
 
-router.afterEach((to, from) => {
+router.afterEach(to => {
   // Sets the title of the page to the router meta title.
   document.title = to.meta.title + " - " + process.env.VUE_APP_BASE_TITLE;
 });

@@ -22,12 +22,12 @@
     </ul>
   </div>
   <NoListItemsFound v-else>
-    <template v-slot:title
-      >No to-do's found</template
-    >
-    <template v-slot:subtitle
-      >Create one now!</template
-    >
+    <template v-slot:title>
+      No to-do's found
+    </template>
+    <template v-slot:subtitle>
+      Create one now!
+    </template>
   </NoListItemsFound>
 </template>
 

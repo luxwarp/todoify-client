@@ -62,7 +62,7 @@ export default {
     }
   },
   methods: {
-    showMainMenu(event) {
+    showMainMenu() {
       if (window.innerWidth > 1024) {
         this.$store.commit("showMainNav");
       } else {
