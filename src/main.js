@@ -2,14 +2,14 @@ import Vue from "vue";
 import App from "./App.vue";
 import VueCookies from "vue-cookies";
 import VueAnalytics from "vue-analytics";
-import TodoifyApi from "@/plugins/todoifyApi/todoifyApi";
-import router from "@/router";
 import store from "@/store/store";
+import router from "@/router";
+import TodoifyApi from "@/plugins/todoifyApi/todoifyApi";
 import resHandler from "@/helpers/resHandler";
 import reqHandler from "@/helpers/reqHandler";
-import "./assets/todoify-icons/css/todoify-icons.css";
 import "@/styles/_layout.scss";
-import "./registerServiceWorker";
+import "@/assets/todoify-icons/css/todoify-icons.css";
+import "@/registerServiceWorker";
 
 Vue.config.productionTip = false;
 

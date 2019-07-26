@@ -10,8 +10,9 @@
             <router-link
               :to="{ name: 'todos.delete', params: { todoId: todo._id } }"
               class="link alert"
-              >Delete</router-link
             >
+              Delete
+            </router-link>
           </template>
         </ToolBox>
         <div class="title">{{ todo.title }}</div>

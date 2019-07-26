@@ -1,7 +1,9 @@
 <template>
   <div v-if="categories.length">
     <div v-if="$slots.default" class="title">
-      <h3><slot>Categories</slot></h3>
+      <h3>
+        <slot>Categories</slot>
+      </h3>
     </div>
     <ul v-if="categories.length" class="list">
       <li v-for="category in categories" :key="category._id">
