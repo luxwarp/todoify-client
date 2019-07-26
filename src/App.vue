@@ -15,7 +15,7 @@
 <script>
 import HeaderContainer from "@/components/layout/HeaderContainer/HeaderContainer";
 const NotifiersList = () =>
-  import(/* webpackChunkName: "group-banners" */ "@/components/ui/Notifiers/NotifiersList");
+  import(/* webpackChunkName: "group-banners" */ "@/components/ui/NotifiersList/NotifiersList");
 const RequestStatus = () =>
   import(/* webpackChunkName: "group-banners" */ "@/components/ui/RequestStatus/RequestStatus");
 const NewUpdateBanner = () =>
