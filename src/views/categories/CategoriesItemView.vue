@@ -1,5 +1,6 @@
 <template>
   <div v-if="category" class="container">
+    <router-view></router-view>
     <div class="title">
       <h2>Category: {{ category.title }}</h2>
       <ToolBox reverse>
@@ -7,6 +8,14 @@
           <i class="icon-cog"></i>
         </template>
         <template v-slot:tools>
+          <router-link
+            :to="{
+              name: 'category.edit',
+              params: { categoryId: category._id }
+            }"
+            class="link"
+            >Edit
+          </router-link>
           <router-link
             :to="{
               name: 'categories.delete',

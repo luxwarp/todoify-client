@@ -11,6 +11,14 @@
           <template v-slot:tools>
             <router-link
               :to="{
+                name: 'category.edit',
+                params: { categoryId: category._id }
+              }"
+              class="link"
+              >Edit
+            </router-link>
+            <router-link
+              :to="{
                 name: 'categories.delete',
                 params: { categoryId: category._id }
               }"

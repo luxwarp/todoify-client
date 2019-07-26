@@ -29,6 +29,14 @@ const mutations = {
   },
   addCategory(state, newCategeory) {
     state.categories.push(newCategeory);
+  },
+  updateCategory(state, updatedCategory) {
+    const allOthers = state.categories.filter(
+      category => category._id !== updatedCategory._id
+    );
+
+    allOthers.push(updatedCategory);
+    state.categories = allOthers;
   }
 };
 
@@ -125,6 +133,28 @@ const actions = {
         type: "error",
         message: error.message
       });
+      console.log(error);
+    }
+  },
+  async updateCategory({ commit, state, getters }, payload) {
+    try {
+      const categoryToUpdate = await state.categories.find(
+        category => category._id === payload.id
+      );
+      categoryToUpdate.title = payload.newTitle;
+      categoryToUpdate.updatedAt = new Date().toISOString();
+
+      commit("updateCategory", categoryToUpdate);
+
+      if (getters.isOnline() && getters.isAuth()) {
+        const response = await window.$todoify.updateCategory(
+          payload.id,
+          categoryToUpdate
+        );
+        commit("updateCategory", response.data.data);
+      }
+    } catch (error) {
+      commit("createNotifier", { type: "error", message: error.message });
       console.log(error);
     }
   },

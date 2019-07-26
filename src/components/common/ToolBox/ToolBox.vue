@@ -36,7 +36,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .toolboxcontainer {
   position: relative;
   display: flex;
@@ -56,6 +56,14 @@ export default {
     display: inline-flex;
     flex-direction: row;
     margin-left: 10px;
+
+    > * {
+      margin-right: 10px;
+    }
+
+    > *:last-child {
+      margin-right: 0px;
+    }
   }
 }
 </style>

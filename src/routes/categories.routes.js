@@ -5,6 +5,8 @@ const CategoriesListView = () =>
   import(/* webpackChunkName: "router-categories" */ "@/views/categories/CategoriesListView");
 const CategoriesItemView = () =>
   import(/* webpackChunkName: "router-categories" */ "@/views/categories/CategoriesItemView");
+const CategoryEdit = () =>
+  import(/* webpackChunkName: "router-categories" */ "@/components/categories/CategoryEdit/CategoryEdit");
 export default [
   {
     path: "/categories",
@@ -25,7 +27,17 @@ export default [
         component: CategoriesItemView,
         meta: {
           title: "Category"
-        }
+        },
+        children: [
+          {
+            path: "edit",
+            name: "category.edit",
+            component: CategoryEdit,
+            meta: {
+              title: "Edit category"
+            }
+          }
+        ]
       },
       {
         path: ":categoryId/delete",

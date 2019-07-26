@@ -3,7 +3,7 @@
     <div class="container">
       <div class="title">
         <slot name="title">title slot</slot>
-        <i class="icon-cancel"></i>
+        <i class="icon-cancel" @click="close"></i>
       </div>
       <div class="body">
         <slot name="body">body slot</slot>
@@ -14,7 +14,12 @@
 
 <script>
 export default {
-  name: "UniversalModal"
+  name: "UniversalModal",
+  methods: {
+    close() {
+      this.$emit("close");
+    }
+  }
 };
 </script>
 
@@ -27,9 +32,11 @@ export default {
   height: 100%;
   background: rgba(0, 0, 0, 0.3);
   display: flex;
+  padding: 15px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  z-index: 99999;
 
   > .container {
     display: flex;
@@ -37,12 +44,16 @@ export default {
     width: 100%;
     max-width: 600px;
     background: #fff;
-    padding: 15px;
+    padding: 0 15px;
 
     > .title {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+
+      > i {
+        cursor: pointer;
+      }
     }
 
     > .body {

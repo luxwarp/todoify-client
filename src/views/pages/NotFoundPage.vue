@@ -18,4 +18,28 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss" scoped>
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  padding: 25px;
+
+  > .title {
+    font-size: 3rem;
+    font-weight: 300;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+  }
+
+  > .subTitle {
+    font-size: 1.7rem;
+    font-weight: 300;
+    font-style: italic;
+  }
+}
+</style>
