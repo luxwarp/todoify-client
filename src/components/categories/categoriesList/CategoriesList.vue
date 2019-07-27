@@ -1,8 +1,8 @@
 <template>
   <div v-if="categories.length">
-    <div v-if="$slots.default" class="title">
+    <div v-if="title" class="title">
       <h3>
-        <slot></slot>
+        {{ title }}
       </h3>
     </div>
     <ul v-if="categories.length" class="list">
@@ -37,8 +37,8 @@
         >
           {{ category.title }}
         </router-link>
-        <div v-if="showingBadgeWithCounter" class="badge">
-          {{ todoCount(category._id) }}
+        <div v-if="showBadge" class="badge">
+          {{ getTodosByCategoryId(category._id).length }}
         </div>
       </li>
     </ul>
@@ -56,6 +56,7 @@
 <script>
 import ToolBox from "@/components/common/ToolBox/ToolBox";
 import NoListItemsFound from "@/components/common/NoListItemsFound/NoListItemsFound";
+import { mapGetters } from "vuex";
 
 export default {
   name: "CategoriesList",
@@ -64,25 +65,22 @@ export default {
     NoListItemsFound
   },
   props: {
-    categories: {
-      type: Array,
-      required: true
+    title: {
+      type: String,
+      required: false,
+      default: null
     },
     showBadge: {
       type: Boolean,
       required: false,
       default: false
-    },
-    todoCount: {
-      type: Function,
-      required: false,
-      default: null
     }
   },
   computed: {
-    showingBadgeWithCounter() {
-      return this.showBadge && this.todoCount;
-    }
+    ...mapGetters({
+      categories: "getCategories",
+      getTodosByCategoryId: "getTodosByCategoryId"
+    })
   }
 };
 </script>

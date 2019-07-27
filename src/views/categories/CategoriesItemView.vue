@@ -28,7 +28,7 @@
       </ToolBox>
     </div>
     <AddNew type="to-do" @submit="addNewTodo" />
-    <TodosList :todos="todos" :show-badge="true" />
+    <TodosList :filter-by-category="$route.params.categoryId" show-badge />
   </div>
   <NotFound v-else />
 </template>
@@ -36,7 +36,7 @@
 <script>
 import ToolBox from "@/components/common/ToolBox/ToolBox";
 import AddNew from "@/components/modal/AddNew";
-import TodosList from "@/components/todos/TodosList";
+import TodosList from "@/components/todos/TodosList/TodosList";
 import NotFound from "@/views/pages/NotFoundPage";
 export default {
   name: "CategoriesItemView",

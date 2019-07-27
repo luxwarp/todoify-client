@@ -7,26 +7,15 @@
       </div>
       <p v-if="userInfo.name">{{ userInfo.name }}</p>
       <p>{{ userInfo.email }}</p>
-      <p>{{ userInfo.createdAt }}</p>
+      <p>Account created: {{ userInfo.createdAt | formatDate }}</p>
     </div>
-    <TodosList
-      :todos="todos.slice(0, 5)"
-      :belong-to-category="belongToCategory"
-      show-badge
-      >Latest to-do's</TodosList
-    >
+    <TodosList :limit-todos="5" show-badge title="Latest to-do's" />
     <div v-if="todos.length" class="container">
       <router-link :to="{ name: 'todos.list' }" class="text-center"
         >Show all</router-link
       >
     </div>
-    <CategoriesList
-      :categories="categories.slice(0, 5)"
-      show-badge
-      :todo-count="todoCount"
-    >
-      Latest categories
-    </CategoriesList>
+    <CategoriesList show-badge title="Latest categories" />
     <div v-if="categories.length" class="container">
       <router-link :to="{ name: 'todos.list' }" class="text-center"
         >Show all</router-link
@@ -37,13 +26,22 @@
 
 <script>
 import { mapGetters } from "vuex";
-import TodosList from "@/components/todos/TodosList";
+import TodosList from "@/components/todos/TodosList/TodosList";
 import CategoriesList from "@/components/categories/categoriesList/CategoriesList";
 export default {
   name: "UserProfile",
   components: {
     TodosList,
     CategoriesList
+  },
+  filters: {
+    formatDate(value) {
+      const date = new Date(value);
+
+      const formatted = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`;
+
+      return formatted;
+    }
   },
   computed: {
     ...mapGetters({
@@ -52,11 +50,6 @@ export default {
       belongToCategory: "belongToCategory",
       categories: "getCategories"
     })
-  },
-  methods: {
-    todoCount(id) {
-      return this.$store.getters.getTodosByCategoryId(id).length;
-    }
   }
 };
 </script>

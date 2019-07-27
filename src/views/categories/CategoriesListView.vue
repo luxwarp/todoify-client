@@ -4,11 +4,7 @@
       <h2>Categories</h2>
     </div>
     <AddNew type="category" @submit="addNewCategory" />
-    <CategoriesList
-      :categories="categories"
-      :show-badge="true"
-      :todo-count="todoCount"
-    />
+    <CategoriesList show-badge />
   </div>
 </template>
 
@@ -28,10 +24,6 @@ export default {
     })
   },
   methods: {
-    todoCount(id) {
-      return this.$store.getters.getTodosByCategoryId(id).length;
-    },
-
     addNewCategory(data) {
       this.$store.dispatch("createCategory", data.title);
     }

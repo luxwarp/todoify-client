@@ -4,17 +4,13 @@
       <h2>To-do's</h2>
     </div>
     <AddNew type="to-do" :categories="categories" @submit="addNewTodo" />
-    <TodosList
-      :todos="todos"
-      :belong-to-category="belongToCategory"
-      :show-badge="true"
-    />
+    <TodosList show-badge />
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
-import TodosList from "@/components/todos/TodosList";
+import TodosList from "@/components/todos/TodosList/TodosList";
 import AddNew from "@/components/modal/AddNew";
 export default {
   name: "TodosListView",
@@ -34,13 +30,6 @@ export default {
         title: data.title,
         category: data.category
       });
-    },
-    toggleTools(id) {
-      this.$refs[id][0].classList.toggle("hide");
-    },
-    belongToCategory(id) {
-      const category = this.categories.find(category => category._id === id);
-      return category ? category.title : "Uncategorized";
     }
   }
 };
