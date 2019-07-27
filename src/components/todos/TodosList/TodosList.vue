@@ -48,10 +48,10 @@
 </template>
 
 <script>
-import TodoEdit from "@/components/todos/TodoEdit/TodoEdit";
-import ToolBox from "@/components/common/ToolBox/ToolBox";
-import NoListItemsFound from "@/components/common/NoListItemsFound/NoListItemsFound";
 import { mapGetters } from "vuex";
+import NoListItemsFound from "@/components/common/NoListItemsFound/NoListItemsFound";
+import ToolBox from "@/components/common/ToolBox/ToolBox";
+import TodoEdit from "@/components/todos/TodoEdit/TodoEdit";
 export default {
   name: "TodosList",
   components: {

@@ -28,7 +28,7 @@ export default {
   text-align: center;
   margin: 25px;
 
-  .title {
+  > .title {
     font-size: 2rem;
     font-weight: 300;
   }

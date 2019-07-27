@@ -41,8 +41,8 @@
 </template>
 
 <script>
-import UniversalModal from "@/components/common/UniversalModal/UniversalModal";
 import { mapGetters } from "vuex";
+import UniversalModal from "@/components/common/UniversalModal/UniversalModal";
 export default {
   name: "TodoEdit",
   components: {
