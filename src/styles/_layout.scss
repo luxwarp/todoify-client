@@ -101,6 +101,8 @@ select {
   color: $inputFontColor;
   border: $inputBorder;
   border-radius: 3px;
+  flex: 1;
+  margin-left: 10px;
 }
 
 ul.list {

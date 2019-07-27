@@ -98,7 +98,7 @@ class TodoifyApi {
   };
 
   updateTodo = (id, data) => {
-    return this.request.patch("/categories/" + id, data);
+    return this.request.patch("/todos/" + id, data);
   };
 
   getCategories = (query = "") => {

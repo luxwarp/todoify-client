@@ -34,6 +34,12 @@ const mutations = {
   },
   addTodo(state, newTodo) {
     state.todos.push(newTodo);
+  },
+  updateTodo(state, updatedTodo) {
+    const allOthers = state.todos.filter(todo => todo._id !== updatedTodo._id);
+
+    allOthers.push(updatedTodo);
+    state.todos = allOthers;
   }
 };
 
@@ -130,6 +136,29 @@ const actions = {
         type: "error",
         message: error.message
       });
+      console.log(error);
+    }
+  },
+  async updateTodo({ commit, state, getters }, payload) {
+    try {
+      const todoToUpdate = await state.todos.find(
+        todo => todo._id === payload._id
+      );
+
+      const patch = {
+        ...todoToUpdate,
+        ...payload,
+        updatedAt: new Date().toISOString()
+      };
+
+      commit("updateTodo", patch);
+
+      if (getters.isOnline() && getters.isAuth()) {
+        const response = await window.$todoify.updateTodo(payload._id, patch);
+        commit("updateTodo", response.data.data);
+      }
+    } catch (error) {
+      commit("createNotifier", { type: "error", message: error.message });
       console.log(error);
     }
   },

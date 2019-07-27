@@ -1,5 +1,6 @@
 <template>
   <div v-if="todos.length">
+    <TodoEdit v-if="editTodo" :todo="editTodo" @close="editTodo = null" />
     <div v-if="$slots.default" class="title">
       <h3><slot>To-do's</slot></h3>
     </div>
@@ -7,6 +8,7 @@
       <li v-for="todo in todos" :key="todo._id">
         <ToolBox>
           <template v-slot:tools>
+            <span class="link" @click="openEdit(todo)">Edit</span>
             <router-link
               :to="{ name: 'todos.delete', params: { todoId: todo._id } }"
               class="link alert"
@@ -33,13 +35,15 @@
 </template>
 
 <script>
+import TodoEdit from "@/components/todos/TodoEdit/TodoEdit";
 import ToolBox from "@/components/common/ToolBox/ToolBox";
 import NoListItemsFound from "@/components/common/NoListItemsFound/NoListItemsFound";
 export default {
   name: "TodosList",
   components: {
     ToolBox,
-    NoListItemsFound
+    NoListItemsFound,
+    TodoEdit
   },
   props: {
     todos: {
@@ -55,6 +59,16 @@ export default {
       type: Function,
       required: false,
       default: null
+    }
+  },
+  data() {
+    return {
+      editTodo: null
+    };
+  },
+  methods: {
+    openEdit(todo) {
+      this.editTodo = todo;
     }
   }
 };

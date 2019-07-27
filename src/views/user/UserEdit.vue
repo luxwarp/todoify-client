@@ -80,7 +80,7 @@ export default {
     },
     onSubmit() {
       if (this.user.name && !this.user.name.trim()) {
-        this.user.name = " ";
+        this.user.name = null;
       }
       if (this.user.password && !this.user.password.trim()) {
         delete this.user.password;

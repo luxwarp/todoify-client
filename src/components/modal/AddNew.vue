@@ -109,10 +109,6 @@ export default {
 
     .row {
       align-items: center;
-      > select {
-        flex: 1;
-        margin-left: 10px;
-      }
     }
   }
 }
