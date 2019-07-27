@@ -20,23 +20,43 @@
         >Show all</router-link
       >
     </div>
+    <CategoriesList
+      :categories="categories.slice(0, 5)"
+      show-badge
+      :todo-count="todoCount"
+    >
+      Latest categories
+    </CategoriesList>
+    <div v-if="categories.length" class="container">
+      <router-link :to="{ name: 'todos.list' }" class="text-center"
+        >Show all</router-link
+      >
+    </div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
 import TodosList from "@/components/todos/TodosList";
+import CategoriesList from "@/components/categories/categoriesList/CategoriesList";
 export default {
   name: "UserProfile",
   components: {
-    TodosList
+    TodosList,
+    CategoriesList
   },
   computed: {
     ...mapGetters({
       userInfo: "getUserInfo",
       todos: "getTodos",
-      belongToCategory: "belongToCategory"
+      belongToCategory: "belongToCategory",
+      categories: "getCategories"
     })
+  },
+  methods: {
+    todoCount(id) {
+      return this.$store.getters.getTodosByCategoryId(id).length;
+    }
   }
 };
 </script>

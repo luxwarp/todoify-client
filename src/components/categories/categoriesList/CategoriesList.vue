@@ -2,7 +2,7 @@
   <div v-if="categories.length">
     <div v-if="$slots.default" class="title">
       <h3>
-        <slot>Categories</slot>
+        <slot></slot>
       </h3>
     </div>
     <ul v-if="categories.length" class="list">

@@ -2,7 +2,9 @@
   <div v-if="todos.length">
     <TodoEdit v-if="editTodo" :todo="editTodo" @close="editTodo = null" />
     <div v-if="$slots.default" class="title">
-      <h3><slot>To-do's</slot></h3>
+      <h3>
+        <slot></slot>
+      </h3>
     </div>
     <ul class="list">
       <li v-for="todo in todos" :key="todo._id">
