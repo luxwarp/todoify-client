@@ -9,7 +9,7 @@ It also has full offline support so you can use it without creating an account, 
 
 Full responsive design and Progressive Web App support so you can use it on any device with a browser.
 
-<a href="https://imgur.com/4cJhLEB"><img src="https://i.imgur.com/4cJhLEB.png" title="source: imgur.com" /></a>
+<a href="https://imgur.com/LT2tthG"><img src="https://i.imgur.com/LT2tthG.png" width="800" title="source: imgur.com" /></a>
 
 Do you want try out Todoify Client live you can visit [todoify.luxwarp.info](https://todoify.luxwarp.info).
 
