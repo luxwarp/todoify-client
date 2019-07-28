@@ -1,4 +1,3 @@
-import Store from "@/store/store";
 const UserView = () =>
   import(/* webpackChunkName: "router-user" */ "@/views/UserView");
 const UserLogin = () =>
@@ -9,6 +8,8 @@ const UserProfile = () =>
   import(/* webpackChunkName: "router-user" */ "@/views/user/UserProfile");
 const UserEdit = () =>
   import(/* webpackChunkName: "router-user" */ "@/views/user/UserEdit");
+const UserLogout = () =>
+  import(/* webpackChunkName: "router-user" */ "@/views/user/UserLogout");
 const UserDelete = () =>
   import(/* webpackChunkName: "router-user" */ "@/views/user/UserDelete");
 
@@ -52,16 +53,11 @@ export default [
       {
         path: "logout",
         name: "user.logout",
+        component: UserLogout,
         meta: {
-          requiresAuth: false,
+          title: "Logout",
+          requiresAuth: true,
           requiresOnline: true
-        },
-        beforeEnter: () => {
-          let allDevices = false;
-          if (confirm("Do you want to logout all devices?")) {
-            allDevices = true;
-          }
-          Store.dispatch("logout", allDevices);
         }
       },
       {
