@@ -126,7 +126,8 @@ const actions = {
       };
       commit("addCategory", newCategory);
       if (getters.isOnline() && getters.isAuth()) {
-        await window.$todoify.createCategory(newCategory);
+        const response = await window.$todoify.createCategory(newCategory);
+        commit("updateCategory", response.data.data);
       }
     } catch (error) {
       commit("createNotifier", {

@@ -129,7 +129,8 @@ const actions = {
       };
       commit("addTodo", newTodo);
       if (getters.isOnline() && getters.isAuth()) {
-        await window.$todoify.createTodo(newTodo);
+        const response = await window.$todoify.createTodo(newTodo);
+        commit("updateTodo", response.data.data);
       }
     } catch (error) {
       commit("createNotifier", {
