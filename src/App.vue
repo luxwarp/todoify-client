@@ -9,11 +9,13 @@
         <router-view></router-view>
       </div>
     </div>
+    <BottomNav />
   </div>
 </template>
 
 <script>
 import HeaderContainer from "@/components/layout/HeaderContainer/HeaderContainer";
+import BottomNav from "@/components/layout/BottomNav/BottomNav";
 const NotifiersList = () =>
   import(/* webpackChunkName: "group-banners" */ "@/components/ui/NotifiersList/NotifiersList");
 const RequestStatus = () =>
@@ -26,7 +28,8 @@ export default {
     HeaderContainer,
     NotifiersList,
     RequestStatus,
-    NewUpdateBanner
+    NewUpdateBanner,
+    BottomNav
   },
   data() {
     return {
