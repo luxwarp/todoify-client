@@ -5,7 +5,8 @@
         Todoify</router-link
       >
       <div class="menuButton" @click="toggleMainNav">
-        <i class="icon-menu"></i>
+        <i v-if="!showMainNav" class="icon-menu"></i>
+        <i v-else class="icon-cancel"></i>
       </div>
     </div>
     <MainNav>
@@ -19,11 +20,15 @@
 <script>
 import MainNav from "@/components/layout/MainNav/MainNav";
 import OfflineIndicator from "@/components/ui/OfflineIndicator/OfflineIndicator";
+import { mapGetters } from "vuex";
 export default {
   name: "HeaderContainer",
   components: {
     MainNav,
     OfflineIndicator
+  },
+  computed: {
+    ...mapGetters(["showMainNav"])
   },
   methods: {
     toggleMainNav() {
