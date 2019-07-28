@@ -24,7 +24,7 @@ Vue.directive("focus", {
 
 Vue.use(VueCookies);
 Vue.use(VueAnalytics, {
-  id: "UA-105792327-7",
+  id: process.env.VUE_APP_GOOGLE_ANALYTICS_ID || "UA-105792327-7",
   router
 });
 Vue.use(TodoifyApi, {
