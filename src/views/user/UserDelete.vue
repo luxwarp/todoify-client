@@ -15,9 +15,11 @@
             type="password"
             placeholder="Current password"
             required
-            autocomplete="current-password"
+            autocomplete="off"
           />
-          <button type="submit" class="button alert">Delete account</button>
+          <button type="submit" class="button alert">
+            Delete account <i class="icon-ok"></i>
+          </button>
         </form>
         <router-link
           :to="{ name: 'user.profile' }"
