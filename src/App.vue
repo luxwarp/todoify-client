@@ -1,7 +1,6 @@
 <template>
   <div class="app">
     <NewUpdateBanner v-if="showNewUpdateBanner" @confirm="updateSW" />
-    <RequestStatus />
     <HeaderContainer />
     <div class="mainView">
       <NotifiersList />
@@ -18,8 +17,6 @@ import HeaderContainer from "@/components/layout/HeaderContainer/HeaderContainer
 import BottomNav from "@/components/layout/BottomNav/BottomNav";
 const NotifiersList = () =>
   import(/* webpackChunkName: "group-banners" */ "@/components/ui/NotifiersList/NotifiersList");
-const RequestStatus = () =>
-  import(/* webpackChunkName: "group-banners" */ "@/components/ui/RequestStatus/RequestStatus");
 const NewUpdateBanner = () =>
   import(/* webpackChunkName: "group-banners" */ "@/components/ui/NewUpdateBanner/NewUpdateBanner");
 export default {
@@ -27,7 +24,6 @@ export default {
   components: {
     HeaderContainer,
     NotifiersList,
-    RequestStatus,
     NewUpdateBanner,
     BottomNav
   },

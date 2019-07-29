@@ -4,6 +4,7 @@
       <router-link :to="{ name: 'home.page' }" tag="div" class="brand">
         Todoify</router-link
       >
+      <RequestStatus />
       <div class="menuButton" @click="toggleMainNav">
         <i v-if="!showMainNav" class="icon-menu"></i>
         <i v-else class="icon-cancel"></i>
@@ -18,6 +19,7 @@
 </template>
 
 <script>
+import RequestStatus from "@/components/ui/RequestStatus/RequestStatus";
 import MainNav from "@/components/layout/MainNav/MainNav";
 import OfflineIndicator from "@/components/ui/OfflineIndicator/OfflineIndicator";
 import { mapGetters } from "vuex";
@@ -25,7 +27,8 @@ export default {
   name: "HeaderContainer",
   components: {
     MainNav,
-    OfflineIndicator
+    OfflineIndicator,
+    RequestStatus
   },
   computed: {
     ...mapGetters(["showMainNav"])
@@ -75,20 +78,22 @@ export default {
 
     .menuButton {
       cursor: pointer;
+      background: inherit;
+      z-index: 999;
+      margin-left: 10px;
     }
   }
 }
 
 @media screen and (min-width: 1025px) {
   .header {
-    position: relative;
-    width: 400px;
+    position: static;
+    min-width: 350px;
+    max-width: 350px;
     height: 100vh;
     background: $headerBgColor;
 
     .banner {
-      justify-content: center;
-
       .brand {
         font-size: 2rem;
       }
