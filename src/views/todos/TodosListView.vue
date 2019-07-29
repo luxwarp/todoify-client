@@ -9,9 +9,9 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-import TodosList from "@/components/todos/TodosList/TodosList";
 import AddNew from "@/components/modal/AddNew";
+import TodosList from "@/components/todos/TodosList/TodosList";
+import { mapGetters } from "vuex";
 export default {
   name: "TodosListView",
   components: {
