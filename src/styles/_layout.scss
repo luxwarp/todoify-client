@@ -62,7 +62,8 @@ a,
   cursor: pointer;
 
   &:hover,
-  &:active {
+  &:active,
+  &:focus {
     text-decoration: underline;
     color: lighten($defaultLinkColor, $amount: 10);
   }
@@ -192,7 +193,6 @@ ul.list {
 .button {
   border: 0;
   padding: 10px;
-  outline: none;
   display: flex;
   align-items: center;
   font-size: inherit;
@@ -207,7 +207,8 @@ ul.list {
   }
 
   &:hover,
-  &:active {
+  &:active,
+  &:focus {
     background: lighten($buttonBgColor, $amount: 5);
     text-decoration: none;
   }
@@ -223,7 +224,8 @@ ul.list {
     color: $buttonPrimaryFontColor;
 
     &:hover,
-    &:active {
+    &:active,
+    &:focus {
       background: lighten($buttonPrimaryBgColor, $amount: 5);
     }
   }
@@ -233,7 +235,8 @@ ul.list {
     color: $buttonSuccessFontColor;
 
     &:hover,
-    &:active {
+    &:active,
+    &:focus {
       background: lighten($buttonSuccessBgColor, $amount: 5);
     }
   }
@@ -243,7 +246,8 @@ ul.list {
     color: $buttonAlertFontColor;
 
     &:hover,
-    &:active {
+    &:active,
+    &:focus {
       background: lighten($buttonAlertBgColor, $amount: 5);
     }
   }
