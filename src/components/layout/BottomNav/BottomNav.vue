@@ -1,12 +1,12 @@
 <template>
   <div class="bottomNav">
-    <router-link :to="{ name: 'todos.list' }" title="To-do's" class="nav-item">
+    <router-link :to="{ name: 'todos.list' }" title="To-do's" class="navItem">
       <i class="icon-list"></i>
     </router-link>
     <router-link
       :to="{ name: 'categories.list' }"
       title="Categories"
-      class="nav-item"
+      class="navItem"
     >
       <i class="icon-folder"></i>
     </router-link>
@@ -14,7 +14,7 @@
       v-if="isOnline() && isAuth()"
       :to="{ name: 'user.profile' }"
       title="Profile"
-      class="nav-item"
+      class="navItem"
     >
       <i class="icon-user"></i>
     </router-link>
@@ -22,7 +22,7 @@
       v-else-if="isOnline() && !isAuth()"
       :to="{ name: 'user.login' }"
       title="Login"
-      class="nav-item"
+      class="navItem"
     >
       <i class="icon-login"></i>
     </router-link>
@@ -30,7 +30,7 @@
       v-else
       :to="{ name: 'home.page' }"
       title="Home"
-      class="nav-item"
+      class="navItem"
     >
       <i class="icon-home"></i>
     </router-link>
@@ -54,7 +54,7 @@ export default {
   background: $bottomNavBgColor;
   color: $bottomNavFontColor;
 
-  > .nav-item {
+  > .navItem {
     flex: 1;
     padding: 10px 0;
     color: inherit;
@@ -62,10 +62,9 @@ export default {
     font-size: 1.2rem;
     transition: all 0.4s ease-in-out;
 
-    &:hover {
-      background: $bottomNavHoverBgColor;
-    }
-
+    &:hover,
+    &:active,
+    &:focus,
     &.router-link-exact-active {
       background: $bottomNavHoverBgColor;
     }
