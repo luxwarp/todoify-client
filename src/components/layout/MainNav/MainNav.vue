@@ -136,22 +136,14 @@ export default {
       font-size: 1.8rem;
       margin-right: 20px;
     }
-  }
 
-  .navItem:hover {
-    background: #223a52;
-    color: #d9e2ed;
-    transition: all 0.5s;
-  }
-
-  .navItem:active {
-    background: #223a52;
-    color: #d9e2ed;
-  }
-
-  .router-link-exact-active {
-    background: #223a52;
-    color: #d9e2ed;
+    &:hover,
+    &:active,
+    &:focus {
+      background: #223a52;
+      color: #d9e2ed;
+      transition: all 0.5s;
+    }
   }
 }
 
