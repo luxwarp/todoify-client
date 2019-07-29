@@ -1,5 +1,5 @@
 <template>
-  <div class="toolboxcontainer" :class="{ reverse: reverse }">
+  <div class="toolBoxContainer" :class="{ reverse: reverse }">
     <div @click="show = !show">
       <slot name="toggle"><i class="icon-ellipsis-vert"></i></slot>
     </div>
@@ -37,7 +37,7 @@ export default {
 </script>
 
 <style lang="scss">
-.toolboxcontainer {
+.toolBoxContainer {
   position: relative;
   display: flex;
   flex-direction: row;

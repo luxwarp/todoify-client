@@ -27,8 +27,8 @@ const mutations = {
   setCategories(state, data) {
     state.categories = data;
   },
-  addCategory(state, newCategeory) {
-    state.categories.push(newCategeory);
+  addCategory(state, newCategory) {
+    state.categories.push(newCategory);
   },
   updateCategory(state, updatedCategory) {
     const allOthers = state.categories.filter(

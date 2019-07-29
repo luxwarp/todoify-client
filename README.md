@@ -26,7 +26,7 @@ Feel free to fork it and send pull request and we will look it over.
 git clone https://github.com/luxwarp/todoify-client.git
 ```
 
-Install dependencis
+Install dependencies
 
 ```
 npm install

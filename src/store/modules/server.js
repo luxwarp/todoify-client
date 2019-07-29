@@ -16,17 +16,17 @@ const getters = {
 const mutations = {
   setTokens(state, tokens) {
     if (tokens.accessToken) {
-      const decodedAccesToken = JWTDecode(tokens.accessToken);
-      let accesstime = new Date(0);
-      accesstime.setUTCSeconds(decodedAccesToken.exp);
-      window.$cookies.set("accessToken", tokens.accessToken, accesstime);
+      const decodedAccessToken = JWTDecode(tokens.accessToken);
+      let accessTime = new Date(0);
+      accessTime.setUTCSeconds(decodedAccessToken.exp);
+      window.$cookies.set("accessToken", tokens.accessToken, accessTime);
       state.accessToken = tokens.accessToken;
     }
     if (tokens.refreshToken) {
       const decodedRefreshToken = JWTDecode(tokens.refreshToken);
-      let refreshtime = new Date(0);
-      refreshtime.setUTCSeconds(decodedRefreshToken.exp);
-      window.$cookies.set("refreshToken", tokens.refreshToken, refreshtime);
+      let refreshTime = new Date(0);
+      refreshTime.setUTCSeconds(decodedRefreshToken.exp);
+      window.$cookies.set("refreshToken", tokens.refreshToken, refreshTime);
       state.refreshToken = tokens.refreshToken;
     }
   },
