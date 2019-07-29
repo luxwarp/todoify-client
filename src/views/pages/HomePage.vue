@@ -1,7 +1,7 @@
 <template>
   <div class="container center">
     <BrandHero />
-    <div class="container">
+    <div class="container noFullWidth">
       <div v-if="isOnline() && !isAuth()" class="row space-evenly">
         <router-link
           :to="{ name: 'user.register' }"
@@ -19,9 +19,9 @@
       <div v-else-if="isOnline() && isAuth()" class="text-center">
         <p>
           Logged in as:
-          <router-link :to="{ name: 'user.profile' }">{{
-            user.name || user.email
-          }}</router-link>
+          <router-link :to="{ name: 'user.profile' }">
+            {{ user.name || user.email }}
+          </router-link>
         </p>
       </div>
       <div v-else class="text-center">
