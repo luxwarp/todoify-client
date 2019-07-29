@@ -60,6 +60,7 @@ export default {
     color: inherit;
     text-align: center;
     font-size: 1.2rem;
+    transition: all 0.4s ease-in-out;
 
     &:hover {
       background: $bottomNavHoverBgColor;
