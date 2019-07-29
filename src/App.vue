@@ -1,15 +1,19 @@
 <template>
-  <div class="app">
-    <NewUpdateBanner v-if="showNewUpdateBanner" @confirm="updateSW" />
-    <HeaderContainer />
-    <div class="mainView">
-      <NotifiersList />
-      <div class="mainRouterView">
-        <router-view></router-view>
+  <transition name="fadeIn" appear>
+    <div class="app">
+      <NewUpdateBanner v-if="showNewUpdateBanner" @confirm="updateSW" />
+      <HeaderContainer />
+      <div class="mainView">
+        <NotifiersList />
+        <div class="mainRouterView">
+          <transition name="fadeIn" mode="out-in">
+            <router-view :key="$route.path"></router-view>
+          </transition>
+        </div>
       </div>
+      <BottomNav />
     </div>
-    <BottomNav />
-  </div>
+  </transition>
 </template>
 
 <script>

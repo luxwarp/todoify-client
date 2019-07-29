@@ -21,7 +21,7 @@ export default [
     meta: {},
     children: [
       {
-        path: "profile",
+        path: "",
         name: "user.profile",
         component: UserProfile,
         meta: {
