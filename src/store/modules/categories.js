@@ -192,9 +192,7 @@ const actions = {
         category => category._id !== id
       );
       commit("setCategories", categoriesKeep);
-      if (getters.isOnline() && getters.isAuth()) {
-        await window.$todoify.deleteCategory(id);
-      }
+      await window.$todoify.deleteCategory(id);
     } catch (error) {
       commit("createNotifier", {
         type: "error",

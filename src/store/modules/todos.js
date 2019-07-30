@@ -15,7 +15,10 @@ const getters = {
       }
       return 0;
     }
-    return state.todos.sort(compare);
+
+    const notDeleted = state.todos.filter(todo => !todo.deleted);
+
+    return notDeleted.sort(compare);
   },
   getTodosByCategoryId: (state, getters) => id => {
     return getters.getTodos.filter(todo => {
@@ -73,8 +76,16 @@ const actions = {
         const foundLocal = localTodos.find(
           localTodo => localTodo._id === remoteTodo._id
         );
+
         if (foundLocal) {
           // A matching local todo was found.
+          if (foundLocal.deleted === true) {
+            // If the local todo has key deleted === true it should be deleted on server.
+            // And there by can also be safely ignored on client.
+            await window.$todoify.deleteTodo(foundLocal._id);
+            return;
+          }
+
           if (remoteTodo.updatedAt >= foundLocal.updatedAt) {
             // if the remote todo is newer or the same, save the remote todo.
             syncedTodos.push(remoteTodo);
@@ -94,6 +105,12 @@ const actions = {
 
       // Start going through localTodos to see if they exist in remoteTodos.
       localTodos.forEach(async localTodo => {
+        if (localTodo.deleted === true) {
+          // If the localTodo has key deleted === true it
+          // can be safely cleared on client and not sent to server.
+          return;
+        }
+
         const foundRemote = remoteTodos.find(
           remoteTodo => remoteTodo._id === localTodo._id
         );
@@ -165,11 +182,19 @@ const actions = {
   },
   async deleteTodo({ commit, state, getters }, id) {
     try {
+      if (!getters.isAuth() || !getters.isOnline()) {
+        const todoToDelete = state.todos.find(todo => todo._id === id);
+
+        todoToDelete.deleted = true;
+        todoToDelete.updatedAt = new Date().toISOString();
+
+        commit("updateTodo", todoToDelete);
+        return;
+      }
+
       const todosKeep = state.todos.filter(todo => todo._id !== id);
       commit("setTodos", todosKeep);
-      if (getters.isOnline() && getters.isAuth()) {
-        await window.$todoify.deleteTodo(id);
-      }
+      await window.$todoify.deleteTodo(id);
     } catch (error) {
       commit("createNotifier", {
         type: "error",
