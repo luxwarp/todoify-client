@@ -65,7 +65,12 @@
           <i class="icon-info-circled"></i>
           <span class="label">About</span>
         </router-link>
-        <a href="https://luxwarp.info/contact" class="navItem" target="_blank">
+        <a
+          href="https://luxwarp.info/contact"
+          class="navItem"
+          target="_blank"
+          rel="noreferrer"
+        >
           <i class="icon-mail"></i>
           <span class="label">Contact</span>
         </a>

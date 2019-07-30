@@ -107,10 +107,28 @@
       <p>
         Todoify is created by Mikael Luxwarp Carlsson. He is an IT consult and
         web developer from Gothenburg, Sweden. Read more about him at his
-        website. <a href="https://luxwarp.info" target="_blank">luxwarp.info</a>
+        website.
+        <a href="https://luxwarp.info" target="_blank" rel="noreferrer"
+          >luxwarp.info</a
+        >
       </p>
       <p>
         ISC © 2019 Copyright Mikael Luxwarp Carlsson
+      </p>
+    </div>
+    <div class="container text-center noFullWidth">
+      <p>
+        Icons from:
+        <a
+          href="http://fortawesome.github.com/Font-Awesome/"
+          rel="noreferrer"
+          target="_blank"
+          >Font-Awesome</a
+        >
+        |
+        <a href="http://www.entypo.com" rel="noreferrer" target="_blank"
+          >Entypo</a
+        >
       </p>
     </div>
   </div>
