@@ -1,80 +1,86 @@
 <template>
   <transition name="slideInTop">
     <div v-if="showMainNav" class="mainNav">
-      <div v-if="categories.length" class="categories" @click="toggleMainNav">
-        <span class="title">Categories</span>
-        <router-link
-          v-for="category in categories"
-          :key="category._id"
-          :to="{
-            name: 'categories.item',
-            params: { categoryId: category._id }
-          }"
-          class="navItem"
-        >
-          <i class="icon-folder"></i>{{ category.title }}
-        </router-link>
-      </div>
-      <div class="pages" @click="toggleMainNav">
-        <span class="title">Menu</span>
-        <router-link :to="{ name: 'home.page' }" class="navItem">
-          <i class="icon-home"></i>
-          <span class="label">Home</span>
-        </router-link>
-        <router-link :to="{ name: 'categories.list' }" class="navItem">
-          <i class="icon-folder-open"></i>
-          <span class="label">Categories</span>
-        </router-link>
-        <router-link :to="{ name: 'todos.list' }" class="navItem">
-          <i class="icon-list"></i>
-          <span class="label">To-do's</span>
-        </router-link>
-        <router-link
-          v-if="isOnline() && !isAuth()"
-          :to="{ name: 'user.login' }"
-          class="navItem"
-        >
-          <i class="icon-login"></i>
-          <span class="label">Login</span>
-        </router-link>
-        <router-link
-          v-if="isOnline() && !isAuth()"
-          :to="{ name: 'user.register' }"
-          class="navItem"
-        >
-          <i class="icon-user-plus"></i>
-          <span class="label">Register</span>
-        </router-link>
-        <router-link
-          v-if="isOnline() && isAuth()"
-          :to="{ name: 'user.profile' }"
-          class="navItem"
-        >
-          <i class="icon-user"></i>
-          <span class="label">Profile</span>
-        </router-link>
-        <router-link
-          v-if="isOnline() && isAuth()"
-          :to="{ name: 'user.logout' }"
-          class="navItem"
-        >
-          <i class="icon-logout"></i>
-          <span class="label">Logout</span>
-        </router-link>
-        <router-link :to="{ name: 'about.page' }" class="navItem">
-          <i class="icon-info-circled"></i>
-          <span class="label">About</span>
-        </router-link>
-        <a
-          href="https://luxwarp.info/contact"
-          class="navItem"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <i class="icon-mail"></i>
-          <span class="label">Contact</span>
-        </a>
-      </div>
+      <h2 v-if="categories.length" class="title">
+        Categories
+      </h2>
+      <ul v-if="categories.length" class="categories" @click="toggleMainNav">
+        <li v-for="category in categories" :key="category._id" class="navItem">
+          <router-link
+            :to="{
+              name: 'categories.item',
+              params: { categoryId: category._id }
+            }"
+          >
+            <i class="icon-folder"></i>
+            {{ category.title }}
+          </router-link>
+        </li>
+      </ul>
+      <h2 class="title">Menu</h2>
+      <ul class="pages" @click="toggleMainNav">
+        <li class="navItem">
+          <router-link :to="{ name: 'home.page' }">
+            <i class="icon-home"></i>
+            <span class="label">Home</span>
+          </router-link>
+        </li>
+        <li class="navItem">
+          <router-link :to="{ name: 'categories.list' }">
+            <i class="icon-folder-open"></i>
+            <span class="label">Categories</span>
+          </router-link>
+        </li>
+        <li class="navItem">
+          <router-link :to="{ name: 'todos.list' }">
+            <i class="icon-list"></i>
+            <span class="label">To-do's</span>
+          </router-link>
+        </li>
+        <li v-if="isOnline() && !isAuth()" class="navItem">
+          <router-link :to="{ name: 'user.login' }">
+            <i class="icon-login"></i>
+            <span class="label">Login</span>
+          </router-link>
+        </li>
+        <li v-if="isOnline() && !isAuth()" class="navItem">
+          <router-link :to="{ name: 'user.register' }">
+            <i class="icon-user-plus"></i>
+            <span class="label">Register</span>
+          </router-link>
+        </li>
+        <li v-if="isOnline() && isAuth()" class="navItem">
+          <router-link :to="{ name: 'user.profile' }">
+            <i class="icon-user"></i>
+            <span class="label">Profile</span>
+          </router-link>
+        </li>
+        <li class="navItem">
+          <router-link
+            v-if="isOnline() && isAuth()"
+            :to="{ name: 'user.logout' }"
+          >
+            <i class="icon-logout"></i>
+            <span class="label">Logout</span>
+          </router-link>
+        </li>
+        <li class="navItem">
+          <router-link :to="{ name: 'about.page' }">
+            <i class="icon-info-circled"></i>
+            <span class="label">About</span>
+          </router-link>
+        </li>
+        <li class="navItem">
+          <a
+            href="https://luxwarp.info/contact"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <i class="icon-mail"></i>
+            <span class="label">Contact</span>
+          </a>
+        </li>
+      </ul>
       <slot></slot>
     </div>
   </transition>
@@ -102,7 +108,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .mainNav {
   width: 100%;
   height: 100vh;
@@ -125,21 +131,27 @@ export default {
   .title {
     font-size: 1.2rem;
     padding: 15px;
-    border-bottom: 4px solid #223a52;
   }
 
   .navItem {
     color: inherit;
     text-decoration: none;
-    padding: 15px;
     display: flex;
     align-items: center;
-    outline: none;
     transition: all 0.5s;
+
+    a {
+      display: flex;
+      align-items: center;
+      color: inherit;
+      text-decoration: none;
+      flex: 1;
+      padding: 10px;
+    }
 
     i {
       font-size: 1.8rem;
-      margin-right: 20px;
+      margin-right: 10px;
     }
 
     &:hover,
