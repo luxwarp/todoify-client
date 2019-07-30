@@ -16,7 +16,9 @@ const getters = {
       return 0;
     }
 
-    return state.categories.sort(compare);
+    const notDeleted = state.categories.filter(category => !category.deleted);
+
+    return notDeleted.sort(compare);
   },
   getCategoryById: state => id => {
     return state.categories.find(category => category._id === id);
@@ -70,10 +72,18 @@ const actions = {
         const foundLocal = localCategories.find(
           localCategory => localCategory._id === remoteCategory._id
         );
+        // A matching local category was found.
         if (foundLocal) {
-          // A matching local category was found.
+          if (foundLocal.deleted === true) {
+            // If the local category has key deleted === true it should be deleted on server.
+            // And there by can also be safely ignored on client.
+            await window.$todoify.deleteCategory(foundLocal._id);
+            return;
+          }
+
           if (remoteCategory.updatedAt >= foundLocal.updatedAt) {
             // if the remote category is newer or the same, save the remote category.
+
             syncedCategories.push(remoteCategory);
           } else {
             // if the local category is newer, update the server and save the response.
@@ -89,8 +99,13 @@ const actions = {
         }
       });
 
-      // Start going through local categories to see if they exist in remote categories.
+      // Start going through local categories to see if they don't exist in remote categories.
       localCategories.forEach(async localCategory => {
+        if (localCategory.deleted === true) {
+          // If the localCategory has key deleted === true it
+          // can be safely cleared on client and not sent to server.
+          return;
+        }
         const foundRemote = remoteCategories.find(
           remoteCategory => remoteCategory._id === localCategory._id
         );
@@ -161,6 +176,18 @@ const actions = {
   },
   async deleteCategory({ commit, state, getters }, id) {
     try {
+      if (!getters.isAuth() || !getters.isOnline()) {
+        const categoryToDelete = state.categories.find(
+          category => category._id === id
+        );
+
+        categoryToDelete.deleted = true;
+        categoryToDelete.updatedAt = new Date().toISOString();
+
+        commit("updateCategory", categoryToDelete);
+        return;
+      }
+
       const categoriesKeep = state.categories.filter(
         category => category._id !== id
       );
