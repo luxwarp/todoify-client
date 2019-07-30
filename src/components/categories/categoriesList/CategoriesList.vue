@@ -1,10 +1,8 @@
 <template>
   <div v-if="categories.length">
-    <div v-if="title" class="title">
-      <h3>
-        {{ title }}
-      </h3>
-    </div>
+    <h3 v-if="title" class="title">
+      {{ title }}
+    </h3>
     <ul v-if="categories.length" class="list">
       <li v-for="category in categories" :key="category._id">
         <ToolBox>
@@ -85,4 +83,15 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss" scoped>
+.title {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-weight: 400;
+  margin: 15px 0;
+}
+</style>

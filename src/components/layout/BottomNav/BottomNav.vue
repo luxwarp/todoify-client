@@ -47,23 +47,22 @@ export default {
 
   > .navItem {
     flex: 1;
-    color: inherit;
     text-align: center;
     font-size: 1.2rem;
     transition: all 0.4s ease-in-out;
     display: flex;
 
-    &:hover,
-    &:active,
-    &:focus,
-    &.router-link-exact-active {
-      background: $bottomNavHoverBgColor;
-    }
-
     > a {
       flex: 1;
       color: inherit;
       padding: 10px 0;
+
+      &:hover,
+      &:active,
+      &:focus,
+      &.router-link-exact-active {
+        background: $bottomNavHoverBgColor;
+      }
     }
   }
 }

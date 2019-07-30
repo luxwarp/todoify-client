@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <div class="banner">
-      <router-link :to="{ name: 'home.page' }" tag="div" class="brand">
+      <router-link :to="{ name: 'home.page' }" class="brand">
         Todoify</router-link
       >
       <RequestStatus />
@@ -71,9 +71,10 @@ export default {
       font-size: 1.5rem;
       font-weight: 300;
       letter-spacing: 1px;
-      cursor: pointer;
       display: flex;
       align-items: center;
+      color: inherit;
+      text-decoration: none;
     }
 
     .menuButton {

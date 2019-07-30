@@ -134,7 +134,6 @@ export default {
   }
 
   .navItem {
-    color: inherit;
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -147,19 +146,20 @@ export default {
       text-decoration: none;
       flex: 1;
       padding: 10px;
-    }
 
-    i {
-      font-size: 1.8rem;
-      margin-right: 10px;
-    }
+      i {
+        font-size: 1.8rem;
+        margin-right: 10px;
+      }
 
-    &:hover,
-    &:active,
-    &:focus {
-      background: #223a52;
-      color: #d9e2ed;
-      transition: all 0.5s;
+      &:hover,
+      &:active,
+      &:focus,
+      &.router-link-exact-active {
+        background: lighten($mainNavBgColor, 5%);
+        color: lighten($mainNavFontColor, 80%);
+        transition: all 0.5s;
+      }
     }
   }
 }

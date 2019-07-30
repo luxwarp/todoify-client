@@ -1,11 +1,9 @@
 <template>
   <div v-if="todosToShow.length">
     <TodoEdit v-if="editTodo" :todo="editTodo" @close="editTodo = null" />
-    <div v-if="title" class="title">
-      <h3>
-        {{ title }}
-      </h3>
-    </div>
+    <h3 v-if="title" class="title">
+      {{ title }}
+    </h3>
     <ul class="list">
       <li v-for="todo in todosToShow" :key="todo._id">
         <ToolBox>
@@ -129,6 +127,5 @@ export default {
   width: 100%;
   font-weight: 400;
   margin: 15px 0;
-  color: $containerTitleFontColor;
 }
 </style>

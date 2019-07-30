@@ -3,7 +3,7 @@
     <div class="container">
       <div class="title">
         <slot name="title">title slot</slot>
-        <i class="icon-cancel" @click="close"></i>
+        <i class="icon-cancel close" @click="close"></i>
       </div>
       <div class="body">
         <slot name="body">body slot</slot>
@@ -51,7 +51,7 @@ export default {
       flex-direction: row;
       justify-content: space-between;
 
-      > i {
+      > .close {
         cursor: pointer;
       }
     }
