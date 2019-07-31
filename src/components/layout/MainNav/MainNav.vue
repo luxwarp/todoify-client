@@ -121,6 +121,7 @@ export default {
   flex-direction: column;
   color: $mainNavFontColor;
   background: $mainNavBgColor;
+  z-index: 999;
 
   .categories {
     display: flex;
@@ -186,6 +187,7 @@ export default {
   .mainNav {
     height: 100%;
     animation: none;
+    z-index: 0;
   }
 }
 </style>

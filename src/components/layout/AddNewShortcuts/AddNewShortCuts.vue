@@ -67,7 +67,6 @@ export default {
   width: max-content;
   display: flex;
   flex-direction: column;
-  z-index: 10;
 
   .noOutline {
     outline: none;
@@ -76,7 +75,7 @@ export default {
   .button {
     margin-top: 10px;
     border-radius: 50%;
-    box-shadow: 1px 1px 10px rgb(126, 126, 126);
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.308);
 
     i {
       margin: 0;

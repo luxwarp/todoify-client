@@ -50,6 +50,7 @@ export default {
   color: $headerFontColor;
   display: flex;
   flex-direction: column;
+  z-index: 5;
 
   .banner {
     position: sticky;
@@ -89,6 +90,7 @@ export default {
     max-width: 350px;
     height: 100vh;
     background: $headerBgColor;
+    z-index: 0;
 
     .banner {
       .brand {
