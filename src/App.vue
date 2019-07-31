@@ -9,6 +9,7 @@
           <transition name="fadeIn" mode="out-in">
             <router-view :key="$route.path"></router-view>
           </transition>
+          <AddNewShortcuts />
         </div>
       </div>
       <BottomNav />
@@ -18,6 +19,7 @@
 
 <script>
 import HeaderContainer from "@/components/layout/HeaderContainer/HeaderContainer";
+import AddNewShortcuts from "@/components/layout/AddNewShortcuts/AddNewShortCuts";
 import BottomNav from "@/components/layout/BottomNav/BottomNav";
 const NotifiersList = () =>
   import(/* webpackChunkName: "group-banners" */ "@/components/ui/NotifiersList/NotifiersList");
@@ -29,7 +31,8 @@ export default {
     HeaderContainer,
     NotifiersList,
     NewUpdateBanner,
-    BottomNav
+    BottomNav,
+    AddNewShortcuts
   },
   data() {
     return {
@@ -95,7 +98,6 @@ export default {
   flex-direction: column;
 
   > .mainView {
-    position: relative;
     display: flex;
     flex-direction: column;
     background: $mainViewBgColor;
@@ -103,14 +105,17 @@ export default {
     max-width: 100%;
     height: 100%;
     max-height: 100%;
-    overflow-y: auto;
-    overflow-x: hidden;
     margin-top: 70px;
 
     > .mainRouterView {
+      position: relative;
+      top: 0;
+      left: 0;
       display: flex;
       flex-direction: column;
       height: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
       padding: 0 15px;
     }
   }

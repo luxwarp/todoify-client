@@ -1,54 +1,41 @@
 @keyframes slideInLeft {
   0% {
     transform: translateX(100%);
+    opacity: 0;
   }
 
   100% {
     transform: translateX(0%);
+    opacity: 1;
   }
 }
 
 .slideInLeft-enter-active {
-  animation: slideInLeft 0.3s ease-in;
+  animation: slideInLeft 0.3s ease-in-out both;
 }
 
 .slideInLeft-leave-active {
-  animation: slideInLeft 0.3s reverse ease-out;
+  animation: slideInLeft 0.3s reverse ease-in-out both;
 }
 
 @keyframes slideInTop {
   0% {
     transform: translateY(-100%);
+    opacity: 0;
   }
 
   100% {
     transform: translateY(0%);
+    opacity: 1;
   }
 }
 
 .slideInTop-enter-active {
-  animation: slideInTop 0.3s ease-in;
+  animation: slideInTop 0.3s ease-in both;
 }
 
 .slideInTop-leave-active {
-  animation: slideInTop 0.3s reverse ease-out;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.fadeIn-enter-active {
-  animation: fadeIn 0.3s;
-}
-
-.fadeIn-leave-active {
-  animation: fadeIn 0.3s reverse;
+  animation: slideInTop 0.3s reverse ease-out both;
 }
 
 @keyframes fadeIn {
@@ -57,5 +44,22 @@
   }
   100% {
     opacity: 1;
+  }
+}
+
+.fadeIn-enter-active {
+  animation: fadeIn 0.3s both;
+}
+
+.fadeIn-leave-active {
+  animation: fadeIn 0.3s reverse both;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
