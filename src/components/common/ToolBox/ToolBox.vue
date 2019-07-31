@@ -1,10 +1,14 @@
 <template>
-  <div class="toolBoxContainer" :class="{ reverse: reverse }">
-    <div @click="show = !show">
+  <div
+    class="toolBoxContainer"
+    :class="{ reverse: reverse }"
+    @click="show = !show"
+  >
+    <div class="toggle">
       <slot name="toggle"><i class="icon-ellipsis-vert"></i></slot>
     </div>
     <transition :name="animation">
-      <div v-if="show" class="tools" @click="show = !show">
+      <div v-if="show" class="tools">
         <slot name="tools"></slot>
       </div>
     </transition>
@@ -43,6 +47,7 @@ export default {
   flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
+  cursor: pointer;
 
   &.reverse {
     flex-direction: row-reverse;
@@ -50,6 +55,10 @@ export default {
     > .tools {
       margin-right: 10px;
     }
+  }
+
+  > .toggle {
+    padding-left: 10px;
   }
 
   > .tools {

@@ -6,8 +6,7 @@
       >
       <RequestStatus />
       <div class="menuButton" @click="toggleMainNav">
-        <i v-if="!showMainNav" class="icon-menu"></i>
-        <i v-else class="icon-cancel"></i>
+        <i :class="showMainNav ? 'icon-cancel' : 'icon-menu'"></i>
       </div>
     </div>
     <MainNav>
@@ -51,7 +50,6 @@ export default {
   color: $headerFontColor;
   display: flex;
   flex-direction: column;
-  z-index: 10;
 
   .banner {
     position: sticky;
@@ -63,7 +61,6 @@ export default {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    z-index: 20;
     padding: 15px;
 
     .brand {
@@ -80,7 +77,6 @@ export default {
     .menuButton {
       cursor: pointer;
       background: inherit;
-      z-index: 999;
       margin-left: 10px;
     }
   }
