@@ -13,7 +13,10 @@
             }"
           >
             <i class="icon-folder"></i>
-            {{ category.title }}
+            <span class="label">{{ category.title }}</span>
+            <div class="badge">
+              {{ getTodosByCategoryId(category._id).length }}
+            </div>
           </router-link>
         </li>
       </ul>
@@ -94,7 +97,8 @@ export default {
     ...mapGetters({
       categories: "getCategories",
       isAuth: "isAuth",
-      isOnline: "isOnline"
+      isOnline: "isOnline",
+      getTodosByCategoryId: "getTodosByCategoryId"
     }),
     showMainNav() {
       return this.$store.getters.showMainNav;
@@ -150,6 +154,20 @@ export default {
       i {
         font-size: 1.8rem;
         margin-right: 10px;
+      }
+
+      .label {
+        flex: 1;
+      }
+
+      .badge {
+        background: darken($mainNavBgColor, $amount: 5);
+        border: 1px solid darken($mainNavBgColor, $amount: 10);
+        color: inherit;
+        font-size: 0.9rem;
+        padding: 2px 10px;
+        border-radius: 5px;
+        text-align: center;
       }
 
       &:hover,
