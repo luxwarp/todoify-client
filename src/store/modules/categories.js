@@ -6,19 +6,11 @@ const state = {
 
 const getters = {
   getCategories(state) {
-    function compare(a, b) {
-      if (a.title < b.title) {
-        return -1;
-      }
-      if (a.title > b.title) {
-        return 1;
-      }
-      return 0;
-    }
-
     const notDeleted = state.categories.filter(category => !category.deleted);
 
-    return notDeleted.sort(compare);
+    return notDeleted.sort((a, b) =>
+      a.title.localeCompare(b.title, undefined, { sensitivity: "base" })
+    );
   },
   getCategoryById: state => id => {
     return state.categories.find(category => category._id === id);
