@@ -9,9 +9,9 @@
           <transition name="fadeIn" mode="out-in">
             <router-view :key="$route.path"></router-view>
           </transition>
-          <AddNewShortcuts />
         </div>
       </div>
+      <AddNewShortcuts />
       <BottomNav />
     </div>
   </transition>
@@ -90,7 +90,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .app {
   width: 100vw;
   height: 100vh;
@@ -102,18 +102,14 @@ export default {
     flex-direction: column;
     background: $mainViewBgColor;
     width: 100%;
-    max-width: 100%;
-    height: 100%;
-    max-height: 100%;
+    flex: 1;
+    overflow: auto;
     margin-top: 70px;
 
     > .mainRouterView {
-      position: relative;
-      top: 0;
-      left: 0;
       display: flex;
       flex-direction: column;
-      height: 100%;
+      flex: 1;
       overflow-y: auto;
       overflow-x: hidden;
       padding: 0 15px;

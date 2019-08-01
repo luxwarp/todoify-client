@@ -38,6 +38,26 @@
   animation: slideInTop 0.3s reverse ease-out both;
 }
 
+@keyframes slideInBottom {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+.slideInBottom-enter-active {
+  animation: slideInBottom 0.3s ease-in both;
+}
+
+.slideInBottom-leave-active {
+  animation: slideInBottom 0.3s reverse ease-out both;
+}
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
