@@ -177,6 +177,15 @@ const actions = {
         categoryToDelete.updatedAt = new Date().toISOString();
 
         commit("updateCategory", categoryToDelete);
+
+        const todosInDeletedCategory = getters.getTodos.filter(
+          todo => todo.category === id
+        );
+        todosInDeletedCategory.forEach(todo => {
+          todo.category = null;
+          todo.updatedAt = new Date().toISOString();
+          commit("updateTodo", todo);
+        });
         return;
       }
 
