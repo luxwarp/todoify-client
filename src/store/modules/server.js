@@ -74,6 +74,19 @@ const actions = {
         type: "success",
         message: response.data.message
       });
+      Router.push({ name: "user.activate" });
+    } catch (error) {
+      commit("createNotifier", { type: "error", message: error.message });
+      console.log(error);
+    }
+  },
+  async activateUser({ commit }, activationCode) {
+    try {
+      const response = await window.$todoify.activateUser(activationCode);
+      commit("createNotifier", {
+        type: "success",
+        message: response.data.message
+      });
       Router.push({ name: "user.login" });
     } catch (error) {
       commit("createNotifier", { type: "error", message: error.message });

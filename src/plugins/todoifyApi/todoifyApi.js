@@ -63,6 +63,12 @@ class TodoifyApi {
     return this.request.post("/users/resetpassword", { email: email });
   };
 
+  activateUser = (activationCode = "") => {
+    return this.request.post("/users/activate", {
+      activationCode: activationCode
+    });
+  };
+
   refreshToken = (refreshToken = "") => {
     return this.request.post("/users/refreshtoken", {
       refreshToken: refreshToken
