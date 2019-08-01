@@ -8,7 +8,7 @@
     >
       <div class="icon" :class="iconType(notifier.type)"></div>
       <span class="message">{{ notifier.message }}</span>
-      <i class="fas fa-times" @click="close(index)"></i>
+      <i class="icon-cancel close" @click="close(index)"></i>
     </div>
   </transition-group>
 </template>
@@ -84,13 +84,8 @@ export default {
       }
     }
 
-    > .close {
-      font-size: 18px;
-      margin: 0;
-      padding: 0;
-      &::before {
-        content: none !important;
-      }
+    .close {
+      cursor: pointer;
     }
   }
 

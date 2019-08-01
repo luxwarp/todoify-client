@@ -1,6 +1,6 @@
 <template>
   <div class="addNewShortcuts">
-    <transition-group name="slideInLeft" appear>
+    <transition-group name="slideInBottom" appear tag="div" class="buttons">
       <button
         v-if="showShortcuts"
         key="category"
@@ -59,17 +59,16 @@ export default {
 
 <style lang="scss" scoped>
 .addNewShortcuts {
-  position: sticky;
-  bottom: 10px;
-  right: 0;
-  margin-left: auto;
-  margin-top: auto;
+  position: fixed;
+  right: 10px;
+  bottom: 25px;
   width: max-content;
   display: flex;
-  flex-direction: column;
+  margin-top: auto;
 
-  .noOutline {
-    outline: none;
+  > .buttons {
+    display: flex;
+    flex-direction: column;
   }
 
   .button {
