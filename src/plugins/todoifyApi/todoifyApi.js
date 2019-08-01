@@ -59,6 +59,10 @@ class TodoifyApi {
     return this.request.post("/users/authenticate", data);
   };
 
+  resetPassword = email => {
+    return this.request.post("/users/resetpassword", { email: email });
+  };
+
   refreshToken = (refreshToken = "") => {
     return this.request.post("/users/refreshtoken", {
       refreshToken: refreshToken

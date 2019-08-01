@@ -3,7 +3,7 @@
     <BrandHero />
     <div class="card noFullWidth">
       <div class="title">
-        <h2 style="margin: 0 auto;">Login</h2>
+        <h2>Login</h2>
       </div>
       <div class="body">
         <form autocomplete="on" @submit.prevent="onSubmit">
@@ -33,6 +33,7 @@
             <i class="icon-login"></i>
           </button>
         </form>
+        <router-link :to="{ name: 'user.reset' }">Reset password</router-link>
       </div>
     </div>
   </div>

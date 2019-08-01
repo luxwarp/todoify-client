@@ -12,6 +12,8 @@ const UserLogout = () =>
   import(/* webpackChunkName: "router-user" */ "@/views/user/UserLogout");
 const UserDelete = () =>
   import(/* webpackChunkName: "router-user" */ "@/views/user/UserDelete");
+const UserResetPassword = () =>
+  import(/* webpackChunkName: "router-user" */ "@/views/user/UserResetPassword");
 
 export default [
   {
@@ -46,6 +48,16 @@ export default [
         component: UserRegister,
         meta: {
           title: "Create account",
+          requiresAuth: false,
+          requiresOnline: true
+        }
+      },
+      {
+        path: "resetpassword",
+        name: "user.reset",
+        component: UserResetPassword,
+        meta: {
+          title: "Reset password",
           requiresAuth: false,
           requiresOnline: true
         }

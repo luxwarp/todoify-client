@@ -79,6 +79,19 @@ const actions = {
       commit("createNotifier", { type: "error", message: error.message });
       console.log(error);
     }
+  },
+  async resetPassword({ commit }, email) {
+    try {
+      const response = await window.$todoify.resetPassword(email);
+      commit("createNotifier", {
+        type: "success",
+        message: response.data.message
+      });
+      Router.push({ name: "user.login" });
+    } catch (error) {
+      commit("createNotifier", { type: "error", message: error.message });
+      console.log(error);
+    }
   }
 };
 
