@@ -1,12 +1,7 @@
 const state = {
   showMainNav: window.innerWidth > 1024 || false,
   requestStatus: 0,
-  notifiers: [
-    {
-      type: "error",
-      message: "hej hopp"
-    }
-  ]
+  notifiers: []
 };
 
 const getters = {
