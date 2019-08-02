@@ -72,7 +72,7 @@
         licensed under ISC license. So if you are a programmer and want to
         contribute to Todoify your are welcome to visit our code base at GitHub.
       </p>
-      <div class="row space-evenly no-wrap">
+      <div class="row no-wrap" style="justify-content: space-between">
         <a
           href="https://github.com/luxwarp/todoify-client/"
           class="button success"

@@ -112,7 +112,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .mainNav {
   width: 100%;
   height: 100vh;
@@ -123,7 +123,7 @@ export default {
   background: $mainNavBgColor;
   z-index: 999;
 
-  .categories {
+  > .categories {
     display: flex;
     flex-direction: column;
     list-style: none;
@@ -131,7 +131,7 @@ export default {
     padding: 0;
   }
 
-  .pages {
+  > .pages {
     display: flex;
     flex-direction: column;
     list-style: none;
@@ -139,7 +139,7 @@ export default {
     margin: 0;
   }
 
-  .title {
+  > .title {
     font-size: 1.2rem;
     font-weight: 400;
     padding: 15px;
@@ -147,12 +147,11 @@ export default {
   }
 
   .navItem {
-    text-decoration: none;
     display: flex;
     align-items: center;
     transition: all 0.5s;
 
-    a {
+    > a {
       display: flex;
       align-items: center;
       color: inherit;
@@ -160,16 +159,16 @@ export default {
       flex: 1;
       padding: 10px;
 
-      i {
+      > i {
         font-size: 1.8rem;
         margin-right: 10px;
       }
 
-      .label {
+      > .label {
         flex: 1;
       }
 
-      .badge {
+      > .badge {
         background: darken($mainNavBgColor, $amount: 5);
         border: 1px solid darken($mainNavBgColor, $amount: 10);
         color: inherit;
@@ -193,9 +192,9 @@ export default {
 
 @media screen and (min-width: 1025px) {
   .mainNav {
-    height: 100%;
     animation: none;
     z-index: 0;
+    overflow: auto;
   }
 }
 </style>

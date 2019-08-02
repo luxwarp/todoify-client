@@ -19,7 +19,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .noListItemsFound {
   display: flex;
   flex-direction: column;

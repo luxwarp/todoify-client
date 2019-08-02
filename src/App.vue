@@ -90,14 +90,18 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .app {
-  width: 100vw;
-  height: 100vh;
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
   display: flex;
   flex-direction: column;
 
   > .mainView {
+    position: relative;
     display: flex;
     flex-direction: column;
     background: $mainViewBgColor;
@@ -107,11 +111,11 @@ export default {
     margin-top: 70px;
 
     > .mainRouterView {
+      position: relative;
       display: flex;
       flex-direction: column;
-      flex: 1;
-      overflow-y: auto;
-      overflow-x: hidden;
+      width: 100%;
+      height: 100%;
       padding: 0 15px;
     }
   }

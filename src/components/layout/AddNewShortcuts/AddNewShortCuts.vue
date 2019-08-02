@@ -57,7 +57,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .addNewShortcuts {
   position: fixed;
   right: 10px;
@@ -68,16 +68,22 @@ export default {
   > .buttons {
     display: flex;
     flex-direction: column;
-  }
 
-  .button {
-    margin-top: 10px;
-    border-radius: 50%;
-    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+    > .button {
+      margin-top: 10px;
+      border-radius: 50%;
+      box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
 
-    i {
-      margin: 0;
+      > i {
+        margin: 0;
+      }
     }
+  }
+}
+
+@media screen and(min-width: 1025px) {
+  .addNewShortcuts {
+    bottom: 10px;
   }
 }
 </style>

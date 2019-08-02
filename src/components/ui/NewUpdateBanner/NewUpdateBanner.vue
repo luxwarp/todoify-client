@@ -21,7 +21,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .newUpdateBanner {
   position: fixed;
   bottom: 10px;

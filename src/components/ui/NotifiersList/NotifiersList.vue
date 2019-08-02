@@ -1,5 +1,5 @@
 <template>
-  <transition-group class="notifiers" name="slideInLeft" tag="div">
+  <transition-group class="notifiersList" name="slideInLeft" tag="div">
     <div
       v-for="(notifier, index) in notifiers"
       :key="index + 1"
@@ -59,7 +59,7 @@ export default {
 </script>
 
 <style lang="scss">
-.notifiers {
+.notifiersList {
   display: flex;
   flex-direction: column;
   width: 100%;
