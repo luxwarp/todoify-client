@@ -62,7 +62,6 @@ export default {
   position: fixed;
   right: 10px;
   bottom: 25px;
-  width: max-content;
   display: flex;
   margin-top: auto;
 
@@ -74,7 +73,7 @@ export default {
   .button {
     margin-top: 10px;
     border-radius: 50%;
-    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.308);
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
 
     i {
       margin: 0;
