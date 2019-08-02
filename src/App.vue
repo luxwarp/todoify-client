@@ -11,8 +11,8 @@
           </transition>
         </div>
       </div>
-      <AddNewShortcuts />
       <BottomNav />
+      <AddNewShortcuts />
     </div>
   </transition>
 </template>
