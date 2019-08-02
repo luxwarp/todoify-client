@@ -1,13 +1,15 @@
 <template>
-  <div class="header">
+  <div class="headerContainer">
     <div class="banner">
       <router-link :to="{ name: 'home.page' }" class="brand">
-        Todoify</router-link
-      >
+        Todoify
+      </router-link>
       <RequestStatus />
-      <div class="menuButton" @click="toggleMainNav">
-        <i :class="showMainNav ? 'icon-cancel' : 'icon-menu'"></i>
-      </div>
+      <i
+        class="menuButton"
+        :class="showMainNav ? 'icon-cancel' : 'icon-menu'"
+        @click="toggleMainNav"
+      ></i>
     </div>
     <MainNav>
       <OfflineIndicator
@@ -41,7 +43,7 @@ export default {
 </script>
 
 <style lang="scss">
-.header {
+.headerContainer {
   position: fixed;
   top: 0;
   width: 100%;
@@ -50,9 +52,10 @@ export default {
   color: $headerFontColor;
   display: flex;
   flex-direction: column;
+  overflow: auto;
   z-index: 5;
 
-  .banner {
+  > .banner {
     position: sticky;
     top: 0;
     width: 100%;
@@ -63,8 +66,9 @@ export default {
     justify-content: space-between;
     align-items: center;
     padding: 15px;
+    z-index: 90000;
 
-    .brand {
+    > .brand {
       font-weight: 300;
       font-size: 1.5rem;
       letter-spacing: 1px;
@@ -74,7 +78,7 @@ export default {
       text-decoration: none;
     }
 
-    .menuButton {
+    > .menuButton {
       cursor: pointer;
       background: inherit;
       margin-left: 10px;
@@ -83,8 +87,8 @@ export default {
 }
 
 @media screen and (min-width: 1025px) {
-  .header {
-    position: static;
+  .headerContainer {
+    position: relative;
     min-width: 350px;
     max-width: 350px;
     height: 100vh;

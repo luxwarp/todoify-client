@@ -33,7 +33,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .requestStatus {
   position: relative;
   margin-left: auto;
@@ -43,7 +43,7 @@ export default {
   color: #fff;
   cursor: pointer;
 
-  .loader {
+  > .loader {
     border: 2px solid #f3f3f3; /* Light grey */
     border-top: 2px solid #3498db; /* Blue */
     border-radius: 50%;
@@ -52,7 +52,7 @@ export default {
     animation: spin 2s linear infinite;
   }
 
-  .label {
+  > .label {
     margin-left: 10px;
   }
 

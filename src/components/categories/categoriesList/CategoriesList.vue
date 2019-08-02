@@ -1,5 +1,5 @@
 <template>
-  <div v-if="categories.length">
+  <div v-if="categories.length" class="categoriesList">
     <h3 v-if="title" class="title">
       {{ title }}
     </h3>
@@ -83,15 +83,17 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.title {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  font-weight: 400;
-  margin: 15px 0;
+<style lang="scss">
+.categoriesList {
+  > .title {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-weight: 400;
+    margin: 15px 0;
+  }
 }
 </style>
