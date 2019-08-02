@@ -27,6 +27,10 @@ body {
   box-sizing: inherit;
 }
 
+*:-moz-focusring {
+  outline: 0 !important;
+}
+
 *:focus {
   border: $defaultFocusBorder !important;
   box-shadow: $defaultFocusBoxShadow !important;
