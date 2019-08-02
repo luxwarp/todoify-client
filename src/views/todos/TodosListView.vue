@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import TodosList from "@/components/todos/TodosList/TodosList";
 import { mapGetters } from "vuex";
+import TodosList from "@/components/todos/TodosList/TodosList";
 export default {
   name: "TodosListView",
   components: {
