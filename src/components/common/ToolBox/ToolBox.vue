@@ -49,18 +49,9 @@ export default {
   flex-wrap: wrap;
   cursor: pointer;
 
-  &.reverse {
-    flex-direction: row-reverse;
-
-    > .tools {
-      margin-right: 10px;
-    }
-  }
-
   > .toggle {
     padding-left: 10px;
   }
-
   > .tools {
     display: flex;
     flex-direction: row;
@@ -72,6 +63,14 @@ export default {
 
     *:last-child {
       margin-right: 0px;
+    }
+  }
+
+  &.reverse {
+    flex-direction: row-reverse;
+
+    > .tools {
+      margin-right: 10px;
     }
   }
 }
