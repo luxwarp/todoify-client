@@ -27,33 +27,14 @@ body {
   box-sizing: inherit;
 }
 
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-ol,
-ul {
-  margin: 0;
-  padding: 0;
-  font-weight: normal;
+*:-moz-focusring {
+  outline: 0 !important;
 }
 
-p {
-  margin: 10px 0;
-}
-
-ol,
-ul {
-  list-style: none;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
+*:focus {
+  border: $defaultFocusBorder !important;
+  box-shadow: $defaultFocusBoxShadow !important;
+  outline: none;
 }
 
 a,
@@ -61,12 +42,17 @@ a,
   color: $defaultLinkColor;
   text-decoration: none;
   cursor: pointer;
+  &:focus {
+    border: $defaultFocusBorder;
+    box-shadow: $defaultFocusBoxShadow;
+  }
 
   &:hover,
   &:active,
   &:focus {
-    text-decoration: underline;
-    color: lighten($defaultLinkColor, $amount: 10);
+    text-decoration: none;
+    color: lighten($defaultLinkColor, 20%);
+    outline: none;
   }
 
   &.alert {
@@ -161,6 +147,10 @@ ul.list {
   }
 }
 
+.maxContent {
+  width: max-content !important;
+}
+
 .hide {
   display: none !important;
 }
@@ -205,6 +195,7 @@ ul.list {
   color: $buttonFontColor;
   transition: all 0.5s;
   cursor: pointer;
+  width: max-content;
 
   > i {
     margin-left: 15px;
@@ -213,7 +204,7 @@ ul.list {
   &:hover,
   &:active,
   &:focus {
-    background: lighten($buttonBgColor, $amount: 5);
+    background: lighten($buttonBgColor, 10%);
     text-decoration: none;
   }
 
@@ -230,7 +221,7 @@ ul.list {
     &:hover,
     &:active,
     &:focus {
-      background: lighten($buttonPrimaryBgColor, $amount: 5);
+      background: lighten($buttonPrimaryBgColor, 10%);
     }
   }
 
@@ -241,7 +232,7 @@ ul.list {
     &:hover,
     &:active,
     &:focus {
-      background: lighten($buttonSuccessBgColor, $amount: 5);
+      background: lighten($buttonSuccessBgColor, 10%);
     }
   }
 
@@ -252,7 +243,7 @@ ul.list {
     &:hover,
     &:active,
     &:focus {
-      background: lighten($buttonAlertBgColor, $amount: 5);
+      background: lighten($buttonAlertBgColor, 10%);
     }
   }
 }
@@ -286,6 +277,7 @@ ul.list {
 
     > h2 {
       font-weight: inherit;
+      margin: 0;
     }
   }
 }
@@ -321,6 +313,10 @@ ul.list {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 15px;
+
+    > h2 {
+      margin: 0;
+    }
   }
 
   > .body {

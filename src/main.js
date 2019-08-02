@@ -2,6 +2,7 @@ import Vue from "vue";
 import App from "./App.vue";
 import VueCookies from "vue-cookies";
 import VueAnalytics from "vue-analytics";
+import "normalize.css";
 import store from "@/store/store";
 import router from "@/router";
 import TodoifyApi from "@/plugins/todoifyApi/todoifyApi";

@@ -13,7 +13,7 @@
           :to="{ name: 'user.login' }"
           class="button success"
           tag="button"
-          >Sign in <i class="icon-login"></i
+          >Login <i class="icon-login"></i
         ></router-link>
       </div>
       <div v-else-if="isOnline() && isAuth()" class="text-center">

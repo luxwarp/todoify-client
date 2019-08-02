@@ -44,24 +44,27 @@ export default {
   flex-direction: row;
   background: $bottomNavBgColor;
   color: $bottomNavFontColor;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 
   > .navItem {
     flex: 1;
     text-align: center;
     font-size: 1.2rem;
-    transition: all 0.4s ease-in-out;
     display: flex;
 
     > a {
       flex: 1;
       color: inherit;
       padding: 10px 0;
+      transition: all 0.4s ease-in-out;
 
       &:hover,
-      &:active,
       &:focus,
       &.router-link-exact-active {
         background: $bottomNavHoverBgColor;
+        border-bottom: 0;
       }
     }
   }

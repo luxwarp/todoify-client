@@ -126,16 +126,24 @@ export default {
   .categories {
     display: flex;
     flex-direction: column;
+    list-style: none;
+    margin: 0;
+    padding: 0;
   }
 
   .pages {
     display: flex;
     flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin: 0;
   }
 
   .title {
     font-size: 1.2rem;
+    font-weight: 400;
     padding: 15px;
+    margin: 0;
   }
 
   .navItem {
