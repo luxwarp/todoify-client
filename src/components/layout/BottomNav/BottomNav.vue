@@ -58,7 +58,6 @@ export default {
       transition: all 0.4s ease-in-out;
 
       &:hover,
-      &:active,
       &:focus,
       &.router-link-exact-active {
         background: $bottomNavHoverBgColor;
