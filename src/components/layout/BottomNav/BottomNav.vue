@@ -44,6 +44,9 @@ export default {
   flex-direction: row;
   background: $bottomNavBgColor;
   color: $bottomNavFontColor;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 
   > .navItem {
     flex: 1;
@@ -61,6 +64,7 @@ export default {
       &:focus,
       &.router-link-exact-active {
         background: $bottomNavHoverBgColor;
+        border-bottom: 0;
       }
     }
   }

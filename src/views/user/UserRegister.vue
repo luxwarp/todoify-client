@@ -3,7 +3,7 @@
     <BrandHero />
     <div class="card noFullWidth">
       <div class="title">
-        <h2 style="margin: 0 auto;">Register</h2>
+        <h2>Register</h2>
       </div>
       <div class="body">
         <form autocomplete="off" @submit.prevent="onSubmit">
