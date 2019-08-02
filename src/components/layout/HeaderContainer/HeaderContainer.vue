@@ -67,7 +67,6 @@ export default {
     .brand {
       font-weight: 300;
       font-size: 1.5rem;
-      font-weight: 300;
       letter-spacing: 1px;
       display: flex;
       align-items: center;

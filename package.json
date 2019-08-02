@@ -40,6 +40,8 @@
     "eslint-plugin-vue": "^5.0.0",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.1.0",
+    "stylelint": "^10.1.0",
+    "stylelint-config-recommended": "^2.2.0",
     "vue-template-compiler": "^2.6.10"
   },
   "bugs": {

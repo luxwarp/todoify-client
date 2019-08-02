@@ -53,8 +53,5 @@ export default {
       background: green;
     }
   }
-
-  > .label {
-  }
 }
 </style>

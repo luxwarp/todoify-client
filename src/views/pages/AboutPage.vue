@@ -97,7 +97,7 @@
       <a
         href="https://github.com/luxwarp/todoify-client/issues"
         class="button alert"
-        style="width: auto;"
+        style="align-self: center;"
         target="_blank"
         >Create new issue <i class="icon-github"></i
       ></a>
@@ -143,5 +143,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss"></style>
