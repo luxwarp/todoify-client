@@ -11,7 +11,6 @@ body {
   color: $globalFontColor;
   font-size: $globalFontSize;
   box-sizing: border-box;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
 }
@@ -93,60 +92,6 @@ select {
   margin-left: 10px;
 }
 
-ul.list {
-  list-style: none;
-  margin: 15px 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  background: $listBgColor;
-  border: $listBorder;
-
-  > li {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    border-bottom: $listItemBorderBottom;
-    color: $listItemFontColor;
-
-    > * {
-      padding: 15px 0;
-    }
-
-    &:only-child {
-      border-bottom: 0px;
-    }
-
-    > .title {
-      flex: 1;
-      text-decoration: none;
-      color: inherit;
-      padding: 15px 0;
-      margin: 0 15px;
-      white-space: nowrap;
-      overflow-x: auto;
-    }
-
-    > .badge {
-      background: darken($listItemBgColor, $amount: 5);
-      border: 1px solid darken($listItemBgColor, $amount: 10);
-      color: $listItemFontColor;
-      font-size: 0.9rem;
-      padding: 2px 10px;
-      border-radius: 5px;
-      text-align: center;
-      margin-right: 15px;
-    }
-
-    &:hover,
-    &:active {
-      background: darken($listItemBgColor, $amount: 3);
-      color: $listItemFontColor;
-    }
-  }
-}
-
 .maxContent {
   width: max-content !important;
 }
@@ -169,7 +114,9 @@ ul.list {
 }
 
 .noFullWidth {
-  max-width: 800px;
+  width: 100% !important;
+  max-width: 800px !important;
+  margin: 0 auto !important;
 }
 
 .text-center {
@@ -252,16 +199,10 @@ ul.list {
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-items: center;
   margin-bottom: 25px;
 
   &:only-child {
     margin-bottom: 0;
-  }
-
-  > * {
-    width: 100%;
   }
 
   > .title {
@@ -296,41 +237,6 @@ ul.list {
   margin-right: 25px;
 }
 
-.card {
-  display: flex;
-  flex-direction: column;
-  background: $cardBgColor;
-  padding: 15px;
-  margin: 15px;
-  border: $cardBorder;
-
-  > .title {
-    width: 100%;
-    color: $cardTitleFontColor;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-
-    > h2 {
-      margin: 0;
-    }
-  }
-
-  > .body {
-    width: 100%;
-    color: $cardFontColor;
-    display: flex;
-    flex-direction: column;
-
-    > *:last-child {
-      margin-bottom: 0;
-    }
-  }
-}
-
 .iconCard {
   flex: 1;
   display: flex;
@@ -351,5 +257,96 @@ ul.list {
   > .title {
     font-size: 1rem;
     font-weight: 900;
+  }
+}
+
+.card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: $cardBgColor;
+  padding: 15px;
+  margin: 25px 0;
+  border: $cardBorder;
+
+  > .title {
+    width: 100%;
+    color: $cardTitleFontColor;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px;
+    margin-bottom: 15px;
+
+    > h2 {
+      margin: 0;
+    }
+  }
+
+  > .body {
+    width: 100%;
+    color: $cardFontColor;
+    display: flex;
+    flex-direction: column;
+
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.list {
+  list-style: none;
+  margin: 15px 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background: $listBgColor;
+  border: $listBorder;
+
+  > li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: $listItemBorderBottom;
+    color: $listItemFontColor;
+
+    > * {
+      padding: 15px 0;
+    }
+
+    &:only-child {
+      border-bottom: 0px;
+    }
+
+    > .title {
+      flex: 1;
+      text-decoration: none;
+      color: inherit;
+      padding: 15px 0;
+      margin: 0 15px;
+      white-space: nowrap;
+      overflow-x: auto;
+    }
+
+    > .badge {
+      background: darken($listItemBgColor, $amount: 5);
+      border: 1px solid darken($listItemBgColor, $amount: 10);
+      color: $listItemFontColor;
+      font-size: 0.9rem;
+      padding: 2px 10px;
+      border-radius: 5px;
+      text-align: center;
+      margin-right: 15px;
+    }
+
+    &:hover,
+    &:active {
+      background: darken($listItemBgColor, $amount: 3);
+      color: $listItemFontColor;
+    }
   }
 }

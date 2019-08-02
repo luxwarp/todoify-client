@@ -7,5 +7,3 @@ export default {
   name: "TodosView"
 };
 </script>
-
-<style lang="scss"></style>

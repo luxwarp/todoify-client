@@ -29,7 +29,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .OfflineIndicator {
   width: 100%;
   display: flex;
@@ -52,9 +52,6 @@ export default {
     &.online {
       background: green;
     }
-  }
-
-  > .label {
   }
 }
 </style>

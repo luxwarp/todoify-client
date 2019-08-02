@@ -35,7 +35,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .row {
   justify-content: space-between;
   align-items: center;

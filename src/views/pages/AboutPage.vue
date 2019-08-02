@@ -72,7 +72,7 @@
         licensed under ISC license. So if you are a programmer and want to
         contribute to Todoify your are welcome to visit our code base at GitHub.
       </p>
-      <div class="row space-evenly no-wrap">
+      <div class="row no-wrap" style="justify-content: space-between">
         <a
           href="https://github.com/luxwarp/todoify-client/"
           class="button success"
@@ -97,7 +97,7 @@
       <a
         href="https://github.com/luxwarp/todoify-client/issues"
         class="button alert"
-        style="width: auto;"
+        style="align-self: center;"
         target="_blank"
         >Create new issue <i class="icon-github"></i
       ></a>
@@ -143,5 +143,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss"></style>

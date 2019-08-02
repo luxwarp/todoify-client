@@ -2,7 +2,11 @@
   <div class="container center">
     <BrandHero />
     <div class="container noFullWidth">
-      <div v-if="isOnline() && !isAuth()" class="row space-evenly">
+      <div
+        v-if="isOnline() && !isAuth()"
+        class="row"
+        style="justify-content: space-between;"
+      >
         <router-link
           :to="{ name: 'user.register' }"
           class="button primary"
@@ -53,5 +57,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss"></style>

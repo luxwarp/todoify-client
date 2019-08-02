@@ -1,5 +1,5 @@
 <template>
-  <div v-if="todosToShow.length">
+  <div v-if="todosToShow.length" class="todosList">
     <TodoEdit v-if="editTodo" :todo="editTodo" @close="editTodo = null" />
     <h3 v-if="title" class="title">
       {{ title }}
@@ -117,15 +117,17 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.title {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  font-weight: 400;
-  margin: 15px 0;
+<style lang="scss">
+.todosList {
+  .title {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-weight: 400;
+    margin: 15px 0;
+  }
 }
 </style>

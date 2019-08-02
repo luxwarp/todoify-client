@@ -16,14 +16,21 @@
       </div>
     </div>
     <TodosList :limit-todos="5" show-badge title="Latest to-do's" />
-    <div v-if="todos.length" class="container maxContent">
-      <router-link :to="{ name: 'todos.list' }">
+    <div v-if="todos.length" class="container">
+      <router-link
+        :to="{ name: 'todos.list' }"
+        class="maxContent"
+        style="align-self: center;"
+      >
         Show all
       </router-link>
     </div>
     <CategoriesList show-badge title="Latest categories" />
-    <div v-if="categories.length" class="container maxContent">
-      <router-link :to="{ name: 'categories.list' }" class="text-center"
+    <div v-if="categories.length" class="container">
+      <router-link
+        :to="{ name: 'categories.list' }"
+        class="maxContent"
+        style="align-self: center;"
         >Show all</router-link
       >
     </div>
@@ -59,5 +66,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss"></style>

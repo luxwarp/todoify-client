@@ -7,5 +7,3 @@ export default {
   name: "CategoriesView"
 };
 </script>
-
-<style lang="scss"></style>
