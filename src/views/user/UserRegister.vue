@@ -1,7 +1,7 @@
 <template>
   <div class="container center">
     <BrandHero />
-    <div class="card noFullWidth">
+    <div class="card noFullWidth hcenter">
       <div class="title">
         <h2>Register</h2>
       </div>
@@ -29,7 +29,7 @@
             type="submit"
             :disabled="isButtonDisable"
           >
-            Register
+            <span class="label">Register</span>
             <i class="icon-user-plus"></i>
           </button>
         </form>

@@ -1,6 +1,6 @@
 <template>
   <div class="container center">
-    <div class="card noFullWidth">
+    <div class="card noFullWidth hcenter">
       <h2 class="title">Delete user</h2>
       <div class="body">
         <p>This process is permanent and you cannot restore your account.</p>

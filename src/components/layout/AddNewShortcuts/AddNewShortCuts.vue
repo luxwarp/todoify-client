@@ -57,22 +57,24 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .addNewShortcuts {
   position: fixed;
   right: 10px;
   bottom: 25px;
   display: flex;
-  margin-top: auto;
 
   > .buttons {
     display: flex;
     flex-direction: column;
 
     > .button {
-      margin-top: 10px;
       border-radius: 50%;
       box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+
+      &:last-child {
+        margin-bottom: 0;
+      }
 
       > i {
         margin: 0;

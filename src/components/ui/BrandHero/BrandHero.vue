@@ -1,8 +1,12 @@
 <template>
   <div class="brandHero">
     <div class="title">
-      <div class="brandLogo"></div>
-      Todoify
+      <img
+        src="~@/assets/images/todoify/android-chrome-192x192.png"
+        alt="todoify-logo"
+        class="brandLogo"
+      />
+      <span class="label">Todoify</span>
     </div>
     <div class="subTitle">Organize and take control over your life</div>
   </div>
@@ -14,22 +18,30 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .brandHero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
   width: 100%;
-  padding: 25px;
+  margin: 25px 0;
+  text-align: center;
 
   > .title {
     font-size: 3rem;
     font-weight: 300;
     margin-bottom: 25px;
     display: flex;
-    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+
+    > .brandLogo {
+      width: 50px;
+      height: 50px;
+    }
+
+    > .label {
+      padding: 0 10px;
+    }
   }
 
   > .subTitle {
