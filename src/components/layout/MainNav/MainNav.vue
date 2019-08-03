@@ -115,31 +115,27 @@ export default {
 <style lang="scss">
 .mainNav {
   width: 100%;
-  height: 100vh;
-  overflow: auto;
-  display: flex;
-  flex-direction: column;
+  min-height: 100vh;
   color: $mainNavFontColor;
   background: $mainNavBgColor;
   z-index: 999;
 
   > .categories {
-    display: flex;
-    flex-direction: column;
+    width: 100%;
     list-style: none;
     margin: 0;
     padding: 0;
   }
 
   > .pages {
-    display: flex;
-    flex-direction: column;
+    width: 100%;
     list-style: none;
     padding: 0;
     margin: 0;
   }
 
   > .title {
+    width: 100%;
     font-size: 1.2rem;
     font-weight: 400;
     padding: 15px;
@@ -147,16 +143,17 @@ export default {
   }
 
   .navItem {
+    width: 100%;
+    transition: all 0.5s;
     display: flex;
     align-items: center;
-    transition: all 0.5s;
 
     > a {
-      display: flex;
-      align-items: center;
       color: inherit;
       text-decoration: none;
-      flex: 1;
+      display: flex;
+      align-items: center;
+      width: 100%;
       padding: 10px;
 
       > i {
@@ -194,7 +191,6 @@ export default {
   .mainNav {
     animation: none;
     z-index: 0;
-    overflow: auto;
   }
 }
 </style>

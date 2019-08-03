@@ -50,10 +50,8 @@ export default {
   min-height: 70px;
   max-height: 100vh;
   color: $headerFontColor;
-  display: flex;
-  flex-direction: column;
-  overflow: auto;
   z-index: 5;
+  overflow: auto;
 
   > .banner {
     position: sticky;
@@ -92,6 +90,7 @@ export default {
     min-width: 350px;
     max-width: 350px;
     height: 100vh;
+    max-height: 100vh;
     background: $headerBgColor;
     z-index: 0;
 
