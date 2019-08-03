@@ -107,6 +107,11 @@ select {
   margin-bottom: auto !important;
 }
 
+.hcenter {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
 .full-width {
   width: 100%;
 }
@@ -114,15 +119,10 @@ select {
 .noFullWidth {
   width: 100% !important;
   max-width: 800px !important;
-  margin: 0 auto !important;
 }
 
 .text-center {
   text-align: center;
-}
-
-.space-evenly {
-  justify-content: space-evenly;
 }
 
 .no-wrap {
@@ -132,18 +132,18 @@ select {
 .button {
   border: 0;
   padding: 10px;
-  display: flex;
-  align-items: center;
   font-size: inherit;
-  justify-content: space-between;
   background: $buttonBgColor;
   color: $buttonFontColor;
-  transition: all 0.5s;
+  transition: all 0.4s;
   cursor: pointer;
-  width: max-content;
 
   > i {
     margin-left: 15px;
+  }
+
+  > i:only-child {
+    margin-left: 0;
   }
 
   &:hover,
@@ -156,7 +156,12 @@ select {
   &:disabled {
     background: $buttonBgColor !important;
     color: $buttonFontColor;
-    cursor: not-allowed;
+    cursor: not-allowed !important;
+  }
+
+  &.noStyle {
+    background: none;
+    color: inherit;
   }
 
   &.primary {
