@@ -8,7 +8,7 @@
       </p>
     </div>
     <div class="container">
-      <div class="row no-wrap">
+      <div class="row spaceBetween">
         <div class="iconCard">
           <i class="icon-desktop icon"></i>
           <div class="title">
@@ -72,7 +72,7 @@
         licensed under ISC license. So if you are a programmer and want to
         contribute to Todoify your are welcome to visit our code base at GitHub.
       </p>
-      <div class="row" style="justify-content: space-between">
+      <div class="row spaceBetween">
         <a
           href="https://github.com/luxwarp/todoify-client/"
           class="button success"
