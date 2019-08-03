@@ -17,11 +17,7 @@
     </div>
     <TodosList :limit-todos="5" show-badge title="Latest to-do's" />
     <div v-if="todos.length" class="container text-center">
-      <router-link
-        :to="{ name: 'todos.list' }"
-        class="maxContent"
-        style="align-self: center;"
-      >
+      <router-link :to="{ name: 'todos.list' }">
         Show all
       </router-link>
     </div>

@@ -21,10 +21,6 @@ export default {
 
 <style lang="scss">
 .noListItemsFound {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   text-align: center;
   margin: 25px;
 
