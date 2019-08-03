@@ -12,9 +12,11 @@ body {
   font-size: $globalFontSize;
   box-sizing: border-box;
   overflow-x: hidden;
+  font-weight: 400;
 }
 
 * {
+  font-weight: inherit;
   font-family: "Roboto", sans-serif;
   -webkit-tap-highlight-color: transparent;
 }
@@ -33,6 +35,16 @@ body {
   border: $defaultFocusBorder !important;
   box-shadow: $defaultFocusBoxShadow !important;
   outline: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+h6 {
+  font-weight: 300;
 }
 
 a,
@@ -212,8 +224,7 @@ select {
 
 .container {
   width: 100%;
-  display: flex;
-  flex-direction: column;
+  height: auto;
   margin-bottom: 25px;
 
   &:only-child {
@@ -227,12 +238,11 @@ select {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    font-weight: 400;
     margin: 15px 0;
     color: $containerTitleFontColor;
+    font-weight: 300;
 
-    > h2 {
-      font-weight: inherit;
+    > * {
       margin: 0;
     }
   }
@@ -280,17 +290,17 @@ select {
     align-items: center;
     margin: 0px;
     margin-bottom: 15px;
+    font-weight: 300;
 
-    > h2 {
+    > * {
       margin: 0;
     }
   }
 
   > .body {
     width: 100%;
+    height: auto;
     color: $cardFontColor;
-    display: flex;
-    flex-direction: column;
 
     > :last-child {
       margin-bottom: 0;
