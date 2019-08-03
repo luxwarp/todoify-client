@@ -1,6 +1,6 @@
 <template>
   <div class="container center">
-    <div class="card noFullWidth">
+    <div class="card noFullWidth hcenter">
       <h2 class="title">Edit user</h2>
       <div class="body">
         <form autocomplete="off" @submit.prevent="onSubmit">

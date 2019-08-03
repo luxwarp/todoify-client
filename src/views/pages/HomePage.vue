@@ -1,11 +1,11 @@
 <template>
   <div class="container center">
     <BrandHero />
-    <div class="container noFullWidth">
+    <div class="container noFullWidth hcenter">
       <div
         v-if="isOnline() && !isAuth()"
         class="row"
-        style="justify-content: space-between;"
+        style="justify-content: space-around;"
       >
         <router-link
           :to="{ name: 'user.register' }"

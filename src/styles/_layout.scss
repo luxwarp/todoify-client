@@ -11,11 +11,12 @@ body {
   color: $globalFontColor;
   font-size: $globalFontSize;
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
+  overflow: hidden;
+  font-weight: 400;
 }
 
 * {
+  font-weight: inherit;
   font-family: "Roboto", sans-serif;
   -webkit-tap-highlight-color: transparent;
 }
@@ -34,6 +35,15 @@ body {
   border: $defaultFocusBorder !important;
   box-shadow: $defaultFocusBoxShadow !important;
   outline: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 300;
 }
 
 a,
@@ -61,19 +71,17 @@ a,
 
 form {
   width: 100%;
-  display: flex;
-  flex-direction: column;
   margin-bottom: 25px;
 }
 
 input {
   padding: 10px;
-  outline: none;
   margin-bottom: 10px;
   background: $inputBgColor;
   color: $inputFontColor;
   border: $inputBorder;
   border-radius: 3px;
+  width: 100%;
 }
 
 label {
@@ -82,14 +90,16 @@ label {
 
 select {
   padding: 5px;
-  outline: none;
   margin-bottom: 10px;
-  background: $inputBgColor;
+  background-color: $inputBgColor;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0Ljk1IDEwIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6I2ZmZjt9LmNscy0ye2ZpbGw6IzQ0NDt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPmFycm93czwvdGl0bGU+PHJlY3QgY2xhc3M9ImNscy0xIiB3aWR0aD0iNC45NSIgaGVpZ2h0PSIxMCIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMiIgcG9pbnRzPSIxLjQxIDQuNjcgMi40OCAzLjE4IDMuNTQgNC42NyAxLjQxIDQuNjciLz48cG9seWdvbiBjbGFzcz0iY2xzLTIiIHBvaW50cz0iMy41NCA1LjMzIDIuNDggNi44MiAxLjQxIDUuMzMgMy41NCA1LjMzIi8+PC9zdmc+);
+  background-position: right center;
+  background-repeat: no-repeat;
   color: $inputFontColor;
   border: $inputBorder;
   border-radius: 3px;
-  flex: 1;
-  margin-left: 10px;
+  width: 100%;
+  appearance: none;
 }
 
 .maxContent {
@@ -109,6 +119,11 @@ select {
   margin-bottom: auto !important;
 }
 
+.hcenter {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
 .full-width {
   width: 100%;
 }
@@ -116,36 +131,42 @@ select {
 .noFullWidth {
   width: 100% !important;
   max-width: 800px !important;
-  margin: 0 auto !important;
 }
 
 .text-center {
   text-align: center;
 }
 
-.space-evenly {
-  justify-content: space-evenly;
-}
-
 .no-wrap {
   flex-wrap: nowrap !important;
+}
+
+.spaceBetween {
+  justify-content: space-between !important;
+
+  > * {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
 }
 
 .button {
   border: 0;
   padding: 10px;
-  display: flex;
-  align-items: center;
   font-size: inherit;
-  justify-content: space-between;
+  margin-bottom: 10px;
   background: $buttonBgColor;
   color: $buttonFontColor;
-  transition: all 0.5s;
+  transition: all 0.4s;
   cursor: pointer;
-  width: max-content;
+  appearance: none;
 
   > i {
     margin-left: 15px;
+  }
+
+  > i:only-child {
+    margin-left: 0;
   }
 
   &:hover,
@@ -158,7 +179,12 @@ select {
   &:disabled {
     background: $buttonBgColor !important;
     color: $buttonFontColor;
-    cursor: not-allowed;
+    cursor: not-allowed !important;
+  }
+
+  &.noStyle {
+    background: none;
+    color: inherit;
   }
 
   &.primary {
@@ -197,11 +223,14 @@ select {
 
 .container {
   width: 100%;
-  display: flex;
-  flex-direction: column;
+  height: auto;
   margin-bottom: 25px;
 
   &:only-child {
+    margin-bottom: 0;
+  }
+
+  > *:last-child {
     margin-bottom: 0;
   }
 
@@ -212,12 +241,11 @@ select {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    font-weight: 400;
     margin: 15px 0;
     color: $containerTitleFontColor;
+    font-weight: 300;
 
-    > h2 {
-      font-weight: inherit;
+    > * {
       margin: 0;
     }
   }
@@ -229,25 +257,11 @@ select {
   flex-wrap: wrap;
 }
 
-.brandLogo {
-  width: 50px;
-  height: 50px;
-  background-image: url("~@/assets/images/todoify/android-chrome-192x192.png");
-  background-size: cover;
-  margin-right: 25px;
-}
-
 .iconCard {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
   text-align: center;
   border: 0px solid #000;
-  margin-right: 15px;
-
-  &:last-child {
-    margin-right: 0px;
-  }
+  margin: 10px auto;
+  width: auto;
 
   > .icon {
     font-size: 3rem;
@@ -261,13 +275,13 @@ select {
 }
 
 .card {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
+  width: 100%;
+  height: auto;
   background: $cardBgColor;
   padding: 15px;
   margin: 25px 0;
   border: $cardBorder;
+  word-wrap: break-word;
 
   > .title {
     width: 100%;
@@ -279,17 +293,17 @@ select {
     align-items: center;
     margin: 0px;
     margin-bottom: 15px;
+    font-weight: 300;
 
-    > h2 {
+    > * {
       margin: 0;
     }
   }
 
   > .body {
     width: 100%;
+    height: auto;
     color: $cardFontColor;
-    display: flex;
-    flex-direction: column;
 
     > :last-child {
       margin-bottom: 0;
@@ -301,18 +315,18 @@ select {
   list-style: none;
   margin: 15px 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
+  width: 100%;
   background: $listBgColor;
   border: $listBorder;
 
   > li {
     display: flex;
     flex-direction: row;
+    flex-wrap: nowrap;
     align-items: center;
     border-bottom: $listItemBorderBottom;
     color: $listItemFontColor;
+    overflow-x: auto;
 
     > * {
       padding: 15px 0;
@@ -323,7 +337,8 @@ select {
     }
 
     > .title {
-      flex: 1;
+      min-width: 50px;
+      width: 100%;
       text-decoration: none;
       color: inherit;
       padding: 15px 0;

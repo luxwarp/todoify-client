@@ -92,23 +92,22 @@ export default {
 
 <style lang="scss">
 .app {
-  position: relative;
   width: 100%;
   max-width: 100%;
-  height: 100%;
-  max-height: 100%;
+  height: 100vh;
+  max-height: 100vh;
   display: flex;
   flex-direction: column;
 
   > .mainView {
-    position: relative;
-    display: flex;
-    flex-direction: column;
     background: $mainViewBgColor;
     width: 100%;
-    flex: 1;
-    overflow: auto;
-    margin-top: 70px;
+    height: 100%;
+    max-height: 100%;
+    padding-top: 70px;
+    padding-bottom: 50px;
+    display: flex;
+    flex-direction: column;
 
     > .mainRouterView {
       position: relative;
@@ -116,7 +115,9 @@ export default {
       flex-direction: column;
       width: 100%;
       height: 100%;
+      max-height: 100%;
       padding: 0 15px;
+      overflow: auto;
     }
   }
 }
@@ -126,7 +127,8 @@ export default {
     flex-direction: row;
 
     > .mainView {
-      margin-top: 0;
+      padding-top: 0;
+      padding-bottom: 10px;
     }
   }
 }

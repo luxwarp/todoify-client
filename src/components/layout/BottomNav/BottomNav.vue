@@ -40,7 +40,10 @@ export default {
 
 <style lang="scss">
 .bottomNav {
+  position: fixed;
+  bottom: 0;
   display: flex;
+  width: 100%;
   flex-direction: row;
   background: $bottomNavBgColor;
   color: $bottomNavFontColor;

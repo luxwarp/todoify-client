@@ -1,6 +1,6 @@
 <template>
   <div class="container center">
-    <div class="card noFullWidth">
+    <div class="card noFullWidth hcenter">
       <div class="title">
         <h2>Logout</h2>
         <router-link :to="{ name: 'user.profile' }" title="Abort">
