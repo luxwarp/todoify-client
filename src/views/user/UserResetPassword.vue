@@ -1,7 +1,7 @@
 <template>
   <div class="container center">
     <BrandHero />
-    <div class="card noFullWidth">
+    <div class="card noFullWidth hcenter">
       <div class="title">
         <h2>Reset password</h2>
       </div>

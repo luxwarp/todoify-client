@@ -32,10 +32,6 @@
             <span class="label">Register</span>
             <i class="icon-user-plus"></i>
           </button>
-
-          <button class="button noStyle">
-            <i class="icon-cancel"></i>
-          </button>
         </form>
       </div>
     </div>

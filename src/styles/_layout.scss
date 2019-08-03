@@ -11,6 +11,7 @@ body {
   color: $globalFontColor;
   font-size: $globalFontSize;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 * {
@@ -230,14 +231,6 @@ select {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-}
-
-.brandLogo {
-  width: 50px;
-  height: 50px;
-  background-image: url("~@/assets/images/todoify/android-chrome-192x192.png");
-  background-size: cover;
-  margin-right: 25px;
 }
 
 .iconCard {
