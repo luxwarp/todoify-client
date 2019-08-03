@@ -11,7 +11,7 @@ body {
   color: $globalFontColor;
   font-size: $globalFontSize;
   box-sizing: border-box;
-  overflow-x: hidden;
+  overflow: hidden;
   font-weight: 400;
 }
 
@@ -228,6 +228,10 @@ select {
   margin-bottom: 25px;
 
   &:only-child {
+    margin-bottom: 0;
+  }
+
+  > *:last-child {
     margin-bottom: 0;
   }
 
