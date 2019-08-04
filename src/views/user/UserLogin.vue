@@ -24,16 +24,20 @@
             required
             autocomplete="current-password"
           />
-          <button
-            class="button primary"
-            type="submit"
-            :disabled="isButtonDisable"
-          >
-            <span class="label">Login</span>
-            <i class="icon-login"></i>
-          </button>
+          <div class="row">
+            <button
+              class="button primary"
+              type="submit"
+              :disabled="isButtonDisable"
+            >
+              <span class="label">Login</span>
+              <i class="icon-login"></i>
+            </button>
+            <router-link :to="{ name: 'user.reset' }"
+              >Reset password</router-link
+            >
+          </div>
         </form>
-        <router-link :to="{ name: 'user.reset' }">Reset password</router-link>
       </div>
     </div>
   </div>
@@ -67,3 +71,14 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.row {
+  justify-content: space-between;
+  align-items: center;
+
+  > * {
+    margin-bottom: 0;
+  }
+}
+</style>
