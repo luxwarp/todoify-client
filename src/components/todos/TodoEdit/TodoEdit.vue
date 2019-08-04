@@ -5,7 +5,7 @@
     </template>
     <template v-slot:body>
       <form @submit.prevent="onSubmit">
-        <label for="title">Title</label>
+        <label for="title">Title: </label>
         <span v-if="error" style="color: red">{{ error }}</span>
         <input
           v-model="customTodo.title"
@@ -15,24 +15,24 @@
           placeholder="Title"
           required
         />
-        <div class="row">
+        <div class="row no-wrap">
           <label for="done">Done: </label>
           <input v-model="customTodo.done" name="done" type="checkbox" />
         </div>
-        <div class="row">
-          <label for="category">Category: </label>
-          <select v-model="customTodo.category" name="category">
-            <option value="null">Uncategorized</option>
-            <option
-              v-for="category in categories"
-              :key="category._id"
-              :value="category._id"
-              >{{ category.title }}</option
-            >
-          </select>
-        </div>
+
+        <label for="category">Category: </label>
+        <select v-model="customTodo.category" name="category">
+          <option value="null">Uncategorized</option>
+          <option
+            v-for="category in categories"
+            :key="category._id"
+            :value="category._id"
+            >{{ category.title }}</option
+          >
+        </select>
+
         <button type="submit" class="button primary">
-          Update
+          <span class="label">Update</span>
           <i class="icon-ok"></i>
         </button>
       </form>

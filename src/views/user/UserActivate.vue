@@ -20,7 +20,7 @@
             autocomplete="off"
           />
           <button class="button primary" type="submit">
-            Activate account
+            <span class="label">Activate account</span>
             <i class="icon-key"></i>
           </button>
         </form>

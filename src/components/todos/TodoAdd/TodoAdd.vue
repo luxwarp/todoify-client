@@ -29,7 +29,7 @@
           </select>
         </div>
         <button type="submit" class="button primary">
-          Add to-do<i class="icon-plus"></i>
+          <span class="label">Add to-do</span><i class="icon-plus"></i>
         </button>
       </form>
     </template>
