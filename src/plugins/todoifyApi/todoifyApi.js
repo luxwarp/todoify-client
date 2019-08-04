@@ -69,6 +69,10 @@ class TodoifyApi {
     });
   };
 
+  resendActivationCode = email => {
+    return this.request.post("/users/resendactivationcode", { email: email });
+  };
+
   refreshToken = (refreshToken = "") => {
     return this.request.post("/users/refreshtoken", {
       refreshToken: refreshToken
