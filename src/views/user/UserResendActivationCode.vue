@@ -40,9 +40,7 @@ export default {
   },
   methods: {
     onSubmit() {
-      // this.$store.dispatch("resendActivationCode", {
-      //   email: this.email
-      // });
+      this.$store.dispatch("resendActivationCode", this.email);
     }
   }
 };
