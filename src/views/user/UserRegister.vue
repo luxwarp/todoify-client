@@ -33,6 +33,9 @@
             <i class="icon-user-plus"></i>
           </button>
         </form>
+        <router-link :to="{ name: 'user.resendActivationCode' }">
+          Resend activation code
+        </router-link>
       </div>
     </div>
   </div>
