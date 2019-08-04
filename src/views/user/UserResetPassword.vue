@@ -21,7 +21,7 @@
             autocomplete="off"
           />
           <button class="button primary" type="submit">
-            Reset password
+            <span class="label">Reset password</span>
             <i class="icon-key"></i>
           </button>
         </form>

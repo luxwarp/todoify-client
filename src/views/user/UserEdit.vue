@@ -42,7 +42,7 @@
             @input="updateLocalUser($event)"
           />
           <button class="button primary" type="submit">
-            Update user
+            <span class="label">Update user</span>
             <i class="icon-ok"></i>
           </button>
         </form>

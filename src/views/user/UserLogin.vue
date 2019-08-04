@@ -29,7 +29,7 @@
             type="submit"
             :disabled="isButtonDisable"
           >
-            Login
+            <span class="label">Login</span>
             <i class="icon-login"></i>
           </button>
         </form>

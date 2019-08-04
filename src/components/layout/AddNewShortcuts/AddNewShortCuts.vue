@@ -62,7 +62,7 @@ export default {
   position: fixed;
   right: 10px;
   bottom: 25px;
-  display: flex;
+  z-index: 99999;
 
   > .buttons {
     display: flex;
