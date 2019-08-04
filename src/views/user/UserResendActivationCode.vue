@@ -6,6 +6,10 @@
         <h2>Resend Activation Code</h2>
       </div>
       <div class="body">
+        <p>
+          Enter your email adress to request a new activation code for your
+          account.
+        </p>
         <form autocomplete="off" @submit.prevent="onSubmit">
           <input
             v-model="email"

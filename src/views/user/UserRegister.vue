@@ -24,18 +24,21 @@
             required
             autocomplete="new-password"
           />
-          <button
-            class="button primary"
-            type="submit"
-            :disabled="isButtonDisable"
-          >
-            <span class="label">Register</span>
-            <i class="icon-user-plus"></i>
-          </button>
+          <div class="row">
+            <button
+              class="button primary"
+              type="submit"
+              :disabled="isButtonDisable"
+            >
+              <span class="label">Register</span>
+              <i class="icon-user-plus"></i>
+            </button>
+
+            <router-link :to="{ name: 'user.resendActivationCode' }">
+              Resend activation code
+            </router-link>
+          </div>
         </form>
-        <router-link :to="{ name: 'user.resendActivationCode' }">
-          Resend activation code
-        </router-link>
       </div>
     </div>
   </div>
@@ -69,3 +72,14 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.row {
+  justify-content: space-between;
+  align-items: center;
+
+  > * {
+    margin-bottom: 0;
+  }
+}
+</style>
