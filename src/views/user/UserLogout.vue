@@ -14,7 +14,9 @@
           login again.
         </p>
         <div class="row">
-          <button class="button success" @click="logout(false)">Logout</button>
+          <button class="button success" @click="logout(false)">
+            <span class="label">Logout</span><i class="icon-logout"></i>
+          </button>
           <span class="link alert" @click="logout(true)">
             Logout all devices
           </span>

@@ -16,7 +16,7 @@
           required
         />
         <button type="submit" class="button primary">
-          Add category<i class="icon-plus"></i>
+          <span class="label">Add category</span><i class="icon-plus"></i>
         </button>
       </form>
     </template>

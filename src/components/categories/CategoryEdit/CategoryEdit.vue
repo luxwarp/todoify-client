@@ -16,7 +16,7 @@
           required
         />
         <button type="submit" class="button primary">
-          Update
+          <span class="label">Update</span>
           <i class="icon-ok"></i>
         </button>
       </form>

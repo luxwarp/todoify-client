@@ -18,7 +18,7 @@
             autocomplete="off"
           />
           <button type="submit" class="button alert">
-            Delete account <i class="icon-ok"></i>
+            <span class="label">Delete account</span> <i class="icon-ok"></i>
           </button>
         </form>
         <router-link
