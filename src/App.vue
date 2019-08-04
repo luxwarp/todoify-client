@@ -104,20 +104,17 @@ export default {
     width: 100%;
     height: 100%;
     max-height: 100%;
-    padding-top: 70px;
-    padding-bottom: 50px;
-    display: flex;
-    flex-direction: column;
+    margin-top: 70px;
+    margin-bottom: 50px;
+    overflow: auto;
 
     > .mainRouterView {
       position: relative;
       display: flex;
       flex-direction: column;
       width: 100%;
-      height: 100%;
-      max-height: 100%;
+      min-height: 100%;
       padding: 0 15px;
-      overflow: auto;
     }
   }
 }
@@ -127,7 +124,8 @@ export default {
     flex-direction: row;
 
     > .mainView {
-      padding-top: 0;
+      margin-top: 0;
+      margin-bottom: 0;
       padding-bottom: 10px;
     }
   }
