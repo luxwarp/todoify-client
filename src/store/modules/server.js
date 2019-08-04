@@ -93,6 +93,20 @@ const actions = {
       console.log(error);
     }
   },
+  async resendActivationCode({ commit }, email) {
+    try {
+      const response = await window.$todoify.resendActivationCode(email);
+      commit("createNotifier", {
+        type: "success",
+        message: response.data.message
+      });
+
+      Router.push({ name: "user.activate" });
+    } catch (error) {
+      commit("createNotifier", { type: "error", message: error.message });
+      console.log(error);
+    }
+  },
   async resetPassword({ commit }, email) {
     try {
       const response = await window.$todoify.resetPassword(email);

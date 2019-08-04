@@ -3,9 +3,13 @@
     <BrandHero />
     <div class="card noFullWidth hcenter">
       <div class="title">
-        <h2>Register</h2>
+        <h2>Resend Activation Code</h2>
       </div>
       <div class="body">
+        <p>
+          Enter your email adress to request a new activation code for your
+          account.
+        </p>
         <form autocomplete="off" @submit.prevent="onSubmit">
           <input
             v-model="email"
@@ -16,27 +20,12 @@
             required
             autocomplete="off"
           />
-          <input
-            v-model="password"
-            type="password"
-            placeholder="Password"
-            name="password"
-            required
-            autocomplete="new-password"
-          />
           <div class="row">
-            <button
-              class="button primary"
-              type="submit"
-              :disabled="isButtonDisable"
-            >
-              <span class="label">Register</span>
-              <i class="icon-user-plus"></i>
+            <button class="button primary" type="submit">
+              <span class="label">Resend activation code</span>
+              <i class="icon-key"></i>
             </button>
-
-            <router-link :to="{ name: 'user.activate' }">
-              Activate account
-            </router-link>
+            <router-link :to="{ name: 'user.login' }">Back</router-link>
           </div>
         </form>
       </div>
@@ -47,27 +36,18 @@
 <script>
 import BrandHero from "@/components/ui/BrandHero/BrandHero";
 export default {
-  name: "UserRegister",
+  name: "UserResendActivationCode",
   components: {
     BrandHero
   },
   data() {
     return {
-      email: null,
-      password: null
+      email: null
     };
-  },
-  computed: {
-    isButtonDisable() {
-      return !(this.email && this.password);
-    }
   },
   methods: {
     onSubmit() {
-      this.$store.dispatch("register", {
-        email: this.email,
-        password: this.password
-      });
+      this.$store.dispatch("resendActivationCode", this.email);
     }
   }
 };

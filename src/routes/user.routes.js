@@ -16,7 +16,8 @@ const UserResetPassword = () =>
   import(/* webpackChunkName: "router-user" */ "@/views/user/UserResetPassword");
 const UserActivate = () =>
   import(/* webpackChunkName: "router-user" */ "@/views/user/UserActivate");
-
+const UserResendActivationCode = () =>
+  import(/* webpackChunkName: "router-user" */ "@/views/user/UserResendActivationCode");
 export default [
   {
     path: "/user",
@@ -65,6 +66,16 @@ export default [
         }
       },
       {
+        path: "resendactivationcode",
+        name: "user.resendActivationCode",
+        component: UserResendActivationCode,
+        meta: {
+          title: "Resend activation code",
+          requiresAuth: false,
+          requiresOnline: true
+        }
+      },
+      {
         path: "resetpassword",
         name: "user.reset",
         component: UserResetPassword,
@@ -99,9 +110,9 @@ export default [
         name: "user.delete",
         component: UserDelete,
         meta: {
+          title: "Delete user",
           requiresAuth: true,
-          requiresOnline: true,
-          title: "Delete user"
+          requiresOnline: true
         }
       }
     ]

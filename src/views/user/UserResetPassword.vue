@@ -20,12 +20,14 @@
             required
             autocomplete="off"
           />
-          <button class="button primary" type="submit">
-            <span class="label">Reset password</span>
-            <i class="icon-key"></i>
-          </button>
+          <div class="row">
+            <button class="button primary" type="submit">
+              <span class="label">Reset password</span>
+              <i class="icon-key"></i>
+            </button>
+            <router-link :to="{ name: 'user.login' }">Back</router-link>
+          </div>
         </form>
-        <router-link :to="{ name: 'user.login' }">Back</router-link>
       </div>
     </div>
   </div>
@@ -51,3 +53,14 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.row {
+  justify-content: space-between;
+  align-items: center;
+
+  > * {
+    margin-bottom: 0;
+  }
+}
+</style>
