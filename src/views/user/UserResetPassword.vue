@@ -2,9 +2,9 @@
   <div class="container center">
     <BrandHero />
     <div class="card noFullWidth hcenter">
-      <div class="title">
-        <h2>Reset password</h2>
-      </div>
+      <h2 class="title">
+        <span class="label">Reset password</span>
+      </h2>
       <div class="body">
         <p>
           Enter your email, a new password will be generated and sent to your

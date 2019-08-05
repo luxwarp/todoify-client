@@ -1,7 +1,7 @@
 <template>
   <UniversalModal @close="$router.go(-1)">
     <template v-slot:title>
-      <h2>Edit category</h2>
+      Edit category
     </template>
     <template v-slot:body>
       <form @submit.prevent="onSubmit">

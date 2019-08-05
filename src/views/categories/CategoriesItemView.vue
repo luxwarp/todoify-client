@@ -1,8 +1,8 @@
 <template>
   <div v-if="category" class="container">
     <router-view></router-view>
-    <div class="title">
-      <h2>Category: {{ category.title }}</h2>
+    <h2 class="title">
+      <span class="label">Category: {{ category.title }}</span>
       <ToolBox reverse>
         <template v-slot:toggle>
           <i class="icon-cog"></i>
@@ -26,7 +26,7 @@
           >
         </template>
       </ToolBox>
-    </div>
+    </h2>
     <TodosList :filter-by-category="$route.params.categoryId" show-badge />
   </div>
   <NotFound v-else />

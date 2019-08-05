@@ -2,8 +2,10 @@
   <div class="container">
     <div class="card">
       <div class="title">
-        <h2>Profile</h2>
-        <router-link :to="{ name: 'user.edit' }">Edit</router-link>
+        <span class="label">Profile</span>
+        <router-link :to="{ name: 'user.edit' }" title="Edit user profile.">
+          <i class="icon-pencil"></i>
+        </router-link>
       </div>
       <div class="body">
         <p>
@@ -17,14 +19,24 @@
     </div>
     <TodosList :limit-todos="5" show-badge title="Latest to-do's" />
     <div v-if="todos.length" class="container text-center">
-      <router-link :to="{ name: 'todos.list' }">
-        Show all
+      <router-link
+        :to="{ name: 'todos.list' }"
+        class="button primary"
+        title="Show all to-do's"
+      >
+        <span class="label">Show all</span>
+        <i class="icon-list"></i>
       </router-link>
     </div>
     <CategoriesList show-badge title="Latest categories" />
     <div v-if="categories.length" class="container text-center">
-      <router-link :to="{ name: 'categories.list' }">
-        Show all
+      <router-link
+        :to="{ name: 'categories.list' }"
+        class="button primary"
+        title="Show all categories"
+      >
+        <span class="label">Show all</span>
+        <i class="icon-folder-open"></i>
       </router-link>
     </div>
   </div>

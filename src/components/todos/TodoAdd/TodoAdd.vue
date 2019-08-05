@@ -1,7 +1,7 @@
 <template>
   <UniversalModal v-if="show" @close="close">
     <template v-slot:title>
-      <h2>Add to-do</h2>
+      Add to-do
     </template>
     <template v-slot:body>
       <p v-if="error" style="color: red">

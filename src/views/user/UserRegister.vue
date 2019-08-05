@@ -2,9 +2,9 @@
   <div class="container center">
     <BrandHero />
     <div class="card noFullWidth hcenter">
-      <div class="title">
-        <h2>Register</h2>
-      </div>
+      <h2 class="title">
+        <span class="label">Register</span>
+      </h2>
       <div class="body">
         <form autocomplete="off" @submit.prevent="onSubmit">
           <input

@@ -1,7 +1,12 @@
 <template>
   <div class="container center">
     <div class="card noFullWidth hcenter">
-      <h2 class="title">Edit user</h2>
+      <h2 class="title">
+        <span class="label">Edit user</span>
+        <button class="button noStyle" @click="$router.go(-1)">
+          <i class="icon-cancel"></i>
+        </button>
+      </h2>
       <div class="body">
         <form autocomplete="off" @submit.prevent="onSubmit">
           <input
@@ -41,20 +46,20 @@
             autocomplete="current-password"
             @input="updateLocalUser($event)"
           />
-          <button class="button primary" type="submit">
-            <span class="label">Update user</span>
-            <i class="icon-ok"></i>
-          </button>
+          <div class="row">
+            <button class="button primary" type="submit">
+              <span class="label">Update user</span>
+              <i class="icon-ok"></i>
+            </button>
+
+            <router-link
+              :to="{ name: 'user.delete' }"
+              class="link alert"
+              style="float: right;"
+              >Delete user</router-link
+            >
+          </div>
         </form>
-        <div class="row" style="justify-content: space-between;">
-          <a @click="$router.go(-1)">Back</a>
-          <router-link
-            :to="{ name: 'user.delete' }"
-            class="link alert"
-            style="float: right;"
-            >Delete user</router-link
-          >
-        </div>
       </div>
     </div>
   </div>
@@ -90,3 +95,14 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.row {
+  justify-content: space-between;
+  align-items: center;
+
+  > * {
+    margin-bottom: 0px;
+  }
+}
+</style>
