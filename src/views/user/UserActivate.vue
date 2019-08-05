@@ -21,7 +21,7 @@
           />
           <div class="row">
             <button class="button primary" type="submit">
-              <span class="label">Activate account</span>
+              <span class="label">Activate</span>
               <i class="icon-key"></i>
             </button>
             <router-link :to="{ name: 'user.resendActivationCode' }"
