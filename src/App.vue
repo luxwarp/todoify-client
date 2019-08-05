@@ -92,13 +92,17 @@ export default {
 
 <style lang="scss" scoped>
 .app {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   max-width: 100%;
-  height: 100vh;
-  max-height: 100vh;
+  height: 100%;
+  max-height: 100%;
   display: flex;
   flex-direction: column;
   border: 2px solid orange;
+  overflow: auto;
 
   > .mainView {
     background: $mainViewBgColor;

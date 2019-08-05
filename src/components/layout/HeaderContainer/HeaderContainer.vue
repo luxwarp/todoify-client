@@ -46,26 +46,21 @@ export default {
 .headerContainer {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
-  min-height: 70px;
-  max-height: 100vh;
   color: $headerFontColor;
-  z-index: 5;
-  overflow: auto;
-  border: 4px solid lime;
+  z-index: 1;
 
   > .banner {
-    position: sticky;
-    top: 0;
+    position: relative;
     width: 100%;
-    height: 70px;
     display: flex;
     background: $headerBgColor;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 15px;
-    z-index: 90000;
+    z-index: 1;
 
     > .brand {
       font-weight: 300;
@@ -75,12 +70,14 @@ export default {
       align-items: center;
       color: inherit;
       text-decoration: none;
+      z-index: inherit;
     }
 
     > .menuButton {
       cursor: pointer;
       background: inherit;
       margin-left: 10px;
+      z-index: inherit;
     }
   }
 }

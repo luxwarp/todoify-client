@@ -114,12 +114,16 @@ export default {
 
 <style lang="scss" scoped>
 .mainNav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-top: 50px;
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   color: $mainNavFontColor;
   background: $mainNavBgColor;
-  z-index: 999;
   border: 2px solid red;
+  overflow: auto;
 
   > .categories {
     width: 100%;
