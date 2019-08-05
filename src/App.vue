@@ -90,7 +90,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .app {
   width: 100%;
   max-width: 100%;
@@ -98,6 +98,7 @@ export default {
   max-height: 100vh;
   display: flex;
   flex-direction: column;
+  border: 2px solid orange;
 
   > .mainView {
     background: $mainViewBgColor;

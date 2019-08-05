@@ -112,13 +112,14 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .mainNav {
   width: 100%;
   min-height: 100vh;
   color: $mainNavFontColor;
   background: $mainNavBgColor;
   z-index: 999;
+  border: 2px solid red;
 
   > .categories {
     width: 100%;

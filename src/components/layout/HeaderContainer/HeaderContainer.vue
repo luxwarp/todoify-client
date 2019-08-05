@@ -42,7 +42,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .headerContainer {
   position: fixed;
   top: 0;
@@ -52,6 +52,7 @@ export default {
   color: $headerFontColor;
   z-index: 5;
   overflow: auto;
+  border: 4px solid lime;
 
   > .banner {
     position: sticky;
