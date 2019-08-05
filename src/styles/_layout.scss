@@ -167,6 +167,7 @@ select {
   cursor: pointer;
   appearance: none;
   width: max-content;
+  display: inline-block;
 
   > i {
     margin-left: 15px;

@@ -77,14 +77,18 @@
           href="https://github.com/luxwarp/todoify-client/"
           class="button success"
           target="_blank"
-          >Todoify Client <i class="icon-github"></i
-        ></a>
+        >
+          <span class="label">Todoify Client</span>
+          <i class="icon-github"></i>
+        </a>
         <a
           href="https://github.com/luxwarp/todoify-server/"
           class="button primary"
           target="_blank"
-          >Todoify Server <i class="icon-github"></i
-        ></a>
+        >
+          <span class="label">Todoify Server</span>
+          <i class="icon-github"></i>
+        </a>
       </div>
     </div>
     <div class="container">
@@ -97,7 +101,6 @@
       <a
         href="https://github.com/luxwarp/todoify-client/issues"
         class="button alert"
-        style="align-self: center;"
         target="_blank"
         >Create new issue <i class="icon-github"></i
       ></a>
