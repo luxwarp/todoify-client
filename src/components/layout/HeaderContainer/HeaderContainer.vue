@@ -91,7 +91,6 @@ export default {
     height: 100vh;
     max-height: 100vh;
     background: $headerBgColor;
-    border: 1px solid purple;
     z-index: 0;
 
     .banner {

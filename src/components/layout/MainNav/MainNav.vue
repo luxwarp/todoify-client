@@ -122,7 +122,6 @@ export default {
   height: 100vh;
   color: $mainNavFontColor;
   background: $mainNavBgColor;
-  border: 2px solid red;
   overflow: auto;
 
   > .categories {

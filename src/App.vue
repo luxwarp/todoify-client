@@ -101,7 +101,6 @@ export default {
   max-height: 100%;
   display: flex;
   flex-direction: column;
-  border: 2px solid orange;
 
   > .mainView {
     background: $mainViewBgColor;
@@ -111,7 +110,6 @@ export default {
     padding-top: 55px;
     padding-bottom: 40px;
     overflow: auto;
-    border: 2px solid lime;
 
     > .mainRouterView {
       position: relative;
@@ -121,7 +119,6 @@ export default {
       min-height: 100%;
       padding: 0 15px;
       padding-bottom: 25px;
-      border: 2px solid blue;
     }
   }
 }
