@@ -46,6 +46,14 @@ Compiles and minifies for production to folder dist.
 npm run build
 ```
 
+To build in modern mode
+
+```
+npm run build:modern
+```
+
+Read more about [modern mode.](https://cli.vuejs.org/guide/browser-compatibility.html#modern-mode)
+
 Run VueJS lint.
 
 ```
