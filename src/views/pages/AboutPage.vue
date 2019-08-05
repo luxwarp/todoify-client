@@ -122,7 +122,7 @@
           href="https://luxwarp.info"
           target="_blank"
           rel="noreferrer"
-          title="Luxwarps website and blog."
+          title="Luxwarp's website and blog."
         >
           luxwarp.info
         </a>
@@ -174,3 +174,11 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.row {
+  > * {
+    margin-bottom: 0px;
+  }
+}
+</style>
