@@ -77,6 +77,7 @@
           href="https://github.com/luxwarp/todoify-client/"
           class="button success"
           target="_blank"
+          rel="noreferrer"
         >
           <span class="label">Todoify Client</span>
           <i class="icon-github"></i>
@@ -85,6 +86,7 @@
           href="https://github.com/luxwarp/todoify-server/"
           class="button primary"
           target="_blank"
+          rel="noreferrer"
         >
           <span class="label">Todoify Server</span>
           <i class="icon-github"></i>
@@ -102,8 +104,13 @@
         href="https://github.com/luxwarp/todoify-client/issues"
         class="button alert"
         target="_blank"
-        >Create new issue <i class="icon-github"></i
-      ></a>
+        rel="noreferrer"
+      >
+        <span class="label">
+          Create new issue
+        </span>
+        <i class="icon-github"></i>
+      </a>
     </div>
     <div class="container">
       <h2>Author</h2>
@@ -111,9 +118,9 @@
         Todoify is created by Mikael Luxwarp Carlsson. He is an IT consult and
         web developer from Gothenburg, Sweden. Read more about him at his
         website.
-        <a href="https://luxwarp.info" target="_blank" rel="noreferrer"
-          >luxwarp.info</a
-        >
+        <a href="https://luxwarp.info" target="_blank" rel="noreferrer">
+          luxwarp.info
+        </a>
       </p>
       <p>
         ISC © 2019 Copyright Mikael Luxwarp Carlsson
