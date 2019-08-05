@@ -196,6 +196,7 @@ export default {
   .mainNav {
     animation: none;
     z-index: 0;
+    position: absolute;
   }
 }
 </style>

@@ -131,9 +131,8 @@ export default {
     flex-direction: row;
 
     > .mainView {
-      margin-top: 0;
-      margin-bottom: 0;
-      padding-bottom: 10px;
+      padding-top: 0;
+      padding-bottom: 0;
     }
   }
 }
