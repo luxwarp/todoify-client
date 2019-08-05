@@ -45,6 +45,7 @@ export default {
     padding: 15px;
     margin: auto;
     border-radius: 5px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.281);
 
     > .title {
       display: flex;
@@ -52,7 +53,7 @@ export default {
       justify-content: space-between;
       margin: 0 0 15px 0;
       padding: 0;
-      font-size: 1.2rem;
+      font-size: 1.5rem;
       font-weight: 300;
 
       > .close {
@@ -61,6 +62,7 @@ export default {
         background: none;
         border: 0;
         padding: 0;
+        font-size: 1rem;
       }
     }
 

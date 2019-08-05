@@ -1,7 +1,7 @@
 <template>
   <UniversalModal @close="close">
     <template v-slot:title>
-      <h2>Edit to-do</h2>
+      Edit to-do
     </template>
     <template v-slot:body>
       <form @submit.prevent="onSubmit">

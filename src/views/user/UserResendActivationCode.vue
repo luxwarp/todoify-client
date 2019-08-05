@@ -3,7 +3,7 @@
     <BrandHero />
     <div class="card noFullWidth hcenter">
       <div class="title">
-        <h2>Resend Activation Code</h2>
+        <span class="label">Resend Activation Code</span>
       </div>
       <div class="body">
         <p>
@@ -22,10 +22,10 @@
           />
           <div class="row">
             <button class="button primary" type="submit">
-              <span class="label">Resend activation code</span>
+              <span class="label">Request code</span>
               <i class="icon-key"></i>
             </button>
-            <router-link :to="{ name: 'user.login' }">Back</router-link>
+            <router-link :to="{ name: 'user.activate' }">Back</router-link>
           </div>
         </form>
       </div>

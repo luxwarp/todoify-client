@@ -1,10 +1,10 @@
 <template>
   <div class="noListItemsFound">
-    <span class="title">
+    <h1 class="title">
       <slot name="title">
         title slot
       </slot>
-    </span>
+    </h1>
     <p class="subtitle">
       <slot name="subtitle">
         subtitle slot
@@ -19,7 +19,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .noListItemsFound {
   text-align: center;
   margin: 25px;

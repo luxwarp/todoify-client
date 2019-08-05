@@ -7,7 +7,10 @@
       </h2>
     </div>
     <div class="container text-center">
-      <a @click="$router.go(-1)">Go back</a>
+      <button class="button primary" @click="$router.go(-1)">
+        <span class="label">Go back</span>
+        <i class="icon-left"></i>
+      </button>
     </div>
   </div>
 </template>

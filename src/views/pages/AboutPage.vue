@@ -33,7 +33,7 @@
       <p>
         If you create an account your to-do's and categories will be synced to
         our server so you can access it on any device with internet connection.
-        <span style="font-weight: 900;">That's amazing!</span>
+        <strong>That's amazing!</strong>
       </p>
     </div>
     <div class="container">
@@ -77,14 +77,20 @@
           href="https://github.com/luxwarp/todoify-client/"
           class="button success"
           target="_blank"
-          >Todoify Client <i class="icon-github"></i
-        ></a>
+          rel="noreferrer"
+        >
+          <span class="label">Todoify Client</span>
+          <i class="icon-github"></i>
+        </a>
         <a
           href="https://github.com/luxwarp/todoify-server/"
           class="button primary"
           target="_blank"
-          >Todoify Server <i class="icon-github"></i
-        ></a>
+          rel="noreferrer"
+        >
+          <span class="label">Todoify Server</span>
+          <i class="icon-github"></i>
+        </a>
       </div>
     </div>
     <div class="container">
@@ -97,10 +103,14 @@
       <a
         href="https://github.com/luxwarp/todoify-client/issues"
         class="button alert"
-        style="align-self: center;"
         target="_blank"
-        >Create new issue <i class="icon-github"></i
-      ></a>
+        rel="noreferrer"
+      >
+        <span class="label">
+          Create new issue
+        </span>
+        <i class="icon-github"></i>
+      </a>
     </div>
     <div class="container">
       <h2>Author</h2>
@@ -108,9 +118,14 @@
         Todoify is created by Mikael Luxwarp Carlsson. He is an IT consult and
         web developer from Gothenburg, Sweden. Read more about him at his
         website.
-        <a href="https://luxwarp.info" target="_blank" rel="noreferrer"
-          >luxwarp.info</a
+        <a
+          href="https://luxwarp.info"
+          target="_blank"
+          rel="noreferrer"
+          title="Luxwarp's website and blog."
         >
+          luxwarp.info
+        </a>
       </p>
       <p>
         ISC © 2019 Copyright Mikael Luxwarp Carlsson
@@ -123,12 +138,28 @@
           href="http://fortawesome.github.com/Font-Awesome/"
           rel="noreferrer"
           target="_blank"
-          >Font-Awesome</a
+          title="Free and premium icons."
         >
+          Font-Awesome
+        </a>
         |
-        <a href="http://www.entypo.com" rel="noreferrer" target="_blank"
-          >Entypo</a
+        <a
+          href="http://www.entypo.com"
+          rel="noreferrer"
+          target="_blank"
+          title="Free and premium icons."
         >
+          Entypo
+        </a>
+        |
+        <a
+          href="http://fontello.com/"
+          rel="noreferrer"
+          target="_blank"
+          title="A free icon fonts generator."
+        >
+          Fontello
+        </a>
       </p>
     </div>
   </div>
@@ -143,3 +174,11 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.row {
+  > * {
+    margin-bottom: 0px;
+  }
+}
+</style>
