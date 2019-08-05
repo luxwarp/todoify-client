@@ -47,7 +47,8 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  right: 0;
+  width: 100vw;
   color: $headerFontColor;
   z-index: 1;
 

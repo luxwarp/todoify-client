@@ -102,16 +102,16 @@ export default {
   display: flex;
   flex-direction: column;
   border: 2px solid orange;
-  overflow: auto;
 
   > .mainView {
     background: $mainViewBgColor;
     width: 100%;
     height: 100%;
     max-height: 100%;
-    margin-top: 70px;
-    margin-bottom: 50px;
+    padding-top: 55px;
+    padding-bottom: 40px;
     overflow: auto;
+    border: 2px solid lime;
 
     > .mainRouterView {
       position: relative;
@@ -120,6 +120,8 @@ export default {
       width: 100%;
       min-height: 100%;
       padding: 0 15px;
+      padding-bottom: 25px;
+      border: 2px solid blue;
     }
   }
 }
