@@ -2,23 +2,23 @@
   <div class="container center">
     <BrandHero />
     <div class="container noFullWidth hcenter">
-      <div
-        v-if="isOnline() && !isAuth()"
-        class="row"
-        style="justify-content: space-around;"
-      >
+      <div v-if="isOnline() && !isAuth()" class="row spaceBetween">
         <router-link
           :to="{ name: 'user.register' }"
           class="button primary"
           tag="button"
-          >Sign up <i class="icon-user-plus"></i
-        ></router-link>
+        >
+          <span class="label">Register</span>
+          <i class="icon-user-plus"></i>
+        </router-link>
         <router-link
           :to="{ name: 'user.login' }"
           class="button success"
           tag="button"
-          >Login <i class="icon-login"></i
-        ></router-link>
+        >
+          <span class="label">Login</span>
+          <i class="icon-login"></i>
+        </router-link>
       </div>
       <div v-else-if="isOnline() && isAuth()" class="text-center">
         <p>
