@@ -4,9 +4,9 @@
     :class="{ reverse: reverse }"
     @click="show = !show"
   >
-    <div class="toggle">
+    <button class="toggle">
       <slot name="toggle"><i class="icon-ellipsis-vert"></i></slot>
-    </div>
+    </button>
     <transition :name="animation">
       <div v-if="show" class="tools">
         <slot name="tools"></slot>
@@ -40,27 +40,34 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .toolBoxContainer {
   position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
   cursor: pointer;
+  font-size: 1rem;
+  font-weight: normal;
 
   > .toggle {
+    padding: 0;
     padding-left: 10px;
+    background: none;
+    border: 0;
+    cursor: pointer;
   }
   > .tools {
     display: flex;
     flex-direction: row;
     margin-left: 10px;
 
-    * {
+    /deep/ * {
+      margin: 0;
       margin-right: 10px;
     }
 
-    *:last-child {
+    /deep/ *:last-child {
       margin-right: 0px;
     }
   }

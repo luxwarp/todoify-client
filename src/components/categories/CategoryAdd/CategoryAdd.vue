@@ -1,7 +1,7 @@
 <template>
   <UniversalModal v-if="show" @close="close">
     <template v-slot:title>
-      <h2>Add Category</h2>
+      Add Category
     </template>
     <template v-slot:body>
       <p v-if="error" style="color: red">

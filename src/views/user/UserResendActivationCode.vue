@@ -3,7 +3,7 @@
     <BrandHero />
     <div class="card noFullWidth hcenter">
       <div class="title">
-        <h2>Resend Activation Code</h2>
+        <span class="label">Resend Activation Code</span>
       </div>
       <div class="body">
         <p>

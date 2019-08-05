@@ -2,7 +2,7 @@
   <div class="container">
     <div class="card">
       <div class="title">
-        <h2>Profile</h2>
+        <span class="label">Profile</span>
         <router-link :to="{ name: 'user.edit' }" title="Edit user profile.">
           <i class="icon-pencil"></i>
         </router-link>

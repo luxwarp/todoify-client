@@ -193,6 +193,15 @@ select {
   &.noStyle {
     background: none;
     color: inherit;
+    padding: 0px;
+
+    &:hover,
+    &:active,
+    &:focus {
+      text-decoration: none;
+      color: lighten($defaultLinkColor, 20%);
+      outline: none;
+    }
   }
 
   &.primary {
@@ -256,6 +265,10 @@ select {
     > * {
       margin: 0;
     }
+
+    i {
+      font-size: 1rem;
+    }
   }
 }
 
@@ -302,9 +315,14 @@ select {
     margin: 0px;
     margin-bottom: 15px;
     font-weight: 300;
+    font-size: 1.5rem;
 
     > * {
       margin: 0;
+    }
+
+    i {
+      font-size: 1rem;
     }
   }
 

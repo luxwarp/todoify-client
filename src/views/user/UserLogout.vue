@@ -1,12 +1,12 @@
 <template>
   <div class="container center">
     <div class="card noFullWidth hcenter">
-      <div class="title">
-        <h2>Logout</h2>
+      <h2 class="title">
+        <span class="label">Logout</span>
         <router-link :to="{ name: 'user.profile' }" title="Abort">
           <i class="icon-cancel"></i>
         </router-link>
-      </div>
+      </h2>
       <div class="body">
         <p>You are about to logout.</p>
         <p>
@@ -17,9 +17,9 @@
           <button class="button success" @click="logout(false)">
             <span class="label">Logout</span><i class="icon-logout"></i>
           </button>
-          <span class="link alert" @click="logout(true)">
+          <button class="button alert" @click="logout(true)">
             Logout all devices
-          </span>
+          </button>
         </div>
       </div>
     </div>

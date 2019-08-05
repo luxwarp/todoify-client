@@ -83,7 +83,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .categoriesList {
   > .title {
     display: flex;
@@ -92,7 +92,7 @@ export default {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    font-weight: 400;
+    font-weight: 300;
     margin: 15px 0;
   }
 }

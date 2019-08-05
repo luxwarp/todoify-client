@@ -2,9 +2,9 @@
   <div class="container center">
     <BrandHero />
     <div class="card noFullWidth hcenter">
-      <div class="title">
-        <h2>Activate</h2>
-      </div>
+      <h2 class="title">
+        <span class="label">Activate</span>
+      </h2>
       <div class="body">
         <p>
           Enter your activation code you recived in your email.

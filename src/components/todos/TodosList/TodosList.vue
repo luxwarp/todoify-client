@@ -8,7 +8,7 @@
       <li v-for="todo in todosToShow" :key="todo._id">
         <ToolBox>
           <template v-slot:tools>
-            <span class="link" @click="openEdit(todo)">Edit</span>
+            <button class="button noStyle" @click="openEdit(todo)">Edit</button>
             <router-link
               :to="{ name: 'todos.delete', params: { todoId: todo._id } }"
               class="link alert"
@@ -117,16 +117,16 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .todosList {
-  .title {
+  > .title {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    font-weight: 400;
+    font-weight: 300;
     margin: 15px 0;
   }
 }
