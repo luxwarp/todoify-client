@@ -33,7 +33,7 @@
       <p>
         If you create an account your to-do's and categories will be synced to
         our server so you can access it on any device with internet connection.
-        <span style="font-weight: 900;">That's amazing!</span>
+        <strong>That's amazing!</strong>
       </p>
     </div>
     <div class="container">
