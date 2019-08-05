@@ -118,7 +118,12 @@
         Todoify is created by Mikael Luxwarp Carlsson. He is an IT consult and
         web developer from Gothenburg, Sweden. Read more about him at his
         website.
-        <a href="https://luxwarp.info" target="_blank" rel="noreferrer">
+        <a
+          href="https://luxwarp.info"
+          target="_blank"
+          rel="noreferrer"
+          title="Luxwarps website and blog."
+        >
           luxwarp.info
         </a>
       </p>
@@ -133,12 +138,28 @@
           href="http://fortawesome.github.com/Font-Awesome/"
           rel="noreferrer"
           target="_blank"
-          >Font-Awesome</a
+          title="Free and premium icons."
         >
+          Font-Awesome
+        </a>
         |
-        <a href="http://www.entypo.com" rel="noreferrer" target="_blank"
-          >Entypo</a
+        <a
+          href="http://www.entypo.com"
+          rel="noreferrer"
+          target="_blank"
+          title="Free and premium icons."
         >
+          Entypo
+        </a>
+        |
+        <a
+          href="http://fontello.com/"
+          rel="noreferrer"
+          target="_blank"
+          title="A free icon fonts generator."
+        >
+          Fontello
+        </a>
       </p>
     </div>
   </div>
