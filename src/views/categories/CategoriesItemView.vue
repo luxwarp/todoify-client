@@ -14,7 +14,8 @@
               params: { categoryId: category._id }
             }"
             class="link"
-            >Edit
+          >
+            <i class="icon-pencil" />
           </router-link>
           <router-link
             :to="{
@@ -22,8 +23,9 @@
               params: { categoryId: category._id }
             }"
             class="link alert"
-            >Delete</router-link
           >
+            <i class="icon-trash" />
+          </router-link>
         </template>
       </ToolBox>
     </h2>

@@ -13,7 +13,8 @@
                 params: { categoryId: category._id }
               }"
               class="link"
-              >Edit
+            >
+              <i class="icon-pencil" />
             </router-link>
             <router-link
               :to="{
@@ -22,7 +23,7 @@
               }"
               class="link alert"
             >
-              Delete
+              <i class="icon-trash" />
             </router-link>
           </template>
         </ToolBox>
