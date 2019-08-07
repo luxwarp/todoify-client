@@ -1,10 +1,21 @@
 <template>
-  <transition name="slideInLeft" appear>
+  <transition name="slideInBottom" appear>
     <div v-if="show" class="newUpdateBanner">
-      <button class="close" @click="show = false">
+      <button class="close" @click="$emit('close')">
         <i class="icon-cancel"></i>
       </button>
-      <p>New version available.</p>
+      <div>
+        <p>
+          New version available. <br />
+          <a
+            href="https://github.com/luxwarp/todoify-client/wiki"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Latest changes
+          </a>
+        </p>
+      </div>
       <button class="button" @click="$emit('confirm')">
         Update
       </button>
@@ -26,17 +37,18 @@ export default {
 <style lang="scss" scoped>
 .newUpdateBanner {
   position: fixed;
-  bottom: 10px;
+  left: 0;
   right: 0;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  bottom: 0;
+  background: #fff;
+  box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.308);
+  padding: 16px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
-  justify-content: space-between;
-  background: rgba(0, 0, 0, 0.829);
-  color: #fff;
-  z-index: 999999999;
-  padding: 5px;
+
+  color: #000;
+  z-index: 99999999;
 
   > .close {
     margin-right: 15px;
@@ -56,6 +68,23 @@ export default {
     cursor: pointer;
     border: 0;
     margin-bottom: 0;
+  }
+}
+
+.slideInBottom-enter-active {
+  animation: slideInBottom 0.3s;
+}
+
+.slideInBottom-leave-active {
+  animation: slideInBottom 0.3s reverse;
+}
+
+@keyframes slideInBottom {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0%);
   }
 }
 </style>
