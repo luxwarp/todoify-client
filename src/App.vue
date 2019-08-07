@@ -1,7 +1,11 @@
 <template>
   <transition name="fadeIn" appear>
     <div class="app">
-      <NewUpdateBanner v-if="showNewUpdateBanner" @confirm="updateSW" />
+      <NewUpdateBanner
+        v-if="showNewUpdateBanner"
+        @confirm="updateSW"
+        @close="showNewUpdateBanner = !showNewUpdateBanner"
+      />
       <HeaderContainer />
       <div class="mainView">
         <NotifiersList />
