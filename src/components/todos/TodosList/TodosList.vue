@@ -5,7 +5,7 @@
       {{ title }}
     </h3>
     <ul class="list">
-      <li v-for="todo in todosToShow" :key="todo._id">
+      <li v-for="todo in notDoneTodos" :key="todo._id">
         <ToolBox>
           <template v-slot:tools>
             <button class="button noStyle" @click="openEdit(todo)">Edit</button>
@@ -18,6 +18,34 @@
           </template>
         </ToolBox>
         <div class="title">{{ todo.title }}</div>
+        <div v-if="showBadge" class="badge">
+          <router-link
+            v-if="todo.category"
+            :to="{
+              name: 'categories.item',
+              params: { categoryId: todo.category }
+            }"
+          >
+            {{ belongToCategory(todo.category) }}
+          </router-link>
+          <template v-else>
+            {{ belongToCategory(todo.category) }}
+          </template>
+        </div>
+      </li>
+      <li v-for="todo in doneTodos" :key="todo._id">
+        <ToolBox>
+          <template v-slot:tools>
+            <button class="button noStyle" @click="openEdit(todo)">Edit</button>
+            <router-link
+              :to="{ name: 'todos.delete', params: { todoId: todo._id } }"
+              class="link alert"
+            >
+              Delete
+            </router-link>
+          </template>
+        </ToolBox>
+        <div class="title done">{{ todo.title }}</div>
         <div v-if="showBadge" class="badge">
           <router-link
             v-if="todo.category"
@@ -103,6 +131,12 @@ export default {
         todos = todos.slice(0, this.limitTodos);
       }
       return todos;
+    },
+    doneTodos() {
+      return this.todosToShow.filter(todo => todo.done);
+    },
+    notDoneTodos() {
+      return this.todosToShow.filter(todo => !todo.done);
     }
   },
   methods: {
@@ -128,6 +162,10 @@ export default {
     width: 100%;
     font-weight: 300;
     margin: 15px 0;
+  }
+
+  & .done {
+    text-decoration: line-through;
   }
 }
 </style>
