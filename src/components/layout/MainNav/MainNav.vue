@@ -112,13 +112,17 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .mainNav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-top: 50px;
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   color: $mainNavFontColor;
   background: $mainNavBgColor;
-  z-index: 999;
+  overflow: auto;
 
   > .categories {
     width: 100%;
@@ -191,6 +195,7 @@ export default {
   .mainNav {
     animation: none;
     z-index: 0;
+    position: absolute;
   }
 }
 </style>

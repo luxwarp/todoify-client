@@ -1,7 +1,11 @@
 <template>
   <transition name="fadeIn" appear>
     <div class="app">
-      <NewUpdateBanner v-if="showNewUpdateBanner" @confirm="updateSW" />
+      <NewUpdateBanner
+        v-if="showNewUpdateBanner"
+        @confirm="updateSW"
+        @close="showNewUpdateBanner = !showNewUpdateBanner"
+      />
       <HeaderContainer />
       <div class="mainView">
         <NotifiersList />
@@ -90,12 +94,15 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .app {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   max-width: 100%;
-  height: 100vh;
-  max-height: 100vh;
+  height: 100%;
+  max-height: 100%;
   display: flex;
   flex-direction: column;
 
@@ -104,8 +111,8 @@ export default {
     width: 100%;
     height: 100%;
     max-height: 100%;
-    margin-top: 70px;
-    margin-bottom: 50px;
+    padding-top: 55px;
+    padding-bottom: 40px;
     overflow: auto;
 
     > .mainRouterView {
@@ -115,6 +122,7 @@ export default {
       width: 100%;
       min-height: 100%;
       padding: 0 15px;
+      padding-bottom: 25px;
     }
   }
 }
@@ -124,9 +132,8 @@ export default {
     flex-direction: row;
 
     > .mainView {
-      margin-top: 0;
-      margin-bottom: 0;
-      padding-bottom: 10px;
+      padding-top: 0;
+      padding-bottom: 0;
     }
   }
 }

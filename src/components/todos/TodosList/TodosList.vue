@@ -5,19 +5,64 @@
       {{ title }}
     </h3>
     <ul class="list">
-      <li v-for="todo in todosToShow" :key="todo._id">
+      <li v-for="todo in notDoneTodos" :key="todo._id">
         <ToolBox>
           <template v-slot:tools>
-            <button class="button noStyle" @click="openEdit(todo)">Edit</button>
+            <button class="button noStyle" @click="toggleDone(todo)">
+              <i class="icon-ok" />
+            </button>
+            <button class="button noStyle" @click="openEdit(todo)">
+              <i class="icon-pencil" />
+            </button>
             <router-link
               :to="{ name: 'todos.delete', params: { todoId: todo._id } }"
               class="link alert"
             >
-              Delete
+              <i class="icon-trash" />
             </router-link>
           </template>
         </ToolBox>
-        <div class="title">{{ todo.title }}</div>
+        <div class="title" @click="toggleDone(todo)">
+          {{ todo.title }}
+        </div>
+        <div v-if="showBadge" class="badge">
+          <router-link
+            v-if="todo.category"
+            :to="{
+              name: 'categories.item',
+              params: { categoryId: todo.category }
+            }"
+          >
+            {{ belongToCategory(todo.category) }}
+          </router-link>
+          <template v-else>
+            {{ belongToCategory(todo.category) }}
+          </template>
+        </div>
+      </li>
+      <li v-if="doneTodos.length">
+        <h3 class="title">Done</h3>
+      </li>
+      <li v-for="todo in doneTodos" :key="todo._id">
+        <ToolBox>
+          <template v-slot:tools>
+            <button class="button noStyle" @click="toggleDone(todo)">
+              <i class="icon-cancel" />
+            </button>
+            <button class="button noStyle" @click="openEdit(todo)">
+              <i class="icon-pencil" />
+            </button>
+            <router-link
+              :to="{ name: 'todos.delete', params: { todoId: todo._id } }"
+              class="link alert"
+            >
+              <i class="icon-trash" />
+            </router-link>
+          </template>
+        </ToolBox>
+        <div class="title" @click="toggleDone(todo)">
+          {{ todo.title }}
+        </div>
         <div v-if="showBadge" class="badge">
           <router-link
             v-if="todo.category"
@@ -103,6 +148,12 @@ export default {
         todos = todos.slice(0, this.limitTodos);
       }
       return todos;
+    },
+    doneTodos() {
+      return this.todosToShow.filter(todo => todo.done);
+    },
+    notDoneTodos() {
+      return this.todosToShow.filter(todo => !todo.done);
     }
   },
   methods: {
@@ -112,6 +163,10 @@ export default {
     belongToCategory(id) {
       const category = this.getCategoryById(id);
       return category ? category.title : "Uncategorized";
+    },
+    toggleDone(todo) {
+      todo.done = !todo.done;
+      this.$store.dispatch("updateTodo", todo);
     }
   }
 };
@@ -128,6 +183,10 @@ export default {
     width: 100%;
     font-weight: 300;
     margin: 15px 0;
+  }
+
+  button {
+    margin-bottom: 0;
   }
 }
 </style>

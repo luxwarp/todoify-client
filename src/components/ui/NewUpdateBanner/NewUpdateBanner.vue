@@ -1,12 +1,24 @@
 <template>
-  <transition name="slideInLeft" appear>
-    <div v-if="show" class="newUpdateBanner">
-      <button class="close" @click="show = false">
+  <transition name="slideInBottom" appear>
+    <div class="newUpdateBanner">
+      <button class="button noStyle close" @click="$emit('close')">
         <i class="icon-cancel"></i>
       </button>
-      <p>New version available.</p>
-      <button class="button" @click="$emit('confirm')">
-        Update
+      <div>
+        <p>
+          A new version is available. <br />
+          <a
+            href="https://github.com/luxwarp/todoify-client/wiki"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Latest changes
+          </a>
+        </p>
+      </div>
+      <button class="button success" @click="$emit('confirm')">
+        <span class="label">Update</span>
+        <i class="icon-ok" />
       </button>
     </div>
   </transition>
@@ -14,48 +26,46 @@
 
 <script>
 export default {
-  name: "NewUpdateBanner",
-  data() {
-    return {
-      show: true
-    };
-  }
+  name: "NewUpdateBanner"
 };
 </script>
 
 <style lang="scss" scoped>
 .newUpdateBanner {
   position: fixed;
-  bottom: 10px;
+  left: 0;
   right: 0;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  bottom: 0;
+  background: #fff;
+  box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.308);
+  padding: 16px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
-  justify-content: space-between;
-  background: rgba(0, 0, 0, 0.829);
-  color: #fff;
-  z-index: 999999999;
-  padding: 5px;
+  color: #000;
+  z-index: 99999999;
 
   > .close {
     margin-right: 15px;
-    font-weight: bold;
     color: red;
     cursor: pointer;
-    background: none;
-    padding: 0;
   }
+}
 
-  > button {
-    padding: 5px;
-    background: green;
-    color: #fff;
-    border-radius: 5px;
-    margin-left: 10px;
-    cursor: pointer;
-    border: 0;
-    margin-bottom: 0;
+.slideInBottom-enter-active {
+  animation: slideInBottom 0.3s forwards;
+}
+
+.slideInBottom-leave-active {
+  animation: slideInBottom 0.3s reverse forwards;
+}
+
+@keyframes slideInBottom {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0%);
   }
 }
 </style>

@@ -46,10 +46,10 @@
       <p>
         The only requirement for using Todoify is that your device has an
         browser and active internet connection first time you enter
-        <router-link :to="{ name: 'home.page' }">Todoify</router-link>
-        Todoify will then be saved in your device cache memory and you can
-        access it later on without an active internet connection. You can also
-        install Todoify to your device home screen like a regular app.
+        <router-link :to="{ name: 'home.page' }">Todoify</router-link>, Todoify
+        will then be saved in your device cache memory and you can access it
+        later on without an active internet connection. You can also install
+        Todoify to your device home screen like a regular app.
       </p>
     </div>
 
