@@ -12,6 +12,7 @@ body {
   font-size: $globalFontSize;
   box-sizing: border-box;
   font-weight: 400;
+  touch-action: manipulation;
 }
 
 * {

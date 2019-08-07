@@ -8,16 +8,23 @@
       <li v-for="todo in notDoneTodos" :key="todo._id">
         <ToolBox>
           <template v-slot:tools>
-            <button class="button noStyle" @click="openEdit(todo)">Edit</button>
+            <button class="button noStyle" @click="toggleDone(todo)">
+              <i class="icon-ok" />
+            </button>
+            <button class="button noStyle" @click="openEdit(todo)">
+              <i class="icon-pencil" />
+            </button>
             <router-link
               :to="{ name: 'todos.delete', params: { todoId: todo._id } }"
               class="link alert"
             >
-              Delete
+              <i class="icon-trash" />
             </router-link>
           </template>
         </ToolBox>
-        <div class="title">{{ todo.title }}</div>
+        <div class="title" @click="toggleDone(todo)">
+          {{ todo.title }}
+        </div>
         <div v-if="showBadge" class="badge">
           <router-link
             v-if="todo.category"
@@ -39,16 +46,23 @@
       <li v-for="todo in doneTodos" :key="todo._id">
         <ToolBox>
           <template v-slot:tools>
-            <button class="button noStyle" @click="openEdit(todo)">Edit</button>
+            <button class="button noStyle" @click="toggleDone(todo)">
+              <i class="icon-cancel" />
+            </button>
+            <button class="button noStyle" @click="openEdit(todo)">
+              <i class="icon-pencil" />
+            </button>
             <router-link
               :to="{ name: 'todos.delete', params: { todoId: todo._id } }"
               class="link alert"
             >
-              Delete
+              <i class="icon-trash" />
             </router-link>
           </template>
         </ToolBox>
-        <div class="title done">{{ todo.title }}</div>
+        <div class="title" @click="toggleDone(todo)">
+          {{ todo.title }}
+        </div>
         <div v-if="showBadge" class="badge">
           <router-link
             v-if="todo.category"
@@ -149,6 +163,10 @@ export default {
     belongToCategory(id) {
       const category = this.getCategoryById(id);
       return category ? category.title : "Uncategorized";
+    },
+    toggleDone(todo) {
+      todo.done = !todo.done;
+      this.$store.dispatch("updateTodo", todo);
     }
   }
 };
@@ -167,8 +185,8 @@ export default {
     margin: 15px 0;
   }
 
-  & .done {
-    text-decoration: line-through;
+  button {
+    margin-bottom: 0;
   }
 }
 </style>
