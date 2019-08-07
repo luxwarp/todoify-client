@@ -33,6 +33,9 @@
           </template>
         </div>
       </li>
+      <li v-if="doneTodos.length">
+        <h3 class="title">Done</h3>
+      </li>
       <li v-for="todo in doneTodos" :key="todo._id">
         <ToolBox>
           <template v-slot:tools>
