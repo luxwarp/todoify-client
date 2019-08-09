@@ -106,12 +106,10 @@ export default {
     "bottomNav";
   min-height: 100vh;
   background: #fff;
-  border: 3px solid green;
 
   > .mainView {
     grid-area: main;
     background: $mainViewBgColor;
-    border: 2px solid red;
     width: 100%;
     display: flex;
     flex-direction: column;
