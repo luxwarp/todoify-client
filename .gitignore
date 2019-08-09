@@ -20,4 +20,4 @@ yarn-error.log*
 *.sln
 *.sw?
 
-deploy.sh
+.deploy.sh
