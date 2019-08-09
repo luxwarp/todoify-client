@@ -44,19 +44,19 @@ export default {
 
 <style lang="scss" scoped>
 .headerContainer {
-  position: fixed;
+  grid-area: header;
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
-  width: 100vw;
+  z-index: 2;
   color: $headerFontColor;
-  z-index: 1;
+  background: $headerBgColor;
 
   > .banner {
-    position: relative;
+    position: sticky;
+    top: 0;
     width: 100%;
     display: flex;
-    background: $headerBgColor;
+    background: inherit;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -85,12 +85,8 @@ export default {
 
 @media screen and (min-width: 1025px) {
   .headerContainer {
-    position: relative;
-    min-width: 350px;
-    max-width: 350px;
-    height: 100vh;
     max-height: 100vh;
-    background: $headerBgColor;
+    overflow: auto;
     z-index: 0;
 
     .banner {
