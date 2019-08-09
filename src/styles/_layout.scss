@@ -3,16 +3,14 @@
 
 html,
 body {
-  width: 100vw;
-  height: 100vh;
-  max-width: 100vw;
-  max-height: 100vh;
+  min-height: 100vh;
   background-color: $bodyBgColor;
   color: $globalFontColor;
   font-size: $globalFontSize;
   box-sizing: border-box;
   font-weight: 400;
   touch-action: manipulation;
+  border: 2px solid blue;
 }
 
 * {
@@ -349,7 +347,7 @@ select {
   > li {
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    //flex-wrap: nowrap;
     align-items: center;
     border-bottom: $listItemBorderBottom;
     color: $listItemFontColor;
