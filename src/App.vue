@@ -110,7 +110,6 @@ export default {
   > .mainView {
     grid-area: main;
     background: $mainViewBgColor;
-    width: 100%;
     display: flex;
     flex-direction: column;
   }
@@ -122,7 +121,7 @@ export default {
     grid-template-areas:
       "header main"
       "header main"
-      "header bottomNav";
+      "header main";
   }
 }
 </style>

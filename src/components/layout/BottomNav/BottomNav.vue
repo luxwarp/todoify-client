@@ -44,7 +44,7 @@ export default {
   position: sticky;
   bottom: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(10px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
   text-align: center;
   background: $bottomNavBgColor;
   color: $bottomNavFontColor;
