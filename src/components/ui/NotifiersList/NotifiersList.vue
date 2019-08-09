@@ -60,9 +60,10 @@ export default {
 
 <style lang="scss">
 .notifiersList {
-  display: flex;
-  flex-direction: column;
+  position: sticky;
+  top: 55px;
   width: 100%;
+  z-index: 1;
 
   .notifier {
     display: flex;
@@ -107,6 +108,12 @@ export default {
   > .info {
     background: #d1ecf1;
     color: rgb(49, 80, 110);
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .notifiersList {
+    top: 0;
   }
 }
 </style>

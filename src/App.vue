@@ -9,11 +9,12 @@
       <HeaderContainer />
       <div class="mainView">
         <NotifiersList />
-        <div class="mainRouterView">
-          <transition name="fadeIn" mode="out-in">
-            <router-view :key="$route.path"></router-view>
-          </transition>
-        </div>
+        <transition name="fadeIn" mode="out-in">
+          <router-view
+            :key="$route.path"
+            style="padding: 0 16px;"
+          ></router-view>
+        </transition>
       </div>
       <BottomNav />
       <AddNewShortcuts />
@@ -96,45 +97,31 @@ export default {
 
 <style lang="scss" scoped>
 .app {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  max-width: 100%;
-  height: 100%;
-  max-height: 100%;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "header"
+    "main"
+    "bottomNav";
+  min-height: 100vh;
+  background: #fff;
 
   > .mainView {
+    grid-area: main;
     background: $mainViewBgColor;
-    width: 100%;
-    height: 100%;
-    max-height: 100%;
-    padding-top: 55px;
-    padding-bottom: 40px;
-    overflow: auto;
-
-    > .mainRouterView {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      min-height: 100%;
-      padding: 0 15px;
-      padding-bottom: 25px;
-    }
+    display: flex;
+    flex-direction: column;
   }
 }
 
 @media screen and (min-width: 1025px) {
   .app {
-    flex-direction: row;
-
-    > .mainView {
-      padding-top: 0;
-      padding-bottom: 0;
-    }
+    grid-template-columns: 300px minmax(0, 1fr);
+    grid-template-areas:
+      "header main"
+      "header main"
+      "header main";
   }
 }
 </style>

@@ -40,30 +40,24 @@ export default {
 
 <style lang="scss" scoped>
 .bottomNav {
-  position: fixed;
-  left: 0;
-  right: 0;
+  grid-area: bottomNav;
+  position: sticky;
   bottom: 0;
-  display: flex;
-
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  text-align: center;
   background: $bottomNavBgColor;
   color: $bottomNavFontColor;
   list-style: none;
   margin: 0;
   padding: 0;
 
-  > .navItem {
-    flex: 1;
-    text-align: center;
-    font-size: 1.2rem;
-    display: flex;
-
+  > li {
     > a {
-      flex: 1;
       color: inherit;
       padding: 10px 0;
       transition: all 0.4s ease-in-out;
+      display: block;
 
       &:hover,
       &:focus,

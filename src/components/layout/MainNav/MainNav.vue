@@ -195,7 +195,9 @@ export default {
   .mainNav {
     animation: none;
     z-index: 0;
-    position: absolute;
+    position: static;
+    overflow: initial;
+    padding-top: 0;
   }
 }
 </style>

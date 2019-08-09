@@ -3,10 +3,7 @@
 
 html,
 body {
-  width: 100vw;
-  height: 100vh;
-  max-width: 100vw;
-  max-height: 100vh;
+  min-height: 100vh;
   background-color: $bodyBgColor;
   color: $globalFontColor;
   font-size: $globalFontSize;
@@ -349,7 +346,7 @@ select {
   > li {
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    //flex-wrap: nowrap;
     align-items: center;
     border-bottom: $listItemBorderBottom;
     color: $listItemFontColor;
