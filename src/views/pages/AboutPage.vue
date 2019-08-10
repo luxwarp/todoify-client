@@ -65,7 +65,7 @@
       licensed under ISC license. So if you are a programmer and want to
       contribute to Todoify your are welcome to visit our code base at GitHub.
     </p>
-    <div class="row spaceBetween">
+    <div class="row">
       <a
         href="https://github.com/luxwarp/todoify-client/"
         class="button success"
@@ -94,14 +94,15 @@
     </p>
     <a
       href="https://github.com/luxwarp/todoify-client/issues"
-      class="button alert"
       target="_blank"
       rel="noreferrer"
     >
-      <span class="label">
-        Create new issue
-      </span>
-      <i class="icon-github"></i>
+      <button class="button alert">
+        <span class="label">
+          Create new issue
+        </span>
+        <i class="icon-github"></i>
+      </button>
     </a>
 
     <h2>Author</h2>

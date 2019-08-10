@@ -18,27 +18,27 @@
       </template>
     </l-card>
     <TodosList :limit-todos="5" show-badge title="Latest to-do's" />
-    <div v-if="todos.length" class="container text-center">
-      <router-link
-        :to="{ name: 'todos.list' }"
-        class="button primary"
-        title="Show all to-do's"
-      >
-        <span class="label">Show all</span>
-        <i class="icon-list"></i>
-      </router-link>
-    </div>
+    <router-link
+      v-if="todos.length"
+      :to="{ name: 'todos.list' }"
+      class="button primary"
+      title="Show all to-do's"
+    >
+      <span class="label">Show all</span>
+      <i class="icon-list"></i>
+    </router-link>
+
     <CategoriesList show-badge title="Latest categories" />
-    <div v-if="categories.length" class="container text-center">
-      <router-link
-        :to="{ name: 'categories.list' }"
-        class="button primary"
-        title="Show all categories"
-      >
-        <span class="label">Show all</span>
-        <i class="icon-folder-open"></i>
-      </router-link>
-    </div>
+
+    <router-link
+      v-if="categories.length"
+      :to="{ name: 'categories.list' }"
+      class="button primary"
+      title="Show all categories"
+    >
+      <span class="label">Show all</span>
+      <i class="icon-folder-open"></i>
+    </router-link>
   </div>
 </template>
 
@@ -74,5 +74,8 @@ export default {
 
 <style lang="scss" scoped>
 .userprofile {
+  > .button {
+    margin: 0 auto;
+  }
 }
 </style>

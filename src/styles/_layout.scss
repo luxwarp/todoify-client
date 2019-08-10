@@ -45,6 +45,7 @@ h6 {
 
 a,
 .link {
+  display: inline-block;
   color: $defaultLinkColor;
   text-decoration: none;
   cursor: pointer;
@@ -164,7 +165,7 @@ select {
   cursor: pointer;
   appearance: none;
   width: max-content;
-  display: inline-block;
+  display: block;
 
   > i {
     margin-left: 15px;
@@ -231,88 +232,6 @@ select {
     &:active,
     &:focus {
       background: lighten($buttonAlertBgColor, 10%);
-    }
-  }
-}
-
-.container {
-  width: 100%;
-  height: auto;
-  margin-bottom: 25px;
-
-  &:only-child {
-    margin-bottom: 0;
-  }
-
-  > *:last-child {
-    margin-bottom: 0;
-  }
-
-  > .title {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin: 15px 0;
-    color: $containerTitleFontColor;
-    font-weight: 300;
-
-    > * {
-      margin: 0;
-    }
-
-    i {
-      font-size: 1rem;
-    }
-  }
-}
-
-.row {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-.card {
-  width: 100%;
-  height: auto;
-  background: $cardBgColor;
-  padding: 15px;
-  margin: 25px 0;
-  border: $cardBorder;
-  word-wrap: break-word;
-
-  > .title {
-    width: 100%;
-    color: $cardTitleFontColor;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0px;
-    margin-bottom: 15px;
-    font-weight: 300;
-    font-size: 1.5rem;
-
-    > * {
-      margin: 0;
-    }
-
-    i {
-      font-size: 1rem;
-    }
-  }
-
-  > .body {
-    width: 100%;
-    height: auto;
-    color: $cardFontColor;
-
-    > :last-child {
-      margin-bottom: 0;
     }
   }
 }

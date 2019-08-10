@@ -6,12 +6,11 @@
         Sorry! Something went wrong. Could not find anything here.
       </h2>
     </div>
-    <div class="container text-center">
-      <button class="button primary" @click="$router.go(-1)">
-        <span class="label">Go back</span>
-        <i class="icon-left"></i>
-      </button>
-    </div>
+
+    <button class="button primary" @click="$router.go(-1)">
+      <span class="label">Go back</span>
+      <i class="icon-left"></i>
+    </button>
   </div>
 </template>
 
@@ -25,6 +24,7 @@ export default {
 .notFoundPage {
   width: 100%;
   margin: auto 0;
+  text-align: center;
 
   .hero {
     text-align: center;

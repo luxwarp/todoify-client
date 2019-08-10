@@ -1,6 +1,6 @@
 <template>
   <div class="universalModal">
-    <div class="container">
+    <div class="universalModal--container">
       <h1 class="title">
         <slot name="title">title slot</slot>
         <button class="close" @click="close">
@@ -38,7 +38,7 @@ export default {
   overflow: auto;
   display: flex;
 
-  > .container {
+  > .universalModal--container {
     width: 100%;
     max-width: 600px;
     background: #fff;
