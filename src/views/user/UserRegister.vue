@@ -1,11 +1,11 @@
 <template>
-  <div class="container center">
+  <div class="userregister">
     <BrandHero />
-    <div class="card noFullWidth hcenter">
-      <h2 class="title">
+    <l-card>
+      <template v-slot:header>
         <span class="label">Register</span>
-      </h2>
-      <div class="body">
+      </template>
+      <template v-slot:default>
         <form autocomplete="off" @submit.prevent="onSubmit">
           <input
             v-model="email"
@@ -24,7 +24,7 @@
             required
             autocomplete="new-password"
           />
-          <div class="row">
+          <div class="buttons">
             <button
               class="button primary"
               type="submit"
@@ -39,8 +39,8 @@
             </router-link>
           </div>
         </form>
-      </div>
-    </div>
+      </template>
+    </l-card>
   </div>
 </template>
 
@@ -74,12 +74,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.row {
-  justify-content: space-between;
-  align-items: center;
+.userregister {
+  width: 800px;
+  max-width: 100%;
+  margin: auto auto;
 
-  > * {
-    margin-bottom: 0;
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 </style>
