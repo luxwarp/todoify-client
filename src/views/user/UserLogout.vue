@@ -1,28 +1,26 @@
 <template>
-  <div class="container center">
-    <div class="card noFullWidth hcenter">
-      <h2 class="title">
+  <div class="userlogout">
+    <l-card>
+      <template v-slot:header>
         <span class="label">Logout</span>
         <router-link :to="{ name: 'user.profile' }" title="Abort">
           <i class="icon-cancel"></i>
         </router-link>
-      </h2>
-      <div class="body">
-        <p>You are about to logout.</p>
-        <p>
-          If you do this, your data will not be available offline until you
-          login again.
-        </p>
-        <div class="row">
-          <button class="button success" @click="logout(false)">
-            <span class="label">Logout</span><i class="icon-logout"></i>
-          </button>
-          <button class="button alert" @click="logout(true)">
-            Logout all devices
-          </button>
-        </div>
+      </template>
+      <p>You are about to logout.</p>
+      <p>
+        If you do this, your data will not be available offline until you login
+        again.
+      </p>
+      <div class="buttons">
+        <button class="button success" @click="logout(false)">
+          <span class="label">Logout</span><i class="icon-logout"></i>
+        </button>
+        <button class="button alert" @click="logout(true)">
+          Logout all devices
+        </button>
       </div>
-    </div>
+    </l-card>
   </div>
 </template>
 
@@ -38,8 +36,16 @@ export default {
 </script>
 
 <style lang="scss">
-.row {
-  justify-content: space-between;
-  align-items: center;
+.userlogout {
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 </style>
