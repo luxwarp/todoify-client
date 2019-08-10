@@ -1,8 +1,6 @@
 <template>
-  <div class="container">
-    <div class="title">
-      <h2>Categories</h2>
-    </div>
+  <div class="categoriesListView">
+    <h2>Categories</h2>
     <CategoriesList show-badge />
   </div>
 </template>
@@ -22,3 +20,8 @@ export default {
   }
 };
 </script>
+<style lang="scss" scoped>
+.categoriesListView {
+  width: 100%;
+}
+</style>

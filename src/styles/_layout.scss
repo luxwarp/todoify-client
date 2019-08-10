@@ -275,23 +275,6 @@ select {
   flex-wrap: wrap;
 }
 
-.iconCard {
-  text-align: center;
-  border: 0px solid #000;
-  margin: 10px auto;
-  width: auto;
-
-  > .icon {
-    font-size: 3rem;
-    margin-bottom: 25px;
-  }
-
-  > .title {
-    font-size: 1rem;
-    font-weight: 900;
-  }
-}
-
 .card {
   width: 100%;
   height: auto;

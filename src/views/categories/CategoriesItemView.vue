@@ -1,8 +1,8 @@
 <template>
-  <div v-if="category" class="container">
+  <div v-if="category" class="categoriesItemView">
     <router-view></router-view>
-    <h2 class="title">
-      <span class="label">Category: {{ category.title }}</span>
+    <div class="heading">
+      <h2 class="label">Category: {{ category.title }}</h2>
       <ToolBox reverse>
         <template v-slot:toggle>
           <i class="icon-cog"></i>
@@ -28,7 +28,7 @@
           </router-link>
         </template>
       </ToolBox>
-    </h2>
+    </div>
     <TodosList :filter-by-category="$route.params.categoryId" show-badge />
   </div>
   <NotFound v-else />
@@ -52,3 +52,16 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.categoriesItemView {
+  width: 100%;
+
+  > .heading {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+</style>
