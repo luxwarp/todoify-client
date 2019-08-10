@@ -1,8 +1,6 @@
 <template>
-  <div class="container">
-    <div class="title">
-      <h2>To-do's</h2>
-    </div>
+  <div class="todosListView">
+    <h2>To-do's</h2>
     <TodosList show-badge />
   </div>
 </template>
@@ -22,3 +20,8 @@ export default {
   }
 };
 </script>
+<style lang="scss" scoped>
+.todosListView {
+  width: 100%;
+}
+</style>
