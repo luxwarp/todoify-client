@@ -12,7 +12,7 @@
         <transition name="fadeIn" mode="out-in">
           <router-view
             :key="$route.path"
-            style="padding: 0 16px;"
+            style="padding: 16px 16px;"
           ></router-view>
         </transition>
       </div>

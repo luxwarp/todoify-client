@@ -1,13 +1,13 @@
 <template>
-  <div class="container">
-    <div class="card">
-      <div class="title">
+  <div class="userprofile">
+    <l-card>
+      <template v-slot:header>
         <span class="label">Profile</span>
         <router-link :to="{ name: 'user.edit' }" title="Edit user profile.">
           <i class="icon-pencil"></i>
         </router-link>
-      </div>
-      <div class="body">
+      </template>
+      <template v-slot:default>
         <p>
           Name:
           {{ userInfo.name }}<br />
@@ -15,8 +15,8 @@
           {{ userInfo.email }}<br />
           Account created: {{ userInfo.createdAt | formatDate }}
         </p>
-      </div>
-    </div>
+      </template>
+    </l-card>
     <TodosList :limit-todos="5" show-badge title="Latest to-do's" />
     <div v-if="todos.length" class="container text-center">
       <router-link
@@ -71,3 +71,8 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.userprofile {
+}
+</style>

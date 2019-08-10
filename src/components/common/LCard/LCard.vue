@@ -28,6 +28,10 @@ export default {
     margin-bottom: 16px;
     font-size: 1.5rem;
     font-weight: 300;
+
+    /deep/ i {
+      font-size: 1rem;
+    }
   }
 
   .lcard--content {
