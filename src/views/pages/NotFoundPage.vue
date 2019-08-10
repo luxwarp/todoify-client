@@ -1,5 +1,5 @@
 <template>
-  <div class="container center">
+  <div class="notFoundPage">
     <div class="hero">
       <h1 class="title">404 - Not Found</h1>
       <h2 class="subTitle">
@@ -22,21 +22,26 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.hero {
-  text-align: center;
+.notFoundPage {
   width: 100%;
-  padding: 25px;
+  margin: auto 0;
 
-  > .title {
-    font-size: 3rem;
-    font-weight: 300;
-    margin-bottom: 25px;
-  }
+  .hero {
+    text-align: center;
+    width: 100%;
+    padding: 25px;
 
-  > .subTitle {
-    font-size: 1.7rem;
-    font-weight: 300;
-    font-style: italic;
+    > .title {
+      font-size: 3rem;
+      font-weight: 300;
+      margin-bottom: 25px;
+    }
+
+    > .subTitle {
+      font-size: 1.7rem;
+      font-weight: 300;
+      font-style: italic;
+    }
   }
 }
 </style>
