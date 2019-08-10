@@ -26,9 +26,15 @@ export default {
     display: flex;
     justify-content: space-between;
     margin-bottom: 16px;
+    font-size: 1.5rem;
+    font-weight: 300;
   }
 
   .lcard--content {
+    > *:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
   }
 }
 </style>
