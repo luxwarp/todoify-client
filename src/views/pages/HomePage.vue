@@ -37,13 +37,9 @@
 </template>
 
 <script>
-import BrandHero from "@/components/ui/BrandHero/BrandHero.vue";
 import { mapGetters } from "vuex";
 export default {
   name: "HomePage",
-  components: {
-    BrandHero
-  },
   computed: {
     ...mapGetters({
       isOnline: "isOnline",

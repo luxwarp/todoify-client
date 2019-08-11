@@ -155,12 +155,8 @@
 </template>
 
 <script>
-import BrandHero from "@/components/ui/BrandHero/BrandHero";
 export default {
-  name: "AboutPage",
-  components: {
-    BrandHero
-  }
+  name: "AboutPage"
 };
 </script>
 
