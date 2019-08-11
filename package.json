@@ -1,6 +1,6 @@
 {
   "name": "todoify-client",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "private": true,
   "description": "A simple To-do web app with categories. Built with VueJS. Requires connection to a Todoify Server API",
   "author": {
