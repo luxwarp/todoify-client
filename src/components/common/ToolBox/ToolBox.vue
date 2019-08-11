@@ -62,12 +62,12 @@ export default {
     flex-direction: row;
     margin-left: 10px;
 
-    /deep/ * {
+    ::v-deep * {
       margin: 0;
       margin-right: 10px;
     }
 
-    /deep/ *:last-child {
+    ::v-deep *:last-child {
       margin-right: 0px;
     }
   }

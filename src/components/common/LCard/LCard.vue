@@ -29,7 +29,7 @@ export default {
     font-size: 1.5rem;
     font-weight: 300;
 
-    /deep/ i {
+    ::v-deep i {
       font-size: 1rem;
     }
   }
