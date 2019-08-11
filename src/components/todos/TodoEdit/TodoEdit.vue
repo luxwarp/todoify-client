@@ -42,12 +42,8 @@
 
 <script>
 import { mapGetters } from "vuex";
-import UniversalModal from "@/components/common/UniversalModal/UniversalModal";
 export default {
   name: "TodoEdit",
-  components: {
-    UniversalModal
-  },
   props: {
     todo: {
       type: Object,
