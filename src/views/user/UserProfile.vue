@@ -28,7 +28,11 @@
       <i class="icon-list"></i>
     </router-link>
 
-    <CategoriesList show-badge title="Latest categories" />
+    <CategoriesList
+      show-badge
+      title="Latest categories"
+      :limit-categories="5"
+    />
 
     <router-link
       v-if="categories.length"
