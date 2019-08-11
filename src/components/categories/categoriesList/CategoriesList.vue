@@ -54,13 +54,8 @@
 
 <script>
 import { mapGetters } from "vuex";
-import ToolBox from "@/components/common/ToolBox/ToolBox";
-
 export default {
   name: "CategoriesList",
-  components: {
-    ToolBox
-  },
   props: {
     title: {
       type: String,
