@@ -39,14 +39,8 @@
 </template>
 
 <script>
-import TodoAdd from "@/components/todos/TodoAdd/TodoAdd";
-import CategoryAdd from "@/components/categories/CategoryAdd/CategoryAdd";
 export default {
   name: "AddNewShortcuts",
-  components: {
-    TodoAdd,
-    CategoryAdd
-  },
   data() {
     return {
       showShortcuts: false,
@@ -71,6 +65,7 @@ export default {
     > .button {
       border-radius: 50%;
       box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+      margin-top: 10px;
 
       &:last-child {
         margin-bottom: 0;

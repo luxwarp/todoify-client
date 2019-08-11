@@ -198,6 +198,7 @@ export default {
     position: static;
     overflow: initial;
     padding-top: 0;
+    height: initial;
   }
 }
 </style>

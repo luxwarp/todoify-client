@@ -49,25 +49,26 @@ export default {
   cursor: pointer;
   font-size: 1rem;
   font-weight: normal;
+  padding-left: 10px;
 
   > .toggle {
     padding: 0;
-    padding-left: 10px;
     background: none;
     border: 0;
     cursor: pointer;
+    appearance: none;
   }
   > .tools {
     display: flex;
     flex-direction: row;
     margin-left: 10px;
 
-    /deep/ * {
+    ::v-deep * {
       margin: 0;
       margin-right: 10px;
     }
 
-    /deep/ *:last-child {
+    ::v-deep *:last-child {
       margin-right: 0px;
     }
   }

@@ -1,11 +1,11 @@
 <template>
-  <div class="container center">
+  <div class="useractivate">
     <BrandHero />
-    <div class="card noFullWidth hcenter">
-      <h2 class="title">
+    <l-card>
+      <template v-slot:header>
         <span class="label">Activate</span>
-      </h2>
-      <div class="body">
+      </template>
+      <template v-slot:default>
         <p>
           Enter your activation code you recived in your email.
         </p>
@@ -19,7 +19,7 @@
             required
             autocomplete="off"
           />
-          <div class="row">
+          <div class="buttons">
             <button class="button primary" type="submit">
               <span class="label">Activate</span>
               <i class="icon-key"></i>
@@ -29,18 +29,15 @@
             >
           </div>
         </form>
-      </div>
-    </div>
+      </template>
+    </l-card>
   </div>
 </template>
 
 <script>
-import BrandHero from "@/components/ui/BrandHero/BrandHero";
 export default {
   name: "UserActivate",
-  components: {
-    BrandHero
-  },
+
   data() {
     return {
       activationCode: null
@@ -56,12 +53,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.row {
-  justify-content: space-between;
-  align-items: center;
+.useractivate {
+  max-width: 800px;
+  width: 100%;
+  margin: auto;
 
-  > * {
-    margin-bottom: 0;
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 </style>

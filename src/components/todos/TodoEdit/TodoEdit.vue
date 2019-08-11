@@ -15,7 +15,7 @@
           placeholder="Title"
           required
         />
-        <div class="row no-wrap">
+        <div class="row">
           <label for="done">Done: </label>
           <input v-model="customTodo.done" name="done" type="checkbox" />
         </div>
@@ -42,12 +42,8 @@
 
 <script>
 import { mapGetters } from "vuex";
-import UniversalModal from "@/components/common/UniversalModal/UniversalModal";
 export default {
   name: "TodoEdit",
-  components: {
-    UniversalModal
-  },
   props: {
     todo: {
       type: Object,
@@ -93,6 +89,8 @@ export default {
 
 <style lang="scss" scoped>
 .row {
+  display: flex;
+  flex-wrap: nowrap;
   align-items: center;
 }
 </style>

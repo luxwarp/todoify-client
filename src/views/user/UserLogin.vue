@@ -1,11 +1,11 @@
 <template>
-  <div class="container center">
+  <div class="userlogin">
     <BrandHero />
-    <div class="card noFullWidth hcenter">
-      <h2 class="title">
+    <l-card>
+      <template v-slot:header>
         <span class="label">Login</span>
-      </h2>
-      <div class="body">
+      </template>
+      <template v-slot:default>
         <form autocomplete="on" @submit.prevent="onSubmit">
           <input
             v-model="email"
@@ -24,7 +24,7 @@
             required
             autocomplete="current-password"
           />
-          <div class="row">
+          <div class="buttons">
             <button
               class="button primary"
               type="submit"
@@ -38,18 +38,14 @@
             >
           </div>
         </form>
-      </div>
-    </div>
+      </template>
+    </l-card>
   </div>
 </template>
 
 <script>
-import BrandHero from "@/components/ui/BrandHero/BrandHero";
 export default {
   name: "UserLogin",
-  components: {
-    BrandHero
-  },
   data() {
     return {
       email: null,
@@ -73,12 +69,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.row {
-  justify-content: space-between;
-  align-items: center;
+.userlogin {
+  width: 800px;
+  max-width: 100%;
+  margin: auto auto;
+  text-align: center;
 
-  > * {
-    margin-bottom: 0;
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 </style>

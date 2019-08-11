@@ -12,7 +12,7 @@
         <transition name="fadeIn" mode="out-in">
           <router-view
             :key="$route.path"
-            style="padding: 0 16px;"
+            style="padding: 16px 16px;"
           ></router-view>
         </transition>
       </div>
@@ -23,20 +23,21 @@
 </template>
 
 <script>
-import HeaderContainer from "@/components/layout/HeaderContainer/HeaderContainer";
-import AddNewShortcuts from "@/components/layout/AddNewShortcuts/AddNewShortCuts";
-import BottomNav from "@/components/layout/BottomNav/BottomNav";
-const NotifiersList = () =>
-  import(/* webpackChunkName: "group-banners" */ "@/components/ui/NotifiersList/NotifiersList");
+import HeaderContainer from "@/components/layout/HeaderContainer";
+import BottomNav from "@/components/layout/BottomNav";
+import AddNewShortcuts from "@/components/ui/AddNewShortcuts";
 const NewUpdateBanner = () =>
-  import(/* webpackChunkName: "group-banners" */ "@/components/ui/NewUpdateBanner/NewUpdateBanner");
+  import(/* webpackChunkName: "group-banners" */ "@/components/ui/NewUpdateBanner");
+const NotifiersList = () =>
+  import(/* webpackChunkName: "group-banners" */ "@/components/ui/NotifiersList");
+
 export default {
   name: "App",
   components: {
     HeaderContainer,
-    NotifiersList,
-    NewUpdateBanner,
     BottomNav,
+    NewUpdateBanner,
+    NotifiersList,
     AddNewShortcuts
   },
   data() {
