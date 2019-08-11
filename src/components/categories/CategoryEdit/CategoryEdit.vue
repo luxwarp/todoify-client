@@ -25,16 +25,12 @@
 </template>
 
 <script>
-import UniversalModal from "@/components/common/UniversalModal/UniversalModal";
 export default {
   name: "CategoryEdit",
-  components: {
-    UniversalModal
-  },
   data() {
     return {
-      newTitle: "",
-      error: ""
+      newTitle: null,
+      error: null
     };
   },
   computed: {
@@ -53,8 +49,8 @@ export default {
         id: this.category._id,
         newTitle: this.newTitle
       });
-      this.newTitle = "";
-      this.error = "";
+      this.newTitle = null;
+      this.error = null;
       this.$router.go(-1);
     }
   }
