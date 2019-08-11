@@ -5,8 +5,7 @@ module.exports = {
     loaderOptions: {
       // pass options to sass-loader
       sass: {
-        data: `@import "~@/styles/_theme.scss";`,
-        implementation: require("sass")
+        data: `@import "~@/styles/_theme.scss";`
       }
     }
   },

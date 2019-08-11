@@ -12,7 +12,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "build:modern": "vue-cli-service build --modern",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "lint:style": "stylelint ./src/*"
   },
   "bugs": {
     "url": "https://github.com/luxwarp/todoify-client/issues"

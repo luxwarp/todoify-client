@@ -28,8 +28,5 @@ export default {
     font-size: 2rem;
     font-weight: 300;
   }
-
-  > .noListItemFound--subtitle {
-  }
 }
 </style>
