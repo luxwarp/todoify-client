@@ -150,16 +150,16 @@ export default {
         todos = this.getTodos;
       }
 
-      if (this.limitTodos) {
-        todos = todos.slice(0, this.limitTodos);
-      }
       return todos;
     },
     doneTodos() {
-      return this.todosToShow.filter(todo => todo.done);
+      let todos = this.todosToShow.filter(todo => todo.done);
+      return this.limitTodos ? todos.slice(0, this.limitTodos) : todos;
     },
     notDoneTodos() {
-      return this.todosToShow.filter(todo => !todo.done);
+      let todos = this.todosToShow.filter(todo => !todo.done);
+
+      return this.limitTodos ? todos.slice(0, this.limitTodos) : todos;
     }
   },
   methods: {
