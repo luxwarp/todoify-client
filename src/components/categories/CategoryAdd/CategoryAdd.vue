@@ -24,16 +24,12 @@
 </template>
 
 <script>
-import UniversalModal from "@/components/common/UniversalModal/UniversalModal";
 export default {
   name: "CategoryAdd",
-  components: {
-    UniversalModal
-  },
   props: {
     show: {
       type: Boolean,
-      default: false
+      default: true
     }
   },
   data() {
@@ -46,7 +42,6 @@ export default {
     close() {
       this.error = null;
       this.title = null;
-      this.selectedCategory = null;
       this.$emit("close");
     },
     onSubmit() {
