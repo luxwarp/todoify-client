@@ -54,14 +54,12 @@
 
 <script>
 import { mapGetters } from "vuex";
-import NoListItemsFound from "@/components/common/NoListItemsFound/NoListItemsFound";
 import ToolBox from "@/components/common/ToolBox/ToolBox";
 
 export default {
   name: "CategoriesList",
   components: {
-    ToolBox,
-    NoListItemsFound
+    ToolBox
   },
   props: {
     title: {
