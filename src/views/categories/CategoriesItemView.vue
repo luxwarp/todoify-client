@@ -35,8 +35,12 @@
 </template>
 
 <script>
+import NotFound from "@/views/pages/NotFoundPage";
 export default {
   name: "CategoriesItemView",
+  components: {
+    NotFound
+  },
   computed: {
     category() {
       return this.$store.getters.getCategoryById(this.$route.params.categoryId);

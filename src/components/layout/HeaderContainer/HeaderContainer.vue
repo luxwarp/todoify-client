@@ -21,11 +21,17 @@
 
 <script>
 import MainNav from "@/components/layout/MainNav";
+const OfflineIndicator = () =>
+  import(/* webpackChunkName: "group-banners" */ "@/components/ui/OfflineIndicator");
+const RequestStatus = () =>
+  import(/* webpackChunkName: "group-banners" */ "@/components/ui/RequestStatus");
 import { mapGetters } from "vuex";
 export default {
   name: "HeaderContainer",
   components: {
-    MainNav
+    MainNav,
+    OfflineIndicator,
+    RequestStatus
   },
   computed: {
     ...mapGetters(["showMainNav"])
