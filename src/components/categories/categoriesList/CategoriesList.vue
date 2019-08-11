@@ -5,9 +5,20 @@
       @close="showCategoryAdd = !showCategoryAdd"
     />
     <div v-if="categories.length" class="categoriesList">
-      <h2 v-if="title" class="categoriesList--title">
-        {{ title }}
-      </h2>
+      <div class="categoriesList--header">
+        <h2 v-if="title" class="categoriesList--header--title">
+          {{ title }}
+        </h2>
+        <div class="categoriesList--header--tools">
+          <button
+            class="button noStyle"
+            title="Add new category"
+            @click="showCategoryAdd = !showCategoryAdd"
+          >
+            <i class="icon-plus" />
+          </button>
+        </div>
+      </div>
       <LList v-if="categories.length">
         <li v-for="category in categories" :key="category._id">
           <ToolBox>
@@ -98,15 +109,21 @@ export default {
 
 <style lang="scss" scoped>
 .categoriesList {
-  > .categoriesList--title {
+  > .categoriesList--header {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
     align-items: center;
-    width: 100%;
-    font-weight: 300;
-    margin: 15px 0;
+    padding: 16px 0;
+    justify-content: space-between;
+
+    > .categoriesList--header--title {
+      font-weight: 300;
+      margin: 0;
+    }
+
+    > .categoriesList--header--tools {
+      display: flex;
+      margin-left: auto;
+    }
   }
 }
 </style>
