@@ -37,17 +37,13 @@
 </template>
 
 <script>
-import UniversalModal from "@/components/common/UniversalModal/UniversalModal";
 import { mapGetters } from "vuex";
 export default {
-  name: "AddTodo",
-  components: {
-    UniversalModal
-  },
+  name: "TodoAdd",
   props: {
     show: {
       type: Boolean,
-      default: false
+      default: true
     }
   },
   data() {
@@ -94,3 +90,9 @@ export default {
   }
 };
 </script>
+<style lang="scss" scoped>
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+</style>

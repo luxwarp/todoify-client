@@ -20,9 +20,11 @@
 </template>
 
 <script>
-import RequestStatus from "@/components/ui/RequestStatus/RequestStatus";
-import MainNav from "@/components/layout/MainNav/MainNav";
-import OfflineIndicator from "@/components/ui/OfflineIndicator/OfflineIndicator";
+import MainNav from "@/components/layout/MainNav";
+const OfflineIndicator = () =>
+  import(/* webpackChunkName: "group-banners" */ "@/components/ui/OfflineIndicator");
+const RequestStatus = () =>
+  import(/* webpackChunkName: "group-banners" */ "@/components/ui/RequestStatus");
 import { mapGetters } from "vuex";
 export default {
   name: "HeaderContainer",

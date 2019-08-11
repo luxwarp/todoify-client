@@ -1,9 +1,9 @@
 <template>
   <div class="universalModal">
-    <div class="container">
-      <h1 class="title">
+    <div class="universalModal--container">
+      <h1 class="universalModal--container--title">
         <slot name="title">title slot</slot>
-        <button class="close" @click="close">
+        <button class="universalModal--container--close" @click="close">
           <i class="icon-cancel"></i>
         </button>
       </h1>
@@ -38,7 +38,7 @@ export default {
   overflow: auto;
   display: flex;
 
-  > .container {
+  > .universalModal--container {
     width: 100%;
     max-width: 600px;
     background: #fff;
@@ -47,7 +47,7 @@ export default {
     border-radius: 5px;
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.281);
 
-    > .title {
+    > .universalModal--container--title {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
@@ -56,7 +56,7 @@ export default {
       font-size: 1.5rem;
       font-weight: 300;
 
-      > .close {
+      > .universalModal--container--close {
         cursor: pointer;
         appearance: none;
         background: none;

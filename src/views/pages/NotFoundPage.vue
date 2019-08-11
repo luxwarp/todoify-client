@@ -1,12 +1,11 @@
 <template>
-  <div class="container center">
-    <div class="hero">
-      <h1 class="title">404 - Not Found</h1>
-      <h2 class="subTitle">
+  <div class="notFoundPage">
+    <div class="notFoundPage--hero">
+      <h1 class="notFoundPage--hero--title">404 - Not Found</h1>
+      <h2 class="notFoundPage--hero--subTitle">
         Sorry! Something went wrong. Could not find anything here.
       </h2>
-    </div>
-    <div class="container text-center">
+
       <button class="button primary" @click="$router.go(-1)">
         <span class="label">Go back</span>
         <i class="icon-left"></i>
@@ -22,21 +21,31 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.hero {
-  text-align: center;
+.notFoundPage {
   width: 100%;
-  padding: 25px;
+  margin: auto 0;
+  text-align: center;
 
-  > .title {
-    font-size: 3rem;
-    font-weight: 300;
-    margin-bottom: 25px;
-  }
+  > .notFoundPage--hero {
+    text-align: center;
+    width: 100%;
+    padding: 25px;
 
-  > .subTitle {
-    font-size: 1.7rem;
-    font-weight: 300;
-    font-style: italic;
+    > .notFoundPage--hero--title {
+      font-size: 3rem;
+      font-weight: 300;
+      margin-bottom: 25px;
+    }
+
+    > .notFoundPage--hero--subTitle {
+      font-size: 1.7rem;
+      font-weight: 300;
+      font-style: italic;
+    }
+
+    > button {
+      margin: 0 auto;
+    }
   }
 }
 </style>

@@ -45,6 +45,7 @@ h6 {
 
 a,
 .link {
+  display: inline-block;
   color: $defaultLinkColor;
   text-decoration: none;
   cursor: pointer;
@@ -105,67 +106,18 @@ select {
   width: 100%;
 }
 
-.maxContent {
-  width: max-content !important;
-}
-
-.hide {
-  display: none !important;
-}
-
-.reverse {
-  flex-direction: row-reverse;
-}
-
-.center {
-  margin-top: auto !important;
-  margin-bottom: auto !important;
-}
-
-.hcenter {
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-.full-width {
-  width: 100%;
-}
-
-.noFullWidth {
-  width: 100% !important;
-  max-width: 800px !important;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.no-wrap {
-  flex-wrap: nowrap !important;
-}
-
-.spaceBetween {
-  justify-content: space-between !important;
-
-  > * {
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-}
-
 .button {
   border: 0;
   border-radius: 3px;
   padding: 10px;
   font-size: inherit;
-  margin-bottom: 10px;
   background: $buttonBgColor;
   color: $buttonFontColor;
   transition: all 0.4s;
   cursor: pointer;
   appearance: none;
   width: max-content;
-  display: inline-block;
+  display: block;
 
   > i {
     margin-left: 15px;
@@ -232,160 +184,6 @@ select {
     &:active,
     &:focus {
       background: lighten($buttonAlertBgColor, 10%);
-    }
-  }
-}
-
-.container {
-  width: 100%;
-  height: auto;
-  margin-bottom: 25px;
-
-  &:only-child {
-    margin-bottom: 0;
-  }
-
-  > *:last-child {
-    margin-bottom: 0;
-  }
-
-  > .title {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin: 15px 0;
-    color: $containerTitleFontColor;
-    font-weight: 300;
-
-    > * {
-      margin: 0;
-    }
-
-    i {
-      font-size: 1rem;
-    }
-  }
-}
-
-.row {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-.iconCard {
-  text-align: center;
-  border: 0px solid #000;
-  margin: 10px auto;
-  width: auto;
-
-  > .icon {
-    font-size: 3rem;
-    margin-bottom: 25px;
-  }
-
-  > .title {
-    font-size: 1rem;
-    font-weight: 900;
-  }
-}
-
-.card {
-  width: 100%;
-  height: auto;
-  background: $cardBgColor;
-  padding: 15px;
-  margin: 25px 0;
-  border: $cardBorder;
-  word-wrap: break-word;
-
-  > .title {
-    width: 100%;
-    color: $cardTitleFontColor;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0px;
-    margin-bottom: 15px;
-    font-weight: 300;
-    font-size: 1.5rem;
-
-    > * {
-      margin: 0;
-    }
-
-    i {
-      font-size: 1rem;
-    }
-  }
-
-  > .body {
-    width: 100%;
-    height: auto;
-    color: $cardFontColor;
-
-    > :last-child {
-      margin-bottom: 0;
-    }
-  }
-}
-
-.list {
-  list-style: none;
-  margin: 15px 0;
-  padding: 0;
-  width: 100%;
-  background: $listBgColor;
-  border: $listBorder;
-
-  > li {
-    display: flex;
-    flex-direction: row;
-    //flex-wrap: nowrap;
-    align-items: center;
-    border-bottom: $listItemBorderBottom;
-    color: $listItemFontColor;
-    overflow-x: auto;
-
-    > * {
-      padding: 15px 0;
-    }
-
-    &:only-child {
-      border-bottom: 0px;
-    }
-
-    > .title {
-      min-width: 50px;
-      width: 100%;
-      text-decoration: none;
-      color: inherit;
-      padding: 15px 0;
-      margin: 0 15px;
-      white-space: nowrap;
-      overflow-x: auto;
-    }
-
-    > .badge {
-      background: darken($listItemBgColor, $amount: 5);
-      border: 1px solid darken($listItemBgColor, $amount: 10);
-      color: $listItemFontColor;
-      font-size: 0.9rem;
-      padding: 2px 10px;
-      border-radius: 5px;
-      text-align: center;
-      margin-right: 15px;
-    }
-
-    &:hover,
-    &:active {
-      background: darken($listItemBgColor, $amount: 3);
-      color: $listItemFontColor;
     }
   }
 }

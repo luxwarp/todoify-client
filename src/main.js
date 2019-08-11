@@ -8,6 +8,7 @@ import router from "@/router";
 import TodoifyApi from "@/plugins/todoifyApi/todoifyApi";
 import resHandler from "@/helpers/resHandler";
 import reqHandler from "@/helpers/reqHandler";
+import "./components/GlobalComponents";
 import "@/styles/_layout.scss";
 import "@/assets/todoify-icons/css/todoify-icons.css";
 import "@/registerServiceWorker";

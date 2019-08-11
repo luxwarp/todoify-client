@@ -1,107 +1,117 @@
 <template>
-  <div v-if="todosToShow.length" class="todosList">
-    <TodoEdit v-if="editTodo" :todo="editTodo" @close="editTodo = null" />
-    <h3 v-if="title" class="title">
-      {{ title }}
-    </h3>
-    <ul class="list">
-      <li v-for="todo in notDoneTodos" :key="todo._id">
-        <ToolBox>
-          <template v-slot:tools>
-            <button class="button noStyle" @click="toggleDone(todo)">
-              <i class="icon-ok" />
-            </button>
-            <button class="button noStyle" @click="openEdit(todo)">
-              <i class="icon-pencil" />
-            </button>
-            <router-link
-              :to="{ name: 'todos.delete', params: { todoId: todo._id } }"
-              class="link alert"
-            >
-              <i class="icon-trash" />
-            </router-link>
-          </template>
-        </ToolBox>
-        <div class="title" @click="toggleDone(todo)">
-          {{ todo.title }}
-        </div>
-        <div v-if="showBadge" class="badge">
-          <router-link
-            v-if="todo.category"
-            :to="{
-              name: 'categories.item',
-              params: { categoryId: todo.category }
-            }"
+  <div>
+    <TodoAdd :show="showTodoAdd" @close="showTodoAdd = !showTodoAdd" />
+    <div v-if="todosToShow.length" class="todosList">
+      <TodoEdit v-if="editTodo" :todo="editTodo" @close="editTodo = null" />
+      <h2 v-if="title" class="todosList--title">
+        {{ title }}
+      </h2>
+      <LList>
+        <li v-for="todo in notDoneTodos" :key="todo._id">
+          <ToolBox>
+            <template v-slot:tools>
+              <button class="button noStyle" @click="toggleDone(todo)">
+                <i class="icon-ok" />
+              </button>
+              <button class="button noStyle" @click="openEdit(todo)">
+                <i class="icon-pencil" />
+              </button>
+              <router-link
+                :to="{ name: 'todos.delete', params: { todoId: todo._id } }"
+                class="link alert"
+              >
+                <i class="icon-trash" />
+              </router-link>
+            </template>
+          </ToolBox>
+          <div
+            class="title"
+            title="Click to mark done."
+            @click="toggleDone(todo)"
           >
-            {{ belongToCategory(todo.category) }}
-          </router-link>
-          <template v-else>
-            {{ belongToCategory(todo.category) }}
-          </template>
-        </div>
-      </li>
-      <li v-if="doneTodos.length">
-        <h3 class="title">Done</h3>
-      </li>
-      <li v-for="todo in doneTodos" :key="todo._id">
-        <ToolBox>
-          <template v-slot:tools>
-            <button class="button noStyle" @click="toggleDone(todo)">
-              <i class="icon-cancel" />
-            </button>
-            <button class="button noStyle" @click="openEdit(todo)">
-              <i class="icon-pencil" />
-            </button>
+            {{ todo.title }}
+          </div>
+          <div v-if="showBadge" class="badge">
             <router-link
-              :to="{ name: 'todos.delete', params: { todoId: todo._id } }"
-              class="link alert"
+              v-if="todo.category"
+              :to="{
+                name: 'categories.item',
+                params: { categoryId: todo.category }
+              }"
             >
-              <i class="icon-trash" />
+              {{ belongToCategory(todo.category) }}
             </router-link>
-          </template>
-        </ToolBox>
-        <div class="title" @click="toggleDone(todo)">
-          {{ todo.title }}
-        </div>
-        <div v-if="showBadge" class="badge">
-          <router-link
-            v-if="todo.category"
-            :to="{
-              name: 'categories.item',
-              params: { categoryId: todo.category }
-            }"
+            <template v-else>
+              {{ belongToCategory(todo.category) }}
+            </template>
+          </div>
+        </li>
+        <li v-if="doneTodos.length" class="doneTodos">
+          <h3 class="subTitle">Done</h3>
+        </li>
+        <li v-for="todo in doneTodos" :key="todo._id" class="doneTodos">
+          <ToolBox>
+            <template v-slot:tools>
+              <button class="button noStyle" @click="toggleDone(todo)">
+                <i class="icon-cancel" />
+              </button>
+              <button class="button noStyle" @click="openEdit(todo)">
+                <i class="icon-pencil" />
+              </button>
+              <router-link
+                :to="{ name: 'todos.delete', params: { todoId: todo._id } }"
+                class="link alert"
+              >
+                <i class="icon-trash" />
+              </router-link>
+            </template>
+          </ToolBox>
+          <div
+            class="title"
+            title="Click to mark not done."
+            @click="toggleDone(todo)"
           >
-            {{ belongToCategory(todo.category) }}
-          </router-link>
-          <template v-else>
-            {{ belongToCategory(todo.category) }}
-          </template>
-        </div>
-      </li>
-    </ul>
+            {{ todo.title }}
+          </div>
+          <div v-if="showBadge" class="badge">
+            <router-link
+              v-if="todo.category"
+              :to="{
+                name: 'categories.item',
+                params: { categoryId: todo.category }
+              }"
+            >
+              {{ belongToCategory(todo.category) }}
+            </router-link>
+            <template v-else>
+              {{ belongToCategory(todo.category) }}
+            </template>
+          </div>
+        </li>
+      </LList>
+    </div>
+    <NoListItemsFound v-else>
+      <template v-slot:title>
+        No to-do's found
+      </template>
+      <template v-slot:subtitle>
+        <button
+          class="button success"
+          style="margin: auto;"
+          @click="showTodoAdd = !showTodoAdd"
+        >
+          <span class="label">Create one now</span>
+          <i class="icon-plus" />
+        </button>
+      </template>
+    </NoListItemsFound>
   </div>
-  <NoListItemsFound v-else>
-    <template v-slot:title>
-      No to-do's found
-    </template>
-    <template v-slot:subtitle>
-      Create one now!
-    </template>
-  </NoListItemsFound>
 </template>
 
 <script>
-import NoListItemsFound from "@/components/common/NoListItemsFound/NoListItemsFound";
-import ToolBox from "@/components/common/ToolBox/ToolBox";
-import TodoEdit from "@/components/todos/TodoEdit/TodoEdit";
 import { mapGetters } from "vuex";
 export default {
   name: "TodosList",
-  components: {
-    ToolBox,
-    NoListItemsFound,
-    TodoEdit
-  },
   props: {
     title: {
       type: String,
@@ -127,7 +137,8 @@ export default {
 
   data() {
     return {
-      editTodo: null
+      editTodo: null,
+      showTodoAdd: false
     };
   },
   computed: {
@@ -144,16 +155,16 @@ export default {
         todos = this.getTodos;
       }
 
-      if (this.limitTodos) {
-        todos = todos.slice(0, this.limitTodos);
-      }
       return todos;
     },
     doneTodos() {
-      return this.todosToShow.filter(todo => todo.done);
+      let todos = this.todosToShow.filter(todo => todo.done);
+      return this.limitTodos ? todos.slice(0, this.limitTodos) : todos;
     },
     notDoneTodos() {
-      return this.todosToShow.filter(todo => !todo.done);
+      let todos = this.todosToShow.filter(todo => !todo.done);
+
+      return this.limitTodos ? todos.slice(0, this.limitTodos) : todos;
     }
   },
   methods: {
@@ -174,7 +185,7 @@ export default {
 
 <style lang="scss" scoped>
 .todosList {
-  > .title {
+  > .todosList--title {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -185,8 +196,8 @@ export default {
     margin: 15px 0;
   }
 
-  button {
-    margin-bottom: 0;
+  .doneTodos {
+    background: darken($listItemBgColor, $amount: 3);
   }
 }
 </style>

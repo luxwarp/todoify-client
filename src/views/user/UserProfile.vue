@@ -1,13 +1,13 @@
 <template>
-  <div class="container">
-    <div class="card">
-      <div class="title">
+  <div class="userprofile">
+    <l-card>
+      <template v-slot:header>
         <span class="label">Profile</span>
         <router-link :to="{ name: 'user.edit' }" title="Edit user profile.">
           <i class="icon-pencil"></i>
         </router-link>
-      </div>
-      <div class="body">
+      </template>
+      <template v-slot:default>
         <p>
           Name:
           {{ userInfo.name }}<br />
@@ -15,43 +15,37 @@
           {{ userInfo.email }}<br />
           Account created: {{ userInfo.createdAt | formatDate }}
         </p>
-      </div>
-    </div>
+      </template>
+    </l-card>
     <TodosList :limit-todos="5" show-badge title="Latest to-do's" />
-    <div v-if="todos.length" class="container text-center">
-      <router-link
-        :to="{ name: 'todos.list' }"
-        class="button primary"
-        title="Show all to-do's"
-      >
-        <span class="label">Show all</span>
-        <i class="icon-list"></i>
-      </router-link>
-    </div>
+    <router-link
+      v-if="todos.length"
+      :to="{ name: 'todos.list' }"
+      class="button primary"
+      title="Show all to-do's"
+    >
+      <span class="label">Show all</span>
+      <i class="icon-list"></i>
+    </router-link>
+
     <CategoriesList show-badge title="Latest categories" />
-    <div v-if="categories.length" class="container text-center">
-      <router-link
-        :to="{ name: 'categories.list' }"
-        class="button primary"
-        title="Show all categories"
-      >
-        <span class="label">Show all</span>
-        <i class="icon-folder-open"></i>
-      </router-link>
-    </div>
+
+    <router-link
+      v-if="categories.length"
+      :to="{ name: 'categories.list' }"
+      class="button primary"
+      title="Show all categories"
+    >
+      <span class="label">Show all</span>
+      <i class="icon-folder-open"></i>
+    </router-link>
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
-import CategoriesList from "@/components/categories/categoriesList/CategoriesList";
-import TodosList from "@/components/todos/TodosList/TodosList";
 export default {
   name: "UserProfile",
-  components: {
-    TodosList,
-    CategoriesList
-  },
   filters: {
     formatDate(value) {
       const date = new Date(value);
@@ -71,3 +65,11 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.userprofile {
+  > .button {
+    margin: 0 auto;
+  }
+}
+</style>

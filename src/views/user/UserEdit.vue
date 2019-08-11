@@ -1,67 +1,65 @@
 <template>
-  <div class="container center">
-    <div class="card noFullWidth hcenter">
-      <h2 class="title">
+  <div class="useredit">
+    <l-card>
+      <template v-slot:header>
         <span class="label">Edit user</span>
         <button class="button noStyle" @click="$router.go(-1)">
           <i class="icon-cancel"></i>
         </button>
-      </h2>
-      <div class="body">
-        <form autocomplete="off" @submit.prevent="onSubmit">
-          <input
-            id="name"
-            v-focus
-            :value="userInfo.name"
-            type="text"
-            placeholder="Name"
-            name="new-name"
-            autocomplete="off"
-            @input="updateLocalUser($event)"
-          />
-          <input
-            id="email"
-            :value="userInfo.email"
-            type="email"
-            placeholder="Email"
-            name="new-email"
-            required
-            autocomplete="off"
-            @input="updateLocalUser($event)"
-          />
-          <input
-            id="newPassword"
-            type="password"
-            name="new-password"
-            placeholder="New password"
-            autocomplete="new-password"
-            @input="updateLocalUser($event)"
-          />
-          <input
-            id="password"
-            type="password"
-            name="password"
-            placeholder="Current password"
-            required
-            autocomplete="current-password"
-            @input="updateLocalUser($event)"
-          />
-          <div class="row">
-            <button class="button primary" type="submit">
-              <span class="label">Update user</span>
-              <i class="icon-ok"></i>
-            </button>
+      </template>
+      <form autocomplete="off" @submit.prevent="onSubmit">
+        <input
+          id="name"
+          v-focus
+          :value="userInfo.name"
+          type="text"
+          placeholder="Name"
+          name="new-name"
+          autocomplete="off"
+          @input="updateLocalUser($event)"
+        />
+        <input
+          id="email"
+          :value="userInfo.email"
+          type="email"
+          placeholder="Email"
+          name="new-email"
+          required
+          autocomplete="off"
+          @input="updateLocalUser($event)"
+        />
+        <input
+          id="newPassword"
+          type="password"
+          name="new-password"
+          placeholder="New password"
+          autocomplete="new-password"
+          @input="updateLocalUser($event)"
+        />
+        <input
+          id="password"
+          type="password"
+          name="password"
+          placeholder="Current password"
+          required
+          autocomplete="current-password"
+          @input="updateLocalUser($event)"
+        />
+        <div class="buttons">
+          <button class="button primary" type="submit">
+            <span class="label">Update user</span>
+            <i class="icon-ok"></i>
+          </button>
 
-            <router-link
-              :to="{ name: 'user.delete' }"
-              class="link alert"
-              style="float: right;"
-              >Delete user</router-link
-            >
-          </div>
-        </form>
-      </div>
-    </div>
+          <router-link
+            :to="{ name: 'user.delete' }"
+            class="link alert"
+            style="float: right;"
+            >Delete user</router-link
+          >
+        </div>
+      </form>
+    </l-card>
   </div>
 </template>
 
@@ -97,12 +95,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.row {
-  justify-content: space-between;
-  align-items: center;
+.useredit {
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
 
-  > * {
-    margin-bottom: 0px;
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+
+    > * {
+      margin-bottom: 0px;
+    }
   }
 }
 </style>
