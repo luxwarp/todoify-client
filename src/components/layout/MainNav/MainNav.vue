@@ -123,7 +123,6 @@ export default {
   color: $mainNavFontColor;
   background: $mainNavBgColor;
   overflow: auto;
-  border: 2px solid red;
 
   > .categories {
     width: 100%;
