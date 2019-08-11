@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import MainNav from "@/components/layout/MainNav/MainNav";
+import MainNav from "@/components/layout/MainNav";
 import { mapGetters } from "vuex";
 export default {
   name: "HeaderContainer",

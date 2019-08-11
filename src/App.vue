@@ -23,8 +23,8 @@
 </template>
 
 <script>
-import HeaderContainer from "@/components/layout/HeaderContainer/HeaderContainer";
-import BottomNav from "@/components/layout/BottomNav/BottomNav";
+import HeaderContainer from "@/components/layout/HeaderContainer";
+import BottomNav from "@/components/layout/BottomNav";
 
 export default {
   name: "App",
