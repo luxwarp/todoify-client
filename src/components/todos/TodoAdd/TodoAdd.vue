@@ -37,13 +37,9 @@
 </template>
 
 <script>
-import UniversalModal from "@/components/common/UniversalModal/UniversalModal";
 import { mapGetters } from "vuex";
 export default {
   name: "AddTodo",
-  components: {
-    UniversalModal
-  },
   props: {
     show: {
       type: Boolean,
