@@ -39,11 +39,11 @@
 <script>
 import { mapGetters } from "vuex";
 export default {
-  name: "AddTodo",
+  name: "TodoAdd",
   props: {
     show: {
       type: Boolean,
-      default: false
+      default: true
     }
   },
   data() {
