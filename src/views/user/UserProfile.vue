@@ -44,14 +44,8 @@
 
 <script>
 import { mapGetters } from "vuex";
-import CategoriesList from "@/components/categories/categoriesList/CategoriesList";
-import TodosList from "@/components/todos/TodosList/TodosList";
 export default {
   name: "UserProfile",
-  components: {
-    TodosList,
-    CategoriesList
-  },
   filters: {
     formatDate(value) {
       const date = new Date(value);

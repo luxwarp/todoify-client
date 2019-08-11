@@ -44,12 +44,8 @@
 </template>
 
 <script>
-import BrandHero from "@/components/ui/BrandHero/BrandHero";
 export default {
   name: "UserLogin",
-  components: {
-    BrandHero
-  },
   data() {
     return {
       email: null,

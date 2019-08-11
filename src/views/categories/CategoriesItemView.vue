@@ -35,16 +35,8 @@
 </template>
 
 <script>
-import ToolBox from "@/components/common/ToolBox/ToolBox";
-import TodosList from "@/components/todos/TodosList/TodosList";
-import NotFound from "@/views/pages/NotFoundPage";
 export default {
   name: "CategoriesItemView",
-  components: {
-    ToolBox,
-    TodosList,
-    NotFound
-  },
   computed: {
     category() {
       return this.$store.getters.getCategoryById(this.$route.params.categoryId);

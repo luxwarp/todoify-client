@@ -24,20 +24,13 @@
 
 <script>
 import HeaderContainer from "@/components/layout/HeaderContainer/HeaderContainer";
-import AddNewShortcuts from "@/components/layout/AddNewShortcuts/AddNewShortCuts";
 import BottomNav from "@/components/layout/BottomNav/BottomNav";
-const NotifiersList = () =>
-  import(/* webpackChunkName: "group-banners" */ "@/components/ui/NotifiersList/NotifiersList");
-const NewUpdateBanner = () =>
-  import(/* webpackChunkName: "group-banners" */ "@/components/ui/NewUpdateBanner/NewUpdateBanner");
+
 export default {
   name: "App",
   components: {
     HeaderContainer,
-    NotifiersList,
-    NewUpdateBanner,
-    BottomNav,
-    AddNewShortcuts
+    BottomNav
   },
   data() {
     return {

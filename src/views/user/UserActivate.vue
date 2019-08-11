@@ -35,12 +35,9 @@
 </template>
 
 <script>
-import BrandHero from "@/components/ui/BrandHero/BrandHero";
 export default {
   name: "UserActivate",
-  components: {
-    BrandHero
-  },
+
   data() {
     return {
       activationCode: null

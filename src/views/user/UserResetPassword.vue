@@ -33,12 +33,8 @@
 </template>
 
 <script>
-import BrandHero from "@/components/ui/BrandHero/BrandHero";
 export default {
   name: "UserResetPassword",
-  components: {
-    BrandHero
-  },
   data() {
     return {
       email: null

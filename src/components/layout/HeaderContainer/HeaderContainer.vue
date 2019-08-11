@@ -20,16 +20,12 @@
 </template>
 
 <script>
-import RequestStatus from "@/components/ui/RequestStatus/RequestStatus";
 import MainNav from "@/components/layout/MainNav/MainNav";
-import OfflineIndicator from "@/components/ui/OfflineIndicator/OfflineIndicator";
 import { mapGetters } from "vuex";
 export default {
   name: "HeaderContainer",
   components: {
-    MainNav,
-    OfflineIndicator,
-    RequestStatus
+    MainNav
   },
   computed: {
     ...mapGetters(["showMainNav"])

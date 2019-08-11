@@ -39,14 +39,8 @@
 </template>
 
 <script>
-import TodoAdd from "@/components/todos/TodoAdd/TodoAdd";
-import CategoryAdd from "@/components/categories/CategoryAdd/CategoryAdd";
 export default {
   name: "AddNewShortcuts",
-  components: {
-    TodoAdd,
-    CategoryAdd
-  },
   data() {
     return {
       showShortcuts: false,

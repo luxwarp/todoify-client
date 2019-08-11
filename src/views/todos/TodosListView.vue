@@ -7,12 +7,8 @@
 
 <script>
 import { mapGetters } from "vuex";
-import TodosList from "@/components/todos/TodosList/TodosList";
 export default {
   name: "TodosListView",
-  components: {
-    TodosList
-  },
   computed: {
     ...mapGetters({
       categories: "getCategories"

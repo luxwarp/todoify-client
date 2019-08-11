@@ -7,12 +7,8 @@
 
 <script>
 import { mapGetters } from "vuex";
-import CategoriesList from "@/components/categories/categoriesList/CategoriesList";
 export default {
   name: "CategoriesListView",
-  components: {
-    CategoriesList
-  },
   computed: {
     ...mapGetters({
       categories: "getCategories"
