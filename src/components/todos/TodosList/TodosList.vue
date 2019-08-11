@@ -44,10 +44,10 @@
           </template>
         </div>
       </li>
-      <li v-if="doneTodos.length">
-        <h3 class="title">Done</h3>
+      <li v-if="doneTodos.length" class="doneTodos">
+        <h3 class="subTitle">Done</h3>
       </li>
-      <li v-for="todo in doneTodos" :key="todo._id">
+      <li v-for="todo in doneTodos" :key="todo._id" class="doneTodos">
         <ToolBox>
           <template v-slot:tools>
             <button class="button noStyle" @click="toggleDone(todo)">
@@ -191,8 +191,8 @@ export default {
     margin: 15px 0;
   }
 
-  button {
-    margin-bottom: 0;
+  .doneTodos {
+    background: darken($listItemBgColor, $amount: 3);
   }
 }
 </style>

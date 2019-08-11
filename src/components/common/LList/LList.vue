@@ -39,6 +39,12 @@ export default {
       border-bottom: 0px;
     }
 
+    > .subTitle {
+      margin: 0 16px;
+      width: 100%;
+      min-width: 50px;
+    }
+
     > .title {
       min-width: 50px;
       width: 100%;
