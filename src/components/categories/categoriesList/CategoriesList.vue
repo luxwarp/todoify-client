@@ -4,7 +4,7 @@
       :show="showCategoryAdd"
       @close="showCategoryAdd = !showCategoryAdd"
     />
-    <div v-if="categories.length" class="categoriesList">
+    <div v-if="categoriesToShow.length" class="categoriesList">
       <div class="categoriesList--header">
         <h2 v-if="title" class="categoriesList--header--title">
           {{ title }}
@@ -19,8 +19,8 @@
           </button>
         </div>
       </div>
-      <LList v-if="categories.length">
-        <li v-for="category in categories" :key="category._id">
+      <LList v-if="categoriesToShow.length">
+        <li v-for="category in categoriesToShow" :key="category._id">
           <ToolBox>
             <template v-slot:tools>
               <router-link
@@ -91,6 +91,11 @@ export default {
       type: Boolean,
       required: false,
       default: false
+    },
+    limitCategories: {
+      type: Number,
+      required: false,
+      default: 0
     }
   },
   data() {
@@ -102,7 +107,17 @@ export default {
     ...mapGetters({
       categories: "getCategories",
       getTodosByCategoryId: "getTodosByCategoryId"
-    })
+    }),
+    categoriesToShow() {
+      let categories = null;
+      if (this.limitCategories) {
+        categories = this.categories.slice(0, this.limitCategories);
+      } else {
+        categories = this.categories;
+      }
+
+      return categories;
+    }
   }
 };
 </script>

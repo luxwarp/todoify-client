@@ -28,7 +28,11 @@
       <i class="icon-list"></i>
     </router-link>
 
-    <CategoriesList show-badge title="Latest categories" />
+    <CategoriesList
+      show-badge
+      title="Latest categories"
+      :limit-categories="5"
+    />
 
     <router-link
       v-if="categories.length"
@@ -69,7 +73,7 @@ export default {
 <style lang="scss" scoped>
 .userprofile {
   > .button {
-    margin: 0 auto;
+    margin: 10px auto;
   }
 }
 </style>
