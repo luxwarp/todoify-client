@@ -73,7 +73,7 @@ export default {
 <style lang="scss" scoped>
 .userprofile {
   > .button {
-    margin: 0 auto;
+    margin: 10px auto;
   }
 }
 </style>
