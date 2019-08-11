@@ -1,7 +1,6 @@
 <template>
   <div class="categoriesListView">
-    <h2>Categories</h2>
-    <CategoriesList show-badge />
+    <CategoriesList title="All categories" show-badge />
   </div>
 </template>
 
