@@ -3,7 +3,7 @@
     <h3 v-if="title" class="title">
       {{ title }}
     </h3>
-    <ul v-if="categories.length" class="list">
+    <LList v-if="categories.length">
       <li v-for="category in categories" :key="category._id">
         <ToolBox>
           <template v-slot:tools>
@@ -33,6 +33,7 @@
             params: { categoryId: category._id }
           }"
           class="title"
+          title="Go to category."
         >
           {{ category.title }}
         </router-link>
@@ -40,7 +41,7 @@
           {{ getTodosByCategoryId(category._id).length }}
         </div>
       </li>
-    </ul>
+    </LList>
   </div>
   <NoListItemsFound v-else>
     <template v-slot:title>

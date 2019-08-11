@@ -4,7 +4,7 @@
     <h3 v-if="title" class="title">
       {{ title }}
     </h3>
-    <ul class="list">
+    <LList>
       <li v-for="todo in notDoneTodos" :key="todo._id">
         <ToolBox>
           <template v-slot:tools>
@@ -22,7 +22,11 @@
             </router-link>
           </template>
         </ToolBox>
-        <div class="title" @click="toggleDone(todo)">
+        <div
+          class="title"
+          title="Click to mark done."
+          @click="toggleDone(todo)"
+        >
           {{ todo.title }}
         </div>
         <div v-if="showBadge" class="badge">
@@ -60,7 +64,11 @@
             </router-link>
           </template>
         </ToolBox>
-        <div class="title" @click="toggleDone(todo)">
+        <div
+          class="title"
+          title="Click to mark not done."
+          @click="toggleDone(todo)"
+        >
           {{ todo.title }}
         </div>
         <div v-if="showBadge" class="badge">
@@ -78,7 +86,7 @@
           </template>
         </div>
       </li>
-    </ul>
+    </LList>
   </div>
   <NoListItemsFound v-else>
     <template v-slot:title>
