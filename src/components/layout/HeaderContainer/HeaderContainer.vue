@@ -52,6 +52,8 @@ export default {
   z-index: 2;
   color: $headerFontColor;
   background: $headerBgColor;
+  display: grid;
+  grid-template-rows: auto 1fr;
 
   > .banner {
     position: sticky;
