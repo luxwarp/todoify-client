@@ -1,9 +1,9 @@
 <template>
   <div v-if="todosToShow.length" class="todosList">
     <TodoEdit v-if="editTodo" :todo="editTodo" @close="editTodo = null" />
-    <h3 v-if="title" class="title">
+    <h2 v-if="title" class="todosList--title">
       {{ title }}
-    </h3>
+    </h2>
     <LList>
       <li v-for="todo in notDoneTodos" :key="todo._id">
         <ToolBox>
@@ -180,7 +180,7 @@ export default {
 
 <style lang="scss" scoped>
 .todosList {
-  > .title {
+  > .todosList--title {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

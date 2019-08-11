@@ -1,8 +1,8 @@
 <template>
   <div v-if="categories.length" class="categoriesList">
-    <h3 v-if="title" class="title">
+    <h2 v-if="title" class="categoriesList--title">
       {{ title }}
-    </h3>
+    </h2>
     <LList v-if="categories.length">
       <li v-for="category in categories" :key="category._id">
         <ToolBox>
@@ -80,7 +80,7 @@ export default {
 
 <style lang="scss" scoped>
 .categoriesList {
-  > .title {
+  > .categoriesList--title {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
