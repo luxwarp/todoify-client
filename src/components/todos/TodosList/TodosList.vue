@@ -1,11 +1,22 @@
 <template>
   <div>
+    <TodoEdit v-if="editTodo" :todo="editTodo" @close="editTodo = null" />
     <TodoAdd :show="showTodoAdd" @close="showTodoAdd = !showTodoAdd" />
     <div v-if="todosToShow.length" class="todosList">
-      <TodoEdit v-if="editTodo" :todo="editTodo" @close="editTodo = null" />
-      <h2 v-if="title" class="todosList--title">
-        {{ title }}
-      </h2>
+      <div class="todosList--header">
+        <h2 v-if="title" class="todosList--header--title">
+          {{ title }}
+        </h2>
+        <div class="todosList--header--tools">
+          <button
+            class="button noStyle"
+            title="Add new to-do"
+            @click="showTodoAdd = !showTodoAdd"
+          >
+            <i class="icon-plus" />
+          </button>
+        </div>
+      </div>
       <LList>
         <li v-for="todo in notDoneTodos" :key="todo._id">
           <ToolBox>
@@ -185,15 +196,21 @@ export default {
 
 <style lang="scss" scoped>
 .todosList {
-  > .todosList--title {
+  > .todosList--header {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
     align-items: center;
-    width: 100%;
-    font-weight: 300;
-    margin: 15px 0;
+    padding: 16px 0;
+    justify-content: space-between;
+
+    > .todosList--header--title {
+      font-weight: 300;
+      margin: 0;
+    }
+
+    > .todosList--header--tools {
+      display: flex;
+      margin-left: auto;
+    }
   }
 
   .doneTodos {

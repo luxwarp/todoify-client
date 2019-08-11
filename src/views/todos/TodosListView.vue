@@ -1,7 +1,6 @@
 <template>
   <div class="todosListView">
-    <h2>To-do's</h2>
-    <TodosList show-badge />
+    <TodosList title="All to-do's" show-badge />
   </div>
 </template>
 

@@ -29,7 +29,11 @@
         </template>
       </ToolBox>
     </div>
-    <TodosList :filter-by-category="$route.params.categoryId" show-badge />
+    <TodosList
+      title="To-do's"
+      :filter-by-category="$route.params.categoryId"
+      show-badge
+    />
   </div>
   <NotFound v-else />
 </template>
