@@ -32,7 +32,8 @@ export default {
     overflow-x: auto;
 
     > * {
-      padding: 15px 0;
+      padding-top: 16px;
+      padding-bottom: 16px;
     }
 
     &:only-child {

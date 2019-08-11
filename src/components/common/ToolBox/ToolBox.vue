@@ -49,13 +49,14 @@ export default {
   cursor: pointer;
   font-size: 1rem;
   font-weight: normal;
+  padding-left: 10px;
 
   > .toggle {
     padding: 0;
-    padding-left: 10px;
     background: none;
     border: 0;
     cursor: pointer;
+    appearance: none;
   }
   > .tools {
     display: flex;
