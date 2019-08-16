@@ -2,22 +2,14 @@
   <div class="HomePage">
     <BrandHero />
     <div v-if="isOnline() && !isAuth()" class="buttons">
-      <router-link
-        :to="{ name: 'user.register' }"
-        class="button primary"
-        tag="button"
-      >
+      <l-button :to="{ name: 'user.register' }" design="primary">
         <span class="label">Register</span>
         <i class="icon-user-plus"></i>
-      </router-link>
-      <router-link
-        :to="{ name: 'user.login' }"
-        class="button success"
-        tag="button"
-      >
+      </l-button>
+      <l-button :to="{ name: 'user.login' }" design="success">
         <span class="label">Login</span>
         <i class="icon-login"></i>
-      </router-link>
+      </l-button>
     </div>
 
     <p v-else-if="isOnline() && isAuth()">
@@ -60,6 +52,9 @@ export default {
     justify-content: space-around;
     display: flex;
     flex-wrap: wrap;
+    > a {
+      margin-bottom: 10px;
+    }
   }
 }
 </style>
