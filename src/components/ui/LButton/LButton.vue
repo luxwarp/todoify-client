@@ -28,6 +28,7 @@ export default {
     background: none;
     border: 0;
     color: inherit;
+    padding: 0;
   }
 }
 </style>

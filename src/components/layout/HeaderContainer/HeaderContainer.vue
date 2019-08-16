@@ -5,11 +5,9 @@
         Todoify
       </router-link>
       <RequestStatus />
-      <i
-        class="menuButton"
-        :class="showMainNav ? 'icon-cancel' : 'icon-menu'"
-        @click="toggleMainNav"
-      ></i>
+      <l-button class="menuButton" design="noStyle" @click="toggleMainNav">
+        <i :class="showMainNav ? 'icon-cancel' : 'icon-menu'"></i>
+      </l-button>
     </div>
     <MainNav>
       <OfflineIndicator
@@ -83,6 +81,7 @@ export default {
       background: inherit;
       margin-left: 10px;
       z-index: inherit;
+      color: inherit;
     }
   }
 }
