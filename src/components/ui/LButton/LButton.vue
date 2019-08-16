@@ -1,9 +1,5 @@
 <template>
-  <button
-    class="lButton"
-    :class="`lButton__${design}`"
-    @click="$emit('click', $event)"
-  >
+  <button class="lButton" :class="designClass" @click="$emit('click', $event)">
     <slot>LButton slot</slot>
   </button>
 </template>
@@ -16,6 +12,11 @@ export default {
       type: String,
       required: false,
       default: ""
+    }
+  },
+  computed: {
+    designClass() {
+      return this.design ? `lButton__${this.design}` : null;
     }
   }
 };
