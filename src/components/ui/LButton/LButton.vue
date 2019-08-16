@@ -67,8 +67,8 @@ export default {
   }
 
   &:disabled {
-    background: $buttonBgColor !important;
-    color: $buttonFontColor;
+    background: initial !important;
+    color: initial;
     cursor: not-allowed !important;
   }
 
