@@ -1,14 +1,14 @@
 <template>
   <div class="brandHero">
-    <div class="title">
+    <h1 class="title">
       <img
         src="~@/assets/images/todoify/android-chrome-192x192.png"
         alt="todoify-logo"
         class="brandLogo"
       />
       <span class="label">Todoify</span>
-    </div>
-    <div class="subTitle">Organize and take control over your life</div>
+    </h1>
+    <h2 class="subTitle">Organize and take control over your life</h2>
   </div>
 </template>
 
