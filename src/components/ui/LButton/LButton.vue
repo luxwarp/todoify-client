@@ -1,7 +1,13 @@
 <template>
-  <button class="lButton" :class="designClass" @click="$emit('click', $event)">
+  <component
+    :is="type"
+    :to="to"
+    class="lButton"
+    :class="designClass"
+    @click="$emit('click', $event)"
+  >
     <slot>LButton slot</slot>
-  </button>
+  </component>
 </template>
 
 <script>
@@ -12,11 +18,19 @@ export default {
       type: String,
       required: false,
       default: ""
+    },
+    to: {
+      type: [String, Object],
+      required: false,
+      default: null
     }
   },
   computed: {
     designClass() {
       return this.design ? `lButton__${this.design}` : null;
+    },
+    type() {
+      return this.to ? "router-link" : "button";
     }
   }
 };
@@ -26,8 +40,19 @@ export default {
 .lButton {
   cursor: pointer;
   transition: all 0.4s;
+  border-radius: 3px;
   width: max-content;
   display: block;
+  padding: 10px;
+  border: 0;
+
+  :last-child {
+    margin-left: 10px;
+  }
+
+  :only-child {
+    margin-left: 0;
+  }
 
   &:disabled {
     background: $buttonBgColor !important;
