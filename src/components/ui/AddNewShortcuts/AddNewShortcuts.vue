@@ -1,34 +1,37 @@
 <template>
   <div class="addNewShortcuts">
     <transition-group name="slideInBottom" appear tag="div" class="buttons">
-      <button
+      <l-button
         v-if="showShortcuts"
         key="category"
-        class="button primary"
+        design="primary"
+        class="roundButton"
         title="Add category"
         @click="showCategoryAdd = !showCategoryAdd"
       >
         <i class="icon-folder"></i>
-      </button>
+      </l-button>
 
-      <button
+      <l-button
         v-if="showShortcuts"
         key="todo"
-        class="button primary"
+        design="primary"
+        class="roundButton"
         title="Add to-do"
         @click="showTodoAdd = !showTodoAdd"
       >
         <i class="icon-list"></i>
-      </button>
+      </l-button>
 
-      <button
+      <l-button
         key="openShortcuts"
-        class="button success"
+        design="success"
+        class="roundButton"
         title="Open shortcuts"
         @click="showShortcuts = !showShortcuts"
       >
         <i :class="showShortcuts ? 'icon-cancel' : 'icon-plus'"></i>
-      </button>
+      </l-button>
     </transition-group>
     <TodoAdd :show="showTodoAdd" @close="showTodoAdd = !showTodoAdd" />
     <CategoryAdd
@@ -62,7 +65,7 @@ export default {
     display: flex;
     flex-direction: column;
 
-    > .button {
+    > .roundButton {
       border-radius: 50%;
       box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
       margin-top: 10px;
