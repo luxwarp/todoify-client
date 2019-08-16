@@ -4,7 +4,7 @@
     :class="{ reverse: reverse }"
     @click="show = !show"
   >
-    <button class="toggle">
+    <button class="toggle" aria-label="tools">
       <slot name="toggle"><i class="icon-ellipsis-vert"></i></slot>
     </button>
     <transition :name="animation">
