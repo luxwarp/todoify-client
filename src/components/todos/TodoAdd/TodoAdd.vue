@@ -28,9 +28,9 @@
             </option>
           </select>
         </div>
-        <button type="submit" class="button primary">
+        <l-button type="submit" design="primary">
           <span class="label">Add to-do</span><i class="icon-plus"></i>
-        </button>
+        </l-button>
       </form>
     </template>
   </UniversalModal>
