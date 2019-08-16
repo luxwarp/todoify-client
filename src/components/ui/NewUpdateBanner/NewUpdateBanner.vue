@@ -1,9 +1,9 @@
 <template>
   <transition name="slideInBottom" appear>
     <div class="newUpdateBanner">
-      <button class="button noStyle close" @click="$emit('close')">
+      <l-button design="noStyle" class="close" @click="$emit('close')">
         <i class="icon-cancel"></i>
-      </button>
+      </l-button>
       <div>
         <p>
           A new version is available. <br />
@@ -16,10 +16,10 @@
           </a>
         </p>
       </div>
-      <button class="button success" @click="$emit('confirm')">
+      <l-button design="success" @click="$emit('confirm')">
         <span class="label">Update</span>
         <i class="icon-ok" />
-      </button>
+      </l-button>
     </div>
   </transition>
 </template>
@@ -42,13 +42,12 @@ export default {
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
+  grid-gap: 16px;
   color: #000;
   z-index: 99999999;
 
   > .close {
-    margin-right: 15px;
     color: red;
-    cursor: pointer;
   }
 }
 
