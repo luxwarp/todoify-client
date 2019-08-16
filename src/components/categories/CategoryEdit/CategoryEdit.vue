@@ -15,10 +15,10 @@
           placeholder="New title"
           required
         />
-        <button type="submit" class="button primary">
+        <l-button type="submit" design="primary">
           <span class="label">Update</span>
           <i class="icon-ok"></i>
-        </button>
+        </l-button>
       </form>
     </template>
   </UniversalModal>
