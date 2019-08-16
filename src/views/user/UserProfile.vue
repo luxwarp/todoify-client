@@ -54,7 +54,8 @@ export default {
     formatDate(value) {
       const date = new Date(value);
 
-      const formatted = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`;
+      const formatted = `${date.getFullYear()}-${date.getMonth() +
+        1}-${date.getDate()}`;
 
       return formatted;
     }
