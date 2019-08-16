@@ -2,6 +2,7 @@
   <component
     :is="type"
     :to="to"
+    :href="href"
     class="lButton"
     :class="designClass"
     @click="$emit('click', $event)"
@@ -23,6 +24,11 @@ export default {
       type: [String, Object],
       required: false,
       default: null
+    },
+    href: {
+      type: String,
+      required: false,
+      default: null
     }
   },
   computed: {
@@ -30,7 +36,13 @@ export default {
       return this.design ? `lButton__${this.design}` : null;
     },
     type() {
-      return this.to ? "router-link" : "button";
+      if (this.to) {
+        return "router-link";
+      } else if (this.href) {
+        return "a";
+      } else {
+        return "button";
+      }
     }
   }
 };
@@ -42,7 +54,7 @@ export default {
   transition: all 0.4s;
   border-radius: 3px;
   width: max-content;
-  display: block;
+  display: inline-block;
   padding: 10px;
   border: 0;
 

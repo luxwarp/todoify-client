@@ -66,24 +66,24 @@
       contribute to Todoify your are welcome to visit our code base at GitHub.
     </p>
     <div class="row">
-      <a
+      <l-button
         href="https://github.com/luxwarp/todoify-client/"
-        class="button success"
+        design="success"
         target="_blank"
         rel="noreferrer"
       >
         <span class="label">Todoify Client</span>
         <i class="icon-github"></i>
-      </a>
-      <a
+      </l-button>
+      <l-button
         href="https://github.com/luxwarp/todoify-server/"
-        class="button primary"
         target="_blank"
         rel="noreferrer"
+        design="primary"
       >
         <span class="label">Todoify Server</span>
         <i class="icon-github"></i>
-      </a>
+      </l-button>
     </div>
 
     <h2>Help us</h2>
@@ -92,18 +92,17 @@
       feel free to reach out to us on GitHub. Here you can report a bug, and
       request new features.
     </p>
-    <a
+    <l-button
       href="https://github.com/luxwarp/todoify-client/issues"
       target="_blank"
       rel="noreferrer"
+      design="alert"
     >
-      <button class="button alert">
-        <span class="label">
-          Create new issue
-        </span>
-        <i class="icon-github"></i>
-      </button>
-    </a>
+      <span class="label">
+        Create new issue
+      </span>
+      <i class="icon-github"></i>
+    </l-button>
 
     <h2>Author</h2>
     <p>
@@ -187,7 +186,8 @@ export default {
   .row {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    text-align: center;
   }
 }
 </style>
