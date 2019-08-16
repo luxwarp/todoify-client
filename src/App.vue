@@ -2,7 +2,7 @@
   <transition name="fadeIn" appear>
     <div class="app">
       <NewUpdateBanner
-        v-if="!showNewUpdateBanner"
+        v-if="showNewUpdateBanner"
         @confirm="updateSW"
         @close="showNewUpdateBanner = !showNewUpdateBanner"
       />
