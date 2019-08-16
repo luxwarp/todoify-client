@@ -3,7 +3,11 @@
     <div class="universalModal--container">
       <h1 class="universalModal--container--title">
         <slot name="title">title slot</slot>
-        <button class="universalModal--container--close" @click="close">
+        <button
+          class="universalModal--container--close"
+          aria-label="close"
+          @click="close"
+        >
           <i class="icon-cancel"></i>
         </button>
       </h1>
