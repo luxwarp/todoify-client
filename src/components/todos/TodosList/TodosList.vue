@@ -8,31 +8,32 @@
           {{ title }}
         </h2>
         <div class="todosList--header--tools">
-          <button
-            class="button noStyle"
+          <l-button
+            design="noStyle"
             title="Add new to-do"
             @click="showTodoAdd = !showTodoAdd"
           >
             <i class="icon-plus" />
-          </button>
+          </l-button>
         </div>
       </div>
       <LList>
         <li v-for="todo in notDoneTodos" :key="todo._id">
           <ToolBox>
             <template v-slot:tools>
-              <button class="button noStyle" @click="toggleDone(todo)">
+              <l-button design="noStyle" @click="toggleDone(todo)">
                 <i class="icon-ok" />
-              </button>
-              <button class="button noStyle" @click="openEdit(todo)">
+              </l-button>
+              <l-button design="noStyle" @click="openEdit(todo)">
                 <i class="icon-pencil" />
-              </button>
-              <router-link
+              </l-button>
+              <l-button
                 :to="{ name: 'todos.delete', params: { todoId: todo._id } }"
-                class="link alert"
+                design="noStyle"
+                style="color: red"
               >
                 <i class="icon-trash" />
-              </router-link>
+              </l-button>
             </template>
           </ToolBox>
           <div
@@ -63,18 +64,19 @@
         <li v-for="todo in doneTodos" :key="todo._id" class="doneTodos">
           <ToolBox>
             <template v-slot:tools>
-              <button class="button noStyle" @click="toggleDone(todo)">
+              <l-button design="noStyle" @click="toggleDone(todo)">
                 <i class="icon-cancel" />
-              </button>
-              <button class="button noStyle" @click="openEdit(todo)">
+              </l-button>
+              <l-button design="noStyle" @click="openEdit(todo)">
                 <i class="icon-pencil" />
-              </button>
-              <router-link
+              </l-button>
+              <l-button
+                design="noStyle"
                 :to="{ name: 'todos.delete', params: { todoId: todo._id } }"
-                class="link alert"
+                style="color: red"
               >
                 <i class="icon-trash" />
-              </router-link>
+              </l-button>
             </template>
           </ToolBox>
           <div
@@ -106,14 +108,14 @@
         No to-do's found
       </template>
       <template v-slot:subtitle>
-        <button
-          class="button success"
+        <l-button
+          design="success"
           style="margin: auto;"
           @click="showTodoAdd = !showTodoAdd"
         >
           <span class="label">Create one now</span>
           <i class="icon-plus" />
-        </button>
+        </l-button>
       </template>
     </NoListItemsFound>
   </div>

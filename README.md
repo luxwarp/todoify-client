@@ -7,11 +7,11 @@ This is Todoify Client, a front-end built with VueJS that requires a API connect
 Todoify is a simple but great to-do web app that let's you organize your tasks with categories.
 It also has full offline support so you can use it without creating an account, or create and account and then work offline when you don't have any internet connection. Once you have a connection again Todoify will automatically sync to our server.
 
-Full responsive design and Progressive Web App support so you can use it on any device with a browser and also install it to your homescreen or browser app like chrome web app on your computer.
+Full responsive design and Progressive Web App support so you can use it on any device with a browser and also install it to your home screen or browser app like chrome web app on your computer.
 
 <a href="graphics/promotion/todoify-client-big-image-1920x1080.png"><img src="graphics/promotion/todoify-client-big-image-1920x1080.png" width="800" title="Todoify Client Promotion Big" /></a>
 
-Do you want try out Todoify Client live you can visit [todoify.luxwarp.info](https://todoify.luxwarp.info).
+Do you want try out Todoify Client live you can visit [todoify.codeiolo.org](https://todoify.codeiolo.org).
 
 Check [wiki](https://github.com/luxwarp/todoify-client/wiki) for change log and more information.
 

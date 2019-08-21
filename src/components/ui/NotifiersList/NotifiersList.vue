@@ -8,7 +8,9 @@
     >
       <div class="icon" :class="iconType(notifier.type)"></div>
       <span class="message">{{ notifier.message }}</span>
-      <i class="icon-cancel close" @click="close(index)"></i>
+      <l-button design="noStyle" @click="close(index)">
+        <i class="icon-cancel close"></i>
+      </l-button>
     </div>
   </transition-group>
 </template>
@@ -83,10 +85,6 @@ export default {
       &::first-letter {
         text-transform: uppercase;
       }
-    }
-
-    .close {
-      cursor: pointer;
     }
   }
 

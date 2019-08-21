@@ -15,9 +15,9 @@
           placeholder="Enter a title"
           required
         />
-        <button type="submit" class="button primary">
+        <l-button type="submit" design="primary">
           <span class="label">Add category</span><i class="icon-plus"></i>
-        </button>
+        </l-button>
       </form>
     </template>
   </UniversalModal>

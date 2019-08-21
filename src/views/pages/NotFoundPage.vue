@@ -6,10 +6,10 @@
         Sorry! Something went wrong. Could not find anything here.
       </h2>
 
-      <button class="button primary" @click="$router.go(-1)">
+      <l-button design="primary" @click="$router.go(-1)">
         <span class="label">Go back</span>
         <i class="icon-left"></i>
-      </button>
+      </l-button>
     </div>
   </div>
 </template>

@@ -8,24 +8,27 @@
           <i class="icon-cog"></i>
         </template>
         <template v-slot:tools>
-          <router-link
+          <l-button
             :to="{
               name: 'category.edit',
               params: { categoryId: category._id }
             }"
-            class="link"
+            design="noStyle"
+            title="Edit category"
           >
             <i class="icon-pencil" />
-          </router-link>
-          <router-link
+          </l-button>
+          <l-button
             :to="{
               name: 'categories.delete',
               params: { categoryId: category._id }
             }"
-            class="link alert"
+            title="Delete category"
+            design="noStyle"
+            style="color: red"
           >
             <i class="icon-trash" />
-          </router-link>
+          </l-button>
         </template>
       </ToolBox>
     </div>

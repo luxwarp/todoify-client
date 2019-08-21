@@ -10,37 +10,40 @@
           {{ title }}
         </h2>
         <div class="categoriesList--header--tools">
-          <button
-            class="button noStyle"
+          <l-button
+            design="noStyle"
             title="Add new category"
             @click="showCategoryAdd = !showCategoryAdd"
           >
             <i class="icon-plus" />
-          </button>
+          </l-button>
         </div>
       </div>
       <LList v-if="categoriesToShow.length">
         <li v-for="category in categoriesToShow" :key="category._id">
           <ToolBox>
             <template v-slot:tools>
-              <router-link
+              <l-button
                 :to="{
                   name: 'category.edit',
                   params: { categoryId: category._id }
                 }"
-                class="link"
+                design="noStyle"
+                title="Edit category"
               >
                 <i class="icon-pencil" />
-              </router-link>
-              <router-link
+              </l-button>
+              <l-button
                 :to="{
                   name: 'categories.delete',
                   params: { categoryId: category._id }
                 }"
-                class="link alert"
+                title="Delete category"
+                design="noStyle"
+                style="color: red"
               >
                 <i class="icon-trash" />
-              </router-link>
+              </l-button>
             </template>
           </ToolBox>
           <router-link
@@ -64,14 +67,14 @@
         No categories found
       </template>
       <template v-slot:subtitle>
-        <button
-          class="button success"
+        <l-button
+          design="success"
           style="margin: auto;"
           @click="showCategoryAdd = !showCategoryAdd"
         >
           <span class="label">Create one now</span>
           <i class="icon-plus" />
-        </button>
+        </l-button>
       </template>
     </NoListItemsFound>
   </div>

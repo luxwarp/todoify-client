@@ -4,7 +4,7 @@ import Axios from "axios";
 class TodoifyApi {
   constructor(options) {
     const defaultConfig = {
-      baseURL: "https://todoify.luxwarp.info/api",
+      baseURL: "https://todoify.codeiolo.org/api",
       headers: {
         "Content-Type": "application/json"
       },
