@@ -22,13 +22,13 @@ Feel free to fork it and send pull request and we will look it over.
 
 ### Download Todoify Client for development.
 
-```
+```shell
 git clone https://github.com/luxwarp/todoify-client.git
 ```
 
 Install dependencies
 
-```
+```shell
 npm install
 ```
 
@@ -36,19 +36,19 @@ Edit .env file to match your settings. By default it's setup to work with our pu
 
 Start development server
 
-```
+```shell
 npm run serve
 ```
 
 Compiles and minifies for production to folder dist.
 
-```
+```shell
 npm run build
 ```
 
 To build in modern mode
 
-```
+```shell
 npm run build:modern
 ```
 
@@ -56,7 +56,7 @@ Read more about [modern mode.](https://cli.vuejs.org/guide/browser-compatibility
 
 Run VueJS lint.
 
-```
+```shell
 npm run lint
 ```
 
