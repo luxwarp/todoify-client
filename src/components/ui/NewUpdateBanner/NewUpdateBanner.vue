@@ -8,7 +8,7 @@
         <p>
           A new version is available. <br />
           <a
-            href="https://github.com/luxwarp/todoify-client/wiki"
+            href="https://github.com/codeiolo/todoify-client/wiki"
             target="_blank"
             rel="noreferrer"
           >

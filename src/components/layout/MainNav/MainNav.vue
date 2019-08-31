@@ -75,7 +75,7 @@
         </li>
         <li class="navItem">
           <a
-            href="https://luxwarp.info/contact"
+            href="https://codeiolo.org/contact"
             target="_blank"
             rel="noreferrer"
           >
