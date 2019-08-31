@@ -2,18 +2,18 @@
 
 ## Intro
 
-This is Todoify Client, a front-end built with VueJS that requires a API connection to our [Todoify Server](https://github.com/luxwarp/todoify-server).
+This is Todoify Client, a front-end built with VueJS that requires a API connection to our [Todoify Server](https://github.com/codeiolo/todoify-server).
 
 Todoify is a simple but great to-do web app that let's you organize your tasks with categories.
 It also has full offline support so you can use it without creating an account, or create and account and then work offline when you don't have any internet connection. Once you have a connection again Todoify will automatically sync to our server.
 
 Full responsive design and Progressive Web App support so you can use it on any device with a browser and also install it to your home screen or browser app like chrome web app on your computer.
 
-<a href="graphics/promotion/todoify-client-big-image-1920x1080.png"><img src="graphics/promotion/todoify-client-big-image-1920x1080.png" width="800" title="Todoify Client Promotion Big" /></a>
+<a href="https://git.codeiolo.org/codeiolo/todoify-client/raw/1ac64a0a7802492c34ccb6672afd33d8a05b39f5/graphics/promotion/todoify-client-big-image-1920x1080.png"><img src="https://git.codeiolo.org/codeiolo/todoify-client/raw/1ac64a0a7802492c34ccb6672afd33d8a05b39f5/graphics/promotion/todoify-client-big-image-1920x1080.png" width="800" title="Todoify Client Promotion Big" /></a>
 
 Do you want try out Todoify Client live you can visit [todoify.codeiolo.org](https://todoify.codeiolo.org).
 
-Check [wiki](https://github.com/luxwarp/todoify-client/wiki) for change log and more information.
+Check [wiki](https://github.com/codeiolo/todoify-client/wiki) for change log and more information.
 
 ## Start coding on Todoify Client
 
@@ -23,7 +23,7 @@ Feel free to fork it and send pull request and we will look it over.
 ### Download Todoify Client for development.
 
 ```shell
-git clone https://github.com/luxwarp/todoify-client.git
+git clone https://github.com/codeiolo/todoify-client.git
 ```
 
 Install dependencies
@@ -32,7 +32,7 @@ Install dependencies
 npm install
 ```
 
-Edit .env file to match your settings. By default it's setup to work with our public [Todoify Server](https://github.com/luxwarp/todoify-server)
+Edit .env file to match your settings. By default it's setup to work with our public [Todoify Server](https://github.com/codeiolo/todoify-server)
 
 Start development server
 
@@ -66,7 +66,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## License
 
-ISC © 2019 Copyright [Mikael Luxwarp Carlsson](https://luxwarp.info)
+ISC [Mikael Luxwarp Carlsson](https://codeiolo.org)
 
 ## Note
 
