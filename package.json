@@ -6,7 +6,7 @@
   "author": {
     "name": "Mikael Luxwarp Carlsson",
     "email": "mikael.m.carlsson@gmail.com",
-    "url": "https://luxwarp.info"
+    "url": "https://codeiolo.org"
   },
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -16,13 +16,13 @@
     "lint:style": "stylelint ./src/*"
   },
   "bugs": {
-    "url": "https://github.com/luxwarp/todoify-client/issues"
+    "url": "https://github.com/codeiolo/todoify-client/issues"
   },
-  "homepage": "https://github.com/luxwarp/todoify-client#readme",
+  "homepage": "https://github.com/codeiolo/todoify-client#readme",
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/luxwarp/todoify-client.git"
+    "url": "https://github.com/codeiolo/todoify-client.git"
   },
   "dependencies": {
     "axios": "^0.19.0",

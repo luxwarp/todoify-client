@@ -67,7 +67,7 @@
     </p>
     <div class="row">
       <l-button
-        href="https://github.com/luxwarp/todoify-client/"
+        href="https://github.com/codeiolo/todoify-client/"
         design="success"
         target="_blank"
         rel="noreferrer"
@@ -76,7 +76,7 @@
         <i class="icon-github"></i>
       </l-button>
       <l-button
-        href="https://github.com/luxwarp/todoify-server/"
+        href="https://github.com/codeiolo/todoify-server/"
         target="_blank"
         rel="noreferrer"
         design="primary"
@@ -93,7 +93,7 @@
       request new features.
     </p>
     <l-button
-      href="https://github.com/luxwarp/todoify-client/issues"
+      href="https://github.com/codeiolo/todoify-client/issues"
       target="_blank"
       rel="noreferrer"
       design="alert"
@@ -106,19 +106,20 @@
 
     <h2>Author</h2>
     <p>
-      Todoify is created by Mikael Luxwarp Carlsson. He is an IT consult and web
-      developer from Gothenburg, Sweden. Read more about him at his website.
+      Todoify is created by Mikael Luxwarp Carlsson with Codeiolo. He is an IT
+      consult and web developer from Gothenburg, Sweden. Read more about him at
+      his website.
       <a
-        href="https://luxwarp.info"
+        href="https://codeiolo.org"
         target="_blank"
         rel="noreferrer"
-        title="Luxwarp's website and blog."
+        title="Codeiolo's website and blog."
       >
-        luxwarp.info
+        Codeiolo.org
       </a>
     </p>
     <p>
-      ISC © 2019 Copyright Mikael Luxwarp Carlsson
+      ISC Mikael Luxwarp Carlsson
     </p>
 
     <p>
