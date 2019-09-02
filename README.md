@@ -1,4 +1,4 @@
-# <img src="https://git.codeiolo.org/codeiolo/todoify-client/raw/1ac64a0a7802492c34ccb6672afd33d8a05b39f5/public/img/icons/android-chrome-192x192.png" width="35" style="margin-right: 15px;" alt="todoify client test"> Todoify Client
+# <img src="https://cloud.codeiolo.org/s/ZK9G8HatXKb69Zx/preview" width="35" style="margin-right: 15px;" alt="todoify client test"> Todoify Client
 
 ## Intro
 
@@ -9,7 +9,7 @@ It also has full offline support so you can use it without creating an account, 
 
 Full responsive design and Progressive Web App support so you can use it on any device with a browser and also install it to your home screen or browser app like chrome web app on your computer.
 
-<a href="https://git.codeiolo.org/codeiolo/todoify-client/raw/1ac64a0a7802492c34ccb6672afd33d8a05b39f5/graphics/promotion/todoify-client-big-image-1920x1080.png"><img src="https://git.codeiolo.org/codeiolo/todoify-client/raw/1ac64a0a7802492c34ccb6672afd33d8a05b39f5/graphics/promotion/todoify-client-big-image-1920x1080.png" width="800" title="Todoify Client Promotion Big" /></a>
+<a href="https://cloud.codeiolo.org/s/48TbXxkkgfnMPpt/preview"><img src="https://cloud.codeiolo.org/s/48TbXxkkgfnMPpt/preview" width="800" title="Todoify Client Promotion Big" /></a>
 
 Do you want try out Todoify Client live you can visit [todoify.codeiolo.org](https://todoify.codeiolo.org).
 
